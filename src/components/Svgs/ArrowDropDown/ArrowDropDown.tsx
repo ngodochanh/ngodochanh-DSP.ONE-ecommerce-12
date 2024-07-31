@@ -1,16 +1,8 @@
-export default function ArrowDropDown({
-  width = '18',
-  height = '19',
-  className,
-}: {
-  width?: string;
-  height?: string;
-  className?: string;
-}) {
+export default function ArrowDropDown({ size = '19', className }: { size?: string; className?: string }) {
   return (
     <svg
-      width={width}
-      height={height}
+      width={'' + (+size - 1)}
+      height={size}
       className={className}
       viewBox='0 0 18 19'
       fill='currentColor'

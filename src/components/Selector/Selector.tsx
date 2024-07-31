@@ -1,8 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { ArrowDropDown } from '../Svgs';
-import Search from '../Svgs/Search';
+import { ArrowDropDown, Search } from '@/components/Svgs';
 
 type Item = {
   key: string;
@@ -12,8 +11,8 @@ type Item = {
 type SelectorProps = {
   data: Item[];
   selected?: Item;
-  colorText?: string;
-  bgColor?: string;
+  colorText?: string; // Màu sắc của chữ hiển thị
+  bgColor?: string; // Background của select
   width?: string; // Chiều dài của select
   left?: boolean; // Hướng của absolute cho danh sách
   right?: boolean; // Hướng của absolute cho danh sách
@@ -54,7 +53,7 @@ function Selector({
   };
 
   return (
-    <div className={`w-[${width}] w-fit font-medium ${colorText} cursor-pointer relative`}>
+    <div className={`w-[${width}] w-fit font-medium ${colorText} cursor-pointer relative z-10`}>
       {/* Hiển thị mục được chọn hoặc 'Select' nếu chưa có mục nào được chọn */}
       <div
         className={`
@@ -70,7 +69,7 @@ function Selector({
             ? selectedItem.name.substring(0, 25) + '...'
             : selectedItem.name
           : 'Select'}
-        <ArrowDropDown className={`transition-transform duration-300 ${open && 'rotate-180'}`} />
+        <ArrowDropDown className={`transition-transform-fast ${open && 'rotate-180'}`} />
       </div>
       {/* Hiển thị hoặc ẩn các mục với open */}
       <ul
@@ -81,7 +80,9 @@ function Selector({
           `}
       >
         <div className='flex-center px-2 sticky top-0 bg-white'>
-          <Search />
+          <div className='w-10 '>
+            <Search className='mx-auto' />
+          </div>
           {/* Input để tìm kiếm mục */}
           <input
             type='text'
@@ -89,7 +90,7 @@ function Selector({
             // Cập nhật giá trị input
             onChange={(e) => setInputValue(e.target.value.toLowerCase())}
             placeholder='Enter item name'
-            className='placeholder:text-gray-700 p-2 outline-none'
+            className='placeholder:text-gray-700 p-2 outline-none grow'
           />
         </div>
         {/* Hiển thị danh sách các mục */}
@@ -98,9 +99,9 @@ function Selector({
             key={item.key}
             // Tìm kiếm và đánh dấu mục được chọn
             className={` 
-              p-2 text-sm hover:bg-sky-600 hover:text-white 
+              p-2 text-sm hover:bg-orange-bright hover:text-white 
               ${item.name.toLowerCase().startsWith(inputValue) ? 'block' : 'hidden'}    
-              ${item.name.toLowerCase() === selectedItem?.name.toLowerCase() && 'bg-sky-600 text-white'}
+              ${item.name.toLowerCase() === selectedItem?.name.toLowerCase() && 'bg-orange-bright text-white'}
             `}
             // Chọn mục khi nhấn vào
             onClick={() => handleSelect(item)}

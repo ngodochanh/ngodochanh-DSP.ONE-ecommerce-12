@@ -4,7 +4,7 @@ import { LANGUAGES } from './constants';
 
 function TopBar() {
   return (
-    <div className='bg-black py-[1.5px]'>
+    <div className='bg-black py-[1.5px]' style={{ height: 'var(--top-bar-height)' }}>
       <div className='max-container flex-between-center text-sm font-normal text-white '>
         <div className='flex-center gap-x-[5px]'>
           <PhoneCall />

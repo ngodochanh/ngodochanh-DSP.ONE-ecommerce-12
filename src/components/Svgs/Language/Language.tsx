@@ -1,16 +1,8 @@
-export default function Language({
-  width = '14',
-  height = '15',
-  className,
-}: {
-  width?: string;
-  height?: string;
-  className?: string;
-}) {
+export default function Language({ size = '15', className }: { size?: string; className?: string }) {
   return (
     <svg
-      width={width}
-      height={height}
+      width={'' + (+size - 1)}
+      height={size}
       className={className}
       viewBox='0 0 14 15'
       fill='currentColor'

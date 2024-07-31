@@ -1,17 +1,9 @@
-export default function Search({
-  width = '20',
-  height = '20',
-  className,
-}: {
-  width?: string;
-  height?: string;
-  className?: string;
-}) {
+export default function Search({ size = '20', className }: { size?: string; className?: string }) {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
-      width={width}
-      height={height}
+      width={size}
+      height={size}
       className={className}
       viewBox='0 0 20 20'
       fill='currentColor'

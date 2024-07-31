@@ -1,3 +1,9 @@
 export { default as PhoneCall } from './PhoneCall';
 export { default as Language } from './Language';
 export { default as ArrowDropDown } from './ArrowDropDown';
+export { default as Search } from './Search';
+export { default as Heart } from './Heart';
+export { default as Buy } from './Buy';
+export { default as User } from './User';
+export { default as Menu } from './Menu';
+export { default as Close } from './Close';

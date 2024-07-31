@@ -10,27 +10,15 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      animation: {
-        'rotate-180': 'rotateDown 0.3s forwards',
-        'rotate-0': 'rotateUp 0.3s forwards',
-      },
-      keyframes: {
-        rotateDown: {
-          '0%': {
-            transform: 'rotate(0deg)',
-          },
-          '100%': {
-            transform: 'rotate(180deg)',
-          },
-        },
-        rotateUp: {
-          '0%': {
-            transform: 'rotate(0deg)',
-          },
-          '100%': {
-            transform: 'rotate(180deg)',
-          },
-        },
+      colors: {
+        // Orange
+        'orange-bright': '#F8991C',
+        // Gray
+        'gray-light': '#F6F6F6', // Xám rất nhạt
+        'gray-soft': '#807D7E', // Xám nhạt
+        'gray-medium': '#7F7F7F', // Xám trung bình
+        'gray-dark': '#5F5F5F', // Xám tối hơn
+        'gray-deep': '#797979', // Xám đậm
       },
     },
   },

@@ -3,6 +3,7 @@ import localFont from 'next/font/local';
 import './globals.css';
 import ProviderNextUI from './about/provider';
 import TopBar from '@/components/TopBar';
+import Header from '@/components/Header';
 
 const SVN_GILROY = localFont({
   src: [
@@ -26,6 +27,11 @@ const SVN_GILROY = localFont({
       weight: '600',
       style: 'normal',
     },
+    {
+      path: '/assets/fonts/SVN-Gilroy-Bold.otf',
+      weight: '700',
+      style: 'normal',
+    },
   ],
   variable: '--font-svg-gilroy',
 });
@@ -46,6 +52,7 @@ export default function RootLayout({
         <ProviderNextUI>
           <div className='max-w-[1920px] mx-auto'>
             <TopBar />
+            <Header />
             {children}
           </div>
         </ProviderNextUI>

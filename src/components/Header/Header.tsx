@@ -16,7 +16,7 @@ function Header() {
 
   return (
     <div className='max-container flex-between-center py-[7px] relative' style={{ height: 'var(--header-height)' }}>
-      <div className='flex lg:gap-[20px] xl:gap-[60px] 2xl:gap-[80px]'>
+      <div className='flex lg:gap-[20px] xl:gap-[60px] 2xl:gap-[80px] z-10'>
         {/* Logo */}
         <Link href='/'>
           <Logo />
@@ -24,18 +24,20 @@ function Header() {
 
         {/* Navigation */}
         <nav
-          className={`transition-transform-fast fixed lg:static top-[110px] left-0 max-w-[375px] lg:max-w-none w-full lg:w-auto h-screen lg:h-auto shadow-md lg:shadow-none ${
+          className={`bg-white transition-transform-fast fixed lg:static top-[110px] left-0 max-w-[375px] lg:max-w-none w-full lg:w-auto h-screen lg:h-auto shadow-md lg:shadow-none ${
             isMenuOpen ? 'translate-x-0' : '-translate-x-full'
           } lg:translate-x-0`}
         >
           <ul className='flex flex-col lg:flex-row gap-x-[10px] h-full'>
             {NAVIGATION_ITEMS.map((item: Item) => (
-              <li
-                className='h-menu-item py-[10px] lg:px-[5px] xl:px-[15px] lg:my-auto cursor-pointer w-full text-center hover:bg-orange-bright hover:text-white'
-                style={{ height: 'var(--menu-item-height)' }}
-                key={item.key}
-              >
-                {item.name}
+              <li className='grid' key={item.key}>
+                <Link
+                  href='/'
+                  className='block py-[10px] lg:px-[5px] xl:px-[15px] lg:my-auto cursor-pointer w-full text-center  self-center hover:font-bold'
+                  style={{ height: 'var(--menu-item-height)' }}
+                >
+                  {item.name}
+                </Link>
               </li>
             ))}
           </ul>
@@ -46,10 +48,9 @@ function Header() {
         {/* Search */}
         <form
           action=''
-          className={`transition-transform-fast bg-gray-light text-gray-soft sm:rounded-[500px] flex w-full max-w-[375px] sm:max-w-[267px] absolute lg:static left-0 sm:left-2/4 sm:top-2/4 ${
+          className={`transition-transform-fast bg-gray-light text-gray-soft sm:rounded-[500px] flex w-full max-w-[375px] sm:max-w-[267px] absolute lg:static left-0 sm:left-2/4 top-[338px] sm:top-2/4 ${
             !isMenuOpen && '-translate-x-full'
-          } sm:-translate-x-2/4 lg:translate-x-0 sm:-translate-y-2/4 lg:translate-y-0`}
-          style={{ top: 'var(--search-top)' }}
+          } sm:-translate-x-2/4 lg:translate-x-0 sm:-translate-y-2/4 lg:translate-y-0 z-10`}
         >
           <div className='py-3 pl-5 pr-3 cursor-pointer'>
             <Search />

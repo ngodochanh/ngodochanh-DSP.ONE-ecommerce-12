@@ -1,5 +1,5 @@
 import React from 'react';
 
 export default function page() {
-  return <div>page</div>;
+  return <h1>page</h1>;
 }

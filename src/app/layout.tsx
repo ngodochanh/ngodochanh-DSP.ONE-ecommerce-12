@@ -8,27 +8,27 @@ import Header from '@/components/Header';
 const SVN_GILROY = localFont({
   src: [
     {
-      path: '/assets/fonts/SVN-Gilroy-Light.otf',
+      path: '../../public/fonts/SVN-Gilroy-Light.otf',
       weight: '300',
       style: 'normal',
     },
     {
-      path: '/assets/fonts/SVN-Gilroy-Regular.otf',
+      path: '../../public/fonts/SVN-Gilroy-Regular.otf',
       weight: '400',
       style: 'normal',
     },
     {
-      path: '/assets/fonts/SVN-Gilroy-Medium.otf',
+      path: '../../public/fonts/SVN-Gilroy-Medium.otf',
       weight: '500',
       style: 'normal',
     },
     {
-      path: '/assets/fonts/SVN-Gilroy-SemiBold.otf',
+      path: '../../public/fonts/SVN-Gilroy-SemiBold.otf',
       weight: '600',
       style: 'normal',
     },
     {
-      path: '/assets/fonts/SVN-Gilroy-Bold.otf',
+      path: '../../public/fonts/SVN-Gilroy-Bold.otf',
       weight: '700',
       style: 'normal',
     },

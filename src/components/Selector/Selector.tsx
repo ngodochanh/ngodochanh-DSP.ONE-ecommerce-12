@@ -53,7 +53,7 @@ function Selector({
   };
 
   return (
-    <div className={`w-[${width}] w-fit font-medium ${colorText} cursor-pointer relative z-10`}>
+    <div className={`w-[${width}] w-fit font-medium ${colorText} cursor-pointer relative z-20`}>
       {/* Hiển thị mục được chọn hoặc 'Select' nếu chưa có mục nào được chọn */}
       <div
         className={`

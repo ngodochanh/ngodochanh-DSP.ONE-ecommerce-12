@@ -22,6 +22,11 @@
     @apply mx-auto max-w-[1440px];
   }
 
+  /*  */
+  .title-large {
+    @apply font-semibold text-[42px] h-[63px] uppercase text-center;
+  }
+
   /* Flex */
   .flex-between-center {
     @apply flex justify-between items-center;

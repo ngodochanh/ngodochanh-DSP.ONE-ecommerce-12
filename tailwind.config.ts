@@ -14,11 +14,16 @@ const config: Config = {
         // Orange
         'orange-bright': '#F8991C',
         // Gray
-        'gray-light': '#F6F6F6', // Xám rất nhạt
-        'gray-soft': '#807D7E', // Xám nhạt
-        'gray-medium': '#7F7F7F', // Xám trung bình
-        'gray-dark': '#5F5F5F', // Xám tối hơn
-        'gray-deep': '#797979', // Xám đậm
+        'gray-lightest': '#F6F6F6',
+        'gray-light': '#807D7E',
+        'gray-medium': '#7F7F7F',
+        'gray-darker': '#5F5F5F',
+        'gray-dark': '#797979',
+        // Black
+        'black-dark': '#080808',
+        'black-90': '#000000e6',
+        'gray-deep': '#2A2F2F',
+        'gray-deepest': '#1B1D21',
       },
     },
   },

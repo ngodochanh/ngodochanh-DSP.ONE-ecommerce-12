@@ -33,7 +33,7 @@ function Header() {
               <li className='grid' key={item.key}>
                 <Link
                   href='/'
-                  className='block py-[10px] lg:px-[5px] xl:px-[15px] lg:my-auto cursor-pointer w-full text-center  self-center hover:font-bold'
+                  className='text-navigation block py-[10px] lg:px-[5px] xl:px-[15px] lg:my-auto cursor-pointer w-full text-center self-center text-gray-light hover:font-bold hover:text-black'
                   style={{ height: 'var(--menu-item-height)' }}
                 >
                   {item.name}
@@ -48,7 +48,7 @@ function Header() {
         {/* Search */}
         <form
           action=''
-          className={`transition-transform-fast bg-gray-light text-gray-soft sm:rounded-[500px] flex w-full max-w-[375px] sm:max-w-[267px] absolute lg:static left-0 sm:left-2/4 top-[338px] sm:top-2/4 ${
+          className={`transition-transform-fast bg-gray-lightest text-gray-light sm:rounded-[500px] flex w-full max-w-[375px] sm:max-w-[254px] md:max-w-[267px] absolute lg:static left-0 sm:left-2/4 top-[338px] sm:top-2/4 ${
             !isMenuOpen && '-translate-x-full'
           } sm:-translate-x-2/4 lg:translate-x-0 sm:-translate-y-2/4 lg:translate-y-0 z-10`}
         >

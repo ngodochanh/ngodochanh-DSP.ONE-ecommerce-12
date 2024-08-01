@@ -13,3 +13,4 @@ export { default as MenWear } from './MenWear';
 export { default as KidWear } from './KidWear';
 export { default as Accessory } from './Accessory';
 export { default as Women } from './Women';
+export { default as ChevronRight } from './ChevronRight';

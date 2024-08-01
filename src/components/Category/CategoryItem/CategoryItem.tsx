@@ -8,7 +8,7 @@ type CategoryItemProps = {
 function CategoryItem({ Icon, label }: CategoryItemProps) {
   return (
     <Link href='/' className='hover:text-orange-bright'>
-      <div className='w-[150px] h-[150px] border rounded-[500px] mx-auto grid hover:border-orange-bright'>
+      <div className='w-[125px] h-[125px] sm:w-[150px] sm:h-[150px] border rounded-[500px] mx-auto grid hover:border-orange-bright'>
         <Icon className='place-self-center' />
       </div>
       <p className='font-medium text-2xl mt-7 text-center'>{label}</p>

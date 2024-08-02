@@ -17,7 +17,6 @@ function Banner() {
         disableOnInteraction: false,
       }}
       modules={[Autoplay]}
-      className='mySwiper'
     >
       {IMAGES_BANNER.map((image) => (
         <SwiperSlide key={image.alt}>

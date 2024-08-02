@@ -10,6 +10,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      gridTemplateColumns: {
+        'auto-fit': 'repeat(auto-fit, minmax(317px, 1fr))',
+      },
       colors: {
         // Orange
         'orange-bright': '#F8991C',

@@ -1,9 +1,28 @@
-import HeaderSection from '../HeaderSection';
+'use client';
+
+import Link from 'next/link';
+import HeaderSection from '@/components/HeaderSection';
+import { CATEGORY_PRODUCT, SPEIAL_PRODUCTS } from './constants';
+import Products from '@/components/Products';
 
 function SpeialProducts() {
   return (
-    <HeaderSection title='Speial Products' marginBottom='20px'>
-      <div></div>
+    <HeaderSection title='Speial Products'>
+      {/* Nav */}
+      <nav className='py-5 mt-5'>
+        <ul className='flex-center text-navigation text-black-dark capitalize flex-center'>
+          {CATEGORY_PRODUCT.map((product) => (
+            <li key={product.key}>
+              <Link href='/' className='block px-6 py-[10px] hover:text-orange-bright'>
+                {product.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      {/* Product */}
+      <Products productList={SPEIAL_PRODUCTS} />
     </HeaderSection>
   );
 }

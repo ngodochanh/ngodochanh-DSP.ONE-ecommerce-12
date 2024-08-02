@@ -1,5 +1,5 @@
 import { Language, PhoneCall } from '@/components/Svgs';
-import Selector from '../Selector';
+import Selector from '@/components/Selector';
 import { LANGUAGES } from './constants';
 
 function TopBar() {

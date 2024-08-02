@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import HeaderSection from '@/components/HeaderSection';
-import { CATEGORY_PRODUCT, SPEIAL_PRODUCTS } from './constants';
+import { CATEGORY_PRODUCT_LIST, SPEIAL_PRODUCT_LIST } from './constants';
 import Products from '@/components/Products';
 
 function SpeialProducts() {
@@ -11,9 +11,9 @@ function SpeialProducts() {
       {/* Nav */}
       <nav className='py-5 mt-5'>
         <ul className='flex-center text-navigation text-black-dark capitalize flex-center'>
-          {CATEGORY_PRODUCT.map((product) => (
+          {CATEGORY_PRODUCT_LIST.map((product) => (
             <li key={product.key}>
-              <Link href='/' className='block px-6 py-[10px] hover:text-orange-bright'>
+              <Link href='/' className='block px-5 sm:px-6 py-[10px] hover:text-orange-bright'>
                 {product.label}
               </Link>
             </li>
@@ -22,7 +22,7 @@ function SpeialProducts() {
       </nav>
 
       {/* Product */}
-      <Products productList={SPEIAL_PRODUCTS} />
+      <Products productList={SPEIAL_PRODUCT_LIST} />
     </HeaderSection>
   );
 }

@@ -1,4 +1,4 @@
-const NAVIGATION_ITEMS = [
+const NAVIGATION_LIST = [
   {
     key: 'home',
     name: 'Home',
@@ -25,4 +25,4 @@ const NAVIGATION_ITEMS = [
   },
 ];
 
-export { NAVIGATION_ITEMS };
+export { NAVIGATION_LIST };

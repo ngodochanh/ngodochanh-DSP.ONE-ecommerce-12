@@ -15,3 +15,7 @@ export { default as Accessory } from './Accessory';
 export { default as Women } from './Women';
 export { default as ChevronRight } from './ChevronRight';
 export { default as ArrowRight } from './ArrowRight';
+export { default as TruckDelivery } from './TruckDelivery';
+export { default as Payment } from './Payment';
+export { default as RiRefund } from './RiRefund';
+export { default as Support } from './Support';

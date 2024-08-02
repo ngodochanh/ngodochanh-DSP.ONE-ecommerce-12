@@ -27,7 +27,9 @@ function ProductItem({ prod }: { prod: Product }) {
 
       <div className='flex-between-center'>
         <div>
-          <h4 className='font-semibold text-[28px] text-gray-deep capitalize leading-[38px] mb-[10px]'>{title}</h4>
+          <h4 className='font-semibold text-[28px] text-gray-deep capitalize leading-[38px] mb-[10px] line-clamp-1'>
+            {title}
+          </h4>
           <p className='font-normal text-[22px] text-gray-medium leading-[30px]'>{formattedPrice}</p>
         </div>
 

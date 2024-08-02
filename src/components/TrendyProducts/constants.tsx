@@ -1,4 +1,4 @@
-const TRENDY_PRODUCTS = [
+const TRENDY_PRODUCT_LIST = [
   {
     id: '1',
     image: '/images/products/product1.png',
@@ -49,4 +49,4 @@ const TRENDY_PRODUCTS = [
   },
 ];
 
-export { TRENDY_PRODUCTS };
+export { TRENDY_PRODUCT_LIST };

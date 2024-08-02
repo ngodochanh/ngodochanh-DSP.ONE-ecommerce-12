@@ -1,6 +1,6 @@
 import { Accessory, KidWear, MenWear, Pants, Shoes, Women } from '@/components/Svgs';
 
-const CATEGORIES = [
+const CATEGORY_LIST = [
   {
     key: 'shoes',
     icon: Shoes,
@@ -33,4 +33,4 @@ const CATEGORIES = [
   },
 ];
 
-export { CATEGORIES };
+export { CATEGORY_LIST };

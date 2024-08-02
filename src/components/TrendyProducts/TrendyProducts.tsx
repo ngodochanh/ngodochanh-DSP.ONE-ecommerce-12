@@ -1,11 +1,11 @@
 import HeaderSection from '@/components/HeaderSection';
 import Products from '@/components/Products';
-import { TRENDY_PRODUCTS } from './constants';
+import { TRENDY_PRODUCT_LIST } from './constants';
 
 function TrendyProducts() {
   return (
     <HeaderSection title='Trendy Products'>
-      <Products productList={TRENDY_PRODUCTS} />
+      <Products productList={TRENDY_PRODUCT_LIST} />
     </HeaderSection>
   );
 }

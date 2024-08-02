@@ -1,4 +1,4 @@
-const CATEGORY_PRODUCT = [
+const CATEGORY_PRODUCT_LIST = [
   {
     key: 'all',
     label: 'all',
@@ -17,7 +17,7 @@ const CATEGORY_PRODUCT = [
   },
 ];
 
-const SPEIAL_PRODUCTS = [
+const SPEIAL_PRODUCT_LIST = [
   {
     id: '1',
     image: '/images/products/product1.png',
@@ -68,4 +68,4 @@ const SPEIAL_PRODUCTS = [
   },
 ];
 
-export { CATEGORY_PRODUCT, SPEIAL_PRODUCTS };
+export { CATEGORY_PRODUCT_LIST, SPEIAL_PRODUCT_LIST };

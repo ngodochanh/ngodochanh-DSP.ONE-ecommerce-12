@@ -1,4 +1,4 @@
-const IMAGES_BANNER = [
+const BANNER_IMAGES = [
   {
     alt: 'first',
     src: '/images/banner/summer-dream.png',
@@ -9,4 +9,4 @@ const IMAGES_BANNER = [
   },
 ];
 
-export { IMAGES_BANNER };
+export { BANNER_IMAGES };

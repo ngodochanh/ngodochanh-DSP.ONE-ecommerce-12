@@ -16,6 +16,7 @@ const config: Config = {
       colors: {
         // Orange
         'orange-bright': '#F8991C',
+        'yellow-bright': '#EDCB1B',
         // Gray
         'gray-lightest': '#F6F6F6',
         'gray-light': '#807D7E',

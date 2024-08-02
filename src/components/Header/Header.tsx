@@ -1,7 +1,7 @@
 'use client';
 
 import Logo from '@/components/Logo';
-import { NAVIGATION_ITEMS } from './constants';
+import { NAVIGATION_LIST } from './constants';
 import { Buy, Heart, Search, User, Menu, Close } from '@/components/Svgs';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -29,7 +29,7 @@ function Header() {
           } lg:translate-x-0`}
         >
           <ul className='flex flex-col lg:flex-row gap-x-[10px] h-full'>
-            {NAVIGATION_ITEMS.map((item: Item) => (
+            {NAVIGATION_LIST.map((item: Item) => (
               <li className='grid' key={item.key}>
                 <Link
                   href='/'
@@ -48,7 +48,7 @@ function Header() {
         {/* Search */}
         <form
           action=''
-          className={`transition-transform-fast bg-gray-lightest text-gray-light sm:rounded-[500px] flex w-full max-w-[375px] sm:max-w-[254px] md:max-w-[267px] absolute lg:static left-0 sm:left-2/4 top-[338px] sm:top-2/4 ${
+          className={`transition-transform-fast bg-gray-lightest text-gray-light sm:rounded-[500px] flex w-full max-w-[375px] sm:max-w-[254px] md:max-w-[330px] lg:max-w-[220px] xl:max-w-[267px] xl:w-[276px] absolute lg:static left-0 sm:left-2/4 top-[338px] sm:top-2/4 ${
             !isMenuOpen && '-translate-x-full'
           } sm:-translate-x-2/4 lg:translate-x-0 sm:-translate-y-2/4 lg:translate-y-0 z-10`}
         >

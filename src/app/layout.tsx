@@ -4,6 +4,7 @@ import './globals.css';
 import ProviderNextUI from './about/provider';
 import TopBar from '@/components/TopBar';
 import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 const SVN_GILROY = localFont({
   src: [
@@ -54,6 +55,7 @@ export default function RootLayout({
             <TopBar />
             <Header />
             {children}
+            <Footer />
           </div>
         </ProviderNextUI>
       </body>

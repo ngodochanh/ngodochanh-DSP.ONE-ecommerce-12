@@ -19,3 +19,8 @@ export { default as TruckDelivery } from './TruckDelivery';
 export { default as Payment } from './Payment';
 export { default as RiRefund } from './RiRefund';
 export { default as Support } from './Support';
+export { default as Facebook } from './Facebook';
+export { default as Twitter } from './Twitter';
+export { default as Youtube } from './Youtube';
+export { default as Instagram } from './Instagram';
+export { default as Envelope } from './Envelope';

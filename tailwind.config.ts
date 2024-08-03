@@ -14,8 +14,13 @@ const config: Config = {
         'auto-fit': 'repeat(auto-fit, minmax(317px, 1fr))',
       },
       colors: {
+        // White
+        'white-25': '#FFFFFF40',
+        // Blue
+        'blue-strong': '#1070B6',
         // Orange
         'orange-bright': '#F8991C',
+        // Yellow
         'yellow-bright': '#EDCB1B',
         // Gray
         'gray-lightest': '#F6F6F6',
@@ -23,11 +28,11 @@ const config: Config = {
         'gray-medium': '#7F7F7F',
         'gray-darker': '#5F5F5F',
         'gray-dark': '#797979',
+        'gray-deep': '#2A2F2F',
+        'gray-deepest': '#1B1D21',
         // Black
         'black-dark': '#080808',
         'black-90': '#000000e6',
-        'gray-deep': '#2A2F2F',
-        'gray-deepest': '#1B1D21',
       },
     },
   },

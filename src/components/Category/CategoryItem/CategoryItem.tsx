@@ -8,10 +8,10 @@ type CategoryItemProps = {
 function CategoryItem({ Icon, label }: CategoryItemProps) {
   return (
     <Link href='/' className='hover:text-orange-bright'>
-      <div className='w-[125px] h-[125px] sm:w-[150px] sm:h-[150px] border rounded-[500px] mx-auto grid hover:border-orange-bright'>
-        <Icon className='place-self-center' />
+      <div className=' text-clamp-80 w-clamp-150 h-clamp-150 border rounded-[500px] mx-auto grid hover:border-orange-bright'>
+        <Icon className='place-self-center w-clamp-80 h-clamp-80' />
       </div>
-      <p className='font-medium text-2xl mt-7 text-center'>{label}</p>
+      <p className='font-medium text-clamp-24 mt-7 text-center'>{label}</p>
     </Link>
   );
 }

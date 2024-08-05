@@ -1,12 +1,8 @@
-function Youtube({ size = '15px', className }: { size?: string; className?: string }) {
+import { SvgProps } from '../svg';
+
+function Youtube({ className }: SvgProps) {
   return (
-    <svg
-      xmlns='http://www.w3.org/2000/svg'
-      height={size}
-      width={size}
-      className={className}
-      viewBox='0 0 461.001 461.001'
-    >
+    <svg xmlns='http://www.w3.org/2000/svg' className={className} viewBox='0 0 461.001 461.001'>
       <g>
         <path
           fill='currentColor'

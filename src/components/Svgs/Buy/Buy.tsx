@@ -1,13 +1,8 @@
-export default function Buy({ size = '24', className }: { size?: string; className?: string }) {
+import { SvgProps } from '../svg';
+
+export default function Buy({ className }: SvgProps) {
   return (
-    <svg
-      width={size}
-      height={size}
-      className={className}
-      viewBox='0 0 24 24'
-      fill='currentColor'
-      xmlns='http://www.w3.org/2000/svg'
-    >
+    <svg className={className} viewBox='0 0 24 24' fill='currentColor' xmlns='http://www.w3.org/2000/svg'>
       <path
         fillRule='evenodd'
         clipRule='evenodd'

@@ -9,7 +9,11 @@ type Blog = {
   text: string;
 };
 
-function BlogsItem({ blog }: { blog: Blog }) {
+type BlogItemProps = {
+  blog: Blog;
+};
+
+function BlogItem({ blog }: BlogItemProps) {
   const { image, title, author, date, text } = blog;
 
   const formattedDate = date.toLocaleDateString('en-US', {
@@ -24,15 +28,15 @@ function BlogsItem({ blog }: { blog: Blog }) {
         <Image src={image} alt={'product ' + title} layout='fill' objectFit='cover' loading='lazy' />
       </div>
 
-      <h5 className='font-bold text-xl line-clamp-2 mb-[10px] h-[54px]'>{title}</h5>
+      <h5 className='font-bold text-clamp-20 line-clamp-2 mb-[10px] h-[54px]'>{title}</h5>
 
-      <div className='font-normal text-xs mb-[25px]'>
+      <div className='font-normal text-clamp-12 mb-[25px]'>
         By <span className='font-medium text-yellow-bright'>{author}</span> - {formattedDate}
       </div>
 
-      <p className='font-light text-base text-gray-darker leading-[21.6px] text-justify line-clamp-3'>{text}</p>
+      <p className='font-light text-clamp-16 text-gray-darker leading-[21.6px] text-justify line-clamp-3'>{text}</p>
     </Link>
   );
 }
 
-export default BlogsItem;
+export default BlogItem;

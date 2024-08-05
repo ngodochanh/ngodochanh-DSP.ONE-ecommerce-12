@@ -5,15 +5,19 @@ type Service = {
   Icon: React.ElementType;
 };
 
-function ServiceItem({ service }: { service: Service }) {
+type ServiceItemProps = {
+  service: Service;
+};
+
+function ServiceItem({ service }: ServiceItemProps) {
   const { title, desc, Icon } = service;
   return (
     <div className='flex gap-x-[10px] py-[15px]'>
-      <Icon />
+      <Icon className='w-clamp-50' />
 
       <div>
-        <h5 className='font-bold text-lg uppercase mb-[1.59px]'>{title}</h5>
-        <p className='font-normal text-[15px]'>{desc}</p>
+        <h5 className='font-bold text-clamp-18 uppercase mb-[1.59px]'>{title}</h5>
+        <p className='font-normal text-clamp-15'>{desc}</p>
       </div>
     </div>
   );

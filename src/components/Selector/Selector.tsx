@@ -69,7 +69,7 @@ function Selector({
             ? selectedItem.name.substring(0, 25) + '...'
             : selectedItem.name
           : 'Select'}
-        <ArrowDropDown className={`transition-transform-fast ${open && 'rotate-180'}`} />
+        <ArrowDropDown className={`transition-transform-fast ${open && 'rotate-180'} w-clamp-18`} />
       </div>
       {/* Hiển thị hoặc ẩn các mục với open */}
       <ul
@@ -81,7 +81,7 @@ function Selector({
       >
         <div className='flex-center px-2 sticky top-0 bg-white'>
           <div className='w-10 '>
-            <Search className='mx-auto' />
+            <Search className='mx-auto w-clamp-24' />
           </div>
           {/* Input để tìm kiếm mục */}
           <input
@@ -99,7 +99,7 @@ function Selector({
             key={item.key}
             // Tìm kiếm và đánh dấu mục được chọn
             className={` 
-              p-2 text-sm hover:bg-orange-bright hover:text-white 
+              p-2 text-clamp-14 hover:bg-orange-bright hover:text-white 
               ${item.name.toLowerCase().startsWith(inputValue) ? 'block' : 'hidden'}    
               ${item.name.toLowerCase() === selectedItem?.name.toLowerCase() && 'bg-orange-bright text-white'}
             `}

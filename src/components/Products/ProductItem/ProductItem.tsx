@@ -1,12 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight } from '@/components/Svgs';
+import { Product } from '../Products';
 
-type Product = {
-  id: string;
-  image: string;
-  title: string;
-  price: string | number;
+type ProductItemProps = {
+  prod: Product;
 };
 
 const formatPrice = (price: string | number): string => {
@@ -15,7 +13,7 @@ const formatPrice = (price: string | number): string => {
   return `€ ${formattedPrice}`;
 };
 
-function ProductItem({ prod }: { prod: Product }) {
+function ProductItem({ prod }: ProductItemProps) {
   const { id, image, title, price } = prod;
   const formattedPrice = formatPrice(price);
 
@@ -27,13 +25,13 @@ function ProductItem({ prod }: { prod: Product }) {
 
       <div className='flex-between-center'>
         <div>
-          <h4 className='font-semibold text-[28px] text-gray-deep capitalize leading-[38px] mb-[10px] line-clamp-1'>
+          <h4 className='font-semibold text-clamp-28 text-gray-deep capitalize leading-[38px] mb-[10px] line-clamp-1'>
             {title}
           </h4>
-          <p className='font-normal text-[22px] text-gray-medium leading-[30px]'>{formattedPrice}</p>
+          <p className='font-normal text-clamp-22 text-gray-medium leading-[30px]'>{formattedPrice}</p>
         </div>
 
-        <ArrowRight className='text-gray-dark' />
+        <ArrowRight className='text-gray-dark w-clamp-18' />
       </div>
     </Link>
   );

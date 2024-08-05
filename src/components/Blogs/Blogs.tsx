@@ -2,7 +2,7 @@
 
 import HeaderSection from '@/components/HeaderSection';
 import { BLOG_LIST } from './constants';
-import BlogsItem from './BlogsItem';
+import BlogsItem from './BlogItem';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';

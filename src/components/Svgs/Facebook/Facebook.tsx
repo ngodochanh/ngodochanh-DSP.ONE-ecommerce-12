@@ -1,13 +1,8 @@
-function Facebook({ size = '15px', className }: { size?: string; className?: string }) {
+import { SvgProps } from '../svg';
+
+function Facebook({ className }: SvgProps) {
   return (
-    <svg
-      fill='currentColor'
-      height={size}
-      width={size}
-      className={className}
-      xmlns='http://www.w3.org/2000/svg'
-      viewBox='0 0 310 310'
-    >
+    <svg fill='currentColor' className={className} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 310 310'>
       <g>
         <path
           d='M81.703,165.106h33.981V305c0,2.762,2.238,5,5,5h57.616c2.762,0,5-2.238,5-5V165.765h39.064

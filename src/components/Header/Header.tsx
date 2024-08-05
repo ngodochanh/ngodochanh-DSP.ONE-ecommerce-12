@@ -53,21 +53,25 @@ function Header() {
           } sm:-translate-x-2/4 lg:translate-x-0 sm:-translate-y-2/4 lg:translate-y-0 z-10`}
         >
           <div className='py-3 pl-5 pr-3 cursor-pointer'>
-            <Search />
+            <Search className='w-clamp-20' />
           </div>
-          <input type='text' placeholder='Searching' className='bg-transparent outline-none flex-1 pr-5' />
+          <input
+            type='text'
+            placeholder='Searching'
+            className='bg-transparent outline-none flex-1 pr-5 text-clamp-16'
+          />
         </form>
 
         {/* Action */}
         <div className='flex items-center lg:gap-[5px] xl:gap-[10px] text-orange-bright'>
           <div className='cursor-pointer w-10 h-full flex-center'>
-            <Heart />
+            <Heart className='w-clamp-24' />
           </div>
           <div className='cursor-pointer w-10 h-full flex-center'>
-            <Buy />
+            <Buy className='w-clamp-24' />
           </div>
           <div className='cursor-pointer w-10 h-full flex-center'>
-            <User />
+            <User className='w-clamp-24' />
           </div>
           <div
             className={`
@@ -76,7 +80,7 @@ function Header() {
               `}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            {isMenuOpen ? <Close /> : <Menu />}
+            {isMenuOpen ? <Close className='w-clamp-24' /> : <Menu className='w-clamp-24' />}
           </div>
         </div>
       </div>

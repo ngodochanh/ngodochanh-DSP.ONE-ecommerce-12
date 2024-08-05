@@ -9,7 +9,7 @@ import { Envelope } from '@/components/Svgs';
 
 function Footer() {
   return (
-    <div className='bg-black text-white text-base -translate-y-[1px]'>
+    <div className='bg-black text-white text-clamp-16 -translate-y-[1px]'>
       <div className='max-container pt-[61px] pb-[81px] flex justify-between flex-wrap gap-x-12 gap-y-[60px]'>
         {/* Logo and contacts */}
         <div>
@@ -35,8 +35,12 @@ function Footer() {
             {SOCIAL_LIST.map((social) => {
               const { key, href, Icon } = social;
               return (
-                <Link href={href} key={key} className='text-blue-strong h-[35px] w-[35px] bg-white rounded-full grid'>
-                  <Icon className='place-self-center' />
+                <Link
+                  href={href}
+                  key={key}
+                  className='text-blue-strong h-clamp-35 w-clamp-35 bg-white rounded-full grid'
+                >
+                  <Icon className='place-self-center w-clamp-15' />
                 </Link>
               );
             })}
@@ -59,16 +63,13 @@ function Footer() {
         <div>
           <h5 className='font-semibold pb-3'>Tải ứng dụng</h5>
 
-          <Image
-            src={AppStore}
-            alt='Download App Store'
-            width={150}
-            height={43.33}
-            loading='lazy'
-            className='pb-[10px]'
-          />
+          <Link href='/' className='block pb-[10px]'>
+            <Image src={AppStore} alt='Download App Store' width={150} height={43.33} loading='lazy' />
+          </Link>
 
-          <Image src={GooglePlay} alt='Download Google Play' width={150} height={43.33} loading='lazy' />
+          <Link href='/' className='block pb-[10px]'>
+            <Image src={GooglePlay} alt='Download Google Play' width={150} height={43.33} loading='lazy' />
+          </Link>
         </div>
 
         {/* Send gmail */}
@@ -82,7 +83,7 @@ function Footer() {
             </button>
           </form>
 
-          <p className='font-light text-sm leading-[18.2px]'>
+          <p className='font-light text-clamp-14 leading-[18.2px]'>
             Subscribe to our newsletter and unlock a world of exclusive benefits. Be the first to know about our latest
             products, special promotions, and exciting updates. Join our community of like-minded individuals who share
             a passion for [your niche/industry].

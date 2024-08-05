@@ -31,9 +31,10 @@ function Independent() {
         <Image
           src='/images/independent/hand-bones-say-hi.png'
           alt="Hand bones say hi women's classic t-shirt"
-          layout='fill'
-          objectFit='cover'
+          fill
+          sizes='(max-width: 640px) 100vw, 50vw'
           loading='lazy'
+          className='object-cover'
         />
       </div>
     </div>

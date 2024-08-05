@@ -25,7 +25,14 @@ function BlogItem({ blog }: BlogItemProps) {
   return (
     <Link href='/' className='block  w-full'>
       <div className='relative h-[350px] mb-6'>
-        <Image src={image} alt={'product ' + title} layout='fill' objectFit='cover' loading='lazy' />
+        <Image
+          src={image}
+          alt={'product ' + title}
+          fill
+          sizes='(max-width: 640px) 100vw, 50vw'
+          loading='lazy'
+          className='object-cover'
+        />
       </div>
 
       <h5 className='font-bold text-clamp-20 line-clamp-2 mb-[10px] h-[54px]'>{title}</h5>

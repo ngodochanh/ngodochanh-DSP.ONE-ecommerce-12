@@ -64,11 +64,25 @@ function Footer() {
           <h5 className='font-semibold pb-3'>Tải ứng dụng</h5>
 
           <Link href='/' className='block pb-[10px]'>
-            <Image src={AppStore} alt='Download App Store' width={150} height={43.33} loading='lazy' />
+            <Image
+              src={AppStore}
+              alt='Download App Store'
+              width={150}
+              height={43.33}
+              loading='lazy'
+              className='h-[43.33px] w-auto'
+            />
           </Link>
 
           <Link href='/' className='block pb-[10px]'>
-            <Image src={GooglePlay} alt='Download Google Play' width={150} height={43.33} loading='lazy' />
+            <Image
+              src={GooglePlay}
+              alt='Download Google Play'
+              width={150}
+              height={43.33}
+              loading='lazy'
+              className='h-[43.33px] w-auto'
+            />
           </Link>
         </div>
 

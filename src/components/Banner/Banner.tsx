@@ -21,7 +21,14 @@ function Banner() {
       {BANNER_IMAGES.map((image) => (
         <SwiperSlide key={image.alt}>
           <div className='relative' style={{ paddingTop: '44.271%' }}>
-            <Image src={image.src} alt={image.alt} layout='fill' objectFit='cover' loading='lazy' />
+            <Image
+              src={image.src}
+              alt={image.alt}
+              fill
+              sizes='(max-width: 640px) 100vw, 50vw'
+              loading='lazy'
+              className='object-cover'
+            />
           </div>
         </SwiperSlide>
       ))}

@@ -33,7 +33,14 @@ function Gallery() {
       {GALLERY_LIST.map((gallery) => (
         <SwiperSlide key={gallery.key}>
           <div className='relative h-[300px]'>
-            <Image src={gallery.image} alt={gallery.alt} layout='fill' objectFit='cover' loading='lazy' />
+            <Image
+              src={gallery.image}
+              alt={gallery.alt}
+              fill
+              sizes='(max-width: 640px) 100vw, 50vw'
+              loading='lazy'
+              className='object-cover'
+            />
           </div>
         </SwiperSlide>
       ))}

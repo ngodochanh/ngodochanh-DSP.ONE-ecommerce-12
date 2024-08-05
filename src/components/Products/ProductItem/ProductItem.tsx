@@ -20,7 +20,14 @@ function ProductItem({ prod }: ProductItemProps) {
   return (
     <Link href='/' className='block  w-full'>
       <div className='relative h-[430px] rounded-[10px] mb-[13.41px] overflow-hidden'>
-        <Image src={image} alt={'product ' + title} layout='fill' objectFit='cover' loading='lazy' />
+        <Image
+          src={image}
+          alt={'product ' + title}
+          sizes='(max-width: 640px) 100vw, 50vw'
+          fill
+          loading='lazy'
+          className='object-cover'
+        />
       </div>
 
       <div className='flex-between-center'>

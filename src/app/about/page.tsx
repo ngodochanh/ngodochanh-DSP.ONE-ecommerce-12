@@ -1,5 +1,5 @@
-import React from 'react';
-
-export default function page() {
-  return <h1>page</h1>;
+function About() {
+  return <div>About</div>;
 }
+
+export default About;

@@ -1,27 +1,35 @@
+import config from '@/config';
+
 const NAVIGATION_LIST = [
   {
-    key: 'home',
-    name: 'Home',
+    id: 'home',
+    label: 'Home',
+    path: config.routes.home,
   },
   {
-    key: 'about',
-    name: 'About',
+    id: 'about',
+    label: 'About',
+    path: config.routes.about,
   },
   {
-    key: 'product',
-    name: 'Product',
+    id: 'product',
+    label: 'Product',
+    path: config.routes.product,
   },
   {
-    key: 'blogs',
-    name: 'Blogs',
+    id: 'blogs',
+    label: 'Blogs',
+    path: config.routes.blogs,
   },
   {
-    key: 'policy',
-    name: 'Policy',
+    id: 'policy',
+    label: 'Policy',
+    path: config.routes.policy,
   },
   {
-    key: 'contact',
-    name: 'Contact',
+    id: 'contact',
+    label: 'Contact',
+    path: config.routes.contact,
   },
 ];
 

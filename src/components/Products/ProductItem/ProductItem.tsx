@@ -14,11 +14,11 @@ const formatPrice = (price: string | number): string => {
 };
 
 function ProductItem({ prod }: ProductItemProps) {
-  const { id, image, title, price } = prod;
+  const { id, path, image, title, price } = prod;
   const formattedPrice = formatPrice(price);
 
   return (
-    <Link href='/' className='block  w-full'>
+    <Link href={path} className='block  w-full'>
       <div className='relative h-[430px] rounded-[10px] mb-[13.41px] overflow-hidden'>
         <Image
           src={image}

@@ -1,10 +1,13 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
+//
 import './globals.css';
-import ProviderNextUI from './about/provider';
+import { Providers } from './providers';
+// Components
 import TopBar from '@/components/TopBar';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { Button } from '@nextui-org/react';
 
 const SVN_GILROY = localFont({
   src: [
@@ -51,14 +54,14 @@ export default function RootLayout({
   return (
     <html lang='vi'>
       <body className={SVN_GILROY.className}>
-        <ProviderNextUI>
+        <Providers>
           <div className='max-w-[1920px] mx-auto'>
             <TopBar />
             <Header />
             {children}
             <Footer />
           </div>
-        </ProviderNextUI>
+        </Providers>
       </body>
     </html>
   );

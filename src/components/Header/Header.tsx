@@ -1,42 +1,52 @@
 'use client';
 
+// Components
 import Logo from '@/components/Logo';
-import { NAVIGATION_LIST } from './constants';
+// Icon
 import { Buy, Heart, Search, User, Menu, Close } from '@/components/Svgs';
+//
+import { NAVIGATION_LIST } from './constants';
+//
 import Link from 'next/link';
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 
-type Item = {
-  key: string;
-  name: string;
+type NavItem = {
+  path: string;
+  id: string;
+  label: string;
 };
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const path = usePathname();
 
   return (
-    <div className='max-container flex-between-center py-[7px] relative' style={{ height: 'var(--header-height)' }}>
+    <div
+      className='max-container bg-white flex-between-center py-[7px] sticky top-0 left-0 right-0 lg:relative  backdrop-filter backdrop-blur-sm bg-opacity-30 z-40'
+      style={{ height: 'var(--header-height)' }}
+    >
       <div className='flex lg:gap-[20px] xl:gap-[60px] 2xl:gap-[80px] z-10'>
         {/* Logo */}
-        <Link href='/'>
-          <Logo />
-        </Link>
+        <Logo />
 
         {/* Navigation */}
         <nav
-          className={`bg-white transition-transform-fast fixed lg:static top-[110px] left-0 max-w-[375px] lg:max-w-none w-full lg:w-auto h-screen lg:h-auto shadow-md lg:shadow-none ${
+          className={`bg-white transition-transform-fast absolute lg:static top-full left-0 max-w-[375px] lg:max-w-none w-full lg:w-auto h-screen lg:h-auto shadow-md lg:shadow-none ${
             isMenuOpen ? 'translate-x-0' : '-translate-x-full'
           } lg:translate-x-0`}
         >
           <ul className='flex flex-col lg:flex-row gap-x-[10px] h-full'>
-            {NAVIGATION_LIST.map((item: Item) => (
-              <li className='grid' key={item.key}>
+            {NAVIGATION_LIST.map((item: NavItem) => (
+              <li className='grid' key={item.id}>
                 <Link
-                  href='/'
-                  className='text-navigation block py-[10px] lg:px-[5px] xl:px-[15px] lg:my-auto cursor-pointer w-full text-center self-center text-gray-light hover:font-bold hover:text-black'
+                  href={item.path}
+                  className={`text-navigation block py-[10px] lg:px-[5px] xl:px-[15px] lg:my-auto cursor-pointer w-full text-center self-center ${
+                    path === item.path ? 'text-black font-bold' : 'text-gray-light'
+                  } hover:text-black`}
                   style={{ height: 'var(--menu-item-height)' }}
                 >
-                  {item.name}
+                  {item.label}
                 </Link>
               </li>
             ))}

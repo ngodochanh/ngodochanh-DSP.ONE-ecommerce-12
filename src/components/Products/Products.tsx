@@ -2,6 +2,7 @@ import ProductItem from './ProductItem';
 
 export type Product = {
   id: string;
+  path: string;
   image: string;
   title: string;
   price: string | number;

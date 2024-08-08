@@ -5,9 +5,11 @@ import Image from 'next/image';
 
 import AppStore from '/public/images/app_download/app_store.png';
 import GooglePlay from '/public/images/app_download/google_play.png';
-import { Envelope } from '@/components/Svgs';
+import { SvgEnvelope } from '@/components/Svgs';
+import { useTranslations } from 'next-intl';
 
 function Footer() {
+  const t = useTranslations('footer');
   return (
     <div className='bg-black text-white text-clamp-16 -translate-y-[1px]'>
       <div className='max-container pt-[61px] pb-[81px] flex justify-between flex-wrap gap-x-12 gap-y-[60px]'>
@@ -17,9 +19,11 @@ function Footer() {
 
           {/* Info */}
           <div className='mb-[10px] leading-[18.2px]'>
-            <p className='sm:w-fit sm:inline-block'>434 Lien Phuong Street,</p>{' '}
-            <p className='sm:w-fit sm:inline-block'> Phuoc Long B Ward,</p>{' '}
-            <p className='sm:w-fit sm:inline-block'>District 9, HCMC, Vietnam</p>
+            <p className='sm:w-fit sm:inline-block'>{t('info.address.street')},</p>{' '}
+            <p className='sm:w-fit sm:inline-block'>{t('info.address.ward')},</p>{' '}
+            <p className='sm:w-fit sm:inline-block'>
+              {t('info.address.district')}, {t('info.address.city')}, {t('info.address.country')}
+            </p>
           </div>
 
           <p className='mb-[10px]'>
@@ -27,7 +31,7 @@ function Footer() {
           </p>
 
           <p className='mb-5'>
-            Hotline: <a href='tel:+84985909720'>(+84) 985 909 720</a>
+            {t('info.hotline')}: <a href='tel:+84985909720'>(+84) 985 909 720</a>
           </p>
 
           {/* Social */}
@@ -47,21 +51,21 @@ function Footer() {
           </div>
         </div>
 
-        {/* Link */}
+        {/* Introduce */}
         <ul className='space-y-[6px]'>
           <li>
-            <h5 className='font-semibold'>Về chúng tôi</h5>
+            <h5 className='font-semibold'>{t('introduce.text')}</h5>
           </li>
           {LINK_LIST.map((item) => (
             <li key={item.key} className='font-normal capitalize'>
-              <Link href={item.href}>{item.label}</Link>
+              <Link href={item.href}>{t(`introduce.item.${item.key}`)}</Link>
             </li>
           ))}
         </ul>
 
         {/* App download */}
         <div>
-          <h5 className='font-semibold pb-3'>Tải ứng dụng</h5>
+          <h5 className='font-semibold pb-3'>{t('app_download.text')}</h5>
 
           <Link href='/' className='block pb-[10px]'>
             <Image
@@ -88,25 +92,25 @@ function Footer() {
 
         {/* Send gmail */}
         <div className='w-[382px]'>
-          <h5 className='font-semibold pb-3'>Đăng ký nhận tin</h5>
+          <h5 className='font-semibold pb-3'>{t('send_gmail.title')}</h5>
 
           <form action='' className='flex-between-center h-[48px] px-4 py-[10px] rounded bg-white-25 mb-3'>
-            <input type='text' className=' bg-transparent outline-none flex-grow' placeholder='Enter your email' />
+            <input
+              type='text'
+              className=' bg-transparent outline-none flex-grow'
+              placeholder={t('send_gmail.input.placeholder')}
+            />
             <button type='submit' className='text-blue-strong'>
-              <Envelope />
+              <SvgEnvelope />
             </button>
           </form>
 
-          <p className='font-light text-clamp-14 leading-[18.2px]'>
-            Subscribe to our newsletter and unlock a world of exclusive benefits. Be the first to know about our latest
-            products, special promotions, and exciting updates. Join our community of like-minded individuals who share
-            a passion for [your niche/industry].
-          </p>
+          <p className='font-light text-clamp-14 leading-[18.2px]'>{t('send_gmail.description')}</p>
         </div>
       </div>
 
       {/* Copyright */}
-      <p className='text-center font-normal py-5'>© 2023 All rights reserved</p>
+      <p className='text-center font-normal py-5'>{t('copyright')}</p>
     </div>
   );
 }

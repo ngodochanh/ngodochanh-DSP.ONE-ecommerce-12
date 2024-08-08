@@ -16,14 +16,6 @@
   box-sizing: border-box;
 }
 
-@media screen and (min-width: 1536px) and (max-width: 1920px) {
-  html,
-  body {
-    /* Dùng để cắt ảnh ở Independent (chú ý bị scroll ngang ở những element khác) */
-    overflow-x: hidden;
-  }
-}
-
 @layer utilities {
   /* Container */
   .max-container {

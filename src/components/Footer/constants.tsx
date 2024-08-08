@@ -1,25 +1,25 @@
-import { Facebook, Instagram, Twitter, Youtube } from '@/components/Svgs';
+import { SvgFacebook, SvgInstagram, SvgTwitter, SvgYoutube } from '@/components/Svgs';
 
 const SOCIAL_LIST = [
   {
     key: 'facebook',
     href: '/',
-    Icon: Facebook,
+    Icon: SvgFacebook,
   },
   {
     key: 'twitter',
     href: '/',
-    Icon: Twitter,
+    Icon: SvgTwitter,
   },
   {
     key: 'instagram',
     href: '/',
-    Icon: Instagram,
+    Icon: SvgInstagram,
   },
   {
     key: 'youtube',
     href: '/',
-    Icon: Youtube,
+    Icon: SvgYoutube,
   },
 ];
 

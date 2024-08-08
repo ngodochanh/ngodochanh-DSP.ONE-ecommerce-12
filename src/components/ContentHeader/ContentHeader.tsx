@@ -1,9 +1,9 @@
-type HeaderSectionProps = {
+type ContentHeaderProps = {
   title: string;
   children: React.ReactNode;
 };
 
-function HeaderSection({ title, children }: HeaderSectionProps) {
+function ContentHeader({ title, children }: ContentHeaderProps) {
   return (
     <div className='py-20'>
       <h2 className={`text-black-90 font-semibold text-clamp-42 capitalize text-center`}>{title}</h2>
@@ -12,4 +12,4 @@ function HeaderSection({ title, children }: HeaderSectionProps) {
   );
 }
 
-export default HeaderSection;
+export default ContentHeader;

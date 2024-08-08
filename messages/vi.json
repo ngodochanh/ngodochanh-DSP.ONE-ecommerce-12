@@ -1,0 +1,144 @@
+{
+  "topBar": {
+    "hotline": "Đường dây nóng",
+    "follow_us": "Theo dõi chúng tôi và có cơ hội nhận giảm giá 80%",
+    "language": {
+      "text": "Ngôn ngữ",
+      "placeholder": "Tìm kiếm ngôn ngữ"
+    }
+  },
+  "header": {
+    "navigation": {
+      "home": "Trang chủ",
+      "about": "Giới thiệu",
+      "product": "Sản phẩm",
+      "blogs": "Bài viết",
+      "policy": "Chính sách",
+      "contact": "Liên hệ"
+    },
+    "search": {
+      "placeholder": "Tìm kiếm"
+    }
+  },
+  "category": {
+    "text": "Danh mục của chúng tôi",
+    "items": {
+      "shoes": "Giày Nam",
+      "pants": "Quần Nam",
+      "menwear": "Thời Trang Nam",
+      "kidwear": "Thời Trang Trẻ Em",
+      "accessory": "Phụ Kiện",
+      "women": "Phụ Nữ"
+    }
+  },
+  "specialProducts": {
+    "text": "Sản phẩm đặc biệt",
+    "items": {
+      "all": "Tất cả",
+      "men": "Nam",
+      "women": "Nữ",
+      "kids": "Trẻ em"
+    }
+  },
+  "product": {
+    "title": "Gói Nalya",
+    "status": "Sản phẩm trống"
+  },
+  "independent": {
+    "text": "Thời trang Nữ",
+    "description": "Làm mới tủ đồ hàng ngày của bạn với dòng quần áo nữ của chúng tôi. Với những phong cách mới nhất có sẵn tất cả ở một nơi, bạn có thể mong đợi những món đồ cơ bản hàng ngày, như áo và váy nữ, cũng như các loại áo len và đồ mặc ở nhà ấm áp cho những ngày thư giãn. Có kế hoạch ra ngoài? Dòng váy của chúng tôi có các kiểu mini, midi và maxi phù hợp cho những buổi tối mùa hè, trong khi quần jeans và quần dài phong cách của chúng tôi mang lại sự tôn dáng cho mọi vóc dáng. Giải quyết vấn đề tủ đồ của bạn vào những ngày bận rộn với những bộ đồ phối hợp mát mẻ, và khoác thêm lớp để giữ ấm với áo khoác và áo măng tô nữ của chúng tôi khi cần thiết. Hoàn thiện phong cách mới yêu thích của bạn với một loạt các phụ kiện thời trang, và đừng quên lướt qua bộ sưu tập giày nữ nổi bật của chúng tôi. Khám phá thêm thời trang nữ bằng cách lướt qua bộ sưu tập Conscious của chúng tôi, được tạo ra với sự quan tâm đến hành tinh – hãy nghĩ đến các vật liệu được lựa chọn bền vững, bao gồm cotton hữu cơ và polyester tái chế.",
+    "button": {
+      "text": "Mua ngay"
+    }
+  },
+  "trendyProducts": {
+    "text": "Sản phẩm Thịnh hành"
+  },
+  "blogs": {
+    "text": "Bài viết",
+    "created_by": "Bởi",
+    "list": {
+      "blog1": {
+        "title": "Họa sĩ tự học trưng bày loạt tranh về mèo cho Tết Nguyên Đán",
+        "author": "Quản trị viên",
+        "description": "Họa sĩ Tào Linh sẽ trưng bày một loạt tranh cho Tết Nguyên Đán tại Hà Nội từ ngày 8 đến ngày 11 tháng 1 tại Nhà Triển Lãm, số 16 phố Ngô Quyền."
+      },
+      "blog2": {
+        "title": "Mua bức ảnh này là bạn đang quyên góp cho Givebank, vui lòng đặt $1 tại liên kết dưới đây",
+        "author": "Quản trị viên",
+        "description": "Ngày xưa, đất đai dễ kiếm, bạn có thể đi đâu đó và cuốc vài lần, hoặc chặt hàng rào, thậm chí đi vài bước để băng qua đường và bạn sở hữu nó."
+      },
+      "blog3": {
+        "title": "HAI MẶT TRONG KINH DOANH",
+        "author": "Quản trị viên",
+        "description": "Hội nhập đã tạo ra nhiều điểm xáo trộn. Đặc biệt, vấn đề kinh doanh trong hội nhập luôn được nhiều người nhắc đến."
+      },
+      "blog4": {
+        "title": "Ý tưởng trang phục mùa hè thường ngày",
+        "author": "Quản trị viên",
+        "description": "Mùa hè thực sự là mùa tôi KHÔNG thích nhất khi ăn mặc. Tôi ghét cảm giác nóng bức, vì vậy tôi thực sự cần phải nỗ lực khi mặc quần áo - dù sao thì tôi vẫn muốn trông và cảm thấy tốt nhất! Tôi lấy nhiều ý tưởng trang phục mùa hè thường ngày từ Pinterest và các nhà sáng tạo khác, vì vậy tôi nghĩ sẽ rất thú vị khi viết một bài viết với một số ý tưởng trang phục!"
+      },
+      "blog5": {
+        "title": "Hàng mới về của J.Crew",
+        "author": "Quản trị viên",
+        "description": "Tôi chỉ yêu khi có hàng mới về của J.Crew. Không có gì tuyệt vời hơn sản phẩm mới, đặc biệt là khi có một phong cách mới. Áo vest kiểu dáng Scoopneck Linen Blend của J.Crew. Tôi phải thú nhận rằng ban đầu tôi không định mua chiếc áo này. Nhưng sau đó một vài đồng nghiệp đã mặc nó và nó thực sự thu hút tôi."
+      },
+      "blog6": {
+        "title": "Danh sách đồ dùng cho kỳ nghỉ hè",
+        "author": "Quản trị viên",
+        "description": "Không có gì tuyệt vời hơn một kỳ nghỉ vào mùa hè. Mặt trời chiếu sáng, cuối cùng cũng đủ ấm để mặc tất cả các quần short và váy yêu thích của bạn, và các lựa chọn kỳ nghỉ là vô tận. Cho dù bạn đang đến bãi biển địa phương vào cuối tuần hay lên máy bay đến một nơi nào đó nhiệt đới, có rất nhiều cơ hội để tạo kỷ niệm."
+      }
+    }
+  },
+  "services": {
+    "free_shipping": {
+      "title": "Giao hàng miễn phí",
+      "desc": "Giới hạn tối đa $10 mỗi đơn hàng"
+    },
+    "secure_payments": {
+      "title": "Thanh toán an toàn",
+      "desc": "Trả góp lên đến 6 tháng"
+    },
+    "ri_refund": {
+      "title": "HOÀN TRẢ TRONG 15 NGÀY",
+      "desc": "Mua sắm với sự yên tâm hoàn toàn"
+    },
+    "support": {
+      "title": "HỖ TRỢ 24/7",
+      "desc": "Nhận hỗ trợ thân thiện"
+    }
+  },
+  "footer": {
+    "info": {
+      "address": {
+        "street": "Số 434, Đường Liên Phương",
+        "ward": "Phường Phước Long B",
+        "district": "Quận 9",
+        "city": "Hồ Chí Minh",
+        "country": "Việt Nam"
+      },
+      "hotline": "Đường dây nóng"
+    },
+    "introduce": {
+      "text": "Về chúng tôi",
+      "item": {
+        "life": "cuộc sống",
+        "business": "doanh nghiệp",
+        "travel": "du lịch",
+        "car": "ô tô",
+        "health": "sức khỏe"
+      }
+    },
+    "app_download": {
+      "text": "Tải ứng dụng"
+    },
+    "send_gmail": {
+      "title": "Đăng ký nhận tin",
+      "input": {
+        "placeholder": "Nhập email của bạn"
+      },
+      "description": "Đăng ký nhận bản tin của chúng tôi để mở khóa thế giới các lợi ích độc quyền. Hãy là người đầu tiên biết về các sản phẩm mới nhất, các chương trình khuyến mãi đặc biệt và các cập nhật thú vị. Tham gia cộng đồng của chúng tôi với những người có cùng sở thích và đam mê trong [ngành/nghề của bạn]."
+    },
+    "copyright": "© 2023 Bảo lưu tất cả các quyền"
+  }
+}

@@ -50,6 +50,7 @@ const config: Config = {
       },
       gridTemplateColumns: {
         'auto-fit': 'repeat(auto-fit, minmax(317px, 1fr))',
+        'auto-fit-category': 'repeat(auto-fit, minmax(110px, 1fr))',
       },
       colors: {
         // White

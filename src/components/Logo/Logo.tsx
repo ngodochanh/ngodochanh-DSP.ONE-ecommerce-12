@@ -1,4 +1,4 @@
-import config from '@/config';
+import getLocalizedPath from '@/utils/getLocalizedPath ';
 import Link from 'next/link';
 
 type LogoProps = {
@@ -8,8 +8,7 @@ type LogoProps = {
 
 function Logo({ textColor = 'text-black', className }: LogoProps) {
   return (
-    <Link href={config.routes.home}>
-      {' '}
+    <Link href={getLocalizedPath(process.env.HOME!)}>
       <div className={`font-bold text-clamp-40 ${textColor} ${className} `}>DSP.ONE</div>
     </Link>
   );

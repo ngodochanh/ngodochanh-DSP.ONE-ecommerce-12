@@ -1,0 +1,143 @@
+{
+  "topBar": {
+    "hotline": "Hotline",
+    "follow_us": "Follow Us and get a chance to win 80% off",
+    "language": {
+      "text": "Language",
+      "placeholder": "Search language"
+    }
+  },
+  "header": {
+    "navigation": {
+      "home": "Home",
+      "about": "About",
+      "product": "Product",
+      "blogs": "Blogs",
+      "policy": "Policy",
+      "contact": "Contact"
+    },
+    "search": {
+      "placeholder": "Searching"
+    }
+  },
+  "category": {
+    "text": "our categories",
+    "items": {
+      "shoes": "Men's Shoes",
+      "pants": "Men's Pants",
+      "menwear": "Men's Wear",
+      "kidwear": "Kid's Wear",
+      "accessory": "Accessories",
+      "women": "Women"
+    }
+  },
+  "speialProducts": {
+    "text": "Speial Products",
+    "items": {
+      "all": "All",
+      "men": "Men's",
+      "women": "Women",
+      "kids": "Kids"
+    }
+  },
+  "product": {
+    "status": "Product is empty"
+  },
+  "independent": {
+    "text": "Women's Fashion",
+    "description": "Refresh your daily rotation with our women's clothing range. With the freshest styles available all in one place, you can expect everyday basics, like women's tops and skirts, as well as must-have knitwear and cozy loungewear for downtime days. Plans to go out? Our women's dresses line up mini, midi and maxi styles that were made for summer evenings, while our stylish jeans and pants offer something to flatter every silhouette. Solve your wardrobe woes on busy days with cool co-ords, and wrap up to stay warm in our women's jackets and coats when extra layers are required. Finish off your favorite new looks with an array of trendy accessories, and don't forget to scroll for statement footwear in our women's shoes range. Discover more women's fashion by scrolling our Conscious collection, which has been crafted with the planet in mind – think sustainably sourced materials, including organic cotton and recycled polyester.",
+    "button": {
+      "text": "Shop now"
+    }
+  },
+  "trendyProducts": {
+    "text": "Trendy Products"
+  },
+  "blogs": {
+    "text": "blogs",
+    "created_by": "By",
+    "list": {
+      "blog1": {
+        "title": "Self-taught artist displays series on cats for Lunar New Year",
+        "author": "Admin",
+        "text": "Artist Tao Linh will display a series of paintings for Lunar New Year in Ha Noi from January 8 to 11 at Exhibition House, 16 Ngo Quyen Street."
+      },
+      "blog2": {
+        "title": "Buy this photo is you donate Givebank, please put $1 at link below",
+        "author": "Admin",
+        "text": "In the old days, land was easy to get, you could go somewhere and hoe a few times, or cut down a fence, even take a few steps to cross the line and you own it."
+      },
+      "blog3": {
+        "title": "TWO FACES IN BUSINESS",
+        "author": "Admin",
+        "text": "Integration has made many points of disturbance. In particular, the issue of business in integration is always mentioned by many people."
+      },
+      "blog4": {
+        "title": "Casual Summer Outfit Ideas",
+        "author": "Admin",
+        "text": "Summer is actually my LEAST favorite season to dress for. I hate being hot, so I really need to put in some effort when getting dressed – after all, I still want to look and feel my best! I get a lot of my casual summer outfit ideas from Pinterest and other creators, so I thought it would be fun to put together a post with some outfit ideas!"
+      },
+      "blog5": {
+        "title": "J.Crew New Arrivals",
+        "author": "Admin",
+        "text": "I just love when there are J.Crew New Arrivals. There's nothing better than new product, especially when there's a new style. J.Crew New Arrivals Scoopneck Linen Blend Vest I'm gonna be honest. I wasn't going to get this top. But then a couple of coworkers wore it and it really grew on me"
+      },
+      "blog6": {
+        "title": "Summer Vacation Packing List",
+        "author": "Admin",
+        "text": "There is nothing quite like a vacation in the summer. The sun is out, it's finally warm enough to wear all of your favorite shorts and dresses, and the vacation options are endless. Whether you're taking off to your local beach for the weekend or hopping on a plane to somewhere tropical, there are so many opportunities to make memories"
+      }
+    }
+  },
+  "services": {
+    "free_shipping": {
+      "title": "free shipping",
+      "desc": "Capped at $10 per order"
+    },
+    "secure_payments": {
+      "title": "secure payments",
+      "desc": "Up to 6 months installments"
+    },
+    "ri_refund": {
+      "title": "15-DAYS RETURNS",
+      "desc": "Shop with fully confidence"
+    },
+    "support": {
+      "title": "24X7 FULLY SUPPORT",
+      "desc": "Get friendly support"
+    }
+  },
+  "footer": {
+    "info": {
+      "address": {
+        "street": "434 Lien Phuong Street",
+        "ward": "Phuoc Long B Ward",
+        "district": "District 9",
+        "city": "HCMC",
+        "country": "Vietnam"
+      },
+      "hotline": "Hotline"
+    },
+    "introduce": {
+      "text": "introduce",
+      "item": {
+        "life": "life",
+        "business": "business",
+        "travel": "travel",
+        "car": "car",
+        "health": "health"
+      }
+    },
+    "app_download": {
+      "text": "App download"
+    },
+    "send_gmail": {
+      "title": "Subscribe to news",
+      "input": {
+        "placeholder": "Enter your email"
+      },
+      "description": "Subscribe to our newsletter and unlock a world of exclusive benefits. Be the first to know about our latest products, special promotions, and exciting updates. Join our community of like-minded individuals who share a passion for [your niche/industry]."
+    },
+    "copyright": "© 2023 All rights reserved"
+  }
+}

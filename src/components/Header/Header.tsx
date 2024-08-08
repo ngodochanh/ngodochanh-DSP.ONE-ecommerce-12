@@ -2,14 +2,14 @@
 
 // Components
 import Logo from '@/components/Logo';
+import getLocalizedPath from '@/utils/getLocalizedPath ';
 // Icon
-import { Buy, Heart, Search, User, Menu, Close } from '@/components/Svgs';
-//
-import { NAVIGATION_LIST } from './constants';
+import { SvgBuy, SvgHeart, SvgSearch, SvgUser, SvgMenu, SvgClose } from '@/components/Svgs';
 //
 import Link from 'next/link';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 
 type NavItem = {
   path: string;
@@ -18,14 +18,49 @@ type NavItem = {
 };
 
 function Header() {
+  // Bất tắt mobile nav
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // Lấy đường dẫn để đánh dấu ở trang nào
   const path = usePathname();
+  // Dịch ngôn ngữ
+  const t = useTranslations('header');
+
+  // Nav list
+  const NAVIGATION_LIST = [
+    {
+      id: 'home',
+      label: t('navigation.home'),
+      path: process.env.HOME!,
+    },
+    {
+      id: 'about',
+      label: t('navigation.about'),
+      path: process.env.ABOUT!,
+    },
+    {
+      id: 'product',
+      label: t('navigation.product'),
+      path: process.env.PRODUCT!,
+    },
+    {
+      id: 'blogs',
+      label: t('navigation.blogs'),
+      path: process.env.BLOGS!,
+    },
+    {
+      id: 'policy',
+      label: t('navigation.policy'),
+      path: process.env.POLICY!,
+    },
+    {
+      id: 'contact',
+      label: t('navigation.contact'),
+      path: process.env.CONTACT!,
+    },
+  ];
 
   return (
-    <div
-      className='max-container bg-white flex-between-center py-[7px] sticky top-0 left-0 right-0 lg:relative  backdrop-filter backdrop-blur-sm bg-opacity-30 z-40'
-      style={{ height: 'var(--header-height)' }}
-    >
+    <div className='max-container bg-white flex-between-center py-[7px] sticky top-0 left-0 right-0 lg:relative  backdrop-filter backdrop-blur-sm bg-opacity-30 z-40'>
       <div className='flex lg:gap-[20px] xl:gap-[60px] 2xl:gap-[80px] z-10'>
         {/* Logo */}
         <Logo />
@@ -40,11 +75,10 @@ function Header() {
             {NAVIGATION_LIST.map((item: NavItem) => (
               <li className='grid' key={item.id}>
                 <Link
-                  href={item.path}
+                  href={getLocalizedPath(item.path)}
                   className={`text-navigation block py-[10px] lg:px-[5px] xl:px-[15px] lg:my-auto cursor-pointer w-full text-center self-center ${
                     path === item.path ? 'text-black font-bold' : 'text-gray-light'
                   } hover:text-black`}
-                  style={{ height: 'var(--menu-item-height)' }}
                 >
                   {item.label}
                 </Link>
@@ -63,11 +97,11 @@ function Header() {
           } sm:-translate-x-2/4 lg:translate-x-0 sm:-translate-y-2/4 lg:translate-y-0 z-10`}
         >
           <div className='py-3 pl-5 pr-3 cursor-pointer'>
-            <Search className='w-clamp-20' />
+            <SvgSearch className='w-clamp-20' />
           </div>
           <input
             type='text'
-            placeholder='Searching'
+            placeholder={t('search.placeholder')}
             className='bg-transparent outline-none flex-1 pr-5 text-clamp-16'
           />
         </form>
@@ -75,13 +109,13 @@ function Header() {
         {/* Action */}
         <div className='flex items-center lg:gap-[5px] xl:gap-[10px] text-orange-bright'>
           <div className='cursor-pointer w-10 h-full flex-center'>
-            <Heart className='w-clamp-24' />
+            <SvgHeart className='w-clamp-24' />
           </div>
           <div className='cursor-pointer w-10 h-full flex-center'>
-            <Buy className='w-clamp-24' />
+            <SvgBuy className='w-clamp-24' />
           </div>
           <div className='cursor-pointer w-10 h-full flex-center'>
-            <User className='w-clamp-24' />
+            <SvgUser className='w-clamp-24' />
           </div>
           <div
             className={`
@@ -90,7 +124,7 @@ function Header() {
               `}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            {isMenuOpen ? <Close className='w-clamp-24' /> : <Menu className='w-clamp-24' />}
+            {isMenuOpen ? <SvgClose className='w-clamp-24' /> : <SvgMenu className='w-clamp-24' />}
           </div>
         </div>
       </div>

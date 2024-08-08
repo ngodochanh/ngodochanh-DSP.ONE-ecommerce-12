@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight } from '@/components/Svgs';
+
+import getLocalizedPath from '@/utils/getLocalizedPath ';
+import { SvgArrowRight } from '@/components/Svgs';
 import { Product } from '../Products';
 
 type ProductItemProps = {
@@ -14,11 +16,11 @@ const formatPrice = (price: string | number): string => {
 };
 
 function ProductItem({ prod }: ProductItemProps) {
-  const { id, path, image, title, price } = prod;
+  const { id, image, title, price } = prod;
   const formattedPrice = formatPrice(price);
 
   return (
-    <Link href={path} className='block  w-full'>
+    <Link href={getLocalizedPath(`${process.env.PRODUCT}/${id}`)} className='block w-full'>
       <div className='relative h-[430px] rounded-[10px] mb-[13.41px] overflow-hidden'>
         <Image
           src={image}
@@ -38,7 +40,7 @@ function ProductItem({ prod }: ProductItemProps) {
           <p className='font-normal text-clamp-22 text-gray-medium leading-[30px]'>{formattedPrice}</p>
         </div>
 
-        <ArrowRight className='text-gray-dark w-clamp-18' />
+        <SvgArrowRight className='text-gray-dark w-clamp-18' />
       </div>
     </Link>
   );

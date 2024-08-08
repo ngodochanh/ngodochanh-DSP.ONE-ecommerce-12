@@ -1,12 +1,14 @@
+import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
 
 type Blog = {
+  id: string;
   image: string;
   title: string;
   author: string;
   date: Date;
-  text: string;
+  description: string;
 };
 
 type BlogItemProps = {
@@ -14,9 +16,11 @@ type BlogItemProps = {
 };
 
 function BlogItem({ blog }: BlogItemProps) {
-  const { image, title, author, date, text } = blog;
+  const { id, image, title, author, date, description } = blog;
+  const t = useTranslations('blogs');
+  const locale = useLocale();
 
-  const formattedDate = date.toLocaleDateString('en-US', {
+  const formattedDate = date.toLocaleDateString(locale, {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
@@ -35,13 +39,16 @@ function BlogItem({ blog }: BlogItemProps) {
         />
       </div>
 
-      <h5 className='font-bold text-clamp-20 line-clamp-2 mb-[10px] h-[54px]'>{title}</h5>
+      <h5 className='font-bold text-clamp-20 line-clamp-2 mb-[10px] h-[54px]'>{t(`list.blog${id}.title`)}</h5>
 
       <div className='font-normal text-clamp-12 mb-[25px]'>
-        By <span className='font-medium text-yellow-bright'>{author}</span> - {formattedDate}
+        {t('created_by')} <span className='font-medium text-yellow-bright'>{t(`list.blog${id}.author`)}</span> -{' '}
+        {formattedDate}
       </div>
 
-      <p className='font-light text-clamp-16 text-gray-darker leading-[21.6px] text-justify line-clamp-3'>{text}</p>
+      <p className='font-light text-clamp-16 text-gray-darker leading-[21.6px] text-justify line-clamp-3 h-[64.8px]'>
+        {t(`list.blog${id}.description`)}
+      </p>
     </Link>
   );
 }

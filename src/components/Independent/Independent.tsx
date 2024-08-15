@@ -21,7 +21,7 @@ function Independent() {
 
           <Link
             href='/'
-            className='flex-center gap-x-[5px] rounded max-w-[184px] w-full border-2 border-solid border-black py-4 px-[35px]'
+            className='block flex-center gap-x-[5px] rounded max-w-[184px] w-full border-2 border-solid border-black py-4 px-[35px] bg-orange-bright duration-500 z-10 hover:text-white relative before:content-[""] before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-white before:-z-10 before:origin-left before:transition-transform before:duration-500 before:ease-in-out before:scale-x-100 hover:before:origin-right hover:before:duration-500 hover:before:ease-in-out hover:before:scale-x-0'
           >
             {t('button.text')}
             <SvgChevronRight className='w-clamp-24' />

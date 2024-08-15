@@ -12,9 +12,9 @@ function Footer() {
   const t = useTranslations('footer');
   return (
     <div className='bg-black text-white text-clamp-16 -translate-y-[1px]'>
-      <div className='max-container pt-[61px] pb-[81px] flex justify-between flex-wrap gap-x-12 gap-y-[60px]'>
+      <div className='max-container pt-[61px] pb-[81px] flex flex-col lg:flex-row justify-between flex-wrap gap-x-12 gap-y-[60px]'>
         {/* Logo and contacts */}
-        <div>
+        <div className=''>
           <Logo textColor='text-white' className='mb-9 mt-2' />
 
           {/* Info */}
@@ -27,11 +27,17 @@ function Footer() {
           </div>
 
           <p className='mb-[10px]'>
-            Email: <a href='mailto:info@dspone.com'>info@dspone.com</a>
+            Email:{' '}
+            <a href='mailto:info@dspone.com' className='hover:text-orange-bright'>
+              info@dspone.com
+            </a>
           </p>
 
           <p className='mb-5'>
-            {t('info.hotline')}: <a href='tel:+84985909720'>(+84) 985 909 720</a>
+            {t('info.hotline')}:{' '}
+            <a href='tel:+84985909720' className='hover:text-orange-bright'>
+              (+84) 985 909 720
+            </a>
           </p>
 
           {/* Social */}
@@ -42,7 +48,7 @@ function Footer() {
                 <Link
                   href={href}
                   key={key}
-                  className='text-blue-strong h-clamp-35 w-clamp-35 bg-white rounded-full grid'
+                  className='text-blue-strong h-clamp-35 w-clamp-35 bg-white rounded-full grid hover:text-orange-bright'
                 >
                   <Icon className='place-self-center w-clamp-15' />
                 </Link>
@@ -51,61 +57,63 @@ function Footer() {
           </div>
         </div>
 
-        {/* Introduce */}
-        <ul className='space-y-[6px]'>
-          <li>
-            <h5 className='font-semibold'>{t('introduce.text')}</h5>
-          </li>
-          {LINK_LIST.map((item) => (
-            <li key={item.key} className='font-normal capitalize'>
-              <Link href={item.href}>{t(`introduce.item.${item.key}`)}</Link>
+        <div className='flex-1 flex justify-between flex-wrap gap-x-8 xl:gap-x-12 gap-y-[60px]'>
+          {/* Introduce */}
+          <ul className='space-y-[6px]'>
+            <li>
+              <h5 className='font-semibold'>{t('introduce.text')}</h5>
             </li>
-          ))}
-        </ul>
+            {LINK_LIST.map((item) => (
+              <li key={item.key} className='font-normal capitalize hover:text-orange-bright'>
+                <Link href={item.href}>{t(`introduce.item.${item.key}`)}</Link>
+              </li>
+            ))}
+          </ul>
 
-        {/* App download */}
-        <div>
-          <h5 className='font-semibold pb-3'>{t('app_download.text')}</h5>
+          {/* App download */}
+          <div>
+            <h5 className='font-semibold pb-3'>{t('app_download.text')}</h5>
 
-          <Link href='/' className='block pb-[10px]'>
-            <Image
-              src={AppStore}
-              alt='Download App Store'
-              width={150}
-              height={43.33}
-              loading='lazy'
-              className='h-[43.33px] w-auto'
-            />
-          </Link>
+            <Link href='/' className='block pb-[10px]'>
+              <Image
+                src={AppStore}
+                alt='Download App Store'
+                width={150}
+                height={43.33}
+                loading='lazy'
+                className='h-[43.33px] w-auto'
+              />
+            </Link>
 
-          <Link href='/' className='block pb-[10px]'>
-            <Image
-              src={GooglePlay}
-              alt='Download Google Play'
-              width={150}
-              height={43.33}
-              loading='lazy'
-              className='h-[43.33px] w-auto'
-            />
-          </Link>
-        </div>
+            <Link href='/' className='block pb-[10px]'>
+              <Image
+                src={GooglePlay}
+                alt='Download Google Play'
+                width={150}
+                height={43.33}
+                loading='lazy'
+                className='h-[43.33px] w-auto'
+              />
+            </Link>
+          </div>
 
-        {/* Send gmail */}
-        <div className='w-[382px]'>
-          <h5 className='font-semibold pb-3'>{t('send_gmail.title')}</h5>
+          {/* Send gmail */}
+          <div className='max-w-[382px] w-full'>
+            <h5 className='font-semibold pb-3'>{t('send_gmail.title')}</h5>
 
-          <form action='' className='flex-between-center h-[48px] px-4 py-[10px] rounded bg-white-25 mb-3'>
-            <input
-              type='text'
-              className=' bg-transparent outline-none flex-grow'
-              placeholder={t('send_gmail.input.placeholder')}
-            />
-            <button type='submit' className='text-blue-strong'>
-              <SvgEnvelope />
-            </button>
-          </form>
+            <form action='' className='flex-between-center h-[48px] px-4 py-[10px] rounded bg-white-25 mb-3'>
+              <input
+                type='text'
+                className=' bg-transparent outline-none flex-grow'
+                placeholder={t('send_gmail.input.placeholder')}
+              />
+              <button type='submit' className='text-blue-strong'>
+                <SvgEnvelope />
+              </button>
+            </form>
 
-          <p className='font-light text-clamp-14 leading-[18.2px]'>{t('send_gmail.description')}</p>
+            <p className='font-light text-clamp-14 leading-[18.2px]'>{t('send_gmail.description')}</p>
+          </div>
         </div>
       </div>
 

@@ -6,11 +6,11 @@ const withNextIntl = createNextIntlPlugin();
 const nextConfig = {
   env: {
     HOME: '/',
-    ABOUT: 'about',
-    PRODUCT: 'product',
-    BLOGS: 'blogs',
-    POLICY: 'policy',
-    CONTACT: 'contact',
+    ABOUT: '/about',
+    PRODUCT: '/product',
+    BLOGS: '/blogs',
+    POLICY: '/policy',
+    CONTACT: '/contact',
   },
 };
 

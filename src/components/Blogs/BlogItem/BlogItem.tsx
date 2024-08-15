@@ -27,7 +27,7 @@ function BlogItem({ blog }: BlogItemProps) {
   });
 
   return (
-    <Link href='/' className='block  w-full'>
+    <Link href='/' className='block w-full group'>
       <div className='relative h-[350px] mb-6'>
         <Image
           src={image}
@@ -39,7 +39,9 @@ function BlogItem({ blog }: BlogItemProps) {
         />
       </div>
 
-      <h5 className='font-bold text-clamp-20 line-clamp-2 mb-[10px] h-[54px]'>{t(`list.blog${id}.title`)}</h5>
+      <h5 className='font-bold text-clamp-20 line-clamp-2 mb-[10px] h-[54px] group-hover:text-orange-bright transition-colors duration-300 ease-in-out'>
+        {t(`list.blog${id}.title`)}
+      </h5>
 
       <div className='font-normal text-clamp-12 mb-[25px]'>
         {t('created_by')} <span className='font-medium text-yellow-bright'>{t(`list.blog${id}.author`)}</span> -{' '}

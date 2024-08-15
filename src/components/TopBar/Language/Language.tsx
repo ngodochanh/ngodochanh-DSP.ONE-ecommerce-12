@@ -17,7 +17,24 @@ function Language({ inputPlaceholder, languageList }: LanguageProps) {
   // Giá trị input
   const [inputValue, setInputValue] = useState('');
   // Mục được chọn
-  const [selectedItem, setSelectedItem] = useState<LanguageType | null>(null);
+  const [selectedItem, setSelectedItem] = useState<LanguageType | null>(() => {
+    if (typeof window !== 'undefined') {
+      const storedLanguage = localStorage.getItem('language');
+      try {
+        const parsedLanguage = storedLanguage ? JSON.parse(storedLanguage) : null;
+        // Kiểm tra xem parsedLanguage có phải là LanguageType hợp lệ không
+        if (parsedLanguage && languageList.some((lang) => lang.key === parsedLanguage.key)) {
+          return parsedLanguage;
+        } else {
+          return languageList[0];
+        }
+      } catch {
+        return languageList[0];
+      }
+    } else {
+      return languageList[0];
+    }
+  });
   // Theo dõi việc mở/đóng danh sách
   const [open, setOpen] = useState(false);
   //
@@ -25,30 +42,9 @@ function Language({ inputPlaceholder, languageList }: LanguageProps) {
   const router = useRouter();
   const localActive = useLocale();
 
-  console.log(selectedItem);
-
   useEffect(() => {
     // Cập nhật danh sách các mục từ props data
     setItems(languageList);
-  }, [languageList]);
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const storedLanguage = localStorage.getItem('language');
-      try {
-        const parsedLanguage = storedLanguage ? JSON.parse(storedLanguage) : null;
-        // Kiểm tra xem parsedLanguage có phải là LanguageType hợp lệ không
-        if (parsedLanguage && languageList.some((lang) => lang.key === parsedLanguage.key)) {
-          setSelectedItem(parsedLanguage);
-        } else {
-          setSelectedItem(languageList[0]);
-        }
-      } catch {
-        setSelectedItem(languageList[0]);
-      }
-    } else {
-      setSelectedItem(languageList[0]);
-    }
   }, [languageList]);
 
   useEffect(() => {
@@ -100,30 +96,30 @@ function Language({ inputPlaceholder, languageList }: LanguageProps) {
           </div>
           {/* Hiển thị hoặc ẩn các mục với open */}
           <ul
-            className={`bg-white text-black overflow-y-auto min-w-72 absolute top-full mt-2 shadow-md right-0
-        ${open ? 'max-h-60' : 'max-h-0'} 
+            className={`bg-white rounded text-black overflow-y-auto min-w-48 absolute top-full mt-2 shadow-md right-0 max-h-60 animate-growAndFadeIn origin-top-right 
+        ${open ? 'block' : 'hidden'} 
         `}
           >
-            <div className='flex-center px-2 sticky top-0 bg-white'>
+            {/* <div className='flex-center px-2 sticky top-0 bg-white'>
               <div className='w-10 '>
-                <SvgSearch className='mx-auto w-clamp-24' />
+                <SvgSearch className='mx-auto w-clamp-24 ' />
               </div>
-              {/* Input để tìm kiếm mục */}
+
               <input
                 type='text'
                 value={inputValue}
-                // Cập nhật giá trị input
+
                 onChange={(e) => setInputValue(e.target.value.toLowerCase())}
                 placeholder={inputPlaceholder}
                 className='placeholder:text-gray-700 p-2 outline-none grow'
               />
-            </div>
+            </div> */}
             {/* Hiển thị danh sách các mục */}
             {items.map((item: LanguageType) => (
               <li
                 key={item.key}
                 // Tìm kiếm và đánh dấu mục được chọn
-                className={`p-2 text-clamp-14 hover:bg-orange-bright hover:text-white
+                className={`p-2 text-clamp-14 transition-colors hover:bg-orange-bright hover:text-white
             ${item.name.toLowerCase().startsWith(inputValue) ? 'block' : 'hidden'}    
             ${item.name.toLowerCase() === selectedItem?.name.toLowerCase() && 'bg-orange-bright text-white'}`}
                 // Chọn mục khi nhấn vào

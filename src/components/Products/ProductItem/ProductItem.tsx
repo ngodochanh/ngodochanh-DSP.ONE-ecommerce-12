@@ -20,7 +20,7 @@ function ProductItem({ prod }: ProductItemProps) {
   const formattedPrice = formatPrice(price);
 
   return (
-    <Link href={getLocalizedPath(`${process.env.PRODUCT}/${id}`)} className='block w-full'>
+    <Link href={getLocalizedPath(`${process.env.PRODUCT}/${id}`)} className='block w-full group'>
       <div className='relative h-[430px] rounded-[10px] mb-[13.41px] overflow-hidden'>
         <Image
           src={image}
@@ -28,13 +28,13 @@ function ProductItem({ prod }: ProductItemProps) {
           sizes='(max-width: 640px) 100vw, 50vw'
           fill
           loading='lazy'
-          className='object-cover'
+          className='object-cover transition-transform duration-300 ease-in-out group-hover:scale-105'
         />
       </div>
 
       <div className='flex-between-center'>
         <div>
-          <h4 className='font-semibold text-clamp-28 text-gray-deep capitalize leading-[38px] mb-[10px] line-clamp-1'>
+          <h4 className='font-semibold text-clamp-28 text-gray-deep capitalize leading-[38px] mb-[10px] line-clamp-1 group-hover:text-orange-bright transition-colors duration-300 ease-in-out'>
             {title}
           </h4>
           <p className='font-normal text-clamp-22 text-gray-medium leading-[30px]'>{formattedPrice}</p>

@@ -14,6 +14,7 @@ export default function Home() {
     <>
       <TopBar />
       <Header />
+      <Banner />
       <Category />
       <SpeialProducts />
       <Independent />

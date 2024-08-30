@@ -10,6 +10,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      maxHeight: {
+        'product-filter-menu': 'min(-122px + 100vh, 760px)',
+      },
       transitionTimingFunction: {
         'custom-bezier': 'cubic-bezier(0.5, 1.6, 0.4, 0.7)',
       },
@@ -19,10 +22,13 @@ const config: Config = {
       width: {
         'clamp-14': 'clamp(12px, 1.3vw, 14px)',
         'clamp-15': 'clamp(13px, 1.5vw, 15px)',
+        'clamp-16': 'clamp(14px, 1.6vw, 16px)',
         'clamp-18': 'clamp(16px, 1.8vw, 18px)',
         'clamp-20': 'clamp(16px, 1.9vw, 20px)',
         'clamp-24': 'clamp(18px, 1.7vw, 24px)',
+        'clamp-28': 'clamp(22px, 2vw, 28px)',
         'clamp-35': 'clamp(30px, 3vw, 35px)',
+        'clamp-46': 'clamp(30px, 4vw, 46px)',
         'clamp-50': 'clamp(44px, 6vw, 50px)',
         'clamp-80': 'clamp(64px, 5vw, 80px)',
         'clamp-150': 'clamp(100px, 10vw, 150px)',
@@ -30,10 +36,13 @@ const config: Config = {
       height: {
         'clamp-14': 'clamp(12px, 1.3vw, 14px)',
         'clamp-15': 'clamp(13px, 1.5vw, 15px)',
+        'clamp-16': 'clamp(14px, 1.6vw, 16px)',
         'clamp-18': 'clamp(16px, 1.8vw, 18px)',
         'clamp-20': 'clamp(16px, 1.9vw, 20px)',
         'clamp-24': 'clamp(18px, 1.7vw, 24px)',
+        'clamp-28': 'clamp(22px, 2vw, 28px)',
         'clamp-35': 'clamp(30px, 3vw, 35px)',
+        'clamp-46': 'clamp(40px, 4vw, 46px)',
         'clamp-50': 'clamp(44px, 6vw, 50px)',
         'clamp-80': 'clamp(64px, 5vw, 80px)',
         'clamp-150': 'clamp(100px, 10vw, 150px)',
@@ -48,6 +57,7 @@ const config: Config = {
         'clamp-22': 'clamp(18px, 2vw, 22px)',
         'clamp-24': 'clamp(18px, 1.7vw, 24px)',
         'clamp-28': 'clamp(20px, 1.9vw, 28px)',
+        'clamp-32': 'clamp(24px, 2.2vw, 32px)',
         'clamp-40': 'clamp(36px, 4.5vw, 40px)',
         'clamp-42': 'clamp(38px, 4.5vw, 42px)',
       },
@@ -64,6 +74,7 @@ const config: Config = {
         'orange-bright': '#F8991C',
         // Yellow
         'yellow-bright': '#EDCB1B',
+        'yellow-vivid': '#FFC535',
         // Gray
         'gray-lightest': '#F6F6F6',
         'gray-light': '#807D7E',
@@ -72,9 +83,15 @@ const config: Config = {
         'gray-dark': '#797979',
         'gray-deep': '#2A2F2F',
         'gray-deepest': '#1B1D21',
+        'gray-neutral': '#818181',
+        'gray-muted': '#666666',
+        'gray-light-mid': '#C4C4C4',
         // Black
         'black-dark': '#080808',
         'black-90': '#000000e6',
+        'dark-charcoal': '#32312F',
+        // Red
+        'red-bright': '#F01919',
       },
       keyframes: {
         growAndFadeIn: {

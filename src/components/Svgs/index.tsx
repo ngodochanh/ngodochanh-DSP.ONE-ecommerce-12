@@ -24,3 +24,6 @@ export { default as SvgTwitter } from './SvgTwitter';
 export { default as SvgYoutube } from './SvgYoutube';
 export { default as SvgInstagram } from './SvgInstagram';
 export { default as SvgEnvelope } from './SvgEnvelope';
+export { default as SvgMdArrowDropleft } from './SvgMdArrowDropleft';
+export { default as SvgFilter } from './SvgFilter';
+export { default as SvgCloseCircle } from './SvgCloseCircle';

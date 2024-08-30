@@ -2,13 +2,10 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 //
 import './globals.css';
-import { Providers } from '../providers';
+import { NexTUIProviders } from '../providers';
 // Components
-
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
 import { NextIntlClientProvider, useMessages } from 'next-intl';
-import TopBar from '@/components/TopBar';
+import Footer from '@/components/Footer';
 
 type RootLayoutProps = {
   children: React.ReactNode;
@@ -60,12 +57,12 @@ export default function RootLayout({ children, params: { locale } }: Readonly<Ro
     <html lang={locale}>
       <body className={SVN_GILROY.className}>
         <NextIntlClientProvider messages={messages} locale={locale}>
-          <Providers>
-            <div className='max-w-[1920px] mx-auto overflow-x-hidden'>
-              <main>{children}</main>
-              <Footer />
-            </div>
-          </Providers>
+            <NexTUIProviders>
+              <div className='max-w-[1920px] mx-auto'>
+                <main>{children}</main>
+                <Footer />
+              </div>
+            </NexTUIProviders>
         </NextIntlClientProvider>
       </body>
     </html>

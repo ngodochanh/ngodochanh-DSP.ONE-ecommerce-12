@@ -6,7 +6,6 @@ import getLocalizedPath from '@/utils/getLocalizedPath ';
 // Icon
 import { SvgBuy, SvgHeart, SvgSearch, SvgUser, SvgMenu, SvgClose } from '@/components/Svgs';
 //
-import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
@@ -62,7 +61,7 @@ function Header() {
   ];
 
   return (
-    <div className='max-container bg-white flex-between-center py-[7px] sticky top-0 left-0 right-0 lg:relative  backdrop-filter backdrop-blur-sm bg-opacity-30 z-40'>
+    <div className='max-container bg-white flex-between-center py-[7px] sticky top-0 left-0 right-0 lg:relative  backdrop-filter backdrop-blur-sm bg-opacity-30 z-20'>
       <div className='flex lg:gap-[8px] xl:gap-[16px] 2xl:gap-[80px] z-10'>
         {/* Logo */}
         <Logo />
@@ -75,7 +74,6 @@ function Header() {
         >
           <ul className='flex flex-col lg:flex-row gap-x-[2px] xl:gap-x-[10px] h-full'>
             {NAVIGATION_LIST.map((item: NavItem) => {
-              console.log(item.path, path);
               return (
                 <li className='grid' key={item.id}>
                   <Link

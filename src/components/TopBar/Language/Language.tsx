@@ -77,7 +77,7 @@ function Language({ inputPlaceholder, languageList }: LanguageProps) {
   };
 
   return (
-    <div className={`font-medium text-white cursor-pointer relative z-50`}>
+    <div className={`font-medium text-white cursor-pointer relative z-20`}>
       {/* Hiển thị mục được chọn hoặc 'Select' nếu chưa có mục nào được chọn */}
       {languageList.length !== 0 && (
         <>

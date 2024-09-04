@@ -1,6 +1,6 @@
 'use client';
 
-import { initialState } from '@/app/[locale]/product/ProductStore/reducer';
+import { initialState } from '@/components/ProductStore/reducer';
 import { ActionType, InitStateType } from '@/app/[locale]/product/type';
 import { createContext, Dispatch } from 'react';
 

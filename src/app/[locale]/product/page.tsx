@@ -4,7 +4,6 @@ import Breadcrumb from '@/components/Breadcrumb';
 import Segment from '@/components/Segment';
 
 import ProductFilte from './ProductFilter';
-import { ProductStore } from '@/app/[locale]/product/ProductStore';
 
 function Products() {
   const t = useTranslations('header');
@@ -26,9 +25,7 @@ function Products() {
     <>
       <Breadcrumb breadCrumbList={BREADCRUMB_LIST} />
       <Segment title={t('navigation.product')} />
-      <ProductStore>
-        <ProductFilte />
-      </ProductStore>
+      <ProductFilte />
     </>
   );
 }

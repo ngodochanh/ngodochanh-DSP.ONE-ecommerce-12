@@ -3,6 +3,7 @@ import localFont from 'next/font/local';
 //
 import './globals.css';
 import { NexTUIProviders } from '../providers';
+import { ProductStore } from '@/components/ProductStore';
 // Components
 import { NextIntlClientProvider, useMessages } from 'next-intl';
 import Footer from '@/components/Footer';
@@ -57,12 +58,14 @@ export default function RootLayout({ children, params: { locale } }: Readonly<Ro
     <html lang={locale}>
       <body className={SVN_GILROY.className}>
         <NextIntlClientProvider messages={messages} locale={locale}>
-            <NexTUIProviders>
+          <NexTUIProviders>
+            <ProductStore>
               <div className='max-w-[1920px] mx-auto'>
                 <main>{children}</main>
                 <Footer />
               </div>
-            </NexTUIProviders>
+            </ProductStore>
+          </NexTUIProviders>
         </NextIntlClientProvider>
       </body>
     </html>

@@ -10,7 +10,8 @@ import {
   RESET_FILTER,
   SET_PRODUCTS,
 } from '@/app/[locale]/product/constants';
-import { ProductFilterMenuType, ProductType } from '@/app/[locale]/product/type';
+import { ProductFilterMenuType } from '@/app/[locale]/product/type';
+import { ProductType } from '@/type';
 
 const setProducts = (payload: ProductType[]) => {
   return {

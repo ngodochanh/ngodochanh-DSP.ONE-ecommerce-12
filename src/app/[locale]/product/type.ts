@@ -1,3 +1,5 @@
+import { ProductType } from '@/type';
+
 export type ProductFilterMenuType = {
   label: string;
   value: string;
@@ -15,17 +17,6 @@ export type ProductFilterMenuTypeProps = {
   keyProductFilter: string;
   productFilterList: ProductFilterMenuType[];
   handleChangeFilter: FuncHandleChangeType;
-};
-
-export type ProductType = {
-  id: number;
-  image: string;
-  title: string;
-  price: number;
-  originalPrice: number;
-  gender: string[];
-  color: string[];
-  size: string[];
 };
 
 export type FilterType = {

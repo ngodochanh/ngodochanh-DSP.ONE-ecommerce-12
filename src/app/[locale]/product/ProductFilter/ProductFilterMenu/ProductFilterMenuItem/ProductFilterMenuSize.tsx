@@ -1,4 +1,4 @@
-import { useProductStore } from '@/app/[locale]/product/ProductStore';
+import { useProductStore } from '@/components/ProductStore';
 import { ProductFilterMenuTypeProps } from '@/app/[locale]/product/type';
 import { memo } from 'react';
 import { useLocale } from 'next-intl';

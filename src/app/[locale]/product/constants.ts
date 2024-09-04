@@ -1,4 +1,5 @@
 import { InitStateType } from '@/app/[locale]/product/type';
+import { SvgAwardLight, SvgProtectLight, SvgTimeLight, SvgTruckLight } from '@/components/Svgs';
 import { COLOR_LIST, GENDER_LIST, SIZE_LIST } from '@/constantsProduct';
 
 const RESET_FILTER = 'reset_filter';
@@ -160,6 +161,29 @@ const INITIAL_STATE: InitStateType = {
 
 const PER_PAGE = 9;
 
+const PRODUCT_SERVICE_LIST = [
+  {
+    id: 'a',
+    description: 'There are many variations of passages of Lorem Ipsum available',
+    Icon: SvgAwardLight,
+  },
+  {
+    id: 'b',
+    description: 'There are many variations of passages of Lorem Ipsum available',
+    Icon: SvgProtectLight,
+  },
+  {
+    id: 'c',
+    description: 'There are many variations of passages of Lorem Ipsum available',
+    Icon: SvgTruckLight,
+  },
+  {
+    key: 'd',
+    description: 'There are many variations of passages of Lorem Ipsum available',
+    Icon: SvgTimeLight,
+  },
+];
+
 export {
   RESET_FILTER,
   PRICE_LIST,
@@ -176,4 +200,5 @@ export {
   PRODUCT_FILTER_LIST,
   INITIAL_STATE,
   PER_PAGE,
+  PRODUCT_SERVICE_LIST,
 };

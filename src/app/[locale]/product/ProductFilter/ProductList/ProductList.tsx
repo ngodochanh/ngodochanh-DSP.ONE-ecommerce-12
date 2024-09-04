@@ -2,9 +2,10 @@ import { useSearchParams } from 'next/navigation';
 import PaginationProduct from './PaginationProduct';
 import ProductItem from './ProductItem';
 import { PER_PAGE, PRICE_LIST } from '@/app/[locale]/product/constants';
-import { FilterType, ProductFilterMenuType, ProductType } from '@/app/[locale]/product/type';
+import { FilterType, ProductFilterMenuType } from '@/app/[locale]/product/type';
 import { memo, useMemo } from 'react';
 import { PRODUCT_LIST } from '@/constantsProduct';
+import { ProductType } from '@/type';
 
 type ProductListProps = {
   prodFilterList: FilterType;
@@ -53,12 +54,13 @@ function ProductList({ prodFilterList }: ProductListProps) {
   return (
     <div>
       <ul className='flex flex-wrap gap-x-2 sm:gap-x-4 2xl:gap-x-5 gap-y-[50px]'>
-        {entries.map((product) => (
-          <ProductItem key={product.id} {...product} />
-        ))}
+        {entries.length === 0 ? (
+          <div className='text-center'>Không có sản phẩm</div>
+        ) : (
+          entries.map((product) => <ProductItem key={product.id} {...product} />)
+        )}
       </ul>
-
-      <PaginationProduct total={filteredProducts.length} page={page} />
+      {filteredProducts.length !== 0 && <PaginationProduct total={filteredProducts.length} page={page} />}
     </div>
   );
 }

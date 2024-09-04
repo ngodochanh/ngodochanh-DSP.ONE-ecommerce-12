@@ -7,7 +7,7 @@ import { useCallback, useState } from 'react';
 import { ProductFilterMenuType } from '@/app/[locale]/product/type';
 
 import { KEY_PRODUCT_FILTER } from '@/app/[locale]/product/constants';
-import { useProductStore, actions } from '@/app/[locale]/product/ProductStore';
+import { useProductStore, actions } from '@/components/ProductStore';
 
 function ProductFilter() {
   const [isFilterEnabled, setIsFilterEnabled] = useState(false);
@@ -81,7 +81,7 @@ function ProductFilter() {
         handleRemoveFilter={handleRemoveFilter}
       />
 
-      <div className='max-container grid grid-cols-1 gap-x-4 2xl:gap-x-[60px] lg:grid-cols-[250px_auto] xl:grid-cols-[300px_auto] 2xl:grid-cols-[343px_auto] mt-[30px] mb-[120px]'>
+      <div className='max-container grid grid-cols-1 gap-x-4 2xl:gap-x-[60px] lg:grid-cols-[250px_auto] xl:grid-cols-[300px_auto] 2xl:grid-cols-[343px_auto] mt-[10px] lg:mt-[30px] mb-[120px]'>
         <ProductFilterMenu
           isFilterEnabled={isFilterEnabled}
           handleToggleFilter={handleToggleFilter}

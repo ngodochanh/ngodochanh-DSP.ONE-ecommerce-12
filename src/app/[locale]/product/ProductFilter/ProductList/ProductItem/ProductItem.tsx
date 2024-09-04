@@ -1,20 +1,13 @@
-import { ProductType } from '@/app/[locale]/product/type';
+import { ProductType } from '@/type';
+import { calculateDiscountPercentage, formatCurrencyVND } from '@/utils/currency';
+import getLocalizedPath from '@/utils/getLocalizedPath ';
 import Image from 'next/image';
 import Link from 'next/link';
 
-function calculateDiscountPercentage(price: number, originalPrice: number): string {
-  const discountPercentage = ((originalPrice - price) / originalPrice) * 100;
-  return discountPercentage.toFixed(2) + '%';
-}
-
-function formatCurrencyVND(amount: number): string {
-  return amount.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
-}
-
-function ProductItem({ id, image, title, price, originalPrice }: ProductType) {
+function ProductItem({ id, image, title, price, originalPrice, slug }: ProductType) {
   return (
     <li className='flex-1 min-w-72'>
-      <Link href='/' className='group'>
+      <Link href={getLocalizedPath(process.env.PRODUCT + '/' + id)} className='group'>
         <div className='relative h-[430px] rounded-[10px] overflow-hidden mb-[15px]'>
           <Image
             src={image}

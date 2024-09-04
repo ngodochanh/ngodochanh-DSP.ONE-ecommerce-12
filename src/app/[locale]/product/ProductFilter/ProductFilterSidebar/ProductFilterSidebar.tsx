@@ -15,7 +15,7 @@ function ProductFilterSidebar({ prodFilterList, handleToggleFilter, handleRemove
   const { gender, color, size, price } = prodFilterList;
   return (
     <div className='max-container  lg:flex items-center gap-x-[26px] py-5'>
-      <div className='flex justify-between'>
+      <div className='flex justify-between mb-[10px] lg:mb-0'>
         <span className='font-normal text-clamp-16'>Bộ lọc đã chọn:</span>
 
         <div className='grid grid-cols-[auto_24px] gap-x-[6px] lg:hidden'>

@@ -35,3 +35,5 @@ export { default as SvgMinus } from './SvgMinus';
 export { default as SvgPlus } from './SvgPlus';
 export { default as SvgStar } from './SvgStar';
 export { default as SvgStarHalfLeft } from './SvgStarHalfLeft';
+export { default as SvgLike } from './SvgLike';
+export { default as SvgDislike } from './SvgDislike';

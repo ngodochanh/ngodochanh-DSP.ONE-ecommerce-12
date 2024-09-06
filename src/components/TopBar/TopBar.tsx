@@ -15,9 +15,9 @@ function TopBar() {
 
   return (
     <div className='bg-black py-[1.5px] text-clamp-14 font-normal z-30'>
-      <div className='max-container flex-between-center text-white '>
+      <div className='max-container flex justify-between items-center text-white '>
         {/* Hotline  */}
-        <div className='flex-center gap-x-[5px]'>
+        <div className='flex justify-center items-center gap-x-[5px]'>
           <SvgPhoneCall className='w-clamp-14' />
           <p>
             <span className='hidden sm:inline'>{t('hotline')}:</span> (+84) 903883083
@@ -28,7 +28,7 @@ function TopBar() {
         <p className='hidden md:block'>{t('follow_us')}</p>
 
         {/* Language  */}
-        <div className='flex-center gap-x-[5px]'>
+        <div className='flex justify-center items-center gap-x-[5px]'>
           <SvgLanguage className='w-clamp-14' />
           {t('language.text')}:
           <Language inputPlaceholder={t('language.placeholder')} languageList={LANGUAGES} />

@@ -37,14 +37,14 @@ function ProductInfo() {
                 activeTab ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
               }`}
             >
-              Xem thêm
+              Thu gọn
             </span>
             <span
               className={`absolute left-0 top-0 w-full transition-all duration-300 ${
                 activeTab ? 'opacity-0 -translate-y-2' : 'opacity-100 translate-y-0'
               }`}
             >
-              Thu gọn
+              Xem thêm
             </span>
           </span>
 

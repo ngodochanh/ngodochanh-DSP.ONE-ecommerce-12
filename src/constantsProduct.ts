@@ -29,198 +29,250 @@ const SIZE_LIST = {
   quintuple_extra_large: 'quintuple_extra_large',
 };
 
+const CATEGORY_LIST = {
+  t_shirt: 'T-shirt',
+  shirt: 'shirt',
+  trousers: 'trousers',
+  jacket: 'áo khoác',
+};
+
 const PRODUCT_LIST = [
   {
     id: 1,
-    image: '/images/products/product1.png',
-    title: 'Nalya Package',
-    price: 490000,
-    originalPrice: 529000,
+    image:
+      'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-thun-nam-yody-TSM7177-TRA,%20QSM7031-TIT%20,(7).JPG',
+    title: 'Áo Phông Nam Slim Fit Rib',
+    price: 249000,
+    originalPrice: 299000,
+    gender: [GENDER_LIST.male],
+    color: [COLOR_LIST.black, COLOR_LIST.brown, COLOR_LIST.gray, COLOR_LIST.white],
+    size: [SIZE_LIST.medium, SIZE_LIST.large, SIZE_LIST.extra_large, SIZE_LIST.double_extra_large],
+    slug: 'ao-phong-nam-slim-fit-rib',
+    description: `
+    <p>Áo thun nam YODY với thành phần ba loại sợi Cotton, Viscose, Spandex kết hợp cùng kiểu dệt rib nên sở hữu nhiều ưu điểm nổi bật. Áo cho cảm giác mặc mềm mướt trên da và vô cùng thông thoáng, phù hợp mặc trong mùa xuân hè. Sự co giãn đàn hồi tốt cũng giúp chiếc áo này xứng đáng trở thành món đồ yêu thích cho thời trang năng động hàng ngày của các anh.</p>
+    `,
+    total_reviews: 100,
+    rating: 4.5,
+    category: CATEGORY_LIST.t_shirt,
+  },
+  {
+    id: 2,
+    image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-thun-nu-yody-TSN7271-XAM-4.JPG',
+    title: 'T-shirt Nữ Cổ Rộng Crotop',
+    price: 99000,
+    originalPrice: 149000,
     gender: [GENDER_LIST.female],
-    color: [COLOR_LIST.red, COLOR_LIST.gray, COLOR_LIST.white],
+    color: [COLOR_LIST.gray, COLOR_LIST.red, COLOR_LIST.black, COLOR_LIST.white],
+    size: [SIZE_LIST.small, SIZE_LIST.medium],
+    slug: 't-shirt-nu-co-rong-crotop',
+    description: `
+    <p>Everyday Basics: SẢN PHẨM TỐT - GIÁ TRẢI NGHIỆM</p>
+    <p>Nàng sẽ ngay lập tức tăng điểm nữ tính mà vẫn vô cùng thoải mái cùng chiếc áo thun này. Sản phẩm được thiết kế với cổ rộng giúp tôn lên chiếc cổ thanh mảnh cùng xương quai xanh kiểu diễm. Dáng áo croptop cũng phù hợp để hack dáng hơn khi lên đồ.</p>
+  `,
+    total_reviews: 40,
+    rating: 4.5,
+    category: CATEGORY_LIST.t_shirt,
+  },
+  {
+    id: 3,
+    image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-thun-nam-TSM7047-DN1%20(5).JPG',
+    title: 'Áo Phông Nam Regular Foundation',
+    price: 269000,
+    originalPrice: 289000,
+    gender: [GENDER_LIST.male],
+    color: [COLOR_LIST.brown, COLOR_LIST.black],
+    size: [SIZE_LIST.large],
+    slug: 'ao-phong-nam-regular-foundation',
+    description: `
+    <p>Chất liệu Cotton BCI cao cấp mềm mại, thoáng mát, thấm hút mồ hôi tốt. An toàn cho da kể cả da nhạy cảm. Giảm thiểu tác động môi trường, góp phần phát triển bền vững. Kiểu dáng Regular Fit vừa vặn, thoải mái. Độ bền cao, giữ form tốt sau nhiều lần giặt.</p>
+  `,
+    total_reviews: 60,
+    rating: 4.5,
+    category: CATEGORY_LIST.t_shirt,
+  },
+  {
+    id: 4,
+    image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-so-mi-nam-SCM7015-XAH%20(1).jpg',
+    title: 'Sơ Mi Nam Cộc Tay Cafe Túi Ngực',
+    price: 469000,
+    originalPrice: 489000,
+    gender: [GENDER_LIST.male],
+    color: [COLOR_LIST.blue],
     size: [
-      SIZE_LIST.small,
       SIZE_LIST.medium,
       SIZE_LIST.large,
       SIZE_LIST.extra_large,
       SIZE_LIST.double_extra_large,
       SIZE_LIST.triple_extra_large,
       SIZE_LIST.quadruple_extra_large,
-      SIZE_LIST.quintuple_extra_large,
     ],
-    slug: 'nalya-package',
+    slug: 'so-mi-nam-coc-tay-cafe-tui-nguc',
     description: `
-    Gói Nalya là lựa chọn hoàn hảo cho người phụ nữ tinh tế, mang lại sự kết hợp tuyệt vời giữa thiết kế hiện đại và vẻ đẹp vượt thời gian. Với dáng áo ôm nhẹ nhàng và đa dạng màu sắc như đỏ tươi, xám cổ điển, và trắng tinh khôi, sản phẩm này phù hợp với mọi phong cách. Có sẵn từ size nhỏ (S) đến siêu lớn (5XL), đảm bảo vừa vặn hoàn hảo cho mọi dáng người. Chất liệu vải cao cấp cùng sự tỉ mỉ trong từng chi tiết khiến gói sản phẩm này trở thành lựa chọn không thể bỏ qua trong bất kỳ tủ đồ nào, vừa thoải mái vừa thời trang.`,
-    total_reviews: 12,
-    rating: 4.5,
-  },
-  {
-    id: 2,
-    image: '/images/products/product2.png',
-    title: 'Aria Dress',
-    price: 550000,
-    originalPrice: 600000,
-    gender: [GENDER_LIST.female],
-    color: [COLOR_LIST.pink, COLOR_LIST.white],
-    size: [SIZE_LIST.small, SIZE_LIST.medium, SIZE_LIST.large, SIZE_LIST.extra_large],
-    slug: 'aria-dress',
-    description: `
-    Chiếc váy Aria mang đến vẻ đẹp dịu dàng và nữ tính với màu hồng phấn và trắng tinh khôi. Thiết kế đơn giản nhưng tinh tế, phù hợp cho các buổi tiệc nhẹ nhàng hay dạo phố.`,
-    total_reviews: 8,
+    <p>Chất vải nhẹ nhàng, co giãn nhẹ tạo cảm giác thoải mái khi vận động. Khô thoáng, thấm hút mồ hôi nhanh, không bám mùi hôi. Chống tia UV đến 98% giúp bảo vệ da khỏi tác hại của ánh nắng mặt trời. Kiểu dáng thanh lịch với thiết kế cộc tay, túi ngực phù hợp cho nhiều hoàn cảnh: đi làm, đi chơi, dạo phố.</p>
+  `,
+    total_reviews: 190,
     rating: 5,
-  },
-  {
-    id: 3,
-    image: '/images/products/product3.png',
-    title: 'Luna Jacket',
-    price: 750000,
-    originalPrice: 800000,
-    gender: [GENDER_LIST.male],
-    color: [COLOR_LIST.black, COLOR_LIST.blue],
-    size: [SIZE_LIST.medium, SIZE_LIST.large, SIZE_LIST.extra_large, SIZE_LIST.double_extra_large],
-    slug: 'luna-jacket',
-    description: `
-    Áo khoác Luna mang phong cách hiện đại và mạnh mẽ, với chất liệu vải cao cấp và màu sắc đen, xanh dương. Phù hợp cho những ngày se lạnh.`,
-    total_reviews: 15,
-    rating: 4.5,
-  },
-  {
-    id: 4,
-    image: '/images/products/product4.png',
-    title: 'Orion T-Shirt',
-    price: 300000,
-    originalPrice: 350000,
-    gender: [GENDER_LIST.male, GENDER_LIST.female],
-    color: [COLOR_LIST.green, COLOR_LIST.gray],
-    size: [SIZE_LIST.small, SIZE_LIST.medium, SIZE_LIST.large],
-    slug: 'orion-tshirt',
-    description: `
-    Áo thun Orion với thiết kế đơn giản, màu sắc tươi sáng, phù hợp cho cả nam và nữ. Chất liệu cotton thoáng mát, dễ chịu.`,
-    total_reviews: 20,
-    rating: 4.5,
+    category: CATEGORY_LIST.shirt,
   },
   {
     id: 5,
-    image: '/images/products/product5.png',
-    title: 'Stella Pants',
-    price: 400000,
-    originalPrice: 450000,
+    image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/smn7004-tra-cvn6162-nau-7.jpg',
+    title: 'Sơ Mi Nữ Dài Tay Vạt Vai Áo',
+    price: 469000,
+    originalPrice: 489000,
     gender: [GENDER_LIST.female],
-    color: [COLOR_LIST.black, COLOR_LIST.brown],
-    size: [SIZE_LIST.small, SIZE_LIST.medium, SIZE_LIST.large, SIZE_LIST.extra_large],
-    slug: 'stella-pants',
+    color: [COLOR_LIST.white, COLOR_LIST.blue, COLOR_LIST.black],
+    size: [SIZE_LIST.small, SIZE_LIST.medium, SIZE_LIST.large],
+    slug: 'so-mi-nu-dai-tay-vat-vai-ao',
     description: `
-    Quần Stella với thiết kế ôm sát, chất liệu vải co giãn tốt, mang lại sự thoải mái và phong cách cho người mặc.`,
-    total_reviews: 10,
-    rating: 4,
+    <p>Áo sơ mi dài tay với vạt vai áo cách điệu, tạo điểm nhấn nữ tính và thanh lịch. Cổ áo bẻ thanh lịch, phù hợp với nhiều môi trường khác nhau. Vải nhẹ, thoáng mát, tạo cảm giác thoải mái khi mặc. Thấm hút mồ hôi tốt, giúp bạn luôn khô ráo và dễ chịu.</p>
+  `,
+    total_reviews: 110,
+    rating: 5,
+    category: CATEGORY_LIST.shirt,
   },
   {
     id: 6,
-    image: '/images/products/product6.png',
-    title: 'Vega Shoes',
-    price: 850000,
-    originalPrice: 900000,
+    image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/quan-au-nam-qam6039-den-5-yodyvn.jpg',
+    title: 'Quần Âu Nam Slim Cạp Di Động',
+    price: 599000,
+    originalPrice: 644000,
     gender: [GENDER_LIST.male],
-    color: [COLOR_LIST.white, COLOR_LIST.blue],
-    size: [SIZE_LIST.medium, SIZE_LIST.large, SIZE_LIST.extra_large],
-    slug: 'vega-shoes',
+    color: [COLOR_LIST.black, COLOR_LIST.blue],
+    size: [],
+    slug: 'quan-au-nam-slim-cap-di-dong',
     description: `
-    Giày Vega với thiết kế thể thao, màu sắc trẻ trung, phù hợp cho các hoạt động ngoài trời.`,
-    total_reviews: 18,
-    rating: 5,
+    <p>Một thiết kế quần âu lịch lãm, thoải mái, không gò bó trên nền chất vải Nano được hàng ngàn khách hàng tại YODY ưng ý. Thiết kế đai di động với phần chun được may kín khéo léo, tỉ mỉ giúp phù hợp với mọi đối tượng, co giãn vừa đủ linh hoạt.</p>
+  `,
+    total_reviews: 80,
+    rating: 4,
+    category: CATEGORY_LIST.trousers,
   },
   {
     id: 7,
-    image: '/images/products/product7.png',
-    title: 'Nova Hat',
-    price: 200000,
-    originalPrice: 250000,
-    gender: [GENDER_LIST.male, GENDER_LIST.female],
-    color: [COLOR_LIST.red, COLOR_LIST.black],
-    size: [SIZE_LIST.small, SIZE_LIST.medium, SIZE_LIST.large],
-    slug: 'nova-hat',
+    image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-khoac-nu-skn6004-hog-18.jpg',
+    title: 'Áo Khoác Thể Thao Nữ Gió Dáng Ngắn',
+    price: 649000,
+    originalPrice: 724000,
+    gender: [GENDER_LIST.female],
+    color: [COLOR_LIST.pink],
+    size: [SIZE_LIST.extra_large],
+    slug: 'ao-khoac-the-thao-nu-gio-dang-ngan',
     description: `
-    Mũ Nova với thiết kế đơn giản, màu sắc nổi bật, phù hợp cho cả nam và nữ.`,
-    total_reviews: 5,
+    <p>Áo khoác gió dáng ngắn, mũ liền có chốt dây rút điều chỉnh độ rộng chật của mũ. Hai túi cơi khóa thân trước, vị trí cơi túi có hình in phản quang. Gấu áo có dây rút trong. Thân sau có hình in text phản quang.</p>
+  `,
+    total_reviews: 180,
     rating: 5,
+    category: CATEGORY_LIST.jacket,
   },
-  // Tiếp tục tạo các sản phẩm khác từ 8 đến 30
   {
     id: 8,
-    image: '/images/products/product8.png',
-    title: 'Aurora Scarf',
-    price: 150000,
-    originalPrice: 180000,
+    image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-khoac-nu-SKN7004-DEN%20(1).JPG',
+    title: 'Áo Khoác Thể Thao Nữ Siêu Nhẹ',
+    price: 390000,
+    originalPrice: 459000,
     gender: [GENDER_LIST.female],
-    color: [COLOR_LIST.purple, COLOR_LIST.gray],
-    size: [SIZE_LIST.small, SIZE_LIST.medium],
-    slug: 'aurora-scarf',
+    color: [COLOR_LIST.black, COLOR_LIST.purple, COLOR_LIST.pink],
+    size: [SIZE_LIST.medium, SIZE_LIST.small, SIZE_LIST.large, SIZE_LIST.extra_large],
+    slug: 'ao-khoac-the-thao-nu-sieu-nhe',
     description: `
-    Khăn quàng Aurora với chất liệu mềm mại, màu sắc tinh tế, mang lại sự ấm áp và phong cách cho người mặc.`,
-    total_reviews: 7,
-    rating: 5,
-  },
-  {
-    id: 9,
-    image: '/images/products/product1.png',
-    title: 'Phoenix Belt',
-    price: 250000,
-    originalPrice: 300000,
-    gender: [GENDER_LIST.male],
-    color: [COLOR_LIST.brown, COLOR_LIST.black],
-    size: [SIZE_LIST.medium, SIZE_LIST.large],
-    slug: 'phoenix-belt',
-    description: `
-    Thắt lưng Phoenix với thiết kế chắc chắn, chất liệu da cao cấp, phù hợp cho các dịp trang trọng.`,
-    total_reviews: 12,
-    rating: 4.5,
-  },
-  {
-    id: 10,
-    image: '/images/products/product2.png',
-    title: 'Gemini Gloves',
-    price: 180000,
-    originalPrice: 220000,
-    gender: [GENDER_LIST.male, GENDER_LIST.female],
-    color: [COLOR_LIST.black, COLOR_LIST.gray],
-    size: [SIZE_LIST.small, SIZE_LIST.medium, SIZE_LIST.large],
-    slug: 'gemini-gloves',
-    description: `
-    Găng tay Gemini với thiết kế hiện đại, chất liệu ấm áp, phù hợp cho cả nam và nữ.`,
-    total_reviews: 9,
-    rating: 4.5,
-  },
-  // Các sản phẩm tiếp theo từ 11 đến 30
-  {
-    id: 11,
-    image: '/images/products/product3.png',
-    title: 'Leo Sunglasses',
-    price: 320000,
-    originalPrice: 350000,
-    gender: [GENDER_LIST.male, GENDER_LIST.female],
-    color: [COLOR_LIST.black, COLOR_LIST.brown],
-    size: [SIZE_LIST.medium, SIZE_LIST.large],
-    slug: 'leo-sunglasses',
-    description: `
-    Kính mát Leo với thiết kế thời trang, bảo vệ mắt khỏi tia UV, phù hợp cho cả nam và nữ.`,
-    total_reviews: 14,
-    rating: 5,
-  },
-  {
-    id: 12,
-    image: '/images/products/product4.png',
-    title: 'Capella Backpack',
-    price: 600000,
-    originalPrice: 650000,
-    gender: [GENDER_LIST.male, GENDER_LIST.female],
-    color: [COLOR_LIST.blue, COLOR_LIST.gray],
-    size: [SIZE_LIST.medium, SIZE_LIST.large],
-    slug: 'capella-backpack',
-    description: `
-    Ba lô Capella với thiết kế tiện dụng, chất liệu bền bỉ, phù hợp cho các chuyến đi xa.`,
-    total_reviews: 11,
+    <p>Chất liệu Nylon 100% bền bỉ, siêu nhẹ. Thoáng mát tối ưu với khả năng thoát mồ hôi nhanh, giúp bạn luôn khô ráo. Thiết kế gọn nhẹ dễ dàng cất giữ trong balo, túi xách, tiện lợi cho mọi chuyến đi. Bạn đồng hành hoàn hảo cho tập luyện thể thao, đi dã ngoại, du lịch hay những hoạt động ngoài trời.</p>
+  `,
+    total_reviews: 210,
     rating: 4,
+    category: CATEGORY_LIST.jacket,
   },
 ];
 
-export { GENDER_LIST, COLOR_LIST, SIZE_LIST, PRODUCT_LIST };
+const PRODUCT_GALLERY_LIST = [
+  {
+    id: 1,
+    image:
+      'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-thun-nam-yody-TSM7177-DEN,%20QJM6087-XAH-4,%20(3).JPG',
+  },
+  {
+    id: 1,
+    image:
+      'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-thun-nam-yody-TSM7177-NAU,%20QAM6049-BEE-6.JPG',
+  },
+  {
+    id: 1,
+    image:
+      'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-thun-nam-yody-TSM7177-GSA,%20QJM7027-DEN-8%20(4).JPG',
+  },
+  {
+    id: 1,
+    image:
+      'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-thun-nam-yody-TSM7177-TRA,%20QSM7031-TIT%20,(4).JPG',
+  },
+  {
+    id: 2,
+    image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-thun-nu-yody-TSN7271-XAM-4.JPG',
+  },
+  {
+    id: 2,
+    image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-thun-nu-yody-TSN7271-DOD-5.JPG',
+  },
+  {
+    id: 2,
+    image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-thun-nu-yody-TSN7271-DEN-6.JPG',
+  },
+  {
+    id: 2,
+    image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-thun-nu-yody-TSN7271-TRA-2.JPG',
+  },
+  {
+    id: 3,
+    image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-thun-nam-TSM7047-NAU%20(1).JPG',
+  },
+  {
+    id: 3,
+    image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-thun-nam-TSM7047-DN1%20(1).JPG',
+  },
+  {
+    id: 4,
+    image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-so-mi-nam-SCM7015-XAH%20(1).jpg',
+  },
+  {
+    id: 5,
+    image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/smn7004-tra-cvn6162-nau-7.jpg',
+  },
+  {
+    id: 5,
+    image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/smn7004-xah-qan6208-ghd-6.jpg',
+  },
+  {
+    id: 5,
+    image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/smn7004-den-qjn3072-tra-7.jpg',
+  },
+  {
+    id: 6,
+    image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/quan-au-nam-qam6039-den-5-yodyvn.jpg',
+  },
+  {
+    id: 6,
+    image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/qam6039-xdm-5.jpg',
+  },
+  {
+    id: 7,
+    image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-khoac-nu-skn6004-hog-18.jpg',
+  },
+  {
+    id: 7,
+    image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-khoac-nu-skn6004-hog-16.jpg',
+  },
+  {
+    id: 8,
+    image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-khoac-nu-SKN7004-DEN%20(1).JPG',
+  },
+  {
+    id: 8,
+    image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-khoac-nu-SKN7004-TIM%20(10).JPG',
+  },
+  {
+    id: 8,
+    image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-khoac-nu-SKN7004-HOG%20(6).JPG',
+  },
+];
+
+export { GENDER_LIST, COLOR_LIST, SIZE_LIST, PRODUCT_LIST, PRODUCT_GALLERY_LIST };

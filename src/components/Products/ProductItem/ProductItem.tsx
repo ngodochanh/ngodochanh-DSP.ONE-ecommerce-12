@@ -32,7 +32,7 @@ function ProductItem({ prod }: ProductItemProps) {
         />
       </div>
 
-      <div className='flex-between-center'>
+      <div className='flex justify-between items-center'>
         <div>
           <h4 className='font-semibold text-clamp-28 text-gray-deep capitalize leading-[38px] mb-[10px] line-clamp-1 group-hover:text-orange-bright transition-colors duration-300 ease-in-out'>
             {title}

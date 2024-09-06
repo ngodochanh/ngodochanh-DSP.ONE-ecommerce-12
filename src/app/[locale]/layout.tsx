@@ -7,6 +7,8 @@ import { ProductStore } from '@/components/ProductStore';
 // Components
 import { NextIntlClientProvider, useMessages } from 'next-intl';
 import Footer from '@/components/Footer';
+import TopBar from '@/components/TopBar';
+import Header from '@/components/Header';
 
 type RootLayoutProps = {
   children: React.ReactNode;
@@ -61,6 +63,8 @@ export default function RootLayout({ children, params: { locale } }: Readonly<Ro
           <NexTUIProviders>
             <ProductStore>
               <div className='max-w-[1920px] mx-auto'>
+                <TopBar />
+                <Header />
                 <main>{children}</main>
                 <Footer />
               </div>

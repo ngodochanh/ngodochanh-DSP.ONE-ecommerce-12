@@ -12,8 +12,6 @@ import TrendyProducts from '@/components/TrendyProducts';
 export default function Home() {
   return (
     <>
-      <TopBar />
-      <Header />
       <Banner />
       <Category />
       <SpeialProducts />

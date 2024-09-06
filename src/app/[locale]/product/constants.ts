@@ -178,7 +178,7 @@ const PRODUCT_SERVICE_LIST = [
     Icon: SvgTruckLight,
   },
   {
-    key: 'd',
+    id: 'd',
     description: 'There are many variations of passages of Lorem Ipsum available',
     Icon: SvgTimeLight,
   },

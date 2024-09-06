@@ -73,7 +73,7 @@ function Selector({
       {/* Hiển thị mục được chọn hoặc 'Select' nếu chưa có mục nào được chọn */}
       <div
         className={`
-          flex-between-center w-full py-2 gap-x-[2px] rounded 
+          flex justify-between items-center w-full py-2 gap-x-[2px] rounded 
           ${!selectedItem && 'text-gray-700'}
           ${bgColor}
         `}
@@ -95,7 +95,7 @@ function Selector({
           ${open ? 'max-h-60' : 'max-h-0'} 
           `}
       >
-        <div className='flex-center px-2 sticky top-0 bg-white'>
+        <div className='flex justify-center items-center px-2 sticky top-0 bg-white'>
           <div className='w-10 '>
             <SvgSearch className='mx-auto w-clamp-24' />
           </div>

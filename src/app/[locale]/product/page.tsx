@@ -2,6 +2,7 @@ import { useTranslations } from 'next-intl';
 
 import Breadcrumb from '@/components/Breadcrumb';
 import Segment from '@/components/Segment';
+import Banner from '@/components/Banner';
 
 import ProductFilte from './ProductFilter';
 
@@ -23,6 +24,7 @@ function Products() {
 
   return (
     <>
+      <Banner />
       <Breadcrumb breadCrumbList={BREADCRUMB_LIST} />
       <Segment title={t('navigation.product')} />
       <ProductFilte />

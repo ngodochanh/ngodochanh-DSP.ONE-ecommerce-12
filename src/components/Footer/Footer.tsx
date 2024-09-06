@@ -1,3 +1,5 @@
+'use client';
+
 import Logo from '@/components/Logo';
 import { LINK_LIST, SOCIAL_LIST } from './constants';
 import Link from 'next/link';
@@ -7,8 +9,13 @@ import AppStore from '/public/images/app_download/app_store.png';
 import GooglePlay from '/public/images/app_download/google_play.png';
 import { SvgEnvelope } from '@/components/Svgs';
 import { useTranslations } from 'next-intl';
+import { usePathname } from 'next/navigation';
+import getLocalizedPath from '@/utils/getLocalizedPath ';
 
 function Footer() {
+  const pathName = usePathname();
+  if (pathName === getLocalizedPath('/login')) return;
+
   const t = useTranslations('footer');
   return (
     <div className='bg-black text-white text-clamp-16 -translate-y-[1px]'>
@@ -101,7 +108,10 @@ function Footer() {
           <div className='max-w-[382px] w-full'>
             <h5 className='font-semibold pb-3'>{t('send_gmail.title')}</h5>
 
-            <form action='' className='flex-between-center h-[48px] px-4 py-[10px] rounded bg-white-25 mb-3'>
+            <form
+              action=''
+              className='flex justify-between items-center h-[48px] px-4 py-[10px] rounded bg-white-25 mb-3'
+            >
               <input
                 type='text'
                 className=' bg-transparent outline-none flex-grow'

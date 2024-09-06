@@ -4,6 +4,16 @@ const withNextIntl = createNextIntlPlugin();
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'm.yodycdn.com',
+        port: '',
+        pathname: '/fit-in/**',
+      },
+    ],
+  },
   env: {
     HOME: '/',
     ABOUT: '/about',

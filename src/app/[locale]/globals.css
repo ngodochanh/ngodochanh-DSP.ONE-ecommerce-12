@@ -14,25 +14,12 @@
     @apply mx-auto max-w-[1456px] px-2 sm:max-w-[1472px] sm:px-4;
   }
 
-  .text-navigation {
-    @apply font-medium text-clamp-18;
-  }
-
-  /* Flex */
-  .flex-between-center {
-    @apply flex justify-between items-center;
-  }
-
-  .flex-center {
-    @apply flex justify-center items-center;
-  }
-
-  .flex-center-y {
-    @apply flex items-center;
-  }
-
   /* Transition  */
   .transition-transform-fast {
     @apply transition-transform duration-300 ease-in-out;
+  }
+
+  .mySwiper .swiper-slide-thumb-active {
+    @apply !opacity-100;
   }
 }

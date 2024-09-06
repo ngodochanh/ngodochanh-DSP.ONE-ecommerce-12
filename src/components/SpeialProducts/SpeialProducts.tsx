@@ -41,12 +41,12 @@ function SpeialProducts() {
       <Tabs
         items={CATEGORY_PRODUCT_LIST}
         classNames={{
-          base: 'flex-center',
+          base: 'flex justify-center items-centery-center items-centery-center items-center',
           tabList: 'rounded-none bg-transparent p-0 pt-5 gap-0',
-          tab: 'text-black-dark text-navigation rounded-none px-3 sm:px-6 py-3 h-fit transition-none opacity-100 data-[disabled=true]:opacity-100 data-[focus-visible=true]:outline-none data-[focus-visible=true]:outline-offset-0 data-[focus-visible=true]:outline-transparent data-[focus-visible=true]:outline-0 data-[hover-unselected=true]:opacity-100 data-[hover-unselected=true]:text-orange-bright',
+          tab: 'text-black-dark font-medium text-clamp-18 rounded-none px-3 sm:px-6 py-3 h-fit transition-none opacity-100 data-[disabled=true]:opacity-100 data-[focus-visible=true]:outline-none data-[focus-visible=true]:outline-offset-0 data-[focus-visible=true]:outline-transparent data-[focus-visible=true]:outline-0 data-[hover-unselected=true]:opacity-100 data-[hover-unselected=true]:text-orange-bright',
           cursor: 'bg-transparent rounded-none drop-shadow-none relative',
           tabContent:
-            'text-navigation text-black-dark hover:text-orange-bright group-data-[selected=true]:text-orange-bright transition-none',
+            'font-medium text-clamp-18 text-black-dark hover:text-orange-bright group-data-[selected=true]:text-orange-bright transition-none',
           panel: 'p-0',
         }}
       >

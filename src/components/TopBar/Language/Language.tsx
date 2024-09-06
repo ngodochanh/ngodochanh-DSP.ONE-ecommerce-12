@@ -77,12 +77,12 @@ function Language({ inputPlaceholder, languageList }: LanguageProps) {
   };
 
   return (
-    <div className={`font-medium text-white cursor-pointer relative z-20`}>
+    <div className={`font-medium text-white cursor-pointer relative z-30`}>
       {/* Hiển thị mục được chọn hoặc 'Select' nếu chưa có mục nào được chọn */}
       {languageList.length !== 0 && (
         <>
           <div
-            className={`flex-between-center w-full py-2 gap-x-[2px] rounded bg-black
+            className={`flex justify-between items-center w-full py-2 gap-x-[2px] rounded bg-black
         ${!selectedItem && 'text-gray-700'} ${isPending && 'cursor-not-allowed opacity-50'}`}
             // Mở/đóng danh sách khi nhấn vào
             onClick={() => !isPending && setOpen(!open)}
@@ -100,7 +100,7 @@ function Language({ inputPlaceholder, languageList }: LanguageProps) {
         ${open ? 'block' : 'hidden'} 
         `}
           >
-            {/* <div className='flex-center px-2 sticky top-0 bg-white'>
+            {/* <div className='flex justify-center items-center px-2 sticky top-0 bg-white'>
               <div className='w-10 '>
                 <SvgSearch className='mx-auto w-clamp-24 ' />
               </div>

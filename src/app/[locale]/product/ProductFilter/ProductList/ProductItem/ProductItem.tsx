@@ -6,8 +6,8 @@ import Link from 'next/link';
 
 function ProductItem({ id, image, title, price, originalPrice, slug }: ProductType) {
   return (
-    <li className='flex-1 min-w-72'>
-      <Link href={getLocalizedPath(process.env.PRODUCT + '/' + id)} className='group'>
+    <li>
+      <Link href={getLocalizedPath(process.env.PRODUCT + '/' + id)} className='group flex flex-col h-full'>
         <div className='relative h-[430px] rounded-[10px] overflow-hidden mb-[15px]'>
           <Image
             src={image}
@@ -18,16 +18,16 @@ function ProductItem({ id, image, title, price, originalPrice, slug }: ProductTy
             className='object-cover transition-transform duration-300 ease-in-out group-hover:scale-105'
           />
         </div>
-        <div>
-          <h5 className='line-clamp-2 font-semibold text-clamp-24 pb-[15px] group-hover:text-orange-bright transition-colors duration-300 ease-in-out overflow-hidden'>
+        <div className='flex flex-col flex-grow'>
+          <h5 className='font-semibold text-clamp-24 mb-[15px] group-hover:text-orange-bright transition-colors duration-300 ease-in-out flex-grow line-clamp-2 overflow-hidden'>
             {title}
           </h5>
           <div className='flex gap-x-5 justify-between'>
-            <strong className='text-clamp-32 text-red-bright leading-[43px]'>{formatCurrencyVND(price)}</strong>
+            <strong className='text-clamp-32 text-red-bright'>{formatCurrencyVND(price)}</strong>
             <div className='text-clamp-16'>
-              <p className='line-through text-gray-muted leading-4 mb-1'>{formatCurrencyVND(originalPrice)}</p>
-              <p className='text-red-bright leading-4'>
-                Khuyến mãi {calculateDiscountPercentage(price, originalPrice)}
+              <p className='line-through text-gray-mute'>{originalPrice !== 0 && formatCurrencyVND(originalPrice)}</p>
+              <p className='text-red-bright'>
+                {originalPrice !== 0 && 'Khuyến mãi ' + calculateDiscountPercentage(price, originalPrice)}
               </p>
             </div>
           </div>

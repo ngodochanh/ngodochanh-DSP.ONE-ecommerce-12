@@ -30,7 +30,7 @@ function ProductFilterMenu({ isFilterEnabled, handleToggleFilter, handleChangeFi
       <div
         className={`${
           isFilterEnabled ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-full'
-        } px-2 lg:px-0 transition-transform-opacity ease-in-out delay-300 bg-white shadow-sm lg:shadow-none lg:visible lg:opacity-100 lg:translate-y-0 fixed lg:relative bottom-[65.6px] sm:bottom-[73.6px] lg:bottom-0 left-2 sm:left-4 lg:left-0 right-2 sm:right-4 lg:right-0 z-40 lg:z-0 max-h-product-filter-menu lg:max-h-full overflow-y-auto scroll-smooth overscroll-y-contain`}
+        } px-2 lg:px-0 transition-transform-opacity ease-in-out delay-300 bg-white shadow-sm lg:shadow-none lg:visible lg:opacity-100 lg:translate-y-0 fixed lg:relative bottom-[65.6px] sm:bottom-[73.6px] lg:bottom-0 left-2 sm:left-4 lg:left-0 right-2 sm:right-4 lg:right-0 z-30 lg:z-0 max-h-product-filter-menu lg:max-h-full overflow-y-auto scroll-smooth overscroll-y-contain`}
       >
         <div className='ml-auto w-[33px] lg:hidden pt-5 pb-1 cursor-pointer' onClick={handleToggleFilter}>
           <SvgCloseCircle />

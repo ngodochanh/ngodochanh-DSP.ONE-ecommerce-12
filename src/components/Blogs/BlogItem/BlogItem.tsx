@@ -27,7 +27,7 @@ function BlogItem({ blog }: BlogItemProps) {
   });
 
   return (
-    <Link href='/' className='block w-full group'>
+    <Link href='/' className='block group h-full'>
       <div className='relative h-[350px] mb-6'>
         <Image
           src={image}
@@ -39,18 +39,21 @@ function BlogItem({ blog }: BlogItemProps) {
         />
       </div>
 
-      <h5 className='font-bold text-clamp-20 line-clamp-2 mb-[10px] h-[54px] group-hover:text-orange-bright transition-colors duration-300 ease-in-out'>
-        {t(`list.blog${id}.title`)}
-      </h5>
+      <div className='flex flex-col'>
+        <h5 className='font-bold text-clamp-20 mb-[10px] group-hover:text-orange-bright transition-colors duration-300 ease-in-out line-clamp-1'>
+          {t(`list.blog${id}.title`)}
+        </h5>
+        <div>
+          <div className='font-normal text-clamp-12 mb-[25px]'>
+            {t('created_by')} <span className='font-medium text-yellow-bright'>{t(`list.blog${id}.author`)}</span> -{' '}
+            {formattedDate}
+          </div>
 
-      <div className='font-normal text-clamp-12 mb-[25px]'>
-        {t('created_by')} <span className='font-medium text-yellow-bright'>{t(`list.blog${id}.author`)}</span> -{' '}
-        {formattedDate}
+          <p className='font-light text-clamp-16 text-gray-darker text-justify line-clamp-3'>
+            {t(`list.blog${id}.description`)}
+          </p>
+        </div>
       </div>
-
-      <p className='font-light text-clamp-16 text-gray-darker leading-[21.6px] text-justify line-clamp-3 h-[64.8px]'>
-        {t(`list.blog${id}.description`)}
-      </p>
     </Link>
   );
 }

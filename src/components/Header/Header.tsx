@@ -7,9 +7,10 @@ import getLocalizedPath from '@/utils/getLocalizedPath ';
 import { SvgBuy, SvgHeart, SvgSearch, SvgUser, SvgMenu, SvgClose } from '@/components/Svgs';
 //
 import Link from 'next/link';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
+import HeaderSearch from '@/components/Header/HeaderSearch';
 
 type NavItem = {
   path: string;
@@ -60,87 +61,84 @@ function Header() {
     },
   ];
 
+  const handleCloseMenu = useCallback(() => {
+    setIsMenuOpen(false);
+  }, []);
+
+  const handleCloseSearch = useCallback(() => {
+    setIsSearchOpen(false);
+  }, []);
+
   return (
-    <div className='max-container bg-white flex justify-between items-center py-[7px] sticky top-0 left-0 right-0 lg:relative  backdrop-filter backdrop-blur-sm bg-opacity-30 z-20'>
-      <div className='flex lg:gap-[8px] xl:gap-[16px] 2xl:gap-[80px] z-10'>
-        {/* Logo */}
-        <Logo />
+    <>
+      <div className='max-container bg-white flex justify-between items-center py-[7px] sticky top-0 left-0 right-0 lg:relative  backdrop-filter backdrop-blur-sm bg-opacity-30 z-20'>
+        <div className='flex lg:gap-[8px] xl:gap-[16px] 2xl:gap-[80px]'>
+          {/* Logo */}
+          <Logo />
 
-        {/* Navigation */}
-        <nav
-          className={`bg-white transition-transform-fast absolute lg:static top-full left-0 max-w-[375px] lg:max-w-none w-full lg:w-auto h-screen lg:h-auto shadow-md lg:shadow-none ${
-            isMenuOpen ? 'translate-x-0' : '-translate-x-full'
-          } lg:translate-x-0`}
-        >
-          <ul className='flex flex-col lg:flex-row gap-x-[2px] xl:gap-x-[10px] h-full'>
-            {NAVIGATION_LIST.map((item: NavItem) => {
-              return (
-                <li className='grid' key={item.id}>
-                  <Link
-                    href={getLocalizedPath(item.path)}
-                    className={`font-medium text-clamp-18 block py-[10px] lg:px-[5px] xl:px-[15px] lg:my-auto cursor-pointer w-full text-center self-center ${
-                      getLocalizedPath(item.path) === path ? 'text-black font-bold' : 'text-gray-light'
-                    } hover:text-black`}
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </nav>
-      </div>
-
-      <div className='lg:grow-0 flex 2xl:gap-x-[20px]'>
-        {/* Search */}
-        <form
-          action=''
-          className={`bg-gray-lightest text-gray-light rounded-[500px]  w-full max-w-[220px] md:max-w-[276px] lg:max-w-[180px] xl:max-w-[220px] xl:w-[276px] absolute lg:static  top-full sm:top-2/4 sm:left-2/4  ${
-            isSearchOpen ? 'animate-slideInRight right-0 flex' : 'animate-slideOutRight hidden'
-          } sm:flex sm:animate-none sm:-translate-x-2/4 lg:translate-x-0 sm:-translate-y-2/4 lg:translate-y-0 z-40 shadow-inner sm:shadow-none`}
-        >
-          <div className='py-3 pl-5 lg:pl-2 xl:pl-5 pr-3 lg:pr-2 xl:pr-3 cursor-pointer'>
-            <SvgSearch className='w-clamp-20' />
-          </div>
-          <input
-            type='text'
-            placeholder={t('search.placeholder')}
-            className='bg-transparent outline-none w-full pr-5 text-clamp-16'
-          />
-        </form>
-        {/* Action */}
-        <div className='flex items-center 2xl:gap-[10px] text-orange-bright'>
-          <div
-            className='sm:hidden cursor-pointer w-6 sm:w-10 lg:w-8 xl:w-10 h-full flex justify-center items-center'
-            onClick={() => {
-              setIsSearchOpen(!isSearchOpen);
-            }}
+          {/* Navigation */}
+          <nav
+            className={`bg-white transition-transform-fast absolute lg:static top-full left-0 max-w-[375px] lg:max-w-none w-full lg:w-auto h-screen lg:h-auto shadow-md lg:shadow-none ${
+              isMenuOpen ? 'translate-x-0' : '-translate-x-full'
+            } lg:translate-x-0`}
           >
-            <SvgSearch className='w-clamp-24' />
-          </div>
-          <div className='cursor-pointer w-6 sm:w-10 lg:w-8 xl:w-10 h-full flex justify-center items-center'>
-            <SvgHeart className='w-clamp-24' />
-          </div>
-          <div className='cursor-pointer w-6 sm:w-10 lg:w-8 xl:w-10 h-full flex justify-center items-center'>
-            <SvgBuy className='w-clamp-24' />
-          </div>
-          <div className='cursor-pointer w-6 sm:w-10 lg:w-8 xl:w-10 h-full flex justify-center items-center'>
-            <SvgUser className='w-clamp-24' />
-          </div>
-          <div
-            className={`
-              cursor-pointer w-6 sm:w-10 h-full flex justify-center items-centery-center items-centery-center items-center lg:hidden transition-transform-fast 
+            <ul className='flex flex-col lg:flex-row gap-x-[2px] xl:gap-x-[10px] h-full'>
+              {NAVIGATION_LIST.map((item: NavItem) => {
+                return (
+                  <li className='grid' key={item.id}>
+                    <Link
+                      href={getLocalizedPath(item.path)}
+                      className={`font-medium text-clamp-18 block py-[10px] lg:px-[5px] xl:px-[15px] lg:my-auto cursor-pointer w-full text-center self-center ${
+                        getLocalizedPath(item.path) === path ? 'text-black font-bold' : 'text-gray-light'
+                      } hover:text-black`}
+                      onClick={() => handleCloseMenu()}
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
+        </div>
+
+        <div className='lg:grow-0 flex 2xl:gap-x-[20px]'>
+          {/* Search */}
+          <HeaderSearch isSearchOpen={isSearchOpen} onCloseSearch={handleCloseSearch} />
+          {/* Action */}
+          <div className='flex items-center 2xl:gap-[10px] text-orange-bright'>
+            <div
+              className='sm:hidden cursor-pointer w-6 sm:w-10 lg:w-8 xl:w-10 h-full flex justify-center items-center'
+              onClick={() => {
+                setIsSearchOpen(!isSearchOpen);
+              }}
+            >
+              <SvgSearch className='w-clamp-24' />
+            </div>
+            <div className='cursor-pointer w-6 sm:w-10 lg:w-8 xl:w-10 h-full flex justify-center items-center'>
+              <SvgHeart className='w-clamp-24' />
+            </div>
+            <div className='cursor-pointer w-6 sm:w-10 lg:w-8 xl:w-10 h-full flex justify-center items-center'>
+              <SvgBuy className='w-clamp-24' />
+            </div>
+            <div className='cursor-pointer w-6 sm:w-10 lg:w-8 xl:w-10 h-full flex justify-center items-center'>
+              <SvgUser className='w-clamp-24' />
+            </div>
+            <div
+              className={`
+              cursor-pointer w-6 sm:w-10 h-full flex justify-center  items-center lg:hidden transition-transform-fast 
               ${isMenuOpen ? 'rotate-180' : 'rotate-0'}
               `}
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <SvgClose className='w-clamp-24' /> : <SvgMenu className='w-clamp-24' />}
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <SvgClose className='w-clamp-24' /> : <SvgMenu className='w-clamp-24' />}
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* {isMenuOpen && <div className='fixed inset-0 bg-black/50 z-40' onClick={() => setIsMenuOpen(false)} />} */}
-    </div>
+        {/* {isMenuOpen && <div className='fixed inset-0 bg-black/50 z-40' onClick={() => setIsMenuOpen(false)} />} */}
+      </div>
+    </>
   );
 }
 

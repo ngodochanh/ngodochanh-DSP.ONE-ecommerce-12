@@ -32,14 +32,10 @@ function ProductDetails({ product }: { product: ProductType | undefined }) {
             </p>
             {/* Giá */}
             <div className='flex gap-x-5 justify-between'>
-              <strong className='text-clamp-32 text-red-bright leading-[43px]'>
-                {formatCurrencyVND(product?.price)}
-              </strong>
+              <strong className='text-clamp-32 text-red-bright'>{formatCurrencyVND(product?.price)}</strong>
               <div className='text-clamp-16'>
-                <p className='line-through text-gray-muted leading-4 mb-1'>
-                  {formatCurrencyVND(product?.originalPrice)}
-                </p>
-                <p className='text-red-bright leading-4'>
+                <p className='line-through text-gray-muted mb-1'>{formatCurrencyVND(product?.originalPrice)}</p>
+                <p className='text-red-bright'>
                   Khuyến mãi {calculateDiscountPercentage(product.price, product.originalPrice)}
                 </p>
               </div>

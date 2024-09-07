@@ -70,7 +70,6 @@ const config: Config = {
         'clamp-42': 'clamp(38px, 4.5vw, 42px)',
       },
       gridTemplateColumns: {
-        'auto-fit': 'repeat(auto-fit, minmax(270px, 1fr))',
         'auto-fit-category': 'repeat(auto-fit, minmax(110px, 1fr))',
       },
       colors: {
@@ -110,19 +109,9 @@ const config: Config = {
           '0%': { transform: 'scale(0)', opacity: '0' },
           '100%': { transform: 'scale(1)', opacity: '1' },
         },
-        slideInRight: {
-          '0%': { opacity: '0', transform: ' translateX(100%)' },
-          '100%': { opacity: '1', transform: ' translateX(0)' },
-        },
-        slideOutRight: {
-          '0%': { opacity: '1', transform: ' translateX(0)' },
-          '100%': { opacity: '0', transform: ' translateX(100%)' },
-        },
       },
       animation: {
         growAndFadeIn: 'growth 0.3s ease-in-out',
-        slideInRight: 'slideInRight 0.3s forwards',
-        slideOutRight: 'slideOutRight 0.3s forwards',
       },
     },
   },

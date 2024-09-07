@@ -32,8 +32,9 @@ const SIZE_LIST = {
 const CATEGORY_LIST = {
   t_shirt: 'T-shirt',
   shirt: 'shirt',
-  trousers: 'trousers',
-  jacket: 'áo khoác',
+  pants: 'pants',
+  jacket: 'jacket',
+  polo: 'polo',
 };
 
 const PRODUCT_LIST = [
@@ -43,7 +44,7 @@ const PRODUCT_LIST = [
       'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-thun-nam-yody-TSM7177-TRA,%20QSM7031-TIT%20,(7).JPG',
     title: 'Áo Phông Nam Slim Fit Rib',
     price: 249000,
-    originalPrice: 299000,
+    originalPrice: 0,
     gender: [GENDER_LIST.male],
     color: [COLOR_LIST.black, COLOR_LIST.brown, COLOR_LIST.gray, COLOR_LIST.white],
     size: [SIZE_LIST.medium, SIZE_LIST.large, SIZE_LIST.extra_large, SIZE_LIST.double_extra_large],
@@ -54,6 +55,7 @@ const PRODUCT_LIST = [
     total_reviews: 100,
     rating: 4.5,
     category: CATEGORY_LIST.t_shirt,
+    isTrending: true,
   },
   {
     id: 2,
@@ -72,13 +74,14 @@ const PRODUCT_LIST = [
     total_reviews: 40,
     rating: 4.5,
     category: CATEGORY_LIST.t_shirt,
+    isTrending: true,
   },
   {
     id: 3,
     image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-thun-nam-TSM7047-DN1%20(5).JPG',
     title: 'Áo Phông Nam Regular Foundation',
     price: 269000,
-    originalPrice: 289000,
+    originalPrice: 0,
     gender: [GENDER_LIST.male],
     color: [COLOR_LIST.brown, COLOR_LIST.black],
     size: [SIZE_LIST.large],
@@ -89,13 +92,14 @@ const PRODUCT_LIST = [
     total_reviews: 60,
     rating: 4.5,
     category: CATEGORY_LIST.t_shirt,
+    isTrending: true,
   },
   {
     id: 4,
     image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-so-mi-nam-SCM7015-XAH%20(1).jpg',
     title: 'Sơ Mi Nam Cộc Tay Cafe Túi Ngực',
     price: 469000,
-    originalPrice: 489000,
+    originalPrice: 0,
     gender: [GENDER_LIST.male],
     color: [COLOR_LIST.blue],
     size: [
@@ -113,13 +117,14 @@ const PRODUCT_LIST = [
     total_reviews: 190,
     rating: 5,
     category: CATEGORY_LIST.shirt,
+    isTrending: true,
   },
   {
     id: 5,
     image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/smn7004-tra-cvn6162-nau-7.jpg',
     title: 'Sơ Mi Nữ Dài Tay Vạt Vai Áo',
     price: 469000,
-    originalPrice: 489000,
+    originalPrice: 0,
     gender: [GENDER_LIST.female],
     color: [COLOR_LIST.white, COLOR_LIST.blue, COLOR_LIST.black],
     size: [SIZE_LIST.small, SIZE_LIST.medium, SIZE_LIST.large],
@@ -130,13 +135,14 @@ const PRODUCT_LIST = [
     total_reviews: 110,
     rating: 5,
     category: CATEGORY_LIST.shirt,
+    isTrending: true,
   },
   {
     id: 6,
     image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/quan-au-nam-qam6039-den-5-yodyvn.jpg',
     title: 'Quần Âu Nam Slim Cạp Di Động',
     price: 599000,
-    originalPrice: 644000,
+    originalPrice: 0,
     gender: [GENDER_LIST.male],
     color: [COLOR_LIST.black, COLOR_LIST.blue],
     size: [],
@@ -146,14 +152,15 @@ const PRODUCT_LIST = [
   `,
     total_reviews: 80,
     rating: 4,
-    category: CATEGORY_LIST.trousers,
+    category: CATEGORY_LIST.pants,
+    isTrending: true,
   },
   {
     id: 7,
     image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-khoac-nu-skn6004-hog-18.jpg',
     title: 'Áo Khoác Thể Thao Nữ Gió Dáng Ngắn',
     price: 649000,
-    originalPrice: 724000,
+    originalPrice: 0,
     gender: [GENDER_LIST.female],
     color: [COLOR_LIST.pink],
     size: [SIZE_LIST.extra_large],
@@ -164,13 +171,14 @@ const PRODUCT_LIST = [
     total_reviews: 180,
     rating: 5,
     category: CATEGORY_LIST.jacket,
+    isTrending: true,
   },
   {
     id: 8,
     image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-khoac-nu-SKN7004-DEN%20(1).JPG',
     title: 'Áo Khoác Thể Thao Nữ Siêu Nhẹ',
     price: 390000,
-    originalPrice: 459000,
+    originalPrice: 0,
     gender: [GENDER_LIST.female],
     color: [COLOR_LIST.black, COLOR_LIST.purple, COLOR_LIST.pink],
     size: [SIZE_LIST.medium, SIZE_LIST.small, SIZE_LIST.large, SIZE_LIST.extra_large],
@@ -181,6 +189,25 @@ const PRODUCT_LIST = [
     total_reviews: 210,
     rating: 4,
     category: CATEGORY_LIST.jacket,
+    isTrending: false,
+  },
+  {
+    id: 9,
+    image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/apm3299-hog-5.jpg',
+    title: 'Áo Polo Nam Pique Mắt Chim Basic Co Giãn Thoáng Khí',
+    price: 149500,
+    originalPrice: 299000,
+    gender: [GENDER_LIST.male],
+    color: [COLOR_LIST.brown, COLOR_LIST.blue, COLOR_LIST.yellow, COLOR_LIST.black, COLOR_LIST.white, COLOR_LIST.green],
+    size: [SIZE_LIST.double_extra_large, SIZE_LIST.triple_extra_large],
+    slug: 'ao-polo-nam-basic-pique-mat-chim-phoi-bo',
+    description: `
+    <p>Vải dệt 2 màu tạo nên hiệu ứng mắt chim độc đáo. Độ bền cao, thám hút tốt, thoáng khí giúp bạn luôn cảm thấy mát mẻ, dễ chịu. Phần cổ và bo tay áo được thiết kế tỉ mỉ, tinh tế giúp tôn dáng.</p>
+  `,
+    total_reviews: 400,
+    rating: 5,
+    category: CATEGORY_LIST.polo,
+    isTrending: true,
   },
 ];
 
@@ -273,6 +300,38 @@ const PRODUCT_GALLERY_LIST = [
     id: 8,
     image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-khoac-nu-SKN7004-HOG%20(6).JPG',
   },
+  {
+    id: 9,
+    image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/apm3299-hog-5.jpg',
+  },
+  {
+    id: 9,
+    image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/apm3299-xg1-ao-polo-nam-2.jpg',
+  },
+  {
+    id: 9,
+    image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/apm3299-vag-9.jpg',
+  },
+  {
+    id: 9,
+    image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/apm3299-xng-5.jpg',
+  },
+  {
+    id: 9,
+    image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/apm3299-dml-6.jpg',
+  },
+  {
+    id: 9,
+    image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/apm3299-tra-4.jpg',
+  },
+  {
+    id: 9,
+    image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/apm3299-xxm-4.jpg',
+  },
+  {
+    id: 9,
+    image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/apm3299-xre-qsm6003-dn1-5.jpg',
+  },
 ];
 
-export { GENDER_LIST, COLOR_LIST, SIZE_LIST, PRODUCT_LIST, PRODUCT_GALLERY_LIST };
+export { GENDER_LIST, COLOR_LIST, SIZE_LIST, CATEGORY_LIST, PRODUCT_LIST, PRODUCT_GALLERY_LIST };

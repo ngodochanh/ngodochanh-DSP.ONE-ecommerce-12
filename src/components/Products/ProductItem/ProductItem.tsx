@@ -3,24 +3,18 @@ import Link from 'next/link';
 
 import getLocalizedPath from '@/utils/getLocalizedPath ';
 import { SvgArrowRight } from '@/components/Svgs';
-import { Product } from '../Products';
+import { formatCurrencyVND } from '@/utils/currency';
+import { ProductType } from '@/type';
 
 type ProductItemProps = {
-  prod: Product;
-};
-
-const formatPrice = (price: string | number): string => {
-  const numberPrice = typeof price === 'number' ? price : parseFloat(price);
-  const formattedPrice = numberPrice.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
-  return `€ ${formattedPrice}`;
+  prod: ProductType;
 };
 
 function ProductItem({ prod }: ProductItemProps) {
   const { id, image, title, price } = prod;
-  const formattedPrice = formatPrice(price);
 
   return (
-    <Link href={getLocalizedPath(`${process.env.PRODUCT}/${id}`)} className='block w-full group'>
+    <Link href={getLocalizedPath(`${process.env.PRODUCT}/${id}`)} className='flex flex-col w-full group'>
       <div className='relative h-[430px] rounded-[10px] mb-[13.41px] overflow-hidden'>
         <Image
           src={image}
@@ -32,15 +26,15 @@ function ProductItem({ prod }: ProductItemProps) {
         />
       </div>
 
-      <div className='flex justify-between items-center'>
-        <div>
-          <h4 className='font-semibold text-clamp-28 text-gray-deep capitalize leading-[38px] mb-[10px] line-clamp-1 group-hover:text-orange-bright transition-colors duration-300 ease-in-out'>
+      <div className='flex-grow grid grid-cols-[auto_18px] gap-x-2'>
+        <div className='h-full flex flex-col'>
+          <h4 className='font-semibold text-clamp-28 text-gray-deep capitalize mb-[10px]  group-hover:text-orange-bright transition-colors duration-300 ease-in-out flex-1 overflow-hidden line-clamp-2'>
             {title}
           </h4>
-          <p className='font-normal text-clamp-22 text-gray-medium leading-[30px]'>{formattedPrice}</p>
+          <p className='font-normal text-clamp-22 text-gray-medium'>{formatCurrencyVND(price)}</p>
         </div>
 
-        <SvgArrowRight className='text-gray-dark w-clamp-18' />
+        <SvgArrowRight className='text-gray-dark my-auto' />
       </div>
     </Link>
   );

@@ -1,5 +1,3 @@
-'use client';
-
 import Logo from '@/components/Logo';
 import { LINK_LIST, SOCIAL_LIST } from './constants';
 import Link from 'next/link';
@@ -9,13 +7,8 @@ import AppStore from '/public/images/app_download/app_store.png';
 import GooglePlay from '/public/images/app_download/google_play.png';
 import { SvgEnvelope } from '@/components/Svgs';
 import { useTranslations } from 'next-intl';
-import { usePathname } from 'next/navigation';
-import getLocalizedPath from '@/utils/getLocalizedPath ';
 
 function Footer() {
-  const pathName = usePathname();
-  if (pathName === getLocalizedPath('/login')) return;
-
   const t = useTranslations('footer');
   return (
     <div className='bg-black text-white text-clamp-16 -translate-y-[1px]'>
@@ -25,7 +18,7 @@ function Footer() {
           <Logo textColor='text-white' className='mb-9 mt-2' />
 
           {/* Info */}
-          <div className='mb-[10px] leading-[18.2px]'>
+          <div className='mb-[10px]'>
             <p className='sm:w-fit sm:inline-block'>{t('info.address.street')},</p>{' '}
             <p className='sm:w-fit sm:inline-block'>{t('info.address.ward')},</p>{' '}
             <p className='sm:w-fit sm:inline-block'>
@@ -122,7 +115,7 @@ function Footer() {
               </button>
             </form>
 
-            <p className='font-light text-clamp-14 leading-[18.2px]'>{t('send_gmail.description')}</p>
+            <p className='font-light text-clamp-14'>{t('send_gmail.description')}</p>
           </div>
         </div>
       </div>

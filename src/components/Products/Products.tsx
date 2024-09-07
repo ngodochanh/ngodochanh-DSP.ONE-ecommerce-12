@@ -1,15 +1,9 @@
 import { useTranslations } from 'next-intl';
 import ProductItem from './ProductItem';
-
-export type Product = {
-  id: string;
-  image: string;
-  title: string;
-  price: string | number;
-};
+import { ProductType } from '@/type';
 
 type ProductsProps = {
-  productList: Product[];
+  productList: ProductType[];
 };
 
 function Products({ productList }: ProductsProps) {
@@ -17,7 +11,7 @@ function Products({ productList }: ProductsProps) {
   const t = useTranslations('product');
 
   return (
-    <div className='max-container mt-[50px] grid grid-cols-auto-fit gap-x-[16px] gap-y-[50px] 2xl:gap-x-[30px]'>
+    <div className='max-container mt-[50px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-x-[16px] gap-y-[50px] 2xl:gap-x-[30px]'>
       {productList.length === 0 ? (
         <h1 className='text-center font-bold text-clamp-28'>{t('status')}</h1>
       ) : (

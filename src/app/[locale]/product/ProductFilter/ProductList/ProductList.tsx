@@ -53,7 +53,7 @@ function ProductList({ prodFilterList }: ProductListProps) {
 
   return (
     <div>
-      <ul className='flex flex-wrap gap-x-2 sm:gap-x-4 2xl:gap-x-5 gap-y-[50px]'>
+      <ul className='grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-x-2 sm:gap-x-4 2xl:gap-x-5 gap-y-[50px]'>
         {entries.length === 0 ? (
           <div className='text-center'>Không có sản phẩm</div>
         ) : (

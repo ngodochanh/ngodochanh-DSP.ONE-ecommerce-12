@@ -11,4 +11,5 @@ export type ProductType = {
   description: string;
   total_reviews: number;
   rating: number;
+  isTrending: boolean;
 };

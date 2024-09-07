@@ -15,7 +15,7 @@ function Independent() {
             {t('text')}
           </h3>
 
-          <p className='font-normal text-clamp-18 text-justify lg:max-w-[531px] 2xl:w-[531px] w-full leading-[25.2px] mb-12 line-clamp-6'>
+          <p className='font-normal text-clamp-18 text-justify lg:max-w-[531px] 2xl:w-[531px] w-full mb-12 line-clamp-6'>
             {t('description')}
           </p>
 

@@ -36,20 +36,36 @@ const matchesSize = (product: ProductType, sizeFilter: FilterType['size']) =>
 const matchesPrice = (product: ProductType, priceFilter: FilterType['price']) =>
   priceFilter.length === 0 || filterProductsByPrice(product.price, priceFilter);
 
-const filterProducts = (products: ProductType[], filter: FilterType) =>
+const matchesSearch = (product: ProductType, searchTerm: string) => {
+  if (!searchTerm) return true;
+  const term = searchTerm.toLowerCase();
+  return product.title.toLowerCase().includes(term) || product.category.toLowerCase().includes(term);
+};
+
+const filterProducts = (products: ProductType[], filter: FilterType, search = '') =>
   products.filter(
     (product) =>
-      matchesGender(product, filter.gender) && matchesSize(product, filter.size) && matchesPrice(product, filter.price)
+      matchesGender(product, filter.gender) &&
+      matchesSize(product, filter.size) &&
+      matchesPrice(product, filter.price) &&
+      matchesSearch(product, search)
   );
 
 function ProductList({ prodFilterList }: ProductListProps) {
   const searchParams = useSearchParams();
+
   const page = searchParams.get('page') ?? '1';
   const per_page = searchParams.get('per_page') ?? PER_PAGE;
   const start = (Number(page) - 1) * Number(per_page);
   const end = start + Number(per_page);
 
-  const filteredProducts = useMemo(() => filterProducts(PRODUCT_LIST, prodFilterList), [prodFilterList]);
+  const search = searchParams.get('search') ?? '';
+  console.log(search);
+
+  const filteredProducts = useMemo(
+    () => filterProducts(PRODUCT_LIST, prodFilterList, search),
+    [prodFilterList, search]
+  );
   const entries = useMemo(() => filteredProducts.slice(start, end), [filteredProducts, start, end]);
 
   return (

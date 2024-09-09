@@ -11,6 +11,7 @@ const config: Config = {
   theme: {
     extend: {
       maxHeight: {
+        scrollable: 'min(-156px + 100vh, 732px)',
         'product-filter-menu': 'min(-122px + 100vh, 760px)',
       },
       transitionTimingFunction: {
@@ -35,6 +36,7 @@ const config: Config = {
         'clamp-50': 'clamp(44px, 6vw, 50px)',
         'clamp-60': 'clamp(50px, 5vw, 60px)',
         'clamp-80': 'clamp(64px, 5vw, 80px)',
+        'clamp-96': 'clamp(80px, 7vw, 96px)',
         'clamp-150': 'clamp(100px, 10vw, 150px)',
       },
       height: {
@@ -53,6 +55,7 @@ const config: Config = {
         'clamp-50': 'clamp(44px, 6vw, 50px)',
         'clamp-60': 'clamp(50px, 5vw, 60px)',
         'clamp-80': 'clamp(64px, 5vw, 80px)',
+        'clamp-96': 'clamp(80px, 7vw, 96px)',
         'clamp-150': 'clamp(100px, 10vw, 150px)',
       },
       fontSize: {

@@ -71,7 +71,7 @@ function Header() {
 
   return (
     <>
-      <div className='max-container bg-white flex justify-between items-center py-[7px] sticky top-0 left-0 right-0 lg:relative  backdrop-filter backdrop-blur-sm bg-opacity-30 z-20'>
+      <div className='max-container bg-white flex justify-between items-center py-2 sticky top-0 left-0 right-0 lg:relative backdrop-filter backdrop-blur-sm bg-opacity-30 z-20'>
         <div className='flex lg:gap-[8px] xl:gap-[16px] 2xl:gap-[80px]'>
           {/* Logo */}
           <Logo />
@@ -84,12 +84,15 @@ function Header() {
           >
             <ul className='flex flex-col lg:flex-row gap-x-[2px] xl:gap-x-[10px] h-full'>
               {NAVIGATION_LIST.map((item: NavItem) => {
+                const localizedPath = getLocalizedPath(item.path);
+                const isActive = path === localizedPath || (localizedPath !== '/vi' && path.startsWith(localizedPath));
+
                 return (
                   <li className='grid' key={item.id}>
                     <Link
-                      href={getLocalizedPath(item.path)}
+                      href={localizedPath}
                       className={`font-medium text-clamp-18 block py-[10px] lg:px-[5px] xl:px-[15px] lg:my-auto cursor-pointer w-full text-center self-center ${
-                        getLocalizedPath(item.path) === path ? 'text-black font-bold' : 'text-gray-light'
+                        isActive ? 'text-black font-bold' : 'text-gray-light'
                       } hover:text-black`}
                       onClick={() => handleCloseMenu()}
                     >

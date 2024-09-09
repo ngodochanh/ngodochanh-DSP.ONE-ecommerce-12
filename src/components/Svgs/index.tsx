@@ -37,3 +37,4 @@ export { default as SvgStar } from './SvgStar';
 export { default as SvgStarHalfLeft } from './SvgStarHalfLeft';
 export { default as SvgLike } from './SvgLike';
 export { default as SvgDislike } from './SvgDislike';
+export { default as SvgSpinner } from './SvgSpinner';

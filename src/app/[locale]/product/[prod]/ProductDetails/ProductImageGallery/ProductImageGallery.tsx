@@ -11,7 +11,6 @@ import type { Swiper as SwiperType } from 'swiper';
 import { Button } from '@nextui-org/react';
 import { SvgChevronRight } from '@/components/Svgs';
 import { PRODUCT_GALLERY_LIST } from '@/constantsProduct';
-import './ProductImageGallery.modules.css';
 
 export default function ProductImageGallery({ id }: { id: number }) {
   const swiperRef = useRef<SwiperType>();
@@ -79,7 +78,10 @@ export default function ProductImageGallery({ id }: { id: number }) {
             onSwiper={setThumbsSwiper}
             loop={result.length >= 2}
             spaceBetween={15}
-            slidesPerView={4}
+            breakpoints={{
+              0: { slidesPerView: 2 },
+              640: { slidesPerView: 4 },
+            }}
             freeMode={true}
             watchSlidesProgress={true}
             modules={[FreeMode, Navigation, Thumbs]}

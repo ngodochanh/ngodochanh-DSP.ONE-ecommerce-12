@@ -2,7 +2,7 @@
 
 // Components
 import ContentHeader from '@/components/ContentHeader';
-import Products from '@/components/Products';
+import ProductList from '@/components/ProductList';
 //
 import { Tabs, Tab } from '@nextui-org/tabs';
 import { useTranslations } from 'next-intl';
@@ -80,7 +80,7 @@ function SpeialProducts() {
       >
         {(item) => (
           <Tab key={item.id} title={item.label}>
-            <Products productList={item.path} />
+            <ProductList productList={item.path} />
           </Tab>
         )}
       </Tabs>

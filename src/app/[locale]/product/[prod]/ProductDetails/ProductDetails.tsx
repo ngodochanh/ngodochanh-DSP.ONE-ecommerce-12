@@ -34,16 +34,22 @@ function ProductDetails({ product }: { product: ProductType | undefined }) {
             <div className='flex gap-x-5 justify-between'>
               <strong className='text-clamp-32 text-red-bright'>{formatCurrencyVND(product?.price)}</strong>
               <div className='text-clamp-16'>
-                <p className='line-through text-gray-muted mb-1'>{formatCurrencyVND(product?.originalPrice)}</p>
+                <p className='line-through text-gray-muted mb-1'>
+                  {product?.originalPrice !== 0 && formatCurrencyVND(product?.originalPrice)}
+                </p>
                 <p className='text-red-bright'>
-                  Khuyến mãi {calculateDiscountPercentage(product.price, product.originalPrice)}
+                  {product?.originalPrice !== 0 &&
+                    ' Khuyến mãi ' + calculateDiscountPercentage(product.price, product.originalPrice)}
                 </p>
               </div>
             </div>
             {/* Mã */}
             <p>Mã sản phẩm: {product.id}</p>
             {/* Mô tả */}
-            <article className='prose lg:prose-xl text-justify'>{product.description}</article>
+            <article
+              className='prose lg:prose-xl text-justify'
+              dangerouslySetInnerHTML={{ __html: product.description }}
+            />
             {/*  Dịch vụ */}
             <div className='space-y-[15px]'>
               {PRODUCT_SERVICE_LIST.map((item) => (

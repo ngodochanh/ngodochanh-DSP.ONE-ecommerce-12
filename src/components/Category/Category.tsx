@@ -42,7 +42,7 @@ function Category() {
 
   return (
     <ContentHeader title={t('text')}>
-      <div className='max-container mt-[50px] grid grid-cols-auto-fit-category gap-x-4 gap-y-[50px] sm:gap-[50px]'>
+      <div className='mt-[50px] grid grid-cols-auto-fit-category gap-x-4 gap-y-[50px] sm:gap-[50px]'>
         {CATEGORY_LIST.map((category) => (
           <CategoryItem key={category.key} Icon={category.icon} label={category.label} />
         ))}

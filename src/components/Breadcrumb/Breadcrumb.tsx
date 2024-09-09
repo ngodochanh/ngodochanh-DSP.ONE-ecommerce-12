@@ -7,11 +7,10 @@ function Breadcrumb({ breadCrumbList }: { breadCrumbList: { id: string; label: s
   return (
     <Breadcrumbs
       classNames={{
-        base: 'max-container',
         list: 'rounded-none py-5',
       }}
       itemClasses={{
-        item: 'capitalize  !text-clamp-16 font-normal text-dark-charcoal data-[current=true]:text-yellow-vivid hover:text-black hover:opacity-100',
+        item: 'capitalize !text-clamp-16 font-normal text-dark-charcoal data-[current=true]:text-yellow-vivid hover:text-black hover:opacity-100',
         separator: 'text-gray-neutral',
       }}
     >

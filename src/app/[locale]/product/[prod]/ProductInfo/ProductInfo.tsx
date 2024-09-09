@@ -88,7 +88,7 @@ function ProductInfo() {
                 <span className='text-gray-ash'>2023-06-20 14:12</span>
               </div>
 
-              <div className='ml-[63px] flex px-[15px] py-5 gap-x-[15px] bg-gray-extra-light rounded'>
+              <div className='ml-[30px] xl:ml-[63px] flex px-[15px] py-5 gap-x-[15px] bg-gray-extra-light rounded'>
                 <Avatar src='https://i.pravatar.cc/150?u=a042581f4e29026024d' className='w-clamp-60 h-fit' />
 
                 <div className='space-y-[3px]'>
@@ -131,7 +131,7 @@ function ProductInfo() {
               </div>
             </div>
 
-            <form action='' className='flex flex-col gap-y-[9px]  lg:max-w-[533px] w-full'>
+            <form action='' className='flex flex-col gap-y-[9px] lg:max-w-[433px] xl:max-w-[533px] w-full'>
               <h5 className='font-bold text-clamp-18 '>Đánh giá hoặc bình luận sản phẩm</h5>
               <div className='space-x-[9px] py-[5px]'>
                 <Button radius='full' className='bg-yellow-vivid min-w-[104px] text-white shadow-none'>

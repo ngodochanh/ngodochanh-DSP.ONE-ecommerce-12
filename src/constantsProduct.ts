@@ -68,7 +68,6 @@ const PRODUCT_LIST = [
     size: [SIZE_LIST.small, SIZE_LIST.medium],
     slug: 't-shirt-nu-co-rong-crotop',
     description: `
-    <p>Everyday Basics: SẢN PHẨM TỐT - GIÁ TRẢI NGHIỆM</p>
     <p>Nàng sẽ ngay lập tức tăng điểm nữ tính mà vẫn vô cùng thoải mái cùng chiếc áo thun này. Sản phẩm được thiết kế với cổ rộng giúp tôn lên chiếc cổ thanh mảnh cùng xương quai xanh kiểu diễm. Dáng áo croptop cũng phù hợp để hack dáng hơn khi lên đồ.</p>
   `,
     total_reviews: 40,

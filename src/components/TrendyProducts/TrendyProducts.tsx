@@ -1,5 +1,5 @@
 import ContentHeader from '@/components/ContentHeader';
-import Products from '@/components/Products';
+import ProductList from '@/components/ProductList';
 import { useTranslations } from 'next-intl';
 import { PRODUCT_LIST } from '@/constantsProduct';
 import { ProductType } from '@/type';
@@ -16,7 +16,7 @@ function TrendyProducts() {
 
   return (
     <ContentHeader title={t('text')}>
-      <Products productList={result} />
+      <ProductList productList={result} />
     </ContentHeader>
   );
 }

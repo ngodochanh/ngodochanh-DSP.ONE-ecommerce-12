@@ -33,7 +33,7 @@ function Services() {
   ];
 
   return (
-    <div className='max-container flex justify-between flex-wrap gap-y-[16px] gap-x-[32px] my-[60px]'>
+    <div className='flex justify-between flex-wrap gap-y-[16px] gap-x-[32px] my-[60px]'>
       {SERVICE_LIST.map((service) => (
         <ServiceItem key={service.key} service={service} />
       ))}

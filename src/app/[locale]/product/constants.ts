@@ -150,7 +150,6 @@ const PRODUCT_FILTER_LIST = [
 ];
 
 const INITIAL_STATE: InitStateType = {
-  products: [],
   filter: {
     gender: [],
     color: [],
@@ -164,22 +163,22 @@ const PER_PAGE = 9;
 const PRODUCT_SERVICE_LIST = [
   {
     id: 'a',
-    description: 'There are many variations of passages of Lorem Ipsum available',
+    description: 'SẢN PHẨM TỐT - GIÁ TRẢI NGHIỆM',
     Icon: SvgAwardLight,
   },
   {
     id: 'b',
-    description: 'There are many variations of passages of Lorem Ipsum available',
+    description: 'Thông tin bảo mật và mã hoá',
     Icon: SvgProtectLight,
   },
   {
     id: 'c',
-    description: 'There are many variations of passages of Lorem Ipsum available',
+    description: 'Miễn phí vận chuyển: Đơn hàng từ 498k',
     Icon: SvgTruckLight,
   },
   {
     id: 'd',
-    description: 'There are many variations of passages of Lorem Ipsum available',
+    description: 'Giao hàng: Từ 3 - 5 ngày trên cả nước',
     Icon: SvgTimeLight,
   },
 ];

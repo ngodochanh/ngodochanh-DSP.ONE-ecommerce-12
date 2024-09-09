@@ -24,7 +24,6 @@ export type FilterType = {
 };
 
 export type InitStateType = {
-  products: ProductType[];
   filter: FilterType;
 };
 

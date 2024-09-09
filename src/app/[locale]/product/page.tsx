@@ -4,7 +4,7 @@ import Breadcrumb from '@/components/Breadcrumb';
 import Segment from '@/components/Segment';
 import Banner from '@/components/Banner';
 
-import ProductFilte from './ProductFilter';
+import ProductFilter from './ProductFilter';
 
 function Products() {
   const t = useTranslations('header');
@@ -25,9 +25,11 @@ function Products() {
   return (
     <>
       <Banner />
-      <Breadcrumb breadCrumbList={BREADCRUMB_LIST} />
-      <Segment title={t('navigation.product')} />
-      <ProductFilte />
+      <div className='max-container'>
+        <Breadcrumb breadCrumbList={BREADCRUMB_LIST} />
+        <Segment title={t('navigation.product')} className='py-5' />
+        <ProductFilter />
+      </div>
     </>
   );
 }

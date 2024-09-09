@@ -11,6 +11,7 @@ import type { Swiper as SwiperType } from 'swiper';
 import { Button } from '@nextui-org/react';
 import { SvgChevronRight } from '@/components/Svgs';
 import { PRODUCT_GALLERY_LIST } from '@/constantsProduct';
+import './ProductImageGallery.modules.css';
 
 export default function ProductImageGallery({ id }: { id: number }) {
   const swiperRef = useRef<SwiperType>();
@@ -30,7 +31,7 @@ export default function ProductImageGallery({ id }: { id: number }) {
       ) : (
         <>
           <Swiper
-            loop={result.length >= 4}
+            loop={result.length >= 2}
             spaceBetween={10}
             navigation={true}
             thumbs={{ swiper: thumbsSwiper }}
@@ -76,7 +77,7 @@ export default function ProductImageGallery({ id }: { id: number }) {
 
           <Swiper
             onSwiper={setThumbsSwiper}
-            loop={result.length >= 4}
+            loop={result.length >= 2}
             spaceBetween={15}
             slidesPerView={4}
             freeMode={true}
@@ -87,13 +88,13 @@ export default function ProductImageGallery({ id }: { id: number }) {
             {result.map((item) => (
               <SwiperSlide
                 key={item.image}
-                className='w-3/12 h-full min-h-[100px] opacity-40 relative rounded-lg overflow-hidden cursor-pointer'
+                className='w-full h-full min-h-[250px] opacity-40 relative rounded-lg overflow-hidden  cursor-pointer'
               >
                 <Image
                   sizes='(max-width: 640px) 100vw, 50vw'
                   fill
                   alt=''
-                  className='block w-full h-full object-cover '
+                  className='block w-full h-full object-cover'
                   src={item.image}
                   priority
                 />

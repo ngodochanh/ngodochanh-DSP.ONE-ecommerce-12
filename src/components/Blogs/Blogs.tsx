@@ -13,7 +13,7 @@ function Blogs() {
   const t = useTranslations('blogs');
   return (
     <ContentHeader title={t('text')}>
-      <div className='max-container mt-[50px]'>
+      <div className='mt-[50px]'>
         <Swiper
           breakpoints={{
             0: {

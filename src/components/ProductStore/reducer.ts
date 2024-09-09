@@ -13,7 +13,6 @@ import {
 import { ActionType, InitStateType } from '@/app/[locale]/product/type';
 
 const initialState: InitStateType = {
-  products: [],
   filter: {
     gender: [],
     color: [],

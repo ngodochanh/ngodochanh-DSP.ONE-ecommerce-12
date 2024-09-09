@@ -2,7 +2,7 @@
 
 import ProductFilterSidebar from './ProductFilterSidebar';
 import ProductFilterMenu from './ProductFilterMenu';
-import ProductList from './ProductList';
+import ProductCatalog from './ProductCatalog';
 import { useCallback, useState } from 'react';
 import { ProductFilterMenuType } from '@/app/[locale]/product/type';
 
@@ -81,13 +81,13 @@ function ProductFilter() {
         handleRemoveFilter={handleRemoveFilter}
       />
 
-      <div className='max-container grid grid-cols-1 gap-x-4 2xl:gap-x-[60px] lg:grid-cols-[250px_auto] xl:grid-cols-[300px_auto] 2xl:grid-cols-[343px_auto] mt-[10px] lg:mt-[30px] mb-[120px]'>
+      <div className='grid grid-cols-1 gap-x-4 2xl:gap-x-[60px] lg:grid-cols-[250px_auto] xl:grid-cols-[300px_auto] 2xl:grid-cols-[343px_auto] mt-[10px] lg:mt-[30px] mb-[120px]'>
         <ProductFilterMenu
           isFilterEnabled={isFilterEnabled}
           handleToggleFilter={handleToggleFilter}
           handleChangeFilter={handleChangeFilter}
         />
-        <ProductList prodFilterList={state.filter} />
+        <ProductCatalog prodFilterList={state.filter} />
       </div>
     </>
   );

@@ -4,7 +4,7 @@ import getLocalizedPath from '@/utils/getLocalizedPath ';
 import Image from 'next/image';
 import Link from 'next/link';
 
-function ProductItem({ id, image, title, price, originalPrice, slug }: ProductType) {
+function ProductCatalogItem({ id, image, title, price, originalPrice, slug }: ProductType) {
   return (
     <li>
       <Link href={getLocalizedPath(process.env.PRODUCT + '/' + id)} className='group flex flex-col h-full'>
@@ -19,10 +19,10 @@ function ProductItem({ id, image, title, price, originalPrice, slug }: ProductTy
           />
         </div>
         <div className='flex flex-col flex-grow'>
-          <h5 className='font-semibold text-clamp-24 mb-[15px] group-hover:text-orange-bright transition-colors duration-300 ease-in-out flex-grow line-clamp-2 overflow-hidden'>
+          <h5 className='font-semibold text-clamp-24 mb-[15px] group-hover:text-orange-bright transition-colors duration-300 ease-in-out flex-grow line-clamp-2'>
             {title}
           </h5>
-          <div className='flex gap-x-5 justify-between'>
+          <div className='flex gap-x-5 justify-between items-center'>
             <strong className='text-clamp-32 text-red-bright'>{formatCurrencyVND(price)}</strong>
             <div className='text-clamp-16'>
               <p className='line-through text-gray-mute'>{originalPrice !== 0 && formatCurrencyVND(originalPrice)}</p>
@@ -37,4 +37,4 @@ function ProductItem({ id, image, title, price, originalPrice, slug }: ProductTy
   );
 }
 
-export default ProductItem;
+export default ProductCatalogItem;

@@ -5,61 +5,80 @@ import { PRODUCT_LIST } from '@/constantsProduct';
 import { ProductType } from '@/type';
 import React, { useEffect, useState } from 'react';
 
-// Định nghĩa kiểu cho sản phẩm đã xem
 type ViewedProduct = {
   id: number; // ID của sản phẩm
   timestamp: number; // Thời gian xem sản phẩm
 };
 
+// Lưu sản phẩm vào danh sách đã xem
+const addProductToViewedList = (product: ProductType) => {
+  let productString = localStorage.getItem('viewedProducts');
+  let products: ViewedProduct[] = productString ? JSON.parse(productString) : [];
+
+  const newViewedProduct: ViewedProduct = {
+    id: product.id,
+    timestamp: Date.now(),
+  };
+
+  // Xóa sản phẩm cũ nếu có
+  const productIndex = products.findIndex((p: ViewedProduct) => p.id === newViewedProduct.id);
+
+  if (productIndex !== -1) {
+    products.splice(productIndex, 1);
+  }
+
+  // Thêm sản phẩm mới vào đầu danh sách
+  products.unshift(newViewedProduct);
+
+  // Giữ lại chỉ 10 sản phẩm gần đây nhất
+  if (products.length > 10) {
+    products.pop();
+  }
+
+  localStorage.setItem('viewedProducts', JSON.stringify(products));
+};
+
+// Lấy sản phẩm đã xem từ localStorage và xóa sản phẩm quá hạn
+const getViewedProducts = (currentProductId: number): ViewedProduct[] => {
+  let productsString = localStorage.getItem('viewedProducts');
+  let products: ViewedProduct[] = productsString ? JSON.parse(productsString) : [];
+
+  // Xóa các sản phẩm đã quá hạn (hơn 30 ngày)
+  const thirtyDaysInMilliseconds = 30 * 24 * 60 * 60 * 1000;
+  const now = Date.now();
+  // Xóa sản phẩm quá hạn
+  products = products.filter((p: ViewedProduct) => now - p.timestamp <= thirtyDaysInMilliseconds);
+
+  // Lưu lại danh sách đã được làm sạch
+  localStorage.setItem('viewedProducts', JSON.stringify(products));
+
+  // Lọc sản phẩm hiện tại ra khỏi danh sách
+  return products.filter((p: ViewedProduct) => p.id !== currentProductId);
+};
+
 function RecentlyViewedProducts({ product }: { product: ProductType | undefined }) {
-  // Khởi tạo trạng thái với sản phẩm được lấy từ localStorage, nếu có
-  const [viewedProducts, setViewedProducts] = useState<ViewedProduct[]>(() => {
-    const storedProducts = localStorage.getItem('viewedProducts');
-    if (storedProducts) {
-      const parsedProducts: ViewedProduct[] = JSON.parse(storedProducts);
-      const thirtyDaysInMs = 30 * 24 * 60 * 60 * 1000; // 30 ngày thì xóa
-      // Lọc các sản phẩm hợp lệ (chưa quá 30 ngày)
-      const validProducts = parsedProducts.filter((vp) => Date.now() - vp.timestamp <= thirtyDaysInMs);
-      return validProducts;
-    }
+  const [products, setProducts] = useState<ProductType[]>([]);
 
-    return [];
-  });
-
-  // Lọc danh sách sản phẩm để chỉ hiển thị những sản phẩm đã xem và không phải là sản phẩm hiện tại
-  const filteredProducts = PRODUCT_LIST.filter(
-    (p) => viewedProducts.some((vp) => vp.id === p.id) && product?.id !== p.id
-  );
-
-  // Cập nhật danh sách sản phẩm đã xem khi sản phẩm mới được chọn
+  // Cập nhật danh sách sản phẩm đã xem khi sản phẩm hiện tại thay đổi
   useEffect(() => {
     if (product) {
-      const updatedProducts = [...viewedProducts];
-      const productIndex = updatedProducts.findIndex((vp) => vp.id === product.id);
-
-      if (productIndex !== -1) {
-        // Nếu sản phẩm đã có trong danh sách, xóa nó
-        updatedProducts.splice(productIndex, 1);
-      }
-
-      // Thêm sản phẩm mới vào đầu danh sách
-      updatedProducts.unshift({ id: product.id, timestamp: Date.now() });
-
-      // Giới hạn số lượng sản phẩm đã xem (tối đa 10 sản phẩm)
-      if (updatedProducts.length > 10) {
-        updatedProducts.pop(); // Xóa sản phẩm cũ nhất nếu số lượng vượt quá 10
-      }
-
-      setViewedProducts(updatedProducts);
+      addProductToViewedList(product);
     }
   }, [product]);
 
-  // Lưu danh sách sản phẩm đã xem vào localStorage
+  // Lấy danh sách sản phẩm đã xem và cập nhật state
   useEffect(() => {
-    localStorage.setItem('viewedProducts', JSON.stringify(viewedProducts));
-  }, [viewedProducts]);
+    if (product) {
+      const viewedProducts = getViewedProducts(product.id);
+      const fetchProductDetails = (id: number) => PRODUCT_LIST.find((p) => p.id === id) || null;
+      const productsList = viewedProducts
+        .map((viewedProduct) => fetchProductDetails(viewedProduct.id))
+        .filter((p): p is ProductType => p !== null);
+      setProducts(productsList);
+    }
+  }, [product]);
 
-  return <RelatedProducts title='đã xem gần đây' productList={filteredProducts} />;
+  return <RelatedProducts title='Đã xem gần đây' productList={products} />;
 }
 
 export default RecentlyViewedProducts;

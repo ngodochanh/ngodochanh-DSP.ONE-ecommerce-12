@@ -51,7 +51,7 @@ const filterProducts = (products: ProductType[], filter: FilterType, search = ''
       matchesSearch(product, search)
   );
 
-function ProductList({ prodFilterList }: ProductListProps) {
+function ProductCatalog({ prodFilterList }: ProductListProps) {
   const searchParams = useSearchParams();
 
   const page = searchParams.get('page') ?? '1';
@@ -60,7 +60,6 @@ function ProductList({ prodFilterList }: ProductListProps) {
   const end = start + Number(per_page);
 
   const search = searchParams.get('search') ?? '';
-  console.log(search);
 
   const filteredProducts = useMemo(
     () => filterProducts(PRODUCT_LIST, prodFilterList, search),
@@ -82,4 +81,4 @@ function ProductList({ prodFilterList }: ProductListProps) {
   );
 }
 
-export default memo(ProductList);
+export default memo(ProductCatalog);

@@ -5,7 +5,7 @@ import { ProductFilterMenuTypeProps } from '@/app/[locale]/product/type';
 import { memo } from 'react';
 import { useProductStore } from '@/components/ProductStore';
 import { useLocale } from 'next-intl';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { PER_PAGE } from '@/app/[locale]/product/constants';
 
 function ProductFilterMenuCheckBox({
@@ -17,6 +17,9 @@ function ProductFilterMenuCheckBox({
   const router = useRouter();
   const locale = useLocale();
 
+  const searchParams = useSearchParams();
+  const search = searchParams.get('search') ?? '';
+
   return (
     <CheckboxGroup value={state.filter[keyProductFilter].map((item) => item.value)}>
       {productFilterList.map((item) => {
@@ -27,9 +30,14 @@ function ProductFilterMenuCheckBox({
             value={item.value}
             defaultSelected={state.filter[keyProductFilter].some((s) => s.value === item.value)}
             onChange={() => {
-              router.push(`/${locale}/${process.env.PRODUCT!}/?page=${Number(1)}&per_page=${PER_PAGE}`, {
-                scroll: false,
-              });
+              router.push(
+                `/${locale}/${process.env.PRODUCT!}/?page=${Number(1)}&per_page=${PER_PAGE}${
+                  search ? `&search=${search}` : ''
+                }`,
+                {
+                  scroll: false,
+                }
+              );
               handleChangeFilter(keyProductFilter, item);
             }}
             classNames={{

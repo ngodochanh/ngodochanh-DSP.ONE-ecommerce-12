@@ -1,7 +1,7 @@
 'use client';
 
 import { SvgCloseCircle, SvgSearch, SvgSpinner } from '@/components/Svgs';
-import { PRODUCT_LIST } from '@/constantsProduct';
+import { CATEGORY_LIST, GENDER_LIST, PRODUCT_LIST } from '@/constantsProduct';
 import useDebounce from '@/hooks/useDebounce';
 import { ProductType } from '@/type';
 import getLocalizedPath from '@/utils/getLocalizedPath ';
@@ -31,8 +31,8 @@ function HeaderSearch({ isSearchOpen, onCloseSearch }: { isSearchOpen: boolean; 
       setTimeout(() => {
         const result = PRODUCT_LIST.filter(
           (product) =>
-            product.title.toLowerCase().includes(debouncedQuery) ||
-            product.category.toLowerCase().includes(debouncedQuery)
+            product.title.toLowerCase().includes(debouncedQuery.toLowerCase()) ||
+            product.category.toLowerCase().includes(debouncedQuery.toLowerCase())
         ).slice(0, 3);
 
         setIsSearching(false);
@@ -187,15 +187,22 @@ function HeaderSearch({ isSearchOpen, onCloseSearch }: { isSearchOpen: boolean; 
                     <p>
                       <strong>Giới tính: </strong>
 
-                      {item.gender.map((g) => (
-                        <span>{g}</span>
-                      ))}
+                      {item.gender.map((g, index) =>
+                        g in GENDER_LIST ? (
+                          <span key={g} className='capitalize'>
+                            {GENDER_LIST[g as keyof typeof GENDER_LIST].label}
+                            {index < item.gender.length - 1 ? ', ' : ''}
+                          </span>
+                        ) : (
+                          <span key={g}>Không xác định</span>
+                        )
+                      )}
                     </p>
 
-                    <p className=''>
-                      <strong>Loại: </strong>
+                    <p className='capitalize'>
+                      <strong>Loại áo: </strong>
 
-                      {item.category}
+                      {CATEGORY_LIST[item.category as keyof typeof CATEGORY_LIST].label}
                     </p>
                   </div>
                 </Link>

@@ -1,6 +1,12 @@
 const GENDER_LIST = {
-  male: 'male',
-  female: 'female',
+  male: {
+    value: 'male',
+    label: 'Nam',
+  },
+  female: {
+    value: 'female',
+    label: 'Nữ',
+  },
 };
 
 const COLOR_LIST = {
@@ -30,11 +36,26 @@ const SIZE_LIST = {
 };
 
 const CATEGORY_LIST = {
-  t_shirt: 'T-shirt',
-  shirt: 'shirt',
-  pants: 'pants',
-  jacket: 'jacket',
-  polo: 'polo',
+  t_shirt: {
+    value: 't_shirt',
+    label: 'áo thun',
+  },
+  shirt: {
+    value: 'shirt',
+    label: 'sơ mi',
+  },
+  pants: {
+    value: 'pants',
+    label: 'quần âu',
+  },
+  jacket: {
+    value: 'jacket',
+    label: 'áo khoác',
+  },
+  polo: {
+    value: 'polo',
+    label: 'polo',
+  },
 };
 
 const PRODUCT_LIST = [
@@ -45,7 +66,7 @@ const PRODUCT_LIST = [
     title: 'Áo Phông Nam Slim Fit Rib',
     price: 249000,
     originalPrice: 0,
-    gender: [GENDER_LIST.male],
+    gender: [GENDER_LIST.male.value],
     color: [COLOR_LIST.black, COLOR_LIST.brown, COLOR_LIST.gray, COLOR_LIST.white],
     size: [SIZE_LIST.medium, SIZE_LIST.large, SIZE_LIST.extra_large, SIZE_LIST.double_extra_large],
     slug: 'ao-phong-nam-slim-fit-rib',
@@ -54,7 +75,7 @@ const PRODUCT_LIST = [
     `,
     total_reviews: 100,
     rating: 4.5,
-    category: CATEGORY_LIST.t_shirt,
+    category: CATEGORY_LIST.t_shirt.value,
     isTrending: true,
   },
   {
@@ -63,7 +84,7 @@ const PRODUCT_LIST = [
     title: 'T-shirt Nữ Cổ Rộng Crotop',
     price: 99000,
     originalPrice: 149000,
-    gender: [GENDER_LIST.female],
+    gender: [GENDER_LIST.female.value],
     color: [COLOR_LIST.gray, COLOR_LIST.red, COLOR_LIST.black, COLOR_LIST.white],
     size: [SIZE_LIST.small, SIZE_LIST.medium],
     slug: 't-shirt-nu-co-rong-crotop',
@@ -72,7 +93,7 @@ const PRODUCT_LIST = [
   `,
     total_reviews: 40,
     rating: 4.5,
-    category: CATEGORY_LIST.t_shirt,
+    category: CATEGORY_LIST.t_shirt.value,
     isTrending: true,
   },
   {
@@ -81,7 +102,7 @@ const PRODUCT_LIST = [
     title: 'Áo Phông Nam Regular Foundation',
     price: 269000,
     originalPrice: 0,
-    gender: [GENDER_LIST.male],
+    gender: [GENDER_LIST.male.value],
     color: [COLOR_LIST.brown, COLOR_LIST.black],
     size: [SIZE_LIST.large],
     slug: 'ao-phong-nam-regular-foundation',
@@ -90,7 +111,7 @@ const PRODUCT_LIST = [
   `,
     total_reviews: 60,
     rating: 4.5,
-    category: CATEGORY_LIST.t_shirt,
+    category: CATEGORY_LIST.t_shirt.value,
     isTrending: true,
   },
   {
@@ -99,7 +120,7 @@ const PRODUCT_LIST = [
     title: 'Sơ Mi Nam Cộc Tay Cafe Túi Ngực',
     price: 469000,
     originalPrice: 0,
-    gender: [GENDER_LIST.male],
+    gender: [GENDER_LIST.male.value],
     color: [COLOR_LIST.blue],
     size: [
       SIZE_LIST.medium,
@@ -115,7 +136,7 @@ const PRODUCT_LIST = [
   `,
     total_reviews: 190,
     rating: 5,
-    category: CATEGORY_LIST.shirt,
+    category: CATEGORY_LIST.shirt.value,
     isTrending: true,
   },
   {
@@ -124,7 +145,7 @@ const PRODUCT_LIST = [
     title: 'Sơ Mi Nữ Dài Tay Vạt Vai Áo',
     price: 469000,
     originalPrice: 0,
-    gender: [GENDER_LIST.female],
+    gender: [GENDER_LIST.female.value],
     color: [COLOR_LIST.white, COLOR_LIST.blue, COLOR_LIST.black],
     size: [SIZE_LIST.small, SIZE_LIST.medium, SIZE_LIST.large],
     slug: 'so-mi-nu-dai-tay-vat-vai-ao',
@@ -133,7 +154,7 @@ const PRODUCT_LIST = [
   `,
     total_reviews: 110,
     rating: 5,
-    category: CATEGORY_LIST.shirt,
+    category: CATEGORY_LIST.shirt.value,
     isTrending: true,
   },
   {
@@ -142,7 +163,7 @@ const PRODUCT_LIST = [
     title: 'Quần Âu Nam Slim Cạp Di Động',
     price: 599000,
     originalPrice: 0,
-    gender: [GENDER_LIST.male],
+    gender: [GENDER_LIST.male.value],
     color: [COLOR_LIST.black, COLOR_LIST.blue],
     size: [],
     slug: 'quan-au-nam-slim-cap-di-dong',
@@ -151,7 +172,7 @@ const PRODUCT_LIST = [
   `,
     total_reviews: 80,
     rating: 4,
-    category: CATEGORY_LIST.pants,
+    category: CATEGORY_LIST.pants.value,
     isTrending: true,
   },
   {
@@ -160,7 +181,7 @@ const PRODUCT_LIST = [
     title: 'Áo Khoác Thể Thao Nữ Gió Dáng Ngắn',
     price: 649000,
     originalPrice: 0,
-    gender: [GENDER_LIST.female],
+    gender: [GENDER_LIST.female.value],
     color: [COLOR_LIST.pink],
     size: [SIZE_LIST.extra_large],
     slug: 'ao-khoac-the-thao-nu-gio-dang-ngan',
@@ -169,7 +190,7 @@ const PRODUCT_LIST = [
   `,
     total_reviews: 180,
     rating: 5,
-    category: CATEGORY_LIST.jacket,
+    category: CATEGORY_LIST.jacket.value,
     isTrending: true,
   },
   {
@@ -178,7 +199,7 @@ const PRODUCT_LIST = [
     title: 'Áo Khoác Thể Thao Nữ Siêu Nhẹ',
     price: 390000,
     originalPrice: 0,
-    gender: [GENDER_LIST.female],
+    gender: [GENDER_LIST.female.value],
     color: [COLOR_LIST.black, COLOR_LIST.purple, COLOR_LIST.pink],
     size: [SIZE_LIST.medium, SIZE_LIST.small, SIZE_LIST.large, SIZE_LIST.extra_large],
     slug: 'ao-khoac-the-thao-nu-sieu-nhe',
@@ -187,7 +208,7 @@ const PRODUCT_LIST = [
   `,
     total_reviews: 210,
     rating: 4,
-    category: CATEGORY_LIST.jacket,
+    category: CATEGORY_LIST.jacket.value,
     isTrending: false,
   },
   {
@@ -196,7 +217,7 @@ const PRODUCT_LIST = [
     title: 'Áo Polo Nam Pique Mắt Chim Basic Co Giãn Thoáng Khí',
     price: 149500,
     originalPrice: 299000,
-    gender: [GENDER_LIST.male],
+    gender: [GENDER_LIST.male.value],
     color: [COLOR_LIST.brown, COLOR_LIST.blue, COLOR_LIST.yellow, COLOR_LIST.black, COLOR_LIST.white, COLOR_LIST.green],
     size: [SIZE_LIST.double_extra_large, SIZE_LIST.triple_extra_large],
     slug: 'ao-polo-nam-basic-pique-mat-chim-phoi-bo',
@@ -205,8 +226,69 @@ const PRODUCT_LIST = [
   `,
     total_reviews: 400,
     rating: 5,
-    category: CATEGORY_LIST.polo,
+    category: CATEGORY_LIST.polo.value,
     isTrending: true,
+  },
+  {
+    id: 10,
+    image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-polo-nam-yody-apm7217-tit-4.jpg',
+    title: 'Áo Polo Nam Thêu Ngực',
+    price: 299000,
+    originalPrice: 0,
+    gender: [GENDER_LIST.male.value],
+    color: [COLOR_LIST.purple, COLOR_LIST.brown],
+    size: [SIZE_LIST.medium, SIZE_LIST.large],
+    slug: 'ao-polo-nam-theu-nguc',
+    description: `
+    <p>Khám phá chiếc áo polo nam tính, khoẻ khoắn cùng những tính năng vượt trội mang lại sự thoải mái cho người mặc. Thiết kế phối cổ cùng điểm nhấn phối ngực giúp cho chiếc nào này trở nên thú vị hơn, nam tính mà vẫn trẻ trung, khác biệt.</p>
+  `,
+    total_reviews: 523,
+    rating: 5,
+    category: CATEGORY_LIST.polo.value,
+    isTrending: false,
+  },
+  {
+    id: 11,
+    image:
+      'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-polo-nam-clean-vietnam-apm6327-xly-2-yody.jpg',
+    title: 'Polo Nam Recycle Clean Việt Nam 01',
+    price: 349000,
+    originalPrice: 0,
+    gender: [GENDER_LIST.male.value],
+    color: [COLOR_LIST.white],
+    size: [
+      SIZE_LIST.medium,
+      SIZE_LIST.extra_large,
+      SIZE_LIST.double_extra_large,
+      SIZE_LIST.triple_extra_large,
+      SIZE_LIST.quadruple_extra_large,
+    ],
+    slug: 'polo-nam-recycle-clean-viet-nam-01',
+    description: `
+    <p>Một sản phẩm nằm trong dự án Clean Việt Nam tại YODY. Sử dụng Polyester tái chế từ chai nhựa tại Việt Nam góp phần bảo vệ môi trường trên đất nước của chính chúng ta. Áo polo nam thiết kế basic, thoải mái khi mặc, tự tin cùng hình in ý nghĩa.</p>
+  `,
+    total_reviews: 232,
+    rating: 4,
+    category: CATEGORY_LIST.polo.value,
+    isTrending: false,
+  },
+  {
+    id: 12,
+    image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-polo-nu-yody-APN7136-TRG-4%20(3).JPG',
+    title: 'Áo Polo Nữ Gấu Bo',
+    price: 299000,
+    originalPrice: 0,
+    gender: [GENDER_LIST.female.value],
+    color: [COLOR_LIST.blue, COLOR_LIST.white, COLOR_LIST.black],
+    size: [SIZE_LIST.medium, SIZE_LIST.extra_large, SIZE_LIST.large],
+    slug: 'ao-polo-nu-gau-bo',
+    description: `
+    <p>Chiếc áo polo Cafe vừa lành tính trong chất liệu, vừa mới lạ trong thiết kế. Không chỉ có khả năng chống tia UV, áo polo YODY với thiết kế phối cổ cùng điểm nhấn cúc vạt áo giúp cho tủ đồ của các chị em thêm phần ấn tượng. </p>
+  `,
+    total_reviews: 1575,
+    rating: 4.5,
+    category: CATEGORY_LIST.polo.value,
+    isTrending: false,
   },
 ];
 
@@ -330,6 +412,36 @@ const PRODUCT_GALLERY_LIST = [
   {
     id: 9,
     image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/apm3299-xre-qsm6003-dn1-5.jpg',
+  },
+  {
+    id: 10,
+    image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-polo-nam-yody-apm7217-tit-4.jpg',
+  },
+  {
+    id: 10,
+    image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-polo-nam-yody-apm7217-nau-5.jpg',
+  },
+  {
+    id: 11,
+    image:
+      'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-polo-nam-clean-vietnam-apm6327-xly-2-yody.jpg',
+  },
+  {
+    id: 11,
+    image:
+      'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-polo-nam-clean-vietnam-apm6327-dxl-11-yody.jpg',
+  },
+  {
+    id: 12,
+    image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-polo-nu-yody-APN7136-XAH-3%20(8).JPG',
+  },
+  {
+    id: 12,
+    image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-polo-nu-yody-APN7136-TRG-4%20(3).JPG',
+  },
+  {
+    id: 12,
+    image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-polo-nu-yody-APN7136-NAV%20(3).jpg',
   },
 ];
 

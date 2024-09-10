@@ -33,12 +33,12 @@ const PRODUCT_FILTER_LIST = [
     title: 'Giới tính',
     children: [
       {
-        label: 'Nam',
-        value: GENDER_LIST.male,
+        label: GENDER_LIST.male.label,
+        value: GENDER_LIST.male.value,
       },
       {
-        label: 'Nữ',
-        value: GENDER_LIST.female,
+        label: GENDER_LIST.female.label,
+        value: GENDER_LIST.female.value,
       },
     ],
   },

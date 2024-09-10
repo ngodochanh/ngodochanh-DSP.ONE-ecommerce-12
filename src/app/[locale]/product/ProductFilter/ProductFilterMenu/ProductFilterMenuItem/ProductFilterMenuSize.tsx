@@ -2,7 +2,7 @@ import { useProductStore } from '@/components/ProductStore';
 import { ProductFilterMenuTypeProps } from '@/app/[locale]/product/type';
 import { memo } from 'react';
 import { useLocale } from 'next-intl';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { PER_PAGE } from '@/app/[locale]/product/constants';
 
 function ProductFilterMenuSize({
@@ -13,6 +13,9 @@ function ProductFilterMenuSize({
   const { state } = useProductStore();
   const router = useRouter();
   const locale = useLocale();
+
+  const searchParams = useSearchParams();
+  const search = searchParams.get('search') ?? '';
 
   return (
     <div className='grid grid-cols-4 gap-3'>
@@ -25,9 +28,14 @@ function ProductFilterMenuSize({
               : ''
           }`}
           onClick={() => {
-            router.push(`/${locale}/${process.env.PRODUCT!}/?page=${Number(1)}&per_page=${PER_PAGE}`, {
-              scroll: false,
-            });
+            router.push(
+              `/${locale}/${process.env.PRODUCT!}/?page=${Number(1)}&per_page=${PER_PAGE}${
+                search ? `&search=${search}` : ''
+              }`,
+              {
+                scroll: false,
+              }
+            );
             handleChangeFilter(keyProductFilter, item);
           }}
         >

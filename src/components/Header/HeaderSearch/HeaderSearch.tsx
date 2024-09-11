@@ -167,7 +167,7 @@ function HeaderSearch({ isSearchOpen, onCloseSearch }: { isSearchOpen: boolean; 
             <div className='relative w-full'>
               {results.map((item) => (
                 <Link
-                  href={getLocalizedPath(process.env.PRODUCT + '/' + item.id)}
+                  href={getLocalizedPath(`${process.env.PRODUCT}/${item.slug}-${item.id}.html`)}
                   onClick={() => {
                     onCloseSearch();
                     handleClearSearch();

@@ -45,7 +45,7 @@ function RelatedProducts({ title, productList }: { title: string; productList: P
           {productList.map((product) => (
             <SwiperSlide key={product.id}>
               <Link
-                href={getLocalizedPath(process.env.PRODUCT + '/' + product.id)}
+                href={getLocalizedPath(`${process.env.PRODUCT}/${product.slug}-${product.id}.html`)}
                 className='group flex flex-col h-full'
               >
                 <div className='relative h-[430px] rounded-[10px] overflow-hidden mb-[15px]'>

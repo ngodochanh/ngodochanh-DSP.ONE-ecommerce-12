@@ -1,3 +1,10 @@
+import { PiPantsBold } from 'react-icons/pi';
+import { GiUnderwearShorts } from 'react-icons/gi';
+import { RiShirtLine } from 'react-icons/ri';
+import { PiShirtFoldedBold } from 'react-icons/pi';
+import { TbJacket } from 'react-icons/tb';
+import { TbShirt } from 'react-icons/tb';
+
 const GENDER_LIST = {
   male: {
     value: 'male',
@@ -37,24 +44,40 @@ const SIZE_LIST = {
 
 const CATEGORY_LIST = {
   t_shirt: {
+    icon: TbShirt,
     value: 't_shirt',
     label: 'áo thun',
+    isVisible: true,
   },
   shirt: {
+    icon: PiShirtFoldedBold,
     value: 'shirt',
     label: 'sơ mi',
+    isVisible: true,
   },
   pants: {
+    icon: PiPantsBold,
     value: 'pants',
     label: 'quần âu',
+    isVisible: true,
   },
   jacket: {
+    icon: TbJacket,
     value: 'jacket',
     label: 'áo khoác',
+    isVisible: true,
   },
   polo: {
+    icon: RiShirtLine,
     value: 'polo',
     label: 'polo',
+    isVisible: true,
+  },
+  short: {
+    icon: GiUnderwearShorts,
+    value: 'short',
+    label: 'quần short',
+    isVisible: true,
   },
 };
 

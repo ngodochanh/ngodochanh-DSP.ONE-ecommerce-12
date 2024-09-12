@@ -9,7 +9,8 @@ import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
 import Image from 'next/image';
 import type { Swiper as SwiperType } from 'swiper';
 import { Button } from '@nextui-org/react';
-import { SvgChevronRight } from '@/components/Svgs';
+import { IoIosArrowBack } from 'react-icons/io';
+import { IoIosArrowForward } from 'react-icons/io';
 import { PRODUCT_GALLERY_LIST } from '@/constantsProduct';
 
 export default function ProductImageGallery({ id }: { id: number }) {
@@ -35,7 +36,7 @@ export default function ProductImageGallery({ id }: { id: number }) {
             navigation={true}
             thumbs={{ swiper: thumbsSwiper }}
             modules={[FreeMode, Navigation, Thumbs]}
-            className='relative h-4/5 w-full'
+            className="relative h-4/5 w-full"
             onBeforeInit={(swiper) => {
               swiperRef.current = swiper;
             }}
@@ -43,33 +44,33 @@ export default function ProductImageGallery({ id }: { id: number }) {
             {result.map((item) => (
               <SwiperSlide
                 key={item.image}
-                className='relative min-h-[450px] w-full h-full select-none rounded-lg overflow-hidden'
+                className="relative h-full min-h-[450px] w-full select-none overflow-hidden rounded-lg"
               >
                 <Image
-                  sizes='(max-width: 640px) 100vw, 50vw'
+                  sizes="(max-width: 640px) 100vw, 50vw"
                   fill
-                  alt=''
-                  className='block w-full h-full object-cover'
+                  alt=""
+                  className="block h-full w-full object-cover"
                   src={item.image}
                   priority
                 />
               </SwiperSlide>
             ))}
 
-            <div className='absolute bottom-[3%] right-[3%] z-10'>
+            <div className="absolute bottom-[3%] right-[3%] z-10">
               <Button
-                radius='full'
-                className='min-w-fit h-9 w-9 px-1 bg-white data-[focus-visible=true]:outline-none mr-2'
+                radius="full"
+                className="mr-2 h-9 w-9 min-w-fit bg-white px-1 data-[focus-visible=true]:outline-none"
                 onClick={() => swiperRef.current?.slidePrev()}
               >
-                <SvgChevronRight className='rotate-180' />
+                <IoIosArrowBack />
               </Button>
               <Button
-                radius='full'
-                className='min-w-fit h-9 w-9 px-1 bg-white data-[focus-visible=true]:outline-none'
+                radius="full"
+                className="h-9 w-9 min-w-fit bg-white px-1 data-[focus-visible=true]:outline-none"
                 onClick={() => swiperRef.current?.slideNext()}
               >
-                <SvgChevronRight />
+                <IoIosArrowForward />
               </Button>
             </div>
           </Swiper>
@@ -85,18 +86,18 @@ export default function ProductImageGallery({ id }: { id: number }) {
             freeMode={true}
             watchSlidesProgress={true}
             modules={[FreeMode, Navigation, Thumbs]}
-            className=' h-1/5 w-full !pb-0 !pt-[15px] box-border mySwiper'
+            className="mySwiper box-border h-1/5 w-full !pb-0 !pt-[15px]"
           >
             {result.map((item) => (
               <SwiperSlide
                 key={item.image}
-                className='w-full h-full min-h-[250px] opacity-40 relative rounded-lg overflow-hidden  cursor-pointer'
+                className="relative h-full min-h-[250px] w-full cursor-pointer overflow-hidden rounded-lg opacity-40"
               >
                 <Image
-                  sizes='(max-width: 640px) 100vw, 50vw'
+                  sizes="(max-width: 640px) 100vw, 50vw"
                   fill
-                  alt=''
-                  className='block w-full h-full object-cover'
+                  alt=""
+                  className="block h-full w-full object-cover"
                   src={item.image}
                   priority
                 />

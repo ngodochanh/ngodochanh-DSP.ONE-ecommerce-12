@@ -11,13 +11,13 @@ function ProductDetails({ product }: { product: ProductType | undefined }) {
   return (
     <ProductWrapper>
       {product ? (
-        <div className='flex flex-col lg:flex-row gap-[50px] text-dark-charcoal'>
-          <div className='space-y-[15px] flex-1'>
+        <div className="flex flex-col gap-[50px] text-dark-charcoal lg:flex-row">
+          <div className="flex-1 space-y-[15px]">
             {/* Tiêu đề */}
-            <h1 className='font-bold text-clamp-32'>{product.title}</h1>
+            <h1 className="text-clamp-32 font-bold">{product.title}</h1>
             {/* Đánh giá */}
-            <div className='flex items-center justify-between'>
-              <div className='flex items-center gap-x-[10px]'>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-x-[10px]">
                 <StarRating initialRating={product.rating} isInteractive={false} />
                 <span>
                   ({product.rating} / {product.total_reviews} đáng giá)
@@ -27,17 +27,17 @@ function ProductDetails({ product }: { product: ProductType | undefined }) {
               <div></div>
             </div>
             {/* Tình trạng */}
-            <p className='text-clamp-15 font-normal'>
-              Tình trạng: <span className='font-semibold text-red-bright'>Còn hàng</span>
+            <p className="text-clamp-15 font-normal">
+              Tình trạng: <span className="font-semibold text-red-bright">Còn hàng</span>
             </p>
             {/* Giá */}
-            <div className='flex gap-x-5 justify-between'>
-              <strong className='text-clamp-32 text-red-bright'>{formatCurrencyVND(product?.price)}</strong>
-              <div className='text-clamp-16'>
-                <p className='line-through text-gray-muted mb-1'>
+            <div className="flex justify-between gap-x-5">
+              <strong className="text-clamp-32 text-red-bright">{formatCurrencyVND(product?.price)}</strong>
+              <div className="text-clamp-16">
+                <p className="mb-1 text-gray-muted line-through">
                   {product?.originalPrice !== 0 && formatCurrencyVND(product?.originalPrice)}
                 </p>
-                <p className='text-red-bright'>
+                <p className="text-red-bright">
                   {product?.originalPrice !== 0 &&
                     ' Khuyến mãi ' + calculateDiscountPercentage(product.price, product.originalPrice)}
                 </p>
@@ -47,11 +47,11 @@ function ProductDetails({ product }: { product: ProductType | undefined }) {
             <p>Mã sản phẩm: {product.id}</p>
             {/* Mô tả */}
             <article
-              className='prose lg:prose-xl text-justify'
+              className="prose lg:prose-xl text-justify"
               dangerouslySetInnerHTML={{ __html: product.description }}
             />
             {/*  Dịch vụ */}
-            <div className='space-y-[15px]'>
+            <div className="space-y-[15px]">
               {PRODUCT_SERVICE_LIST.map((item) => (
                 <ProductService key={item.id} {...item} />
               ))}
@@ -60,7 +60,7 @@ function ProductDetails({ product }: { product: ProductType | undefined }) {
             <ProductAddToCart product={product} />
           </div>
 
-          <div className='flex-1 overflow-hidden'>
+          <div className="flex-1 overflow-hidden">
             <ProductImageGallery id={product.id} />
           </div>
         </div>

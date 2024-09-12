@@ -18,13 +18,13 @@ function ProductFilterMenuSize({
   const search = searchParams.get('search') ?? '';
 
   return (
-    <div className='grid grid-cols-4 gap-3'>
+    <div className="grid grid-cols-4 gap-3">
       {productFilterList.map((item) => (
         <div
           key={item.value}
-          className={`h-[40px] rounded-sm border-1 border-solid border-gray-light-mid flex items-center justify-center cursor-pointer uppercase hover:bg-default-100 hover:text-black ${
+          className={`flex h-[40px] cursor-pointer items-center justify-center rounded-sm border-1 border-solid border-gray-light-mid uppercase hover:bg-default-100 hover:text-black ${
             state.filter.size.some((s) => s.value === item.value)
-              ? 'bg-yellow-bright text-white border-yellow-bright '
+              ? 'border-yellow-bright bg-yellow-bright text-white'
               : ''
           }`}
           onClick={() => {
@@ -34,7 +34,7 @@ function ProductFilterMenuSize({
               }`,
               {
                 scroll: false,
-              }
+              },
             );
             handleChangeFilter(keyProductFilter, item);
           }}

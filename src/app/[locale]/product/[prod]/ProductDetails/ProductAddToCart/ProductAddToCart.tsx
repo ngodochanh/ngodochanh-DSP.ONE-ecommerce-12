@@ -1,6 +1,7 @@
 'use client';
 
-import { SvgMinus, SvgPlus } from '@/components/Svgs';
+import { FaMinus } from 'react-icons/fa';
+import { FaPlus } from 'react-icons/fa6';
 import { ProductType } from '@/type';
 import { Button } from '@nextui-org/react';
 import { useCallback, useState } from 'react';
@@ -45,33 +46,33 @@ function ProductAddToCart({ product }: { product: ProductType | undefined }) {
   }, [product, quantity]);
 
   return (
-    <form className='space-y-[15px]'>
-      <div className='py-[15px] flex gap-x-[29px] items-center'>
-        <span className='text-clamp-24 font-semibold'>Số lượng</span>
-        <div className='border-1 border-solid border-gray-very-light max-w-[158px] w-full flex items-center'>
+    <form className="space-y-[15px]">
+      <div className="flex items-center gap-x-[29px] py-[15px]">
+        <span className="text-clamp-24 font-semibold">Số lượng</span>
+        <div className="flex w-full max-w-[158px] items-center border-1 border-solid border-gray-very-light">
           <Button
             isDisabled={quantity === 1}
-            className='min-w-fit w-[46px] bg-transparent p-0 border-r-1 rounded-none hover:bg-default-100'
+            className="w-[46px] min-w-fit rounded-none border-r-1 bg-transparent p-0 hover:bg-default-100"
             onClick={() => handleDecrementQuantity()}
           >
-            <SvgMinus className='w-clamp-16' />
+            <FaMinus className="w-clamp-16" />
           </Button>
 
-          <span className='flex-1 text-clamp-16 font-semibold text-center'>{quantity}</span>
+          <span className="flex-1 text-center text-clamp-16 font-semibold">{quantity}</span>
 
           <Button
             isDisabled={quantity === 10}
-            className='min-w-fit w-[46px] bg-transparent p-0 border-l-1 rounded-none hover:bg-default-100'
+            className="w-[46px] min-w-fit rounded-none border-l-1 bg-transparent p-0 hover:bg-default-100"
             onClick={() => handleIncrementQuantity()}
           >
-            <SvgPlus className='w-clamp-16' />
+            <FaPlus className="w-clamp-16" />
           </Button>
         </div>
       </div>
-      <div className='flex gap-x-[5px]'>
-        <Button className='rounded-md flex-1 bg-yellow-bright text-white h-12 !text-clamp-18'>Mua ngay</Button>
+      <div className="flex gap-x-[5px]">
+        <Button className="h-12 flex-1 rounded-md bg-yellow-bright !text-clamp-18 text-white">Mua ngay</Button>
         <Button
-          className='rounded-md flex-1 bg-white border-dark-charcoal border-1 border-solid h-12 !text-clamp-18 hover:bg-default-100'
+          className="h-12 flex-1 rounded-md border-1 border-solid border-dark-charcoal bg-white !text-clamp-18 hover:bg-default-100"
           onClick={handleAddToCart}
         >
           Thêm vào giỏ hàng

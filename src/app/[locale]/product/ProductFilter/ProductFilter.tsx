@@ -81,7 +81,7 @@ function ProductFilter() {
         handleRemoveFilter={handleRemoveFilter}
       />
 
-      <div className='grid grid-cols-1 gap-x-4 2xl:gap-x-[60px] lg:grid-cols-[250px_auto] xl:grid-cols-[300px_auto] 2xl:grid-cols-[343px_auto] mt-[10px] lg:mt-[30px] mb-[120px]'>
+      <div className="mb-[120px] mt-[10px] grid grid-cols-1 gap-x-4 lg:mt-[30px] lg:grid-cols-[250px_auto] xl:grid-cols-[300px_auto] 2xl:grid-cols-[343px_auto] 2xl:gap-x-[60px]">
         <ProductFilterMenu
           isFilterEnabled={isFilterEnabled}
           handleToggleFilter={handleToggleFilter}

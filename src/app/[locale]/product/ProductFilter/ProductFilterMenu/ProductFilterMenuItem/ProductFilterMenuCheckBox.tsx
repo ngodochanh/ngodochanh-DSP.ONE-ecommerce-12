@@ -26,7 +26,7 @@ function ProductFilterMenuCheckBox({
         return (
           <Checkbox
             key={item.value}
-            radius='none'
+            radius="none"
             value={item.value}
             defaultSelected={state.filter[keyProductFilter].some((s) => s.value === item.value)}
             onChange={() => {
@@ -36,7 +36,7 @@ function ProductFilterMenuCheckBox({
                 }`,
                 {
                   scroll: false,
-                }
+                },
               );
               handleChangeFilter(keyProductFilter, item);
             }}

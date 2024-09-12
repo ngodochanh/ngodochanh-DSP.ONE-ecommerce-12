@@ -48,7 +48,7 @@ const filterProducts = (products: ProductType[], filter: FilterType, search = ''
       matchesGender(product, filter.gender) &&
       matchesSize(product, filter.size) &&
       matchesPrice(product, filter.price) &&
-      matchesSearch(product, search)
+      matchesSearch(product, search),
   );
 
 function ProductCatalog({ prodFilterList }: ProductListProps) {
@@ -63,13 +63,13 @@ function ProductCatalog({ prodFilterList }: ProductListProps) {
 
   const filteredProducts = useMemo(
     () => filterProducts(PRODUCT_LIST, prodFilterList, search),
-    [prodFilterList, search]
+    [prodFilterList, search],
   );
   const entries = useMemo(() => filteredProducts.slice(start, end), [filteredProducts, start, end]);
 
   return (
     <div>
-      <ul className='grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-x-2 sm:gap-x-4 2xl:gap-x-5 gap-y-[50px]'>
+      <ul className="grid grid-cols-1 gap-x-2 gap-y-[50px] sm:grid-cols-2 sm:gap-x-4 xl:grid-cols-3 2xl:gap-x-5">
         {entries.length === 0 ? (
           <ProductNotFound />
         ) : (

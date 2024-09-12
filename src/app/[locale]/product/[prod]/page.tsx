@@ -1,4 +1,4 @@
-import type { Metadata, ResolvingMetadata } from 'next';
+import type { Metadata } from 'next';
 import RelatedProducts from './RelatedProducts';
 import ProductDetails from './ProductDetails';
 import ProductInfo from './ProductInfo';
@@ -66,7 +66,7 @@ function Prod({ params }: { params: { prod: string } }) {
 
   return (
     <>
-      <div className='max-container '>
+      <div className="max-container">
         {/* Thanh điều hướng breadcrumb */}
         <Breadcrumb breadCrumbList={BREADCRUMB_LISTS} />
         {/* Chi tiết sản phẩm */}
@@ -74,7 +74,7 @@ function Prod({ params }: { params: { prod: string } }) {
         {/* Thông tin sản phẩm */}
         <ProductInfo />
         {/* Sản phẩm tương tự */}
-        <RelatedProducts title='sản phẩm tương tự' productList={similarProducts} />
+        <RelatedProducts title="sản phẩm tương tự" productList={similarProducts} />
         {/* Sản phẩm đã xem gần đây */}
         <RecentlyViewedProducts product={product} />
       </div>

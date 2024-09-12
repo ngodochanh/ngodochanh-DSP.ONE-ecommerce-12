@@ -1,7 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { SvgArrowDropDown, SvgSearch } from '@/components/Svgs';
+import { IoSearch } from 'react-icons/io5';
+import { GoTriangleDown } from 'react-icons/go';
 
 type Item = {
   key: string;
@@ -69,14 +70,10 @@ function Selector({
   };
 
   return (
-    <div className={`w-[${width}] w-fit font-medium ${colorText} cursor-pointer relative z-20`}>
+    <div className={`w-[${width}] w-fit font-medium ${colorText} relative z-20 cursor-pointer`}>
       {/* Hiển thị mục được chọn hoặc 'Select' nếu chưa có mục nào được chọn */}
       <div
-        className={`
-          flex justify-between items-center w-full py-2 gap-x-[2px] rounded 
-          ${!selectedItem && 'text-gray-700'}
-          ${bgColor}
-        `}
+        className={`flex w-full items-center justify-between gap-x-[2px] rounded py-2 ${!selectedItem && 'text-gray-700'} ${bgColor} `}
         // Mở/đóng danh sách khi nhấn vào
         onClick={() => setOpen(!open)}
       >
@@ -85,28 +82,24 @@ function Selector({
             ? selectedItem.name.substring(0, 25) + '...'
             : selectedItem.name
           : 'Select'}
-        <SvgArrowDropDown className={`transition-transform-fast ${open && 'rotate-180'} w-clamp-18`} />
+        <GoTriangleDown className={`transition-transform-fast ${open && 'rotate-180'} w-clamp-18`} />
       </div>
       {/* Hiển thị hoặc ẩn các mục với open */}
       <ul
-        className={`bg-white text-black overflow-y-auto min-w-72 absolute top-full mt-2 shadow-md  
-          ${left && 'left-0'} 
-          ${right && 'right-0'}
-          ${open ? 'max-h-60' : 'max-h-0'} 
-          `}
+        className={`absolute top-full mt-2 min-w-72 overflow-y-auto bg-white text-black shadow-md ${left && 'left-0'} ${right && 'right-0'} ${open ? 'max-h-60' : 'max-h-0'} `}
       >
-        <div className='flex justify-center items-center px-2 sticky top-0 bg-white'>
-          <div className='w-10 '>
-            <SvgSearch className='mx-auto w-clamp-24' />
+        <div className="sticky top-0 flex items-center justify-center bg-white px-2">
+          <div className="w-10">
+            <IoSearch className="mx-auto w-clamp-24" />
           </div>
           {/* Input để tìm kiếm mục */}
           <input
-            type='text'
+            type="text"
             value={inputValue}
             // Cập nhật giá trị input
             onChange={(e) => setInputValue(e.target.value.toLowerCase())}
             placeholder={inputPlaceholder}
-            className='placeholder:text-gray-700 p-2 outline-none grow'
+            className="grow p-2 outline-none placeholder:text-gray-700"
           />
         </div>
         {/* Hiển thị danh sách các mục */}
@@ -114,11 +107,7 @@ function Selector({
           <li
             key={item.key}
             // Tìm kiếm và đánh dấu mục được chọn
-            className={` 
-              p-2 text-clamp-14 hover:bg-orange-bright hover:text-white 
-              ${item.name.toLowerCase().startsWith(inputValue) ? 'block' : 'hidden'}    
-              ${item.name.toLowerCase() === selectedItem?.name.toLowerCase() && 'bg-orange-bright text-white'}
-            `}
+            className={`p-2 text-clamp-14 hover:bg-orange-bright hover:text-white ${item.name.toLowerCase().startsWith(inputValue) ? 'block' : 'hidden'} ${item.name.toLowerCase() === selectedItem?.name.toLowerCase() && 'bg-orange-bright text-white'} `}
             // Chọn mục khi nhấn vào
             onClick={() => handleSelect(item)}
           >

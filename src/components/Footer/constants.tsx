@@ -1,25 +1,25 @@
-import { SvgFacebook, SvgInstagram, SvgTwitter, SvgYoutube } from '@/components/Svgs';
+import { FaTwitter, FaInstagram, FaYoutube, FaFacebook  } from 'react-icons/fa';
 
 const SOCIAL_LIST = [
   {
     key: 'facebook',
     href: '/',
-    Icon: SvgFacebook,
+    Icon: FaFacebook,
   },
   {
     key: 'twitter',
     href: '/',
-    Icon: SvgTwitter,
+    Icon: FaTwitter,
   },
   {
     key: 'instagram',
     href: '/',
-    Icon: SvgInstagram,
+    Icon: FaInstagram,
   },
   {
     key: 'youtube',
     href: '/',
-    Icon: SvgYoutube,
+    Icon: FaYoutube,
   },
 ];
 

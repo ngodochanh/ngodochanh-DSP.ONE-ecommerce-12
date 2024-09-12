@@ -9,7 +9,7 @@ type LogoProps = {
 function Logo({ textColor = 'text-black', className }: LogoProps) {
   return (
     <Link href={getLocalizedPath(process.env.HOME!)}>
-      <div className={`font-bold text-clamp-40 ${textColor} ${className} `}>DSP.ONE</div>
+      <div className={`text-clamp-40 font-bold ${textColor} ${className} `}>DSP.ONE</div>
     </Link>
   );
 }

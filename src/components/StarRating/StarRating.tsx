@@ -1,6 +1,7 @@
 'use client';
 
-import { SvgStar, SvgStarHalfLeft } from '@/components/Svgs';
+import { BiSolidStar, BiSolidStarHalf } from 'react-icons/bi';
+
 import { MouseEvent, useState, useCallback, useMemo } from 'react';
 
 type StarRatingProps = {
@@ -22,7 +23,7 @@ function StarRating({ initialRating = 0, isInteractive = true }: StarRatingProps
         }
       }
     },
-    [hover, isInteractive]
+    [hover, isInteractive],
   );
 
   const handleMouseOver = useCallback(
@@ -32,7 +33,7 @@ function StarRating({ initialRating = 0, isInteractive = true }: StarRatingProps
         setHover(isHalf ? value - 0.5 : value);
       }
     },
-    [isInteractive]
+    [isInteractive],
   );
 
   const handleMouseOut = useCallback(() => {
@@ -49,21 +50,21 @@ function StarRating({ initialRating = 0, isInteractive = true }: StarRatingProps
 
       if ((decimalPart === 5 && value === integerPart + 1 && !hover) || (hover === value - 0.5 && isHalf)) {
         return (
-          <SvgStarHalfLeft
-            className={`w-6 h-6 ${value <= (hover || rating + 1) ? 'text-yellow-500' : 'text-gray-300'}`}
+          <BiSolidStarHalf
+            className={`h-6 w-6 ${value <= (hover || rating + 1) ? 'text-yellow-500' : 'text-gray-300'}`}
           />
         );
       }
 
-      return <SvgStar className={`w-6 h-6 ${value <= (hover || rating) ? 'text-yellow-500' : 'text-gray-300'}`} />;
+      return <BiSolidStar className={`h-6 w-6 ${value <= (hover || rating) ? 'text-yellow-500' : 'text-gray-300'}`} />;
     },
-    [rating, hover]
+    [rating, hover],
   );
 
   const stars = useMemo(() => Array.from({ length: 5 }, (_, index) => index + 1), []);
 
   return (
-    <div className='flex items-center space-x-1'>
+    <div className="flex items-center space-x-1">
       {stars.map((value) => (
         <div
           key={value}
@@ -73,7 +74,7 @@ function StarRating({ initialRating = 0, isInteractive = true }: StarRatingProps
           onMouseOut={handleMouseOut}
         >
           <div
-            className='absolute left-0 top-0 bottom-0 w-1/2'
+            className="absolute bottom-0 left-0 top-0 w-1/2"
             onMouseOver={(e) => handleMouseOver(e, value, true)}
           ></div>
           {renderStar(value)}

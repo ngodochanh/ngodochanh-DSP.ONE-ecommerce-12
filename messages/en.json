@@ -22,14 +22,7 @@
   },
   "category": {
     "text": "our categories",
-    "items": {
-      "shoes": "Men's Shoes",
-      "pants": "Men's Pants",
-      "menwear": "Men's Wear",
-      "kidwear": "Kid's Wear",
-      "accessory": "Accessories",
-      "women": "Women"
-    }
+    "items": {}
   },
   "speialProducts": {
     "text": "Speial Products"

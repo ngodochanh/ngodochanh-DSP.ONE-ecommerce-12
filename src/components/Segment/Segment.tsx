@@ -8,8 +8,8 @@ type SegmentProps = {
 function Segment({ title, className = '' }: SegmentProps) {
   return (
     <div className={`${className} flex gap-x-10`}>
-      <strong className='w-fit text-clamp-24 capitalize'>{title}</strong>
-      <Divider className='my-auto bg-black flex-1' />
+      <strong className="w-fit text-clamp-24 capitalize">{title}</strong>
+      <Divider className="my-auto flex-1 bg-black" />
     </div>
   );
 }

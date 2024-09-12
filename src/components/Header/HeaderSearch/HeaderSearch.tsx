@@ -1,6 +1,8 @@
 'use client';
 
-import { SvgCloseCircle, SvgSearch, SvgSpinner } from '@/components/Svgs';
+import { ImSpinner8 } from 'react-icons/im';
+import { AiFillCloseCircle } from 'react-icons/ai';
+import { FaMagnifyingGlass } from 'react-icons/fa6';
 import { CATEGORY_LIST, GENDER_LIST, PRODUCT_LIST } from '@/constantsProduct';
 import useDebounce from '@/hooks/useDebounce';
 import { ProductType } from '@/type';
@@ -32,7 +34,7 @@ function HeaderSearch({ isSearchOpen, onCloseSearch }: { isSearchOpen: boolean; 
         const result = PRODUCT_LIST.filter(
           (product) =>
             product.title.toLowerCase().includes(debouncedQuery.toLowerCase()) ||
-            product.category.toLowerCase().includes(debouncedQuery.toLowerCase())
+            product.category.toLowerCase().includes(debouncedQuery.toLowerCase()),
         ).slice(0, 3);
 
         setIsSearching(false);
@@ -123,9 +125,9 @@ function HeaderSearch({ isSearchOpen, onCloseSearch }: { isSearchOpen: boolean; 
     <>
       {/* Overlay header search */}
       <div
-        className={`absolute top-full left-0 right-0 h-screen bg-black/50 z-20 ${
+        className={`absolute left-0 right-0 top-full z-20 h-screen bg-black/50 ${
           isSearchOpen ? 'w-full opacity-100' : 'w-0 opacity-0'
-        } transition-all ease-in-out duration-500 sm:w-0`}
+        } transition-all duration-500 ease-in-out sm:w-0`}
         onClick={() => {
           onCloseSearch();
           handleClearSearch();
@@ -134,19 +136,19 @@ function HeaderSearch({ isSearchOpen, onCloseSearch }: { isSearchOpen: boolean; 
       {/* Form tìm kiếm */}
       <form
         ref={formRef}
-        className={`bg-gray-lightest text-gray-light rounded-[500px] sm:w-full sm:max-w-[230px] md:max-w-[276px] lg:max-w-[180px] xl:max-w-[220px] xl:w-[276px] absolute lg:static top-[calc(100%+16px)] sm:top-1/2 left-1/2 sm:left-2/4  ${
-          isSearchOpen ? 'w-[calc(100%-16px)]  opacity-100' : 'w-0 opacity-0'
-        } transition-all ease-in-out duration-500 flex sm:opacity-100 -translate-x-1/2 lg:translate-x-0 sm:-translate-y-1/2 lg:translate-y-0 z-40 shadow-inner sm:shadow-none`}
+        className={`absolute left-1/2 top-[calc(100%+16px)] rounded-[500px] bg-gray-lightest text-gray-light sm:left-2/4 sm:top-1/2 sm:w-full sm:max-w-[230px] md:max-w-[276px] lg:static lg:max-w-[180px] xl:w-[276px] xl:max-w-[220px] ${
+          isSearchOpen ? 'w-[calc(100%-16px)] opacity-100' : 'w-0 opacity-0'
+        } z-40 flex -translate-x-1/2 shadow-inner transition-all duration-500 ease-in-out sm:-translate-y-1/2 sm:opacity-100 sm:shadow-none lg:translate-x-0 lg:translate-y-0`}
         onSubmit={handleSubmitSearch}
       >
-        <button type='submit' className='py-3 pl-5 lg:pl-3 xl:pl-5 pr-3 lg:pr-2 xl:pr-3 cursor-pointer'>
-          <SvgSearch className='w-clamp-20' />
+        <button type="submit" className="cursor-pointer py-3 pl-5 pr-3 lg:pl-3 lg:pr-2 xl:pl-5 xl:pr-3">
+          <FaMagnifyingGlass className="h-full w-clamp-16" />
         </button>
 
         <input
-          type='text'
+          type="text"
           placeholder={t('search.placeholder')}
-          className='bg-transparent outline-none w-full pr-2 text-clamp-16'
+          className="w-full bg-transparent pr-2 text-clamp-16 outline-none"
           ref={searchRef}
           value={query}
           onChange={handleSearchChange}
@@ -154,17 +156,21 @@ function HeaderSearch({ isSearchOpen, onCloseSearch }: { isSearchOpen: boolean; 
         {/* Nút xóa input và loading dữ liệu */}
         {query && (
           <div
-            className='w-clamp-20 h-full flex my-auto items-center justify-center mr-3 cursor-pointer text-black'
+            className="my-auto mr-3 flex h-full w-clamp-20 cursor-pointer items-center justify-center text-gray-light"
             onClick={handleClearSearchAndFocus}
           >
-            {isSearching ? <SvgSpinner className='animate-spin' /> : <SvgCloseCircle />}
+            {isSearching ? (
+              <ImSpinner8 className="h-full w-full animate-spin" />
+            ) : (
+              <AiFillCloseCircle className="h-full w-full" />
+            )}
           </div>
         )}
 
         {/* Hiển thị kết quả tìm kiếm */}
         {results?.length > 0 && (
-          <div className='absolute top-full w-full sm:left-1/2 sm:w-[640px] sm:-translate-x-1/2 lg:-translate-x-full lg:left-full mt-4 bg-white rounded-xl overflow-hidden max-h-scrollable overflow-y-auto scroll-smooth overscroll-y-contain shadow-md '>
-            <div className='relative w-full'>
+          <div className="absolute top-full mt-4 max-h-scrollable w-full overflow-hidden overflow-y-auto overscroll-y-contain scroll-smooth rounded-xl bg-white shadow-md sm:left-1/2 sm:w-[640px] sm:-translate-x-1/2 lg:left-full lg:-translate-x-full">
+            <div className="relative w-full">
               {results.map((item) => (
                 <Link
                   href={getLocalizedPath(`${process.env.PRODUCT}/${item.slug}-${item.id}.html`)}
@@ -172,34 +178,34 @@ function HeaderSearch({ isSearchOpen, onCloseSearch }: { isSearchOpen: boolean; 
                     onCloseSearch();
                     handleClearSearch();
                   }}
-                  className='flex gap-4 p-2 hover:bg-gray-lightest  cursor-pointer'
+                  className="flex cursor-pointer gap-4 p-2 hover:bg-gray-lightest"
                 >
-                  <div className='relative w-clamp-96 h-clamp-96'>
+                  <div className="relative h-clamp-96 w-clamp-96">
                     <Image
                       src={item.image}
                       alt={item.title}
                       fill
-                      className='block w-full h-full object-cover rounded-xl'
+                      className="block h-full w-full rounded-xl object-cover"
                     />
                   </div>
-                  <div className='flex-1'>
-                    <h3 className='font-bold text-clamp-18 line-clamp-1'>{item.title}</h3>
+                  <div className="flex-1">
+                    <h3 className="line-clamp-1 text-clamp-18 font-bold">{item.title}</h3>
                     <p>
                       <strong>Giới tính: </strong>
 
                       {item.gender.map((g, index) =>
                         g in GENDER_LIST ? (
-                          <span key={g} className='capitalize'>
+                          <span key={g} className="capitalize">
                             {GENDER_LIST[g as keyof typeof GENDER_LIST].label}
                             {index < item.gender.length - 1 ? ', ' : ''}
                           </span>
                         ) : (
                           <span key={g}>Không xác định</span>
-                        )
+                        ),
                       )}
                     </p>
 
-                    <p className='capitalize'>
+                    <p className="capitalize">
                       <strong>Loại áo: </strong>
 
                       {CATEGORY_LIST[item.category as keyof typeof CATEGORY_LIST].label}
@@ -210,7 +216,7 @@ function HeaderSearch({ isSearchOpen, onCloseSearch }: { isSearchOpen: boolean; 
               {/* Link để xem tất cả kết quả tìm kiếm */}
               <Link
                 href={getLocalizedPath(process.env.PRODUCT + '?search=' + debouncedQuery)}
-                className='cursor-pointer sticky bottom-0 w-full h-10 flex justify-center items-center rounded-b-xl bg-yellow-vivid text-white hover:opacity-85 hover:text-black'
+                className="sticky bottom-0 flex h-10 w-full cursor-pointer items-center justify-center rounded-b-xl bg-yellow-vivid text-white hover:text-black hover:opacity-85"
                 onClick={() => {
                   onCloseSearch();
                   handleClearSearch();

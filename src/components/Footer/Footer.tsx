@@ -5,66 +5,66 @@ import Image from 'next/image';
 
 import AppStore from '/public/images/app_download/app_store.png';
 import GooglePlay from '/public/images/app_download/google_play.png';
-import { SvgEnvelope } from '@/components/Svgs';
+import { BsEnvelopeFill } from 'react-icons/bs';
 import { useTranslations } from 'next-intl';
 
 function Footer() {
   const t = useTranslations('footer');
   return (
-    <div className='bg-black text-white text-clamp-16 -translate-y-[1px]'>
-      <div className='max-container pt-[61px] pb-[81px] flex flex-col lg:flex-row justify-between flex-wrap gap-x-12 gap-y-[60px]'>
+    <div className="-translate-y-[1px] bg-black text-clamp-16 text-white">
+      <div className="max-container flex flex-col flex-wrap justify-between gap-x-12 gap-y-[60px] pb-[81px] pt-[61px] lg:flex-row">
         {/* Logo and contacts */}
-        <div className=''>
-          <Logo textColor='text-white' className='mb-9 mt-2' />
+        <div className="">
+          <Logo textColor="text-white" className="mb-9 mt-2" />
 
           {/* Info */}
-          <div className='mb-[10px]'>
-            <p className='sm:w-fit sm:inline-block'>{t('info.address.street')},</p>{' '}
-            <p className='sm:w-fit sm:inline-block'>{t('info.address.ward')},</p>{' '}
-            <p className='sm:w-fit sm:inline-block'>
+          <div className="mb-[10px]">
+            <p className="sm:inline-block sm:w-fit">{t('info.address.street')},</p>{' '}
+            <p className="sm:inline-block sm:w-fit">{t('info.address.ward')},</p>{' '}
+            <p className="sm:inline-block sm:w-fit">
               {t('info.address.district')}, {t('info.address.city')}, {t('info.address.country')}
             </p>
           </div>
 
-          <p className='mb-[10px]'>
+          <p className="mb-[10px]">
             Email:{' '}
-            <a href='mailto:info@dspone.com' className='hover:text-orange-bright'>
+            <a href="mailto:info@dspone.com" className="hover:text-orange-bright">
               info@dspone.com
             </a>
           </p>
 
-          <p className='mb-5'>
+          <p className="mb-5">
             {t('info.hotline')}:{' '}
-            <a href='tel:+84985909720' className='hover:text-orange-bright'>
+            <a href="tel:+84985909720" className="hover:text-orange-bright">
               (+84) 985 909 720
             </a>
           </p>
 
           {/* Social */}
-          <div className='flex gap-5'>
+          <div className="flex gap-5">
             {SOCIAL_LIST.map((social) => {
               const { key, href, Icon } = social;
               return (
                 <Link
                   href={href}
                   key={key}
-                  className='text-blue-strong h-clamp-35 w-clamp-35 bg-white rounded-full grid hover:text-orange-bright'
+                  className="h-clamp-35 w-clamp-35 rounded-full bg-white text-blue-strong hover:text-orange-bright"
                 >
-                  <Icon className='place-self-center w-clamp-15' />
+                  <Icon className="mx-auto h-full w-clamp-18" />
                 </Link>
               );
             })}
           </div>
         </div>
 
-        <div className='flex-1 flex justify-between flex-wrap gap-x-8 xl:gap-x-12 gap-y-[60px]'>
+        <div className="flex flex-1 flex-wrap justify-between gap-x-8 gap-y-[60px] xl:gap-x-12">
           {/* Introduce */}
-          <ul className='space-y-[6px]'>
+          <ul className="space-y-[6px]">
             <li>
-              <h5 className='font-semibold'>{t('introduce.text')}</h5>
+              <h5 className="font-semibold">{t('introduce.text')}</h5>
             </li>
             {LINK_LIST.map((item) => (
-              <li key={item.key} className='font-normal capitalize hover:text-orange-bright'>
+              <li key={item.key} className="font-normal capitalize hover:text-orange-bright">
                 <Link href={item.href}>{t(`introduce.item.${item.key}`)}</Link>
               </li>
             ))}
@@ -72,56 +72,59 @@ function Footer() {
 
           {/* App download */}
           <div>
-            <h5 className='font-semibold pb-3'>{t('app_download.text')}</h5>
+            <h5 className="pb-3 font-semibold">{t('app_download.text')}</h5>
 
-            <Link href='/' className='block pb-[10px]'>
+            <Link href="/" className="block pb-[10px]">
               <Image
                 src={AppStore}
-                alt='Download App Store'
+                alt="Download App Store"
                 width={150}
                 height={43.33}
-                loading='lazy'
-                className='h-[43.33px] w-auto'
+                loading="lazy"
+                className="h-[43.33px] w-auto"
               />
             </Link>
 
-            <Link href='/' className='block pb-[10px]'>
+            <Link href="/" className="block pb-[10px]">
               <Image
                 src={GooglePlay}
-                alt='Download Google Play'
+                alt="Download Google Play"
                 width={150}
                 height={43.33}
-                loading='lazy'
-                className='h-[43.33px] w-auto'
+                loading="lazy"
+                className="h-[43.33px] w-auto"
               />
             </Link>
           </div>
 
           {/* Send gmail */}
-          <div className='max-w-[382px] w-full'>
-            <h5 className='font-semibold pb-3'>{t('send_gmail.title')}</h5>
+          <div className="w-full max-w-[382px]">
+            <h5 className="pb-3 font-semibold">{t('send_gmail.title')}</h5>
 
             <form
-              action=''
-              className='flex justify-between items-center h-[48px] px-4 py-[10px] rounded bg-white-25 mb-3'
+              action=""
+              className="mb-3 flex h-[48px] items-center justify-between rounded bg-white-25 px-4 py-[10px]"
             >
               <input
-                type='text'
-                className=' bg-transparent outline-none flex-grow'
+                type="text"
+                className="flex-grow bg-transparent outline-none"
                 placeholder={t('send_gmail.input.placeholder')}
               />
-              <button type='submit' className='text-blue-strong'>
-                <SvgEnvelope />
+              <button
+                type="submit"
+                className="text-blue-strong transition-colors duration-500 ease-in-out hover:text-white"
+              >
+                <BsEnvelopeFill />
               </button>
             </form>
 
-            <p className='font-light text-clamp-14'>{t('send_gmail.description')}</p>
+            <p className="text-clamp-14 font-light">{t('send_gmail.description')}</p>
           </div>
         </div>
       </div>
 
       {/* Copyright */}
-      <p className='text-center font-normal py-5'>{t('copyright')}</p>
+      <p className="py-5 text-center font-normal">{t('copyright')}</p>
     </div>
   );
 }

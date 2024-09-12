@@ -78,7 +78,7 @@ function RecentlyViewedProducts({ product }: { product: ProductType | undefined 
     }
   }, [product]);
 
-  return <RelatedProducts title='Đã xem gần đây' productList={products} />;
+  return <RelatedProducts title="Đã xem gần đây" productList={products} />;
 }
 
 export default RecentlyViewedProducts;

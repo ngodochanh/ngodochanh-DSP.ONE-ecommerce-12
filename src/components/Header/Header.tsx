@@ -4,7 +4,14 @@
 import Logo from '@/components/Logo';
 import getLocalizedPath from '@/utils/getLocalizedPath ';
 // Icon
-import { SvgBuy, SvgHeart, SvgSearch, SvgUser, SvgMenu, SvgClose } from '@/components/Svgs';
+import { FaMagnifyingGlass } from 'react-icons/fa6';
+import { FaRegHeart } from 'react-icons/fa6';
+import { FiShoppingCart } from 'react-icons/fi';
+import { FaRegCircleUser } from 'react-icons/fa6';
+
+import { FaBarsStaggered } from 'react-icons/fa6';
+import { RiCloseLargeLine } from 'react-icons/ri';
+
 //
 import Link from 'next/link';
 import { useCallback, useState } from 'react';
@@ -71,28 +78,28 @@ function Header() {
 
   return (
     <>
-      <div className='max-container bg-white flex justify-between items-center py-2 sticky top-0 left-0 right-0 lg:relative backdrop-filter backdrop-blur-sm bg-opacity-30 z-20'>
-        <div className='flex lg:gap-[8px] xl:gap-[16px] 2xl:gap-[80px]'>
+      <div className="max-container sticky left-0 right-0 top-0 z-20 flex items-center justify-between bg-white bg-opacity-30 py-2 backdrop-blur-sm backdrop-filter lg:relative">
+        <div className="flex lg:gap-[8px] xl:gap-[16px] 2xl:gap-[80px]">
           {/* Logo */}
           <Logo />
 
           {/* Navigation */}
           <nav
-            className={`bg-white transition-transform-fast absolute lg:static top-full left-0 max-w-[375px] lg:max-w-none w-full lg:w-auto h-screen lg:h-auto shadow-md lg:shadow-none ${
+            className={`transition-transform-fast absolute left-0 top-full h-screen w-full max-w-[375px] bg-white shadow-md lg:static lg:h-auto lg:w-auto lg:max-w-none lg:shadow-none ${
               isMenuOpen ? 'translate-x-0' : '-translate-x-full'
             } lg:translate-x-0`}
           >
-            <ul className='flex flex-col lg:flex-row gap-x-[2px] xl:gap-x-[10px] h-full'>
+            <ul className="flex h-full flex-col gap-x-[2px] lg:flex-row xl:gap-x-[10px]">
               {NAVIGATION_LIST.map((item: NavItem) => {
                 const localizedPath = getLocalizedPath(item.path);
                 const isActive = path === localizedPath || (localizedPath !== '/vi' && path.startsWith(localizedPath));
 
                 return (
-                  <li className='grid' key={item.id}>
+                  <li className="grid" key={item.id}>
                     <Link
                       href={localizedPath}
-                      className={`font-medium text-clamp-18 block py-[10px] lg:px-[5px] xl:px-[15px] lg:my-auto cursor-pointer w-full text-center self-center ${
-                        isActive ? 'text-black font-bold' : 'text-gray-light'
+                      className={`block w-full cursor-pointer self-center py-[10px] text-center text-clamp-18 font-medium lg:my-auto lg:px-[5px] xl:px-[15px] ${
+                        isActive ? 'font-bold text-black' : 'text-gray-light'
                       } hover:text-black`}
                       onClick={() => handleCloseMenu()}
                     >
@@ -105,41 +112,42 @@ function Header() {
           </nav>
         </div>
 
-        <div className='lg:grow-0 flex 2xl:gap-x-[20px]'>
+        <div className="flex lg:grow-0 2xl:gap-x-[20px]">
           {/* Search */}
           <HeaderSearch isSearchOpen={isSearchOpen} onCloseSearch={handleCloseSearch} />
           {/* Action */}
-          <div className='flex items-center 2xl:gap-[10px] text-orange-bright'>
+          <div className="flex items-center gap-[2px] text-orange-bright 2xl:gap-[10px]">
             <div
-              className='sm:hidden cursor-pointer w-6 sm:w-10 lg:w-8 xl:w-10 h-full flex justify-center items-center'
+              className="h-full w-6 cursor-pointer sm:hidden"
               onClick={() => {
                 setIsSearchOpen(!isSearchOpen);
               }}
             >
-              <SvgSearch className='w-clamp-24' />
+              <FaMagnifyingGlass className="mx-auto h-full w-clamp-24" />
             </div>
-            <div className='cursor-pointer w-6 sm:w-10 lg:w-8 xl:w-10 h-full flex justify-center items-center'>
-              <SvgHeart className='w-clamp-24' />
+            <div className="h-full w-6 cursor-pointer sm:w-10 lg:w-8 xl:w-10">
+              <FaRegHeart className="mx-auto h-full w-clamp-24" />
             </div>
-            <div className='cursor-pointer w-6 sm:w-10 lg:w-8 xl:w-10 h-full flex justify-center items-center'>
-              <SvgBuy className='w-clamp-24' />
+
+            <div className="h-full w-6 cursor-pointer sm:w-10 lg:w-8 xl:w-10">
+              <FiShoppingCart className="mx-auto h-full w-clamp-24" />
             </div>
-            <div className='cursor-pointer w-6 sm:w-10 lg:w-8 xl:w-10 h-full flex justify-center items-center'>
-              <SvgUser className='w-clamp-24' />
+
+            <div className="h-full w-6 cursor-pointer sm:w-10 lg:w-8 xl:w-10">
+              <FaRegCircleUser className="mx-auto h-full w-clamp-24" />
             </div>
             <div
-              className={`
-              cursor-pointer w-6 sm:w-10 h-full flex justify-center  items-center lg:hidden transition-transform-fast 
-              ${isMenuOpen ? 'rotate-180' : 'rotate-0'}
-              `}
+              className={`transition-transform-fast h-full w-6 cursor-pointer sm:w-10 lg:hidden ${isMenuOpen ? 'rotate-180' : 'rotate-0'} `}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              {isMenuOpen ? <SvgClose className='w-clamp-24' /> : <SvgMenu className='w-clamp-24' />}
+              {isMenuOpen ? (
+                <RiCloseLargeLine className="mx-auto h-full w-clamp-24" />
+              ) : (
+                <FaBarsStaggered className="mx-auto h-full w-clamp-24" />
+              )}
             </div>
           </div>
         </div>
-
-        {/* {isMenuOpen && <div className='fixed inset-0 bg-black/50 z-40' onClick={() => setIsMenuOpen(false)} />} */}
       </div>
     </>
   );

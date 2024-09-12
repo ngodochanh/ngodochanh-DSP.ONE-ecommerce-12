@@ -31,9 +31,9 @@ function Products() {
   return (
     <>
       <Banner />
-      <div className='max-container'>
+      <div className="max-container">
         <Breadcrumb breadCrumbList={BREADCRUMB_LIST} />
-        <Segment title={t('navigation.product')} className='py-5' />
+        <Segment title={t('navigation.product')} className="py-5" />
         <ProductFilter />
       </div>
     </>

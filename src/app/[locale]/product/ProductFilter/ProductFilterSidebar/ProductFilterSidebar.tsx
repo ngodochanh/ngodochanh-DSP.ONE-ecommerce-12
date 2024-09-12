@@ -1,6 +1,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import { SvgClose, SvgFilter } from '@/components/Svgs';
+import { CgClose } from 'react-icons/cg';
+import { FiFilter } from 'react-icons/fi';
 import { FilterType } from '@/app/[locale]/product/type';
 import { KEY_PRODUCT_FILTER } from '@/app/[locale]/product/constants';
 import { memo } from 'react';
@@ -14,59 +15,58 @@ type ProductFilterSidebarProps = {
 function ProductFilterSidebar({ prodFilterList, handleToggleFilter, handleRemoveFilter }: ProductFilterSidebarProps) {
   const { gender, color, size, price } = prodFilterList;
   return (
-    <div className='lg:flex items-center gap-x-[26px] py-5'>
-      <div className='flex justify-between mb-[10px] lg:mb-0'>
-        <span className='font-normal text-clamp-16'>Bộ lọc đã chọn:</span>
+    <div className="items-center gap-x-[26px] py-5 lg:flex">
+      <div className="mb-[10px] flex justify-between lg:mb-0">
+        <span className="text-clamp-16 font-normal">Bộ lọc đã chọn:</span>
 
-        <div className='grid grid-cols-[auto_24px] gap-x-[6px] lg:hidden'>
-          <span className=' text-clamp-16 font-medium'>Lọc:</span>
-          <div className='p-[3px] h-6 lg:none cursor-pointer' onClick={handleToggleFilter}>
-            <SvgFilter />
-          </div>
+        <div className="grid grid-cols-[auto_24px] gap-x-[6px] lg:hidden">
+          <span className="text-clamp-16 font-medium">Lọc:</span>
+
+          <FiFilter className="lg:none h-full w-clamp-24 cursor-pointer" onClick={handleToggleFilter} />
         </div>
       </div>
       <Swiper
-        slidesPerView='auto'
+        slidesPerView="auto"
         spaceBetween={24}
         pagination={false}
-        className='flex-1 gap-x-6 cursor-pointer h-[42px]'
+        className="h-[42px] flex-1 cursor-pointer gap-x-6"
       >
         {gender.map((item) => (
-          <SwiperSlide key={item.value} className='!w-fit'>
-            <div className='inline-flex items-center gap-4 py-2 px-4 rounded-full border-1 border-solid '>
-              <strong className='font-normal line-clamp-1'>{item.label}</strong>
+          <SwiperSlide key={item.value} className="!w-fit">
+            <div className="inline-flex items-center gap-4 rounded-full border-1 border-solid px-4 py-2">
+              <strong className="line-clamp-1 font-normal">{item.label}</strong>
               <div onClick={() => handleRemoveFilter(KEY_PRODUCT_FILTER.gender, item.value)}>
-                <SvgClose className='w-clamp-24' />
+                <CgClose className="h-full w-clamp-24" />
               </div>
             </div>
           </SwiperSlide>
         ))}
         {color.map((item) => (
-          <SwiperSlide key={item.value} className='!w-fit'>
-            <div className='inline-flex items-center gap-4 py-2 px-4 rounded-full border-1 border-solid '>
-              <strong className='font-normal line-clamp-1'>{item.label}</strong>
+          <SwiperSlide key={item.value} className="!w-fit">
+            <div className="inline-flex items-center gap-4 rounded-full border-1 border-solid px-4 py-2">
+              <strong className="line-clamp-1 font-normal">{item.label}</strong>
               <div onClick={() => handleRemoveFilter(KEY_PRODUCT_FILTER.color, item.value)}>
-                <SvgClose className='w-clamp-24' />
+                <CgClose className="h-full w-clamp-24" />
               </div>
             </div>
           </SwiperSlide>
         ))}
         {size.map((item) => (
-          <SwiperSlide key={item.value} className='!w-fit'>
-            <div className='inline-flex items-center gap-4 py-2 px-4 rounded-full border-1 border-solid '>
-              <strong className='font-normal line-clamp-1 uppercase'>{item.label}</strong>
+          <SwiperSlide key={item.value} className="!w-fit">
+            <div className="inline-flex items-center gap-4 rounded-full border-1 border-solid px-4 py-2">
+              <strong className="line-clamp-1 font-normal uppercase">{item.label}</strong>
               <div onClick={() => handleRemoveFilter(KEY_PRODUCT_FILTER.size, item.value)}>
-                <SvgClose className='w-clamp-24' />
+                <CgClose className="h-full w-clamp-24" />
               </div>
             </div>
           </SwiperSlide>
         ))}
         {price.map((item) => (
-          <SwiperSlide key={item.value} className='!w-fit'>
-            <div className='inline-flex items-center gap-4 py-2 px-4 rounded-full border-1 border-solid '>
-              <strong className='font-normal line-clamp-1'>{item.label}</strong>
+          <SwiperSlide key={item.value} className="!w-fit">
+            <div className="inline-flex items-center gap-4 rounded-full border-1 border-solid px-4 py-2">
+              <strong className="line-clamp-1 font-normal">{item.label}</strong>
               <div onClick={() => handleRemoveFilter(KEY_PRODUCT_FILTER.price, item.value)}>
-                <SvgClose className='w-clamp-24' />
+                <CgClose className="h-full w-clamp-24" />
               </div>
             </div>
           </SwiperSlide>

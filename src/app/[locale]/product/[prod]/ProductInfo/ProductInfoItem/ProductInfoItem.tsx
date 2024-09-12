@@ -10,9 +10,8 @@ function ProductInfoItem({ title, markdown, className }: ProductInfoItemProps) {
   return (
     <div className={`${className} mb-10`}>
       <ProductInfoTitle title={title} />
-
-      <div className='space-y-5 text-justify'>
-        {markdown}
+      <article className="prose lg:prose-xl text-justify" dangerouslySetInnerHTML={{ __html: markdown }} />
+      <div className="text-justify">
         Ba chỉ bò (short plate) là phần thịt được lấy ở bụng con bò (tại cơ hoành), ngay dưới phần xương sườn. Ba chỉ có
         phần thịt nạc và mỡ xếp xen kẽ nhau, phần mỡ nhiều hơn một ít hoặc bằng phần thịt, nếu có thêm sụn ăn vào sẽ
         thấy vừa mềm vừa sần sật rất ngon. Thực chất, hàm lượng protein trong ba chỉ bò tốt cho việc tạo cơ và cung cấp

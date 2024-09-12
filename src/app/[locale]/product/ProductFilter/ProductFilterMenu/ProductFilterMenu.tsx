@@ -1,6 +1,8 @@
 import { ProductFilterMenuCheckBox, ProductFilterMenuSize } from './ProductFilterMenuItem';
 import { Accordion, AccordionItem } from '@nextui-org/react';
-import { SvgCloseCircle, SvgMdArrowDropleft } from '@/components/Svgs';
+import { IoCloseCircleOutline } from 'react-icons/io5';
+import { GoTriangleLeft } from 'react-icons/go';
+
 import { memo, useCallback, useState } from 'react';
 import { PRODUCT_FILTER_LIST } from '@/app/[locale]/product/constants';
 import { FuncHandleChangeType } from '@/app/[locale]/product/type';
@@ -16,7 +18,7 @@ type ProductFilterMenuProps = {
 
 function ProductFilterMenu({ isFilterEnabled, handleToggleFilter, handleChangeFilter }: ProductFilterMenuProps) {
   const [selectedKeys, setSelectedKeys] = useState<Selection>(
-    new Set(PRODUCT_FILTER_LIST.map((product) => product.id))
+    new Set(PRODUCT_FILTER_LIST.map((product) => product.id)),
   );
   const { state, dispatch } = useProductStore();
   const totalCount = Object.values(state.filter).reduce((acc, array) => acc + array.length, 0);
@@ -29,19 +31,21 @@ function ProductFilterMenu({ isFilterEnabled, handleToggleFilter, handleChangeFi
     <>
       <div
         className={`${
-          isFilterEnabled ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-full'
-        } px-2 lg:px-0 transition-transform-opacity ease-in-out delay-300 bg-white shadow-sm lg:shadow-none lg:visible lg:opacity-100 lg:translate-y-0 fixed lg:relative bottom-[65.6px] sm:bottom-[73.6px] lg:bottom-0 left-2 sm:left-4 lg:left-0 right-2 sm:right-4 lg:right-0 z-40 lg:z-0 max-h-product-filter-menu lg:max-h-full overflow-y-auto scroll-smooth overscroll-y-contain`}
+          isFilterEnabled ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'
+        } fixed bottom-[65.6px] left-2 right-2 z-40 max-h-product-filter-menu overflow-y-auto overscroll-y-contain scroll-smooth bg-white px-2 shadow-sm delay-300 ease-in-out transition-transform-opacity sm:bottom-[73.6px] sm:left-4 sm:right-4 lg:visible lg:relative lg:bottom-0 lg:left-0 lg:right-0 lg:z-0 lg:max-h-full lg:translate-y-0 lg:px-0 lg:opacity-100 lg:shadow-none`}
       >
-        <div className='ml-auto w-[33px] lg:hidden pt-5 pb-1 cursor-pointer' onClick={handleToggleFilter}>
-          <SvgCloseCircle />
-        </div>
+        <div></div>
+        <IoCloseCircleOutline
+          className="mb-1 ml-auto mt-5 h-full w-[33px] cursor-pointer hover:opacity-60 lg:hidden"
+          onClick={handleToggleFilter}
+        />
 
         <Accordion
           selectedKeys={selectedKeys}
           onSelectionChange={setSelectedKeys}
-          selectionMode='multiple'
+          selectionMode="multiple"
           showDivider={false}
-          className='px-0 '
+          className="px-0"
           itemClasses={{ base: 'mb-[40px]', trigger: 'py-0 pb-4', title: '!text-clamp-24 font-normal' }}
         >
           {PRODUCT_FILTER_LIST.map((item) => (
@@ -49,7 +53,7 @@ function ProductFilterMenu({ isFilterEnabled, handleToggleFilter, handleChangeFi
               key={item.id}
               aria-label={item.title}
               title={item.title}
-              indicator={<SvgMdArrowDropleft className='text-black h-auto w-clamp-28' />}
+              indicator={<GoTriangleLeft className="h-auto w-clamp-24 text-black" />}
             >
               {item.type === 'checkbox' ? (
                 <ProductFilterMenuCheckBox
@@ -72,21 +76,21 @@ function ProductFilterMenu({ isFilterEnabled, handleToggleFilter, handleChangeFi
       </div>
 
       <div
-        className={`bg-black opacity-80 fixed inset-0 z-30 transition-transform-opacity ease-in-out delay-300 lg:hidden ${
-          isFilterEnabled ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-full delay-200'
+        className={`fixed inset-0 z-30 bg-black opacity-80 delay-300 ease-in-out transition-transform-opacity lg:hidden ${
+          isFilterEnabled ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0 delay-200'
         }`}
         onClick={handleToggleFilter}
       ></div>
 
       <div
-        className={`px-2 sm:px-4 bg-white fixed left-0 right-0 bottom-0 z-30 transition-transform-opacity ease-in-out delay-300 flex justify-between gap-x-2 sm:gap-x-3 border-1 border-gray-lightest border-solid py-2 sm:py-3 lg:hidden ${
-          isFilterEnabled ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-full delay-200'
+        className={`fixed bottom-0 left-0 right-0 z-30 flex justify-between gap-x-2 border-1 border-solid border-gray-lightest bg-white px-2 py-2 delay-300 ease-in-out transition-transform-opacity sm:gap-x-3 sm:px-4 sm:py-3 lg:hidden ${
+          isFilterEnabled ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0 delay-200'
         }`}
       >
-        <Button className='rounded-md flex-1 bg-gray-light-mid h-12 !text-clamp-24' onClick={handleResetFilter}>
+        <Button className="h-12 flex-1 rounded-md bg-gray-light-mid !text-clamp-24" onClick={handleResetFilter}>
           Xóa bộ lọc
         </Button>
-        <Button className='rounded-md flex-1 bg-yellow-bright h-12 !text-clamp-24' onClick={handleToggleFilter}>
+        <Button className="h-12 flex-1 rounded-md bg-yellow-bright !text-clamp-24" onClick={handleToggleFilter}>
           Áp dụng {totalCount > 0 && `(${totalCount})`}
         </Button>
       </div>

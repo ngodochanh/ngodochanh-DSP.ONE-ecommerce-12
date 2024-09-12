@@ -25,6 +25,7 @@ const config: Config = {
         'clamp-14': 'clamp(12px, 1.3vw, 14px)',
         'clamp-15': 'clamp(12px, 1.4vw, 15px)',
         'clamp-16': 'clamp(14px, 1.6vw, 16px)',
+        'clamp-17': 'clamp(14px, 1.7vw, 17px)',
         'clamp-18': 'clamp(16px, 1.8vw, 18px)',
         'clamp-20': 'clamp(16px, 1.9vw, 20px)',
         'clamp-22': 'clamp(18px, 2vw, 22px)',
@@ -44,6 +45,7 @@ const config: Config = {
         'clamp-14': 'clamp(12px, 1.3vw, 14px)',
         'clamp-15': 'clamp(12px, 1.4vw, 15px)',
         'clamp-16': 'clamp(14px, 1.6vw, 16px)',
+        'clamp-17': 'clamp(14px, 1.7vw, 17px)',
         'clamp-18': 'clamp(16px, 1.8vw, 18px)',
         'clamp-20': 'clamp(16px, 1.9vw, 20px)',
         'clamp-22': 'clamp(18px, 2vw, 22px)',
@@ -58,6 +60,7 @@ const config: Config = {
         'clamp-96': 'clamp(80px, 7vw, 96px)',
         'clamp-150': 'clamp(100px, 10vw, 150px)',
       },
+
       fontSize: {
         'clamp-12': 'clamp(10px, 1.2vw, 12px)',
         'clamp-14': 'clamp(12px, 1.3vw, 14px)',

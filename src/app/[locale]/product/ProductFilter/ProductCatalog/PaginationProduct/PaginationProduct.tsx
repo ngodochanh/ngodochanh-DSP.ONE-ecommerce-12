@@ -36,16 +36,16 @@ function PaginationProduct({ total, page }: { total: number; page: string }) {
   }, []);
 
   return (
-    <div className='mt-[50px] overflow-hidden'>
+    <div className="mt-[50px] overflow-hidden">
       <Pagination
         total={Math.ceil(total / PER_PAGE)}
         page={Number(page)}
         siblings={siblings}
         boundaries={boundaries}
         loop={true}
-        radius='none'
+        radius="none"
         showControls={true}
-        variant='bordered'
+        variant="bordered"
         isCompact={true}
         classNames={{
           base: 'py-[10px]  ',
@@ -60,7 +60,7 @@ function PaginationProduct({ total, page }: { total: number; page: string }) {
           router.push(
             `/${locale}/${process.env.PRODUCT!}/?page=${Number(page)}&per_page=${PER_PAGE}${
               search ? `&search=${search}` : ''
-            }`
+            }`,
           );
         }}
       />

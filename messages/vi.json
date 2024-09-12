@@ -22,14 +22,7 @@
   },
   "category": {
     "text": "Danh mục của chúng tôi",
-    "items": {
-      "shoes": "Giày Nam",
-      "pants": "Quần Nam",
-      "menwear": "Thời Trang Nam",
-      "kidwear": "Thời Trang Trẻ Em",
-      "accessory": "Phụ Kiện",
-      "women": "Phụ Nữ"
-    }
+    "items": {}
   },
   "specialProducts": {
     "text": "Sản phẩm đặc biệt"

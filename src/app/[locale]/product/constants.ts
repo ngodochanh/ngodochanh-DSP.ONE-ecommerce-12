@@ -1,5 +1,9 @@
 import { InitStateType } from '@/app/[locale]/product/type';
-import { SvgAwardLight, SvgProtectLight, SvgTimeLight, SvgTruckLight } from '@/components/Svgs';
+import { IoMdStopwatch } from 'react-icons/io';
+import { TbTruckDelivery } from 'react-icons/tb';
+import { MdOutlineDiscount } from 'react-icons/md';
+import { LuShieldCheck } from 'react-icons/lu';
+
 import { COLOR_LIST, GENDER_LIST, SIZE_LIST } from '@/constantsProduct';
 
 const RESET_FILTER = 'reset_filter';
@@ -162,24 +166,24 @@ const PER_PAGE = 9;
 
 const PRODUCT_SERVICE_LIST = [
   {
-    id: 'a',
-    description: 'SẢN PHẨM TỐT - GIÁ TRẢI NGHIỆM',
-    Icon: SvgAwardLight,
-  },
-  {
-    id: 'b',
-    description: 'Thông tin bảo mật và mã hoá',
-    Icon: SvgProtectLight,
-  },
-  {
     id: 'c',
     description: 'Miễn phí vận chuyển: Đơn hàng từ 498k',
-    Icon: SvgTruckLight,
+    Icon: TbTruckDelivery,
   },
   {
     id: 'd',
     description: 'Giao hàng: Từ 3 - 5 ngày trên cả nước',
-    Icon: SvgTimeLight,
+    Icon: IoMdStopwatch,
+  },
+  {
+    id: 'a',
+    description: 'Sử dụng mã giảm giá ở bước thanh toán',
+    Icon: MdOutlineDiscount,
+  },
+  {
+    id: 'b',
+    description: 'Thông tin bảo mật và mã hoá',
+    Icon: LuShieldCheck,
   },
 ];
 

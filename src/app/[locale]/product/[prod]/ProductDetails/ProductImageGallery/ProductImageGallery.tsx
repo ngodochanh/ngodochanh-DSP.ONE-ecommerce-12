@@ -13,10 +13,10 @@ import { IoIosArrowBack } from 'react-icons/io';
 import { IoIosArrowForward } from 'react-icons/io';
 import { PRODUCT_GALLERY_LIST } from '@/constantsProduct';
 
-export default function ProductImageGallery({ id }: { id: number }) {
+export default function ProductImageGallery({ id }: { id: string | string }) {
   const swiperRef = useRef<SwiperType>();
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
-  const result = PRODUCT_GALLERY_LIST.reduce<{ id: number; image: string }[]>((accumulator, currentValue) => {
+  const result = PRODUCT_GALLERY_LIST.reduce<{ id: string; image: string }[]>((accumulator, currentValue) => {
     if (currentValue.id === id) {
       accumulator.push(currentValue);
     }

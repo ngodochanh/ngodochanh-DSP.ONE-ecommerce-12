@@ -15,7 +15,7 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const id = extractIdFromUrl(params.prod);
-  const prod = PRODUCT_LIST.find((item) => item.id === Number(id));
+  const prod = PRODUCT_LIST.find((item) => item.id === id);
 
   return {
     title: prod?.title,
@@ -35,7 +35,7 @@ function Prod({ params }: { params: { prod: string } }) {
   // Lấy ID của sản phẩm từ URL (URL có thể dùng để SEO)
   const id = extractIdFromUrl(params.prod);
   // Tìm sản phẩm theo ID
-  const product = PRODUCT_LIST.find((item) => item.id === Number(id));
+  const product = PRODUCT_LIST.find((item) => item.id === id);
 
   // Tìm các sản phẩm tương tự
   const similarProducts = PRODUCT_LIST.reduce<ProductType[]>((acc, currentValue) => {

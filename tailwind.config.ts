@@ -33,6 +33,7 @@ const config: Config = {
         'clamp-28': 'clamp(20px, 1.9vw, 28px)',
         'clamp-32': 'clamp(24px, 2.2vw, 32px)',
         'clamp-35': 'clamp(30px, 3vw, 35px)',
+        'clamp-42': 'clamp(38px, 4.5vw, 42px)',
         'clamp-46': 'clamp(30px, 4vw, 46px)',
         'clamp-50': 'clamp(44px, 6vw, 50px)',
         'clamp-60': 'clamp(50px, 5vw, 60px)',
@@ -53,6 +54,7 @@ const config: Config = {
         'clamp-28': 'clamp(20px, 1.9vw, 28px)',
         'clamp-32': 'clamp(24px, 2.2vw, 32px)',
         'clamp-35': 'clamp(30px, 3vw, 35px)',
+        'clamp-42': 'clamp(38px, 4.5vw, 42px)',
         'clamp-46': 'clamp(40px, 4vw, 46px)',
         'clamp-50': 'clamp(44px, 6vw, 50px)',
         'clamp-60': 'clamp(50px, 5vw, 60px)',
@@ -81,6 +83,7 @@ const config: Config = {
       colors: {
         // White
         'white-25': '#FFFFFF40',
+        'white-smoke': '#F9F9F9',
         // Blue
         'blue-strong': '#1070B6',
         'blue-cobalt': '#3256C1',
@@ -107,6 +110,7 @@ const config: Config = {
         'black-dark': '#080808',
         'black-90': '#000000e6',
         'dark-charcoal': '#32312F',
+        'gray-moderate': '#707070',
         // Red
         'red-bright': '#F01919',
       },

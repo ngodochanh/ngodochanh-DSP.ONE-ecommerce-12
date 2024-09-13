@@ -46,10 +46,7 @@ function ProductDetails({ product }: { product: ProductType | undefined }) {
             {/* Mã */}
             <p>Mã sản phẩm: {product.id}</p>
             {/* Mô tả */}
-            <article
-              className="prose lg:prose-xl text-justify"
-              dangerouslySetInnerHTML={{ __html: product.description }}
-            />
+            <p className="prose lg:prose-xl text-justify">{product.description}</p>
             {/*  Dịch vụ */}
             <div className="space-y-[15px]">
               {PRODUCT_SERVICE_LIST.map((item) => (

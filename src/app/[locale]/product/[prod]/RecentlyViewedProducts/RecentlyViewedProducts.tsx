@@ -6,7 +6,7 @@ import { ProductType } from '@/type';
 import React, { useEffect, useState } from 'react';
 
 type ViewedProduct = {
-  id: number; // ID của sản phẩm
+  id: string; // ID của sản phẩm
   timestamp: number; // Thời gian xem sản phẩm
 };
 
@@ -39,7 +39,7 @@ const addProductToViewedList = (product: ProductType) => {
 };
 
 // Lấy sản phẩm đã xem từ localStorage và xóa sản phẩm quá hạn
-const getViewedProducts = (currentProductId: number): ViewedProduct[] => {
+const getViewedProducts = (currentProductId: string): ViewedProduct[] => {
   let productsString = localStorage.getItem('viewedProducts');
   let products: ViewedProduct[] = productsString ? JSON.parse(productsString) : [];
 
@@ -70,7 +70,7 @@ function RecentlyViewedProducts({ product }: { product: ProductType | undefined 
   useEffect(() => {
     if (product) {
       const viewedProducts = getViewedProducts(product.id);
-      const fetchProductDetails = (id: number) => PRODUCT_LIST.find((p) => p.id === id) || null;
+      const fetchProductDetails = (id: string) => PRODUCT_LIST.find((p) => p.id === id) || null;
       const productsList = viewedProducts
         .map((viewedProduct) => fetchProductDetails(viewedProduct.id))
         .filter((p): p is ProductType => p !== null);

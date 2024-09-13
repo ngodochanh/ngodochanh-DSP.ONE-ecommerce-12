@@ -1,10 +1,9 @@
 'use client';
 
-import { FaMinus } from 'react-icons/fa';
-import { FaPlus } from 'react-icons/fa6';
-import { ProductType } from '@/type';
+import { FaMinus, FaPlus } from 'react-icons/fa6';
+import { CartType, ProductType } from '@/type';
 import { Button } from '@nextui-org/react';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 function ProductAddToCart({ product }: { product: ProductType | undefined }) {
   const [quantity, setQuantity] = useState(1);
@@ -31,11 +30,11 @@ function ProductAddToCart({ product }: { product: ProductType | undefined }) {
     const existingCart = JSON.parse(localStorage.getItem('cart') || '[]');
 
     // Kiểm tra nếu sản phẩm đã có trong giỏ hàng
-    const itemIndex = existingCart.findIndex((item: { id: number; quantity: number }) => item.id === product.id);
+    const itemIndex = existingCart.findIndex((item: CartType) => item.id === product.id);
 
     if (itemIndex > -1) {
       // Sản phẩm đã có trong giỏ hàng, cập nhật số lượng
-      existingCart[itemIndex].quantity += quantity;
+      existingCart[itemIndex].quantity = quantity;
     } else {
       // Thêm sản phẩm mới vào giỏ hàng
       existingCart.push(newCartItem);
@@ -45,6 +44,19 @@ function ProductAddToCart({ product }: { product: ProductType | undefined }) {
     localStorage.setItem('cart', JSON.stringify(existingCart));
   }, [product, quantity]);
 
+  // Kiểm tra sản phẩm trong giỏ hàng
+  useEffect(() => {
+    if (product) {
+      const existingCart = JSON.parse(localStorage.getItem('cart') || '[]');
+      const cartItem = existingCart.find((item: { id: string; quantity: number }) => item.id === product.id);
+
+      // Nếu sản phẩm có trong giỏ hàng, cập nhật số lượng
+      if (cartItem) {
+        setQuantity(cartItem.quantity);
+      }
+    }
+  }, [product]);
+
   return (
     <form className="space-y-[15px]">
       <div className="flex items-center gap-x-[29px] py-[15px]">
@@ -52,7 +64,7 @@ function ProductAddToCart({ product }: { product: ProductType | undefined }) {
         <div className="flex w-full max-w-[158px] items-center border-1 border-solid border-gray-very-light">
           <Button
             isDisabled={quantity === 1}
-            className="w-[46px] min-w-fit rounded-none border-r-1 bg-transparent p-0 hover:bg-default-100"
+            className="h-clamp-42 w-[46px] min-w-fit rounded-none border-r-1 bg-transparent p-0 hover:bg-default-100"
             onClick={() => handleDecrementQuantity()}
           >
             <FaMinus className="w-clamp-16" />
@@ -62,7 +74,7 @@ function ProductAddToCart({ product }: { product: ProductType | undefined }) {
 
           <Button
             isDisabled={quantity === 10}
-            className="w-[46px] min-w-fit rounded-none border-l-1 bg-transparent p-0 hover:bg-default-100"
+            className="h-clamp-42 w-[46px] min-w-fit rounded-none border-l-1 bg-transparent p-0 hover:bg-default-100"
             onClick={() => handleIncrementQuantity()}
           >
             <FaPlus className="w-clamp-16" />

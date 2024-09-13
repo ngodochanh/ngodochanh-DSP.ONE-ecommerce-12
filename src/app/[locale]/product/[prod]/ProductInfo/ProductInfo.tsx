@@ -6,9 +6,9 @@ import ProductInfoItem from './ProductInfoItem';
 import { IoIosArrowDown } from 'react-icons/io';
 import { BiSolidLike } from 'react-icons/bi';
 import { BiSolidDislike } from 'react-icons/bi';
+import SectionHeader from '@/components/SectionHeader';
 import ProductWrapper from '@/app/[locale]/product/[prod]/ProductWrapper';
 import { useCallback, useState } from 'react';
-import ProductInfoTitle from './ProductInfoTitle';
 
 function ProductInfo() {
   const [activeTab, setActiveTab] = useState<boolean>(false);
@@ -68,7 +68,7 @@ function ProductInfo() {
             activeTab ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
           } overflow-hidden transition-all duration-300 ease-in-out lg:max-h-full lg:opacity-100`}
         >
-          <ProductInfoTitle title="nhận xét sản phẩm" />
+          <SectionHeader title="nhận xét sản phẩm" />
 
           <p className="mb-5 text-clamp-18 font-bold">1 bình luận</p>
 

@@ -1,5 +1,5 @@
 export type ProductType = {
-  id: number;
+  id: string;
   image: string;
   title: string;
   price: number;
@@ -13,4 +13,9 @@ export type ProductType = {
   rating: number;
   category: string;
   isTrending: boolean;
+};
+
+export type CartType = {
+  id: string;
+  quantity: number;
 };

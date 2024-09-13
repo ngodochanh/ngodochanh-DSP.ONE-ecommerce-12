@@ -129,9 +129,12 @@ function Header() {
               <FaRegHeart className="mx-auto h-full w-clamp-24" />
             </div>
 
-            <div className="h-full w-6 cursor-pointer sm:w-10 lg:w-8 xl:w-10">
+            <Link
+              href={getLocalizedPath(process.env.CART!)}
+              className="block h-full w-6 cursor-pointer sm:w-10 lg:w-8 xl:w-10"
+            >
               <FiShoppingCart className="mx-auto h-full w-clamp-24" />
-            </div>
+            </Link>
 
             <div className="h-full w-6 cursor-pointer sm:w-10 lg:w-8 xl:w-10">
               <FaRegCircleUser className="mx-auto h-full w-clamp-24" />

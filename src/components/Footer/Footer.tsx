@@ -14,7 +14,7 @@ function Footer() {
     <div className="-translate-y-[1px] bg-black text-clamp-16 text-white">
       <div className="max-container flex flex-col flex-wrap justify-between gap-x-12 gap-y-[60px] pb-[81px] pt-[61px] lg:flex-row">
         {/* Logo and contacts */}
-        <div className="">
+        <div>
           <Logo textColor="text-white" className="mb-9 mt-2" />
 
           {/* Info */}

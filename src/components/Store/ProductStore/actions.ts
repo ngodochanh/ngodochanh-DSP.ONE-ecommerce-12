@@ -9,7 +9,7 @@ import {
   PRODUCTS_SIZE,
   RESET_FILTER,
   SET_PRODUCTS,
-} from '@/app/[locale]/product/constants';
+} from './constants';
 import { ProductFilterMenuType } from '@/app/[locale]/product/type';
 import { ProductType } from '@/type';
 

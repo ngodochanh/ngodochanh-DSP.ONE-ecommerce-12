@@ -3,7 +3,7 @@ import localFont from 'next/font/local';
 //
 import './globals.css';
 import { NexTUIProviders } from '../providers';
-import { ProductStore } from '@/components/ProductStore';
+import { ProductStore } from '@/components/Store/ProductStore';
 import Script from 'next/script';
 // Components
 import { NextIntlClientProvider, useMessages } from 'next-intl';
@@ -64,7 +64,7 @@ export default function RootLayout({ children, params: { locale } }: Readonly<Ro
         <NextIntlClientProvider messages={messages} locale={locale}>
           <NexTUIProviders>
             <ProductStore>
-              <div className='max-w-[1920px] mx-auto'>
+              <div className="mx-auto max-w-[1920px]">
                 <TopBar />
                 <Header />
                 <main>{children}</main>
@@ -74,7 +74,7 @@ export default function RootLayout({ children, params: { locale } }: Readonly<Ro
           </NexTUIProviders>
         </NextIntlClientProvider>
 
-        <Script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(idJsonObject) }}></Script>
+        <Script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(idJsonObject) }}></Script>
       </body>
     </html>
   );

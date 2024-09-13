@@ -7,7 +7,7 @@ import { useCallback, useState } from 'react';
 import { ProductFilterMenuType } from '@/app/[locale]/product/type';
 
 import { KEY_PRODUCT_FILTER } from '@/app/[locale]/product/constants';
-import { useProductStore, actions } from '@/components/ProductStore';
+import { useProductStore, actions } from '@/components/Store/ProductStore';
 
 function ProductFilter() {
   const [isFilterEnabled, setIsFilterEnabled] = useState(false);

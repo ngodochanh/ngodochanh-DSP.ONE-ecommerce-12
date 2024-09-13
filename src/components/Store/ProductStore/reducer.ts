@@ -9,7 +9,7 @@ import {
   PRODUCTS_SIZE,
   RESET_FILTER,
   SET_PRODUCTS,
-} from '@/app/[locale]/product/constants';
+} from './constants';
 import { ActionType, InitStateType } from '@/app/[locale]/product/type';
 
 const initialState: InitStateType = {

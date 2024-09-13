@@ -2,8 +2,11 @@
 
 import { Breadcrumbs, BreadcrumbItem } from '@nextui-org/react';
 import getLocalizedPath from '@/utils/getLocalizedPath ';
+import { useRouter } from 'next/navigation';
 
 function Breadcrumb({ breadCrumbList }: { breadCrumbList: { id: string; label: string; path: string }[] }) {
+  const router = useRouter();
+
   return (
     <Breadcrumbs
       classNames={{
@@ -15,10 +18,11 @@ function Breadcrumb({ breadCrumbList }: { breadCrumbList: { id: string; label: s
       }}
     >
       {breadCrumbList.map((item, index) => {
+        const path = getLocalizedPath(item.path);
         return (
           <BreadcrumbItem
             key={item.id}
-            href={getLocalizedPath(item.path)}
+            onClick={() => router.push(path)}
             isCurrent={breadCrumbList.length - 1 === index}
           >
             {item.label}

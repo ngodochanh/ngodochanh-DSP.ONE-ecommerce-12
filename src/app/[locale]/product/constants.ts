@@ -6,17 +6,6 @@ import { LuShieldCheck } from 'react-icons/lu';
 
 import { COLOR_LIST, GENDER_LIST, SIZE_LIST } from '@/constantsProduct';
 
-const RESET_FILTER = 'reset_filter';
-const SET_PRODUCTS = 'set_products';
-const PRODUCTS_GENDER = 'products_gender';
-const PRODUCTS_COLOR = 'products_color';
-const PRODUCTS_SIZE = 'products_size';
-const PRODUCTS_PRICE = 'products_price';
-const DELETE_PRODUCTS_GENDER = 'delete_products_gender';
-const DELETE_PRODUCTS_COLOR = 'delete_products_color';
-const DELETE_PRODUCTS_SIZE = 'delete_products_size';
-const DELETE_PRODUCTS_PRICE = 'delete_products_price';
-
 const KEY_PRODUCT_FILTER = {
   gender: 'gender',
   color: 'color',
@@ -187,21 +176,4 @@ const PRODUCT_SERVICE_LIST = [
   },
 ];
 
-export {
-  RESET_FILTER,
-  PRICE_LIST,
-  SET_PRODUCTS,
-  PRODUCTS_GENDER,
-  PRODUCTS_COLOR,
-  PRODUCTS_SIZE,
-  PRODUCTS_PRICE,
-  DELETE_PRODUCTS_GENDER,
-  DELETE_PRODUCTS_COLOR,
-  DELETE_PRODUCTS_SIZE,
-  DELETE_PRODUCTS_PRICE,
-  KEY_PRODUCT_FILTER,
-  PRODUCT_FILTER_LIST,
-  INITIAL_STATE,
-  PER_PAGE,
-  PRODUCT_SERVICE_LIST,
-};
+export { PRICE_LIST, KEY_PRODUCT_FILTER, PRODUCT_FILTER_LIST, INITIAL_STATE, PER_PAGE, PRODUCT_SERVICE_LIST };

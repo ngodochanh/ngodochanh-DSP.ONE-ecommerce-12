@@ -468,4 +468,23 @@ const PRODUCT_GALLERY_LIST = [
   },
 ];
 
-export { GENDER_LIST, COLOR_LIST, SIZE_LIST, CATEGORY_LIST, PRODUCT_LIST, PRODUCT_GALLERY_LIST };
+const SHIPPING_METHODS = [{ id: 'grabfood', label: 'GrabFood' }];
+
+const PAYMENT_METHODS = [{ id: 'cod', label: 'COD (Thanh toán khi nhận hàng)' }];
+
+const ORDER_OPTIONS = [
+  { id: 'pickup', label: 'Nhận tại cửa hàng' },
+  { id: 'company_invoice', label: 'Xuất hóa đơn công ty' },
+];
+
+export {
+  GENDER_LIST,
+  COLOR_LIST,
+  SIZE_LIST,
+  CATEGORY_LIST,
+  PRODUCT_LIST,
+  PRODUCT_GALLERY_LIST,
+  SHIPPING_METHODS,
+  PAYMENT_METHODS,
+  ORDER_OPTIONS,
+};

@@ -7,7 +7,7 @@ import { memo, useCallback, useState } from 'react';
 import { PRODUCT_FILTER_LIST } from '@/app/[locale]/product/constants';
 import { FuncHandleChangeType } from '@/app/[locale]/product/type';
 import { Button } from '@nextui-org/button';
-import { actions, useProductStore } from '@/components/ProductStore';
+import { actions, useProductStore } from '@/components/Store/ProductStore';
 import type { Selection } from '@nextui-org/react';
 
 type ProductFilterMenuProps = {

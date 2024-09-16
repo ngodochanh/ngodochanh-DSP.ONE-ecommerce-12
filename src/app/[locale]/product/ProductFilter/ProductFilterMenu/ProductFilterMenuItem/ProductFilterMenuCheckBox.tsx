@@ -11,9 +11,11 @@ import { useStore } from '@/components/Store';
 function ProductFilterMenuCheckBox({
   keyProductFilter,
   productFilterList,
-  handleChangeFilter,
+  onChangeFilter,
 }: ProductFilterMenuTypeProps) {
-  const { state } = useStore();
+  const {
+    state: { filter },
+  } = useStore();
   const router = useRouter();
   const locale = useLocale();
 
@@ -21,14 +23,14 @@ function ProductFilterMenuCheckBox({
   const search = searchParams.get('search') ?? '';
 
   return (
-    <CheckboxGroup value={state.filter[keyProductFilter].map((item) => item.value)}>
+    <CheckboxGroup value={filter[keyProductFilter].map((item) => item.value)}>
       {productFilterList.map((item) => {
         return (
           <Checkbox
             key={item.value}
             radius="none"
             value={item.value}
-            defaultSelected={state.filter[keyProductFilter].some((s) => s.value === item.value)}
+            defaultSelected={filter[keyProductFilter].some((s) => s.value === item.value)}
             onChange={() => {
               router.push(
                 `/${locale}/${process.env.PRODUCT!}/?page=${Number(1)}&per_page=${PER_PAGE}${
@@ -38,7 +40,7 @@ function ProductFilterMenuCheckBox({
                   scroll: false,
                 },
               );
-              handleChangeFilter(keyProductFilter, item);
+              onChangeFilter(keyProductFilter, item);
             }}
             classNames={{
               icon: ' text-yellow-bright !w-clamp-16 !h-clamp-16',

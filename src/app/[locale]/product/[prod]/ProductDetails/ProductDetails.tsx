@@ -1,4 +1,3 @@
-import { ProductType } from '@/type';
 import { PRODUCT_SERVICE_LIST } from '@/app/[locale]/product/constants';
 import { calculateDiscountPercentage, formatCurrencyVND } from '@/utils/currency';
 import StarRating from '@/components/StarRating';
@@ -6,8 +5,9 @@ import ProductService from './ProductService';
 import ProductWrapper from '@/app/[locale]/product/[prod]/ProductWrapper';
 import ProductAddToCart from './ProductAddToCart';
 import ProductImageGallery from '@/app/[locale]/product/[prod]/ProductDetails/ProductImageGallery';
+import { IProduct } from '@/types';
 
-function ProductDetails({ product }: { product: ProductType | undefined }) {
+function ProductDetails({ product }: { product: IProduct | undefined }) {
   return (
     <ProductWrapper>
       {product ? (

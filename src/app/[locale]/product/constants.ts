@@ -1,4 +1,4 @@
-import { InitStateType } from '@/app/[locale]/product/type';
+
 import { IoMdStopwatch } from 'react-icons/io';
 import { TbTruckDelivery } from 'react-icons/tb';
 import { MdOutlineDiscount } from 'react-icons/md';
@@ -142,15 +142,6 @@ const PRODUCT_FILTER_LIST = [
   },
 ];
 
-const INITIAL_STATE: InitStateType = {
-  filter: {
-    gender: [],
-    color: [],
-    size: [],
-    price: [],
-  },
-};
-
 const PER_PAGE = 9;
 
 const PRODUCT_SERVICE_LIST = [
@@ -176,4 +167,4 @@ const PRODUCT_SERVICE_LIST = [
   },
 ];
 
-export { PRICE_LIST, KEY_PRODUCT_FILTER, PRODUCT_FILTER_LIST, INITIAL_STATE, PER_PAGE, PRODUCT_SERVICE_LIST };
+export { PRICE_LIST, KEY_PRODUCT_FILTER, PRODUCT_FILTER_LIST, PER_PAGE, PRODUCT_SERVICE_LIST };

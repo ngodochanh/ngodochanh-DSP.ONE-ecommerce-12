@@ -1,4 +1,4 @@
-import { IAction, ICart, IInitState } from '@/type';
+import { ICart } from '@/types';
 import {
   ADD_CART,
   DELETE_CART,
@@ -15,6 +15,7 @@ import {
   SET_PRODUCTS,
   UPDATE_USER,
 } from './constants';
+import { IAction, IInitState } from './type';
 
 const initialState: IInitState = {
   cart: [],

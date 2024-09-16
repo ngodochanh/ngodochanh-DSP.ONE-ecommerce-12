@@ -1,11 +1,11 @@
 'use client';
 
 import { FaMinus, FaPlus } from 'react-icons/fa6';
-import { ICart, ProductType } from '@/type';
 import { Button } from '@nextui-org/react';
 import { useCallback, useEffect, useState } from 'react';
+import { IProduct, ICart } from '@/types';
 
-function ProductAddToCart({ product }: { product: ProductType | undefined }) {
+function ProductAddToCart({ product }: { product: IProduct | undefined }) {
   const [quantity, setQuantity] = useState(1);
 
   // Hàm cập nhật số lượng sản phẩm

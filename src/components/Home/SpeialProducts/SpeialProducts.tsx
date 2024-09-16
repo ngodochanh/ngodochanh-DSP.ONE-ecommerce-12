@@ -7,30 +7,30 @@ import ProductList from '@/components/ProductList';
 import { Tabs, Tab } from '@nextui-org/tabs';
 import { useTranslations } from 'next-intl';
 import { CATEGORY_LIST, PRODUCT_LIST } from '@/constantsProduct';
-import { ProductType } from '@/type';
+import { IProduct } from '@/types';
 
-const PRODUCT_T_SHIRT = PRODUCT_LIST.reduce<ProductType[]>((acc, currentValue) => {
+const PRODUCT_T_SHIRT = PRODUCT_LIST.reduce<IProduct[]>((acc, currentValue) => {
   if (currentValue.category === CATEGORY_LIST.t_shirt.value) {
     acc.push(currentValue);
   }
   return acc;
 }, []);
 
-const PRODUCT_SHIRT = PRODUCT_LIST.reduce<ProductType[]>((acc, currentValue) => {
+const PRODUCT_SHIRT = PRODUCT_LIST.reduce<IProduct[]>((acc, currentValue) => {
   if (currentValue.category === CATEGORY_LIST.shirt.value) {
     acc.push(currentValue);
   }
   return acc;
 }, []);
 
-const PRODUCT_PANTS = PRODUCT_LIST.reduce<ProductType[]>((acc, currentValue) => {
+const PRODUCT_PANTS = PRODUCT_LIST.reduce<IProduct[]>((acc, currentValue) => {
   if (currentValue.category === CATEGORY_LIST.pants.value) {
     acc.push(currentValue);
   }
   return acc;
 }, []);
 
-const PRODUCT_JACKET = PRODUCT_LIST.reduce<ProductType[]>((acc, currentValue) => {
+const PRODUCT_JACKET = PRODUCT_LIST.reduce<IProduct[]>((acc, currentValue) => {
   if (currentValue.category === CATEGORY_LIST.jacket.value) {
     acc.push(currentValue);
   }

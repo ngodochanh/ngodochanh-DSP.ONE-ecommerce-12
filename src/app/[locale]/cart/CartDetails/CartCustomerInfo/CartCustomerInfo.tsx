@@ -6,8 +6,8 @@ import { FaCircleUser, FaPhoneVolume } from 'react-icons/fa6';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { TCustomer } from '@/type';
 import { actions, useStore } from '@/components/Store';
+import { TCustomer } from '@/types';
 
 // Schema xác thực cho thông tin khách hàng
 const customerInfoSchema = z.object({

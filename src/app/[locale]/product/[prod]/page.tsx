@@ -5,9 +5,9 @@ import ProductInfo from './ProductInfo';
 import Breadcrumb from '@/components/Breadcrumb';
 import { PRODUCT_LIST } from '@/constantsProduct';
 import { useTranslations } from 'next-intl';
-import { ProductType } from '@/type';
 import RecentlyViewedProducts from '@/app/[locale]/product/[prod]/RecentlyViewedProducts/RecentlyViewedProducts';
 import { extractIdFromUrl } from '@/utils/extractIdFromUrl';
+import { IProduct } from '@/types';
 
 type Props = {
   params: { prod: string };
@@ -38,7 +38,7 @@ function Prod({ params }: { params: { prod: string } }) {
   const product = PRODUCT_LIST.find((item) => item.id === id);
 
   // Tìm các sản phẩm tương tự
-  const similarProducts = PRODUCT_LIST.reduce<ProductType[]>((acc, currentValue) => {
+  const similarProducts = PRODUCT_LIST.reduce<IProduct[]>((acc, currentValue) => {
     if (currentValue.category === product?.category && currentValue.id !== product.id) {
       acc.push(currentValue);
     }

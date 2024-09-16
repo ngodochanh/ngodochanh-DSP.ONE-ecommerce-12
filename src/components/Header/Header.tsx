@@ -4,12 +4,8 @@
 import Logo from '@/components/Logo';
 import getLocalizedPath from '@/utils/getLocalizedPath ';
 // Icon
-import { FaMagnifyingGlass } from 'react-icons/fa6';
-import { FaRegHeart } from 'react-icons/fa6';
+import { FaMagnifyingGlass, FaRegHeart, FaRegCircleUser, FaBarsStaggered } from 'react-icons/fa6';
 import { FiShoppingCart } from 'react-icons/fi';
-import { FaRegCircleUser } from 'react-icons/fa6';
-
-import { FaBarsStaggered } from 'react-icons/fa6';
 import { RiCloseLargeLine } from 'react-icons/ri';
 
 //
@@ -18,12 +14,6 @@ import { useCallback, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import HeaderSearch from '@/components/Header/HeaderSearch';
-
-type NavItem = {
-  path: string;
-  id: string;
-  label: string;
-};
 
 function Header() {
   // Bất tắt mobile nav
@@ -90,7 +80,7 @@ function Header() {
             } lg:translate-x-0`}
           >
             <ul className="flex h-full flex-col gap-x-[2px] lg:flex-row xl:gap-x-[10px]">
-              {NAVIGATION_LIST.map((item: NavItem) => {
+              {NAVIGATION_LIST.map((item) => {
                 const localizedPath = getLocalizedPath(item.path);
                 const isActive = path === localizedPath || (localizedPath !== '/vi' && path.startsWith(localizedPath));
 

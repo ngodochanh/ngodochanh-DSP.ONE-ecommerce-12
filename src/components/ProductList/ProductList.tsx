@@ -1,9 +1,9 @@
 import ProductItem from './ProductItem';
-import { ProductType } from '@/type';
 import ProductNotFound from '@/components/ProductNotFound';
+import { IProduct } from '@/types';
 
 type ProductsProps = {
-  productList: ProductType[];
+  productList: IProduct[];
 };
 
 function ProductList({ productList }: ProductsProps) {

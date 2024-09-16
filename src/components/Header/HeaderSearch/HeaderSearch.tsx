@@ -5,19 +5,19 @@ import { AiFillCloseCircle } from 'react-icons/ai';
 import { FaMagnifyingGlass } from 'react-icons/fa6';
 import { CATEGORY_LIST, GENDER_LIST, PRODUCT_LIST } from '@/constantsProduct';
 import useDebounce from '@/hooks/useDebounce';
-import { ProductType } from '@/type';
 import getLocalizedPath from '@/utils/getLocalizedPath ';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ChangeEvent, FormEvent, memo, useEffect, useRef, useState } from 'react';
+import { IProduct } from '@/types';
 
 function HeaderSearch({ isSearchOpen, onCloseSearch }: { isSearchOpen: boolean; onCloseSearch: () => void }) {
   const t = useTranslations('header');
 
   // Tìm kiếm
   const [isSearching, setIsSearching] = useState<boolean>(false);
-  const [results, setResults] = useState<ProductType[]>([]);
+  const [results, setResults] = useState<IProduct[]>([]);
   const [query, setQuery] = useState<string>('');
 
   const searchRef = useRef<HTMLInputElement>(null);

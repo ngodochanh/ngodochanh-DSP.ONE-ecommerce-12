@@ -2,7 +2,7 @@ import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
 
-type Blog = {
+type IBlog = {
   id: string;
   image: string;
   title: string;
@@ -12,7 +12,7 @@ type Blog = {
 };
 
 type BlogItemProps = {
-  blog: Blog;
+  blog: IBlog;
 };
 
 function BlogItem({ blog }: BlogItemProps) {
@@ -27,29 +27,29 @@ function BlogItem({ blog }: BlogItemProps) {
   });
 
   return (
-    <Link href='/' className='block group h-full'>
-      <div className='relative h-[350px] mb-6'>
+    <Link href="/" className="group block h-full">
+      <div className="relative mb-6 h-[350px]">
         <Image
           src={image}
           alt={'product ' + title}
           fill
-          sizes='(max-width: 640px) 100vw, 50vw'
-          loading='lazy'
-          className='object-cover'
+          sizes="(max-width: 640px) 100vw, 50vw"
+          loading="lazy"
+          className="object-cover"
         />
       </div>
 
-      <div className='flex flex-col'>
-        <h5 className='font-bold text-clamp-20 mb-[10px] group-hover:text-orange-bright transition-colors duration-300 ease-in-out line-clamp-1'>
+      <div className="flex flex-col">
+        <h5 className="mb-[10px] line-clamp-1 text-clamp-20 font-bold transition-colors duration-300 ease-in-out group-hover:text-orange-bright">
           {t(`list.blog${id}.title`)}
         </h5>
         <div>
-          <div className='font-normal text-clamp-12 mb-[25px]'>
-            {t('created_by')} <span className='font-medium text-yellow-bright'>{t(`list.blog${id}.author`)}</span> -{' '}
+          <div className="mb-[25px] text-clamp-12 font-normal">
+            {t('created_by')} <span className="font-medium text-yellow-bright">{t(`list.blog${id}.author`)}</span> -{' '}
             {formattedDate}
           </div>
 
-          <p className='font-light text-clamp-16 text-gray-darker text-justify line-clamp-3'>
+          <p className="line-clamp-3 text-justify text-clamp-16 font-light text-gray-darker">
             {t(`list.blog${id}.description`)}
           </p>
         </div>

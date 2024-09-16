@@ -2,11 +2,11 @@ import ContentHeader from '@/components/ContentHeader';
 import ProductList from '@/components/ProductList';
 import { useTranslations } from 'next-intl';
 import { PRODUCT_LIST } from '@/constantsProduct';
-import { ProductType } from '@/type';
+import { IProduct } from '@/types';
 
 function TrendyProducts() {
   const t = useTranslations('trendyProducts');
-  const result = PRODUCT_LIST.reduce<ProductType[]>((acc, value) => {
+  const result = PRODUCT_LIST.reduce<IProduct[]>((acc, value) => {
     if (value.isTrending && acc.length < 8) {
       acc.push(value);
     }

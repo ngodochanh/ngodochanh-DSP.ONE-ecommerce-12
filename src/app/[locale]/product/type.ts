@@ -1,22 +1,9 @@
-export type ProductFilterMenuType = {
-  label: string;
-  value: string;
-};
+import { IFilter } from '@/types';
 
-export type ProductFilterType = {
-  type: string;
-  title: string;
-  children: ProductFilterMenuType[];
-};
-
-export type FuncHandleChangeType = (keyProductFilter: string, value: ProductFilterMenuType) => void;
+export type IFuncHandleChangeFilter = (keyProductFilter: string, value: IFilter) => void;
 
 export type ProductFilterMenuTypeProps = {
   keyProductFilter: string;
-  productFilterList: ProductFilterMenuType[];
-  handleChangeFilter: FuncHandleChangeType;
-};
-
-export type FilterType = {
-  [key: string]: ProductFilterMenuType[];
+  productFilterList: IFilter[];
+  onChangeFilter: IFuncHandleChangeFilter;
 };

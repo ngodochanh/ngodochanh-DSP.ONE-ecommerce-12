@@ -4,7 +4,12 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { useLocale } from 'next-intl';
 import { PER_PAGE } from '@/app/[locale]/product/constants';
 
-function PaginationProduct({ total, page }: { total: number; page: string }) {
+type PaginationProductProps = {
+  total: number;
+  page: string;
+};
+
+function PaginationProduct({ total, page }: PaginationProductProps) {
   const [siblings, setSiblings] = useState(0);
   const [boundaries, setBoundaries] = useState(0);
   const router = useRouter();

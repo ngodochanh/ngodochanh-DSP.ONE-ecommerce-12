@@ -1,4 +1,4 @@
-type Service = {
+type IService = {
   key: string;
   title: string;
   desc: string;
@@ -6,7 +6,7 @@ type Service = {
 };
 
 type ServiceItemProps = {
-  service: Service;
+  service: IService;
 };
 
 function ServiceItem({ service }: ServiceItemProps) {

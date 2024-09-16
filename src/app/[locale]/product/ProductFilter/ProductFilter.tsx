@@ -4,32 +4,34 @@ import ProductFilterSidebar from './ProductFilterSidebar';
 import ProductFilterMenu from './ProductFilterMenu';
 import ProductCatalog from './ProductCatalog';
 import { useCallback, useState } from 'react';
-import { ProductFilterMenuType } from '@/app/[locale]/product/type';
-
 import { KEY_PRODUCT_FILTER } from '@/app/[locale]/product/constants';
 import { actions, useStore } from '@/components/Store';
+import { IFilter } from '@/types';
 
 function ProductFilter() {
   const [isFilterEnabled, setIsFilterEnabled] = useState(false);
-  const { state, dispatch } = useStore();
+  const {
+    state: { filter },
+    dispatch,
+  } = useStore();
 
   const handleToggleFilter = useCallback(() => {
     setIsFilterEnabled((prevIsFilterEnabled) => !prevIsFilterEnabled);
   }, []);
 
-  const handleToggleGender = useCallback((item: ProductFilterMenuType) => {
+  const handleToggleGender = useCallback((item: IFilter) => {
     dispatch(actions.toggleGender(item));
   }, []);
 
-  const handleToggleColor = useCallback((item: ProductFilterMenuType) => {
+  const handleToggleColor = useCallback((item: IFilter) => {
     dispatch(actions.toggleColor(item));
   }, []);
 
-  const handleToggleSize = useCallback((item: ProductFilterMenuType) => {
+  const handleToggleSize = useCallback((item: IFilter) => {
     dispatch(actions.toggleSize(item));
   }, []);
 
-  const handleTogglePrice = useCallback((item: ProductFilterMenuType) => {
+  const handleTogglePrice = useCallback((item: IFilter) => {
     dispatch(actions.togglePrice(item));
   }, []);
 
@@ -49,7 +51,7 @@ function ProductFilter() {
     dispatch(actions.deletePrice(item));
   }, []);
 
-  const handleChangeFilter = useCallback((keyProductFilter: string, value: ProductFilterMenuType) => {
+  const handleChangeFilter = useCallback((keyProductFilter: string, value: IFilter) => {
     if (keyProductFilter === KEY_PRODUCT_FILTER.gender) {
       handleToggleGender(value);
     } else if (keyProductFilter === KEY_PRODUCT_FILTER.color) {
@@ -76,18 +78,18 @@ function ProductFilter() {
   return (
     <>
       <ProductFilterSidebar
-        prodFilterList={state.filter}
-        handleToggleFilter={handleToggleFilter}
-        handleRemoveFilter={handleRemoveFilter}
+        prodFilterList={filter}
+        onToggleFilter={handleToggleFilter}
+        onRemoveFilter={handleRemoveFilter}
       />
 
       <div className="mb-[120px] mt-[10px] grid grid-cols-1 gap-x-4 lg:mt-[30px] lg:grid-cols-[250px_auto] xl:grid-cols-[300px_auto] 2xl:grid-cols-[343px_auto] 2xl:gap-x-[60px]">
         <ProductFilterMenu
           isFilterEnabled={isFilterEnabled}
-          handleToggleFilter={handleToggleFilter}
-          handleChangeFilter={handleChangeFilter}
+          onToggleFilter={handleToggleFilter}
+          onChangeFilter={handleChangeFilter}
         />
-        <ProductCatalog prodFilterList={state.filter} />
+        <ProductCatalog prodFilterList={filter} />
       </div>
     </>
   );

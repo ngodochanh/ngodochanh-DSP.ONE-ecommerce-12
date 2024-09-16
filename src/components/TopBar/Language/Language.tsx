@@ -3,22 +3,22 @@
 import { useEffect, useState, useTransition } from 'react';
 import { IoSearch } from 'react-icons/io5';
 import { GoTriangleDown } from 'react-icons/go';
-import { LanguageType } from '../TopBar';
 import { useRouter } from 'next/navigation';
 import { useLocale } from 'next-intl';
+import { ILanguage } from '@/components/TopBar/type';
 
 type LanguageProps = {
   inputPlaceholder: string;
-  languageList: LanguageType[];
+  languageList: ILanguage[];
 };
 
 function Language({ inputPlaceholder, languageList }: LanguageProps) {
   // Lưu trữ danh sách các mục
-  const [items, setItems] = useState<LanguageType[]>(languageList);
+  const [items, setItems] = useState<ILanguage[]>(languageList);
   // Giá trị input
   const [inputValue, setInputValue] = useState('');
   // Mục được chọn
-  const [selectedItem, setSelectedItem] = useState<LanguageType | null>(() => {
+  const [selectedItem, setSelectedItem] = useState<ILanguage | null>(() => {
     if (typeof window !== 'undefined') {
       const storedLanguage = localStorage.getItem('language');
       try {
@@ -60,7 +60,7 @@ function Language({ inputPlaceholder, languageList }: LanguageProps) {
     }
   }, [localActive, languageList]);
 
-  const handleSelect = (item: LanguageType) => {
+  const handleSelect = (item: ILanguage) => {
     // Cập nhật mục được chọn
     setSelectedItem(item);
     // Đóng danh sách khi chọn mục
@@ -113,7 +113,7 @@ function Language({ inputPlaceholder, languageList }: LanguageProps) {
               />
             </div> */}
             {/* Hiển thị danh sách các mục */}
-            {items.map((item: LanguageType) => (
+            {items.map((item: ILanguage) => (
               <li
                 key={item.key}
                 // Tìm kiếm và đánh dấu mục được chọn

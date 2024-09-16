@@ -3,11 +3,11 @@ import Link from 'next/link';
 
 import { IoIosArrowRoundForward } from 'react-icons/io';
 import { calculateDiscountPercentage, formatCurrencyVND } from '@/utils/currency';
-import { ProductType } from '@/type';
+import { IProduct } from '@/types';
 import getLocalizedPath from '@/utils/getLocalizedPath ';
 
 type ProductItemProps = {
-  product: ProductType;
+  product: IProduct;
 };
 
 function ProductItem({ product }: ProductItemProps) {

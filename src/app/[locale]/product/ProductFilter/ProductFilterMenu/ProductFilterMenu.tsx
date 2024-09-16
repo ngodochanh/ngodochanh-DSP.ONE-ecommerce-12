@@ -2,27 +2,29 @@ import { ProductFilterMenuCheckBox, ProductFilterMenuSize } from './ProductFilte
 import { Accordion, AccordionItem } from '@nextui-org/react';
 import { IoCloseCircleOutline } from 'react-icons/io5';
 import { GoTriangleLeft } from 'react-icons/go';
-
 import { memo, useCallback, useState } from 'react';
 import { PRODUCT_FILTER_LIST } from '@/app/[locale]/product/constants';
-import { FuncHandleChangeType } from '@/app/[locale]/product/type';
 import { Button } from '@nextui-org/button';
-
 import type { Selection } from '@nextui-org/react';
 import { actions, useStore } from '@/components/Store';
+import { IFuncHandleChangeFilter } from '@/app/[locale]/product/type';
+import { IFilter } from '@/types';
 
 type ProductFilterMenuProps = {
   isFilterEnabled: boolean;
-  handleToggleFilter: () => void;
-  handleChangeFilter: FuncHandleChangeType;
+  onToggleFilter: () => void;
+  onChangeFilter: IFuncHandleChangeFilter;
 };
 
-function ProductFilterMenu({ isFilterEnabled, handleToggleFilter, handleChangeFilter }: ProductFilterMenuProps) {
+function ProductFilterMenu({ isFilterEnabled, onToggleFilter, onChangeFilter }: ProductFilterMenuProps) {
   const [selectedKeys, setSelectedKeys] = useState<Selection>(
     new Set(PRODUCT_FILTER_LIST.map((product) => product.id)),
   );
-  const { state, dispatch } = useStore();
-  const totalCount = Object.values(state.filter).reduce((acc, array) => acc + array.length, 0);
+  const {
+    state: { filter },
+    dispatch,
+  } = useStore();
+  const totalCount = Object.values(filter).reduce((acc, array: IFilter[]) => acc + array.length, 0);
 
   const handleResetFilter = useCallback(() => {
     dispatch(actions.resetFilter());
@@ -38,7 +40,7 @@ function ProductFilterMenu({ isFilterEnabled, handleToggleFilter, handleChangeFi
         <div></div>
         <IoCloseCircleOutline
           className="mb-1 ml-auto mt-5 h-full w-[33px] cursor-pointer hover:opacity-60 lg:hidden"
-          onClick={handleToggleFilter}
+          onClick={onToggleFilter}
         />
 
         <Accordion
@@ -60,13 +62,13 @@ function ProductFilterMenu({ isFilterEnabled, handleToggleFilter, handleChangeFi
                 <ProductFilterMenuCheckBox
                   keyProductFilter={item.id}
                   productFilterList={item.children}
-                  handleChangeFilter={handleChangeFilter}
+                  onChangeFilter={onChangeFilter}
                 />
               ) : item.type === 'size' ? (
                 <ProductFilterMenuSize
                   keyProductFilter={item.id}
                   productFilterList={item.children}
-                  handleChangeFilter={handleChangeFilter}
+                  onChangeFilter={onChangeFilter}
                 />
               ) : (
                 <></>
@@ -80,7 +82,7 @@ function ProductFilterMenu({ isFilterEnabled, handleToggleFilter, handleChangeFi
         className={`fixed inset-0 z-30 bg-black opacity-80 delay-300 ease-in-out transition-transform-opacity lg:hidden ${
           isFilterEnabled ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0 delay-200'
         }`}
-        onClick={handleToggleFilter}
+        onClick={onToggleFilter}
       ></div>
 
       <div
@@ -91,7 +93,7 @@ function ProductFilterMenu({ isFilterEnabled, handleToggleFilter, handleChangeFi
         <Button className="h-12 flex-1 rounded-md bg-gray-light-mid !text-clamp-24" onClick={handleResetFilter}>
           Xóa bộ lọc
         </Button>
-        <Button className="h-12 flex-1 rounded-md bg-yellow-bright !text-clamp-24" onClick={handleToggleFilter}>
+        <Button className="h-12 flex-1 rounded-md bg-yellow-bright !text-clamp-24" onClick={onToggleFilter}>
           Áp dụng {totalCount > 0 && `(${totalCount})`}
         </Button>
       </div>

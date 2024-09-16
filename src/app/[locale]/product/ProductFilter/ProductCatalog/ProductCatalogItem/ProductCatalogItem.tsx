@@ -1,10 +1,10 @@
-import { ProductType } from '@/type';
+import { IProduct } from '@/types';
 import { calculateDiscountPercentage, formatCurrencyVND } from '@/utils/currency';
 import getLocalizedPath from '@/utils/getLocalizedPath ';
 import Image from 'next/image';
 import Link from 'next/link';
 
-function ProductCatalogItem(product: ProductType) {
+function ProductCatalogItem(product: IProduct) {
   return (
     <li>
       <Link

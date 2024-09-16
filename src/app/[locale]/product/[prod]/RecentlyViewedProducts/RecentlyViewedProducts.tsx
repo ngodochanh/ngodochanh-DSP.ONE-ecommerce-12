@@ -1,13 +1,17 @@
 'use client';
 
 import RelatedProducts from '@/app/[locale]/product/[prod]/RelatedProducts';
-import { IViewedProduct } from '@/type';
 import { PRODUCT_LIST } from '@/constantsProduct';
-import { ProductType } from '@/type';
 import React, { useEffect, useState } from 'react';
+import { IProduct } from '@/types';
+
+export type IViewedProduct = {
+  id: string; // ID của sản phẩm
+  timestamp: number; // Thời gian xem sản phẩm
+};
 
 // Lưu sản phẩm vào danh sách đã xem
-const addProductToViewedList = (product: ProductType) => {
+const addProductToViewedList = (product: IProduct) => {
   let productString = localStorage.getItem('viewedProducts');
   let products: IViewedProduct[] = productString ? JSON.parse(productString) : [];
 
@@ -52,8 +56,8 @@ const getViewedProducts = (currentProductId: string): IViewedProduct[] => {
   return products.filter((p: IViewedProduct) => p.id !== currentProductId);
 };
 
-function RecentlyViewedProducts({ product }: { product: ProductType | undefined }) {
-  const [products, setProducts] = useState<ProductType[]>([]);
+function RecentlyViewedProducts({ product }: { product: IProduct | undefined }) {
+  const [products, setProducts] = useState<IProduct[]>([]);
 
   // Cập nhật danh sách sản phẩm đã xem khi sản phẩm hiện tại thay đổi
   useEffect(() => {
@@ -69,7 +73,7 @@ function RecentlyViewedProducts({ product }: { product: ProductType | undefined 
       const fetchProductDetails = (id: string) => PRODUCT_LIST.find((p) => p.id === id) || null;
       const productsList = viewedProducts
         .map((viewedProduct) => fetchProductDetails(viewedProduct.id))
-        .filter((p): p is ProductType => p !== null);
+        .filter((p): p is IProduct => p !== null);
       setProducts(productsList);
     }
   }, [product]);

@@ -4,15 +4,15 @@ import { useEffect, useState } from 'react';
 import { IoSearch } from 'react-icons/io5';
 import { GoTriangleDown } from 'react-icons/go';
 
-type Item = {
+type IItem = {
   key: string;
   name: string;
 };
 
 type SelectorProps = {
   inputPlaceholder: string;
-  data: Item[];
-  selected?: Item;
+  data: IItem[];
+  selected?: IItem;
   colorText?: string; // Màu sắc của chữ hiển thị
   bgColor?: string; // Background của select
   width?: string; // Chiều dài của select
@@ -35,11 +35,11 @@ function Selector({
   localStorageKey = 'selectedItem',
 }: SelectorProps) {
   // Lưu trữ danh sách các mục
-  const [items, setItems] = useState<Item[]>([]);
+  const [items, setItems] = useState<IItem[]>([]);
   // Giá trị input
   const [inputValue, setInputValue] = useState('');
   // Mục được chọn
-  const [selectedItem, setSelectedItem] = useState<Item | null>(selected ?? null);
+  const [selectedItem, setSelectedItem] = useState<IItem | null>(selected ?? null);
   // Theo dõi việc mở/đóng danh sách
   const [open, setOpen] = useState(false);
 
@@ -54,7 +54,7 @@ function Selector({
     }
   }, [selected]);
 
-  const handleSelect = (item: Item) => {
+  const handleSelect = (item: IItem) => {
     // Cập nhật mục được chọn
     setSelectedItem(item);
     // Đóng danh sách khi chọn mục
@@ -103,7 +103,7 @@ function Selector({
           />
         </div>
         {/* Hiển thị danh sách các mục */}
-        {items.map((item: Item) => (
+        {items.map((item) => (
           <li
             key={item.key}
             // Tìm kiếm và đánh dấu mục được chọn

@@ -2,14 +2,15 @@ import { useSearchParams } from 'next/navigation';
 import PaginationProduct from './PaginationProduct';
 import ProductCatalogItem from './ProductCatalogItem';
 import { PER_PAGE, PRICE_LIST } from '@/app/[locale]/product/constants';
-import { FilterType, ProductFilterMenuType } from '@/app/[locale]/product/type';
+
 import { memo, useMemo } from 'react';
 import { PRODUCT_LIST } from '@/constantsProduct';
-import { ProductType } from '@/type';
+
 import ProductNotFound from '@/components/ProductNotFound';
+import { IFilter, IFilters, IProduct } from '@/types';
 
 type ProductListProps = {
-  prodFilterList: FilterType;
+  prodFilterList: IFilters;
 };
 
 type PriceRangeKey = (typeof PRICE_LIST)[keyof typeof PRICE_LIST];
@@ -20,29 +21,29 @@ const priceRangeMap: Map<PriceRangeKey, (price: number) => boolean> = new Map([
   [PRICE_LIST.p_above_750k, (price) => price > 750000],
 ]);
 
-const filterProductsByPrice = (price: number, priceRanges: ProductFilterMenuType[]) => {
+const filterProductsByPrice = (price: number, priceRanges: IFilter[]) => {
   return priceRanges.some((priceRange) => {
     const checkPrice = priceRangeMap.get(priceRange.value);
     return checkPrice ? checkPrice(price) : false;
   });
 };
 
-const matchesGender = (product: ProductType, genderFilter: FilterType['gender']) =>
+const matchesGender = (product: IProduct, genderFilter: IFilters['gender']) =>
   genderFilter.length === 0 || genderFilter.every((item) => product.gender.includes(item.value));
 
-const matchesSize = (product: ProductType, sizeFilter: FilterType['size']) =>
+const matchesSize = (product: IProduct, sizeFilter: IFilters['size']) =>
   sizeFilter.length === 0 || sizeFilter.every((item) => product.size.includes(item.value));
 
-const matchesPrice = (product: ProductType, priceFilter: FilterType['price']) =>
+const matchesPrice = (product: IProduct, priceFilter: IFilters['price']) =>
   priceFilter.length === 0 || filterProductsByPrice(product.price, priceFilter);
 
-const matchesSearch = (product: ProductType, searchTerm: string) => {
+const matchesSearch = (product: IProduct, searchTerm: string) => {
   if (!searchTerm) return true;
   const term = searchTerm.toLowerCase();
   return product.title.toLowerCase().includes(term) || product.category.toLowerCase().includes(term);
 };
 
-const filterProducts = (products: ProductType[], filter: FilterType, search = '') =>
+const filterProducts = (products: IProduct[], filter: IFilters, search = '') =>
   products.filter(
     (product) =>
       matchesGender(product, filter.gender) &&

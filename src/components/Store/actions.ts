@@ -14,9 +14,8 @@ import {
   SET_PRODUCTS,
   UPDATE_USER,
 } from './constants';
-import { ProductFilterMenuType } from '@/app/[locale]/product/type';
-import { ICart, TCustomer } from '@/type';
-import { ProductType } from '@/type';
+
+import { ICart, TCustomer, IFilter, IProduct } from '@/types';
 
 const addCart = (payload: ICart) => {
   return {
@@ -48,35 +47,36 @@ const updateUser = (payload: TCustomer) => {
 };
 
 //
-const setProducts = (payload: ProductType[]) => {
+const setProducts = (payload: IProduct[]) => {
   return {
     type: SET_PRODUCTS,
     payload,
   };
 };
 
-const toggleGender = (payload: ProductFilterMenuType) => {
+//
+const toggleGender = (payload: IFilter) => {
   return {
     type: PRODUCTS_GENDER,
     payload,
   };
 };
 
-const toggleColor = (payload: ProductFilterMenuType) => {
+const toggleColor = (payload: IFilter) => {
   return {
     type: PRODUCTS_COLOR,
     payload,
   };
 };
 
-const toggleSize = (payload: ProductFilterMenuType) => {
+const toggleSize = (payload: IFilter) => {
   return {
     type: PRODUCTS_SIZE,
     payload,
   };
 };
 
-const togglePrice = (payload: ProductFilterMenuType) => {
+const togglePrice = (payload: IFilter) => {
   return {
     type: PRODUCTS_PRICE,
     payload,
@@ -125,6 +125,7 @@ export {
   updateUser,
   //
   setProducts,
+  //
   toggleGender,
   toggleColor,
   toggleSize,

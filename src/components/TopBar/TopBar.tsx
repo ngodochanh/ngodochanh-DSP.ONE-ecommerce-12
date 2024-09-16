@@ -7,11 +7,6 @@ const Language = dynamic(() => import('./Language'), { ssr: false });
 import { LANGUAGES } from './constants';
 import { useTranslations } from 'next-intl';
 
-export type LanguageType = {
-  key: string;
-  name: string;
-};
-
 function TopBar() {
   const t = useTranslations('topBar');
 

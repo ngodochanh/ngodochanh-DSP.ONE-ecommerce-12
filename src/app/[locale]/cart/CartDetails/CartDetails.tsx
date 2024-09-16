@@ -3,7 +3,7 @@
 import CartCustomerInfo from '@/app/[locale]/cart/CartDetails/CartCustomerInfo';
 import CartItem from '@/app/[locale]/cart/CartDetails/CartItem';
 import { actions, useStore } from '@/components/Store';
-import { ICart } from '@/type';
+import { ICart } from '@/types';
 import { useCallback, useEffect } from 'react';
 
 function CartDetails() {
@@ -16,7 +16,7 @@ function CartDetails() {
   const handleRemoveFromCart = useCallback(
     (id: string) => {
       dispatch(actions.deleteCart(id));
-      const updatedCart = cart.filter((item) => item.id !== id);
+      const updatedCart = cart.filter((item: ICart) => item.id !== id);
       localStorage.setItem('cart', JSON.stringify(updatedCart));
     },
     [cart, dispatch],
@@ -56,7 +56,7 @@ function CartDetails() {
       {/* Sản phẩm trong giỏ */}
       {cart.length > 0 ? (
         <ul className="space-y-9 sm:space-y-12 sm:px-[30px]">
-          {cart.map((item) => (
+          {cart.map((item: ICart) => (
             <CartItem key={item.id} {...item} onRemoveFromCart={handleRemoveFromCart} onSyncCart={handleSyncCart} />
           ))}
         </ul>

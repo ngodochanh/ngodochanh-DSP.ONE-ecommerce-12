@@ -3,14 +3,16 @@
 import Segment from '@/components/Segment';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import { ProductType } from '@/type';
 import Link from 'next/link';
 import getLocalizedPath from '@/utils/getLocalizedPath ';
 import Image from 'next/image';
 import { calculateDiscountPercentage, formatCurrencyVND } from '@/utils/currency';
 import ProductNotFound from '@/components/ProductNotFound';
+import { IProduct } from '@/types';
 
-function RelatedProducts({ title, productList }: { title: string; productList: ProductType[] }) {
+type RelatedProductsProps = { title: string; productList: IProduct[] };
+
+function RelatedProducts({ title, productList }: RelatedProductsProps) {
   return (
     <div className="pb-[60px] pt-[30px]">
       <Segment title={title} className="mb-10" />

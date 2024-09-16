@@ -1,7 +1,6 @@
 'use client';
 
 import { BiSolidStar, BiSolidStarHalf } from 'react-icons/bi';
-
 import { MouseEvent, useState, useCallback, useMemo } from 'react';
 
 type StarRatingProps = {

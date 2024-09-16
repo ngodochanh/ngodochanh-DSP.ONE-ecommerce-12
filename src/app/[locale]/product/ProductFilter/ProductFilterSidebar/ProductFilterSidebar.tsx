@@ -2,17 +2,17 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { CgClose } from 'react-icons/cg';
 import { FiFilter } from 'react-icons/fi';
-import { FilterType } from '@/app/[locale]/product/type';
 import { KEY_PRODUCT_FILTER } from '@/app/[locale]/product/constants';
 import { memo } from 'react';
+import { IFilters } from '@/types';
 
 type ProductFilterSidebarProps = {
-  prodFilterList: FilterType;
-  handleToggleFilter: () => void;
-  handleRemoveFilter: (keyProductFilter: string, value: string) => void;
+  prodFilterList: IFilters;
+  onToggleFilter: () => void;
+  onRemoveFilter: (keyProductFilter: string, value: string) => void;
 };
 
-function ProductFilterSidebar({ prodFilterList, handleToggleFilter, handleRemoveFilter }: ProductFilterSidebarProps) {
+function ProductFilterSidebar({ prodFilterList, onToggleFilter, onRemoveFilter }: ProductFilterSidebarProps) {
   const { gender, color, size, price } = prodFilterList;
   return (
     <div className="items-center gap-x-[26px] py-5 lg:flex">
@@ -22,7 +22,7 @@ function ProductFilterSidebar({ prodFilterList, handleToggleFilter, handleRemove
         <div className="grid grid-cols-[auto_24px] gap-x-[6px] lg:hidden">
           <span className="text-clamp-16 font-medium">Lọc:</span>
 
-          <FiFilter className="lg:none h-full w-clamp-24 cursor-pointer" onClick={handleToggleFilter} />
+          <FiFilter className="lg:none h-full w-clamp-24 cursor-pointer" onClick={onToggleFilter} />
         </div>
       </div>
       <Swiper
@@ -35,7 +35,7 @@ function ProductFilterSidebar({ prodFilterList, handleToggleFilter, handleRemove
           <SwiperSlide key={item.value} className="!w-fit">
             <div className="inline-flex items-center gap-4 rounded-full border-1 border-solid px-4 py-2">
               <strong className="line-clamp-1 font-normal">{item.label}</strong>
-              <div onClick={() => handleRemoveFilter(KEY_PRODUCT_FILTER.gender, item.value)}>
+              <div onClick={() => onRemoveFilter(KEY_PRODUCT_FILTER.gender, item.value)}>
                 <CgClose className="h-full w-clamp-24" />
               </div>
             </div>
@@ -45,7 +45,7 @@ function ProductFilterSidebar({ prodFilterList, handleToggleFilter, handleRemove
           <SwiperSlide key={item.value} className="!w-fit">
             <div className="inline-flex items-center gap-4 rounded-full border-1 border-solid px-4 py-2">
               <strong className="line-clamp-1 font-normal">{item.label}</strong>
-              <div onClick={() => handleRemoveFilter(KEY_PRODUCT_FILTER.color, item.value)}>
+              <div onClick={() => onRemoveFilter(KEY_PRODUCT_FILTER.color, item.value)}>
                 <CgClose className="h-full w-clamp-24" />
               </div>
             </div>
@@ -55,7 +55,7 @@ function ProductFilterSidebar({ prodFilterList, handleToggleFilter, handleRemove
           <SwiperSlide key={item.value} className="!w-fit">
             <div className="inline-flex items-center gap-4 rounded-full border-1 border-solid px-4 py-2">
               <strong className="line-clamp-1 font-normal uppercase">{item.label}</strong>
-              <div onClick={() => handleRemoveFilter(KEY_PRODUCT_FILTER.size, item.value)}>
+              <div onClick={() => onRemoveFilter(KEY_PRODUCT_FILTER.size, item.value)}>
                 <CgClose className="h-full w-clamp-24" />
               </div>
             </div>
@@ -65,7 +65,7 @@ function ProductFilterSidebar({ prodFilterList, handleToggleFilter, handleRemove
           <SwiperSlide key={item.value} className="!w-fit">
             <div className="inline-flex items-center gap-4 rounded-full border-1 border-solid px-4 py-2">
               <strong className="line-clamp-1 font-normal">{item.label}</strong>
-              <div onClick={() => handleRemoveFilter(KEY_PRODUCT_FILTER.price, item.value)}>
+              <div onClick={() => onRemoveFilter(KEY_PRODUCT_FILTER.price, item.value)}>
                 <CgClose className="h-full w-clamp-24" />
               </div>
             </div>

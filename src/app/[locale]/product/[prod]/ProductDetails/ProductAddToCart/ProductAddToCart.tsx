@@ -1,7 +1,7 @@
 'use client';
 
 import { FaMinus, FaPlus } from 'react-icons/fa6';
-import { CartType, ProductType } from '@/type';
+import { ICart, ProductType } from '@/type';
 import { Button } from '@nextui-org/react';
 import { useCallback, useEffect, useState } from 'react';
 
@@ -30,7 +30,7 @@ function ProductAddToCart({ product }: { product: ProductType | undefined }) {
     const existingCart = JSON.parse(localStorage.getItem('cart') || '[]');
 
     // Kiểm tra nếu sản phẩm đã có trong giỏ hàng
-    const itemIndex = existingCart.findIndex((item: CartType) => item.id === product.id);
+    const itemIndex = existingCart.findIndex((item: ICart) => item.id === product.id);
 
     if (itemIndex > -1) {
       // Sản phẩm đã có trong giỏ hàng, cập nhật số lượng

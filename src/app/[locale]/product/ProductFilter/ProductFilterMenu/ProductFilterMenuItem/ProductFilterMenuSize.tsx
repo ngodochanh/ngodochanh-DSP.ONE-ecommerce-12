@@ -1,16 +1,16 @@
-import { useProductStore } from '@/components/Store/ProductStore';
 import { ProductFilterMenuTypeProps } from '@/app/[locale]/product/type';
 import { memo } from 'react';
 import { useLocale } from 'next-intl';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { PER_PAGE } from '@/app/[locale]/product/constants';
+import { useStore } from '@/components/Store';
 
 function ProductFilterMenuSize({
   keyProductFilter,
   productFilterList,
   handleChangeFilter,
 }: ProductFilterMenuTypeProps) {
-  const { state } = useProductStore();
+  const { state } = useStore();
   const router = useRouter();
   const locale = useLocale();
 

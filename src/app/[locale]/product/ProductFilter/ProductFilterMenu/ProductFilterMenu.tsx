@@ -7,8 +7,9 @@ import { memo, useCallback, useState } from 'react';
 import { PRODUCT_FILTER_LIST } from '@/app/[locale]/product/constants';
 import { FuncHandleChangeType } from '@/app/[locale]/product/type';
 import { Button } from '@nextui-org/button';
-import { actions, useProductStore } from '@/components/Store/ProductStore';
+
 import type { Selection } from '@nextui-org/react';
+import { actions, useStore } from '@/components/Store';
 
 type ProductFilterMenuProps = {
   isFilterEnabled: boolean;
@@ -20,7 +21,7 @@ function ProductFilterMenu({ isFilterEnabled, handleToggleFilter, handleChangeFi
   const [selectedKeys, setSelectedKeys] = useState<Selection>(
     new Set(PRODUCT_FILTER_LIST.map((product) => product.id)),
   );
-  const { state, dispatch } = useProductStore();
+  const { state, dispatch } = useStore();
   const totalCount = Object.values(state.filter).reduce((acc, array) => acc + array.length, 0);
 
   const handleResetFilter = useCallback(() => {

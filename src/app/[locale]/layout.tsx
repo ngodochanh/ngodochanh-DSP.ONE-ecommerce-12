@@ -3,7 +3,6 @@ import localFont from 'next/font/local';
 //
 import './globals.css';
 import { NexTUIProviders } from '../providers';
-import { ProductStore } from '@/components/Store/ProductStore';
 import Script from 'next/script';
 // Components
 import { NextIntlClientProvider, useMessages } from 'next-intl';
@@ -11,6 +10,7 @@ import Footer from '@/components/Footer';
 import TopBar from '@/components/TopBar';
 import Header from '@/components/Header';
 import { idJsonObject } from '@/json_ld';
+import { Store } from '@/components/Store';
 
 type RootLayoutProps = {
   children: React.ReactNode;
@@ -63,14 +63,14 @@ export default function RootLayout({ children, params: { locale } }: Readonly<Ro
       <body className={SVN_GILROY.className}>
         <NextIntlClientProvider messages={messages} locale={locale}>
           <NexTUIProviders>
-            <ProductStore>
+            <Store>
               <div className="mx-auto max-w-[1920px]">
                 <TopBar />
                 <Header />
                 <main>{children}</main>
                 <Footer />
               </div>
-            </ProductStore>
+            </Store>
           </NexTUIProviders>
         </NextIntlClientProvider>
 

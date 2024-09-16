@@ -1,4 +1,6 @@
 import {
+  ADD_CART,
+  DELETE_CART,
   DELETE_PRODUCTS_COLOR,
   DELETE_PRODUCTS_GENDER,
   DELETE_PRODUCTS_PRICE,
@@ -8,11 +10,44 @@ import {
   PRODUCTS_PRICE,
   PRODUCTS_SIZE,
   RESET_FILTER,
+  SET_CART,
   SET_PRODUCTS,
+  UPDATE_USER,
 } from './constants';
 import { ProductFilterMenuType } from '@/app/[locale]/product/type';
+import { ICart, TCustomer } from '@/type';
 import { ProductType } from '@/type';
 
+const addCart = (payload: ICart) => {
+  return {
+    type: ADD_CART,
+    payload,
+  };
+};
+
+const deleteCart = (payload: string) => {
+  return {
+    type: DELETE_CART,
+    payload,
+  };
+};
+
+const setCart = (payload: ICart[]) => {
+  return {
+    type: SET_CART,
+    payload,
+  };
+};
+
+//
+const updateUser = (payload: TCustomer) => {
+  return {
+    type: UPDATE_USER,
+    payload,
+  };
+};
+
+//
 const setProducts = (payload: ProductType[]) => {
   return {
     type: SET_PRODUCTS,
@@ -83,6 +118,12 @@ const resetFilter = () => {
 };
 
 export {
+  deleteCart,
+  setCart,
+  addCart,
+  //
+  updateUser,
+  //
   setProducts,
   toggleGender,
   toggleColor,

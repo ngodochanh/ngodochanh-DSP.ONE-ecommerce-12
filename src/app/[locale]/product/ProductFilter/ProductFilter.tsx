@@ -7,11 +7,11 @@ import { useCallback, useState } from 'react';
 import { ProductFilterMenuType } from '@/app/[locale]/product/type';
 
 import { KEY_PRODUCT_FILTER } from '@/app/[locale]/product/constants';
-import { useProductStore, actions } from '@/components/Store/ProductStore';
+import { actions, useStore } from '@/components/Store';
 
 function ProductFilter() {
   const [isFilterEnabled, setIsFilterEnabled] = useState(false);
-  const { state, dispatch } = useProductStore();
+  const { state, dispatch } = useStore();
 
   const handleToggleFilter = useCallback(() => {
     setIsFilterEnabled((prevIsFilterEnabled) => !prevIsFilterEnabled);

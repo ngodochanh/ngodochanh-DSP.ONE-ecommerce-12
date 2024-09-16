@@ -4,9 +4,10 @@ import { Textarea } from '@nextui-org/input';
 import { FaRegEdit } from 'react-icons/fa';
 import { FaCircleUser, FaPhoneVolume } from 'react-icons/fa6';
 import { useForm } from 'react-hook-form';
-import { useState } from 'react';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { TCustomer } from '@/type';
+import { actions, useStore } from '@/components/Store';
 
 // Schema xác thực cho thông tin khách hàng
 const customerInfoSchema = z.object({
@@ -18,23 +19,19 @@ const customerInfoSchema = z.object({
   address: z.string().nonempty('Địa chỉ không được để trống').min(10, 'Ít nhất 10 ký tự'),
 });
 
-type TCustomerInfoSchema = z.infer<typeof customerInfoSchema>;
-
 function CartCustomerInfo() {
-  // Thông tin khách hàng
-  const [customerInfo, setCustomerInfo] = useState({
-    fullname: 'Nguyễn Hữu Tiến',
-    phone: '0901223344',
-    address: '388 J, P. An Khánh, Q. Ninh Kiều, TP. Cần Thơ',
-  });
+  const {
+    state: { customer },
+    dispatch,
+  } = useStore();
   // Hook form với xác thực schema
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
     reset,
-  } = useForm<TCustomerInfoSchema>({
-    defaultValues: customerInfo,
+  } = useForm<TCustomer>({
+    defaultValues: customer,
     resolver: zodResolver(customerInfoSchema),
   });
 
@@ -43,13 +40,13 @@ function CartCustomerInfo() {
 
   // Mở modal và reset giá trị biểu mẫu
   const handleOpenModal = () => {
-    reset(customerInfo);
+    reset(customer);
     onOpen();
   };
 
   // Gửi biểu mẫu
-  const onSubmit = (data: TCustomerInfoSchema) => {
-    setCustomerInfo(data);
+  const onSubmit = (data: TCustomer) => {
+    dispatch(actions.updateUser(data));
   };
 
   return (
@@ -67,14 +64,14 @@ function CartCustomerInfo() {
         </Button>
       </div>
 
-      <div className="flex flex-col justify-between gap-y-3 text-clamp-16 font-normal sm:flex-row">
+      <div className="flex flex-col justify-between gap-y-3 text-clamp-16 font-normal xl:flex-row">
         <div className="flex gap-x-[30px] sm:gap-x-[20px] md:gap-x-[30px]">
-          <h4>{customerInfo.fullname}</h4>
+          <h4>{customer.fullname}</h4>
           <p className='relative after:absolute after:-left-[calc(30px/2)] after:top-1/2 after:block after:h-4/6 after:w-[1px] after:-translate-y-1/2 after:bg-black after:content-[""] sm:after:-left-[calc(20px/2)] md:after:-left-[calc(30px/2)]'>
-            {customerInfo.phone}
+            {customer.phone}
           </p>
         </div>
-        <p>{customerInfo.address}</p>
+        <p>{customer.address}</p>
       </div>
       {/* Modal */}
       <Modal

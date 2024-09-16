@@ -1,4 +1,7 @@
+import { IAction, ICart, IInitState } from '@/type';
 import {
+  ADD_CART,
+  DELETE_CART,
   DELETE_PRODUCTS_COLOR,
   DELETE_PRODUCTS_GENDER,
   DELETE_PRODUCTS_PRICE,
@@ -8,11 +11,18 @@ import {
   PRODUCTS_PRICE,
   PRODUCTS_SIZE,
   RESET_FILTER,
+  SET_CART,
   SET_PRODUCTS,
+  UPDATE_USER,
 } from './constants';
-import { ActionType, InitStateType } from '@/app/[locale]/product/type';
 
-const initialState: InitStateType = {
+const initialState: IInitState = {
+  cart: [],
+  customer: {
+    fullname: 'Nguyễn Hữu Tiến',
+    phone: '0901223344',
+    address: '388 J, P. An Khánh, Q. Ninh Kiều, TP. Cần Thơ',
+  },
   filter: {
     gender: [],
     color: [],
@@ -21,10 +31,55 @@ const initialState: InitStateType = {
   },
 };
 
-const reducer = (state: InitStateType, action: ActionType): InitStateType => {
+const reducer = (state: IInitState, action: IAction): IInitState => {
   const { type, payload } = action;
 
   switch (type) {
+    case ADD_CART:
+      if (typeof payload === 'object' && payload !== null && 'id' in payload && 'quantity' in payload) {
+        return {
+          ...state,
+          cart: [{ ...payload } as ICart, ...state.cart],
+        };
+      }
+      return state;
+
+    case DELETE_CART:
+      if (typeof payload === 'string' && payload !== null) {
+        return {
+          ...state,
+          cart: state.cart.filter((item) => item.id !== payload),
+        };
+      }
+      return state;
+
+    case SET_CART:
+      if (Array.isArray(payload)) {
+        return {
+          ...state,
+          cart: [...payload],
+        };
+      }
+      return state;
+    //
+    case UPDATE_USER:
+      if (
+        typeof payload === 'object' &&
+        payload !== null &&
+        'fullname' in payload &&
+        'phone' in payload &&
+        'address' in payload
+      ) {
+        return {
+          ...state,
+          customer: {
+            ...payload,
+          },
+        };
+      }
+
+      return state;
+    //
     case RESET_FILTER:
       return {
         ...state,

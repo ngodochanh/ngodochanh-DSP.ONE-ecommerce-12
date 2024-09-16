@@ -2,41 +2,62 @@
 
 import CartCustomerInfo from '@/app/[locale]/cart/CartDetails/CartCustomerInfo';
 import CartItem from '@/app/[locale]/cart/CartDetails/CartItem';
-import { CartType } from '@/type';
-import { useCallback, useEffect, useState } from 'react';
+import { actions, useStore } from '@/components/Store';
+import { ICart } from '@/type';
+import { useCallback, useEffect } from 'react';
 
 function CartDetails() {
-  const [cartList, setCartList] = useState<CartType[]>([]);
+  const {
+    state: { cart },
+    dispatch,
+  } = useStore();
 
   // Xóa sản phẩm khỏi giỏ hàng
   const handleRemoveFromCart = useCallback(
     (id: string) => {
-      const updatedCart = cartList.filter((item) => item.id !== id);
+      dispatch(actions.deleteCart(id));
+      const updatedCart = cart.filter((item) => item.id !== id);
       localStorage.setItem('cart', JSON.stringify(updatedCart));
-      setCartList(updatedCart);
     },
-    [cartList],
+    [cart, dispatch],
+  );
+
+  // Cập nhật giỏ hàng trong localStorage
+  const handleSyncCart = useCallback(
+    (id: string, quantity: number) => {
+      let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      const index = cart.findIndex((item: { id: string }) => item.id === id);
+
+      if (index !== -1) {
+        // Cập nhật số lượng
+        cart[index].quantity = quantity;
+      } else {
+        // Thêm mới
+        cart.push({ id, quantity });
+      }
+      localStorage.setItem('cart', JSON.stringify(cart));
+      dispatch(actions.setCart(cart));
+    },
+    [dispatch],
   );
 
   useEffect(() => {
-    // Lấy dữ liệu từ localStorage
     const cartData = localStorage.getItem('cart');
-
-    // Nếu dữ liệu tồn tại, chuyển đổi chuỗi JSON thành object và cập nhật state
     if (cartData) {
-      setCartList(JSON.parse(cartData));
+      const parsedCartData: ICart[] = JSON.parse(cartData);
+      dispatch(actions.setCart(parsedCartData));
     }
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="space-y-9 sm:space-y-12">
       {/* Thông tin khách hàng */}
       <CartCustomerInfo />
       {/* Sản phẩm trong giỏ */}
-      {cartList.length > 0 ? (
+      {cart.length > 0 ? (
         <ul className="space-y-9 sm:space-y-12 sm:px-[30px]">
-          {cartList.map((item) => (
-            <CartItem key={item.id} {...item} onRemoveFromCart={handleRemoveFromCart} />
+          {cart.map((item) => (
+            <CartItem key={item.id} {...item} onRemoveFromCart={handleRemoveFromCart} onSyncCart={handleSyncCart} />
           ))}
         </ul>
       ) : (

@@ -1,5 +1,3 @@
-import { ProductType } from '@/type';
-
 export type ProductFilterMenuType = {
   label: string;
   value: string;
@@ -21,13 +19,4 @@ export type ProductFilterMenuTypeProps = {
 
 export type FilterType = {
   [key: string]: ProductFilterMenuType[];
-};
-
-export type InitStateType = {
-  filter: FilterType;
-};
-
-export type ActionType = {
-  type: string;
-  payload?: ProductFilterMenuType | string | ProductType;
 };

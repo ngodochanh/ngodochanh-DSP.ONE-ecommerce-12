@@ -3,17 +3,17 @@
 import { CheckboxGroup, Checkbox } from '@nextui-org/react';
 import { ProductFilterMenuTypeProps } from '@/app/[locale]/product/type';
 import { memo } from 'react';
-import { useProductStore } from '@/components/Store/ProductStore';
 import { useLocale } from 'next-intl';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { PER_PAGE } from '@/app/[locale]/product/constants';
+import { useStore } from '@/components/Store';
 
 function ProductFilterMenuCheckBox({
   keyProductFilter,
   productFilterList,
   handleChangeFilter,
 }: ProductFilterMenuTypeProps) {
-  const { state } = useProductStore();
+  const { state } = useStore();
   const router = useRouter();
   const locale = useLocale();
 

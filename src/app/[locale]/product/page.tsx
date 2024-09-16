@@ -34,6 +34,7 @@ function Products() {
       <div className="max-container">
         <Breadcrumb breadCrumbList={BREADCRUMB_LIST} />
         <Segment title={t('navigation.product')} className="py-5" />
+
         <ProductFilter />
       </div>
     </>

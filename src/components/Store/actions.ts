@@ -9,6 +9,7 @@ import {
   PRODUCTS_GENDER,
   PRODUCTS_PRICE,
   PRODUCTS_SIZE,
+  RESET_CART,
   RESET_FILTER,
   SET_CART,
   SET_PRODUCTS,
@@ -16,6 +17,12 @@ import {
 } from './constants';
 
 import { ICart, TCustomer, IFilter, IProduct } from '@/types';
+
+const resetCart = () => {
+  return {
+    type: RESET_CART,
+  };
+};
 
 const addCart = (payload: ICart) => {
   return {
@@ -121,6 +128,7 @@ export {
   deleteCart,
   setCart,
   addCart,
+  resetCart,
   //
   updateUser,
   //

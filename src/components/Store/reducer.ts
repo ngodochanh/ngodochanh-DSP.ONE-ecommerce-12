@@ -10,6 +10,7 @@ import {
   PRODUCTS_GENDER,
   PRODUCTS_PRICE,
   PRODUCTS_SIZE,
+  RESET_CART,
   RESET_FILTER,
   SET_CART,
   SET_PRODUCTS,
@@ -36,6 +37,11 @@ const reducer = (state: IInitState, action: IAction): IInitState => {
   const { type, payload } = action;
 
   switch (type) {
+    case RESET_CART:
+      return {
+        ...state,
+        cart: initialState.cart,
+      };
     case ADD_CART:
       if (typeof payload === 'object' && payload !== null && 'id' in payload && 'quantity' in payload) {
         return {

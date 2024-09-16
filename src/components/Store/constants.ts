@@ -1,6 +1,7 @@
 const SET_CART = 'set_cart';
 const DELETE_CART = 'delete_cart';
 const ADD_CART = 'add_cart';
+const RESET_CART = 'reset_cart';
 //
 const UPDATE_USER = 'update_user';
 //
@@ -19,6 +20,7 @@ export {
   SET_CART,
   DELETE_CART,
   ADD_CART,
+  RESET_CART,
   //
   UPDATE_USER,
   //

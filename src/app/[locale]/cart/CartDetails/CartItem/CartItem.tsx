@@ -1,5 +1,5 @@
 import { PRODUCT_LIST } from '@/constantsProduct';
-import { ICart } from '@/types';
+import { CartItemProps, ICart } from '@/types';
 import { formatCurrencyVND } from '@/utils/currency';
 import getLocalizedPath from '@/utils/getLocalizedPath ';
 import { Button } from '@nextui-org/react';
@@ -7,11 +7,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { memo, useCallback, useEffect, useState } from 'react';
 import { FaMinus, FaRegTrashCan, FaPlus } from 'react-icons/fa6';
-
-type CartItemProps = ICart & {
-  onRemoveFromCart: (id: string) => void;
-  onSyncCart: (id: string, quantity: number) => void;
-};
 
 function CartItem({ id, quantity, onRemoveFromCart, onSyncCart }: CartItemProps) {
   // Số lượng sản phẩm
@@ -40,8 +35,8 @@ function CartItem({ id, quantity, onRemoveFromCart, onSyncCart }: CartItemProps)
   // Đồng bộ hóa số lượng từ localStorage
   useEffect(() => {
     if (product) {
-      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-      const cartItem = cart.find((item: { id: string }) => item.id === id);
+      const carts = JSON.parse(localStorage.getItem('carts') || '[]');
+      const cartItem = carts.find((cart: ICart) => cart.id === id);
       setQty(cartItem ? cartItem.quantity : quantity);
     }
   }, [product, id, quantity]);

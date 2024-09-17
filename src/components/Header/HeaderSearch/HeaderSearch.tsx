@@ -169,7 +169,7 @@ function HeaderSearch({ isSearchOpen, onCloseSearch }: { isSearchOpen: boolean; 
 
         {/* Hiển thị kết quả tìm kiếm */}
         {results?.length > 0 && (
-          <div className="absolute top-full mt-4 max-h-scrollable w-full overflow-hidden overflow-y-auto overscroll-y-contain scroll-smooth rounded-xl bg-white shadow-md sm:left-1/2 sm:w-[640px] sm:-translate-x-1/2 lg:left-full lg:-translate-x-full">
+          <div className="absolute top-full mt-4 max-h-scrollable w-full overflow-hidden overflow-y-auto overscroll-y-contain scroll-smooth rounded-xl bg-white shadow-md sm:left-1/2 sm:w-[620px] sm:-translate-x-1/2 lg:left-full lg:-translate-x-full">
             <div className="relative w-full">
               {results.map((item) => (
                 <Link

@@ -19,7 +19,7 @@ import {
 import { IAction, IInitState } from './type';
 
 const initialState: IInitState = {
-  cart: [],
+  carts: [],
   customer: {
     fullname: 'Nguyễn Hữu Tiến',
     phone: '0901223344',
@@ -40,13 +40,13 @@ const reducer = (state: IInitState, action: IAction): IInitState => {
     case RESET_CART:
       return {
         ...state,
-        cart: initialState.cart,
+        carts: initialState.carts,
       };
     case ADD_CART:
       if (typeof payload === 'object' && payload !== null && 'id' in payload && 'quantity' in payload) {
         return {
           ...state,
-          cart: [{ ...payload } as ICart, ...state.cart],
+          carts: [{ ...payload } as ICart, ...state.carts],
         };
       }
       return state;
@@ -55,7 +55,7 @@ const reducer = (state: IInitState, action: IAction): IInitState => {
       if (typeof payload === 'string' && payload !== null) {
         return {
           ...state,
-          cart: state.cart.filter((item) => item.id !== payload),
+          carts: state.carts.filter((item) => item.id !== payload),
         };
       }
       return state;
@@ -64,7 +64,7 @@ const reducer = (state: IInitState, action: IAction): IInitState => {
       if (Array.isArray(payload)) {
         return {
           ...state,
-          cart: [...payload],
+          carts: [...payload],
         };
       }
       return state;

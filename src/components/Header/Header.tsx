@@ -14,6 +14,7 @@ import { useCallback, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import HeaderSearch from '@/components/Header/HeaderSearch';
+import ShoppingCart from '@/components/Header/ShoppingCart';
 
 function Header() {
   // Bất tắt mobile nav
@@ -118,15 +119,11 @@ function Header() {
             <div className="h-full w-6 cursor-pointer sm:w-10 lg:w-8 xl:w-10">
               <FaRegHeart className="mx-auto h-full w-clamp-24" />
             </div>
-
-            <Link
-              href={getLocalizedPath(process.env.CART!)}
-              className="group relative block h-full w-6 cursor-pointer sm:w-10 lg:w-8 xl:w-10"
-            >
+            <div className="group relative block h-full w-6 cursor-pointer sm:w-10 lg:w-8 xl:w-10">
               <FiShoppingCart className="mx-auto h-full w-clamp-24" />
-
-              <div className="absolute h-0 group-hover:h-fit"></div>
-            </Link>
+              {/* Giỏ hàng */}
+              <ShoppingCart />
+            </div>
 
             <div className="h-full w-6 cursor-pointer sm:w-10 lg:w-8 xl:w-10">
               <FaRegCircleUser className="mx-auto h-full w-clamp-24" />

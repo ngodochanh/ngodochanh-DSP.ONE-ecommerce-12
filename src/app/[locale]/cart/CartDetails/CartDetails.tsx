@@ -8,7 +8,7 @@ import { useCallback, useEffect } from 'react';
 
 function CartDetails() {
   const {
-    state: { cart },
+    state: { carts },
     dispatch,
   } = useStore();
 
@@ -16,33 +16,33 @@ function CartDetails() {
   const handleRemoveFromCart = useCallback(
     (id: string) => {
       dispatch(actions.deleteCart(id));
-      const updatedCart = cart.filter((item: ICart) => item.id !== id);
-      localStorage.setItem('cart', JSON.stringify(updatedCart));
+      const updatedCart = carts.filter((cart: ICart) => cart.id !== id);
+      localStorage.setItem('carts', JSON.stringify(updatedCart));
     },
-    [cart, dispatch],
+    [carts, dispatch],
   );
 
   // Cập nhật giỏ hàng trong localStorage
   const handleSyncCart = useCallback(
     (id: string, quantity: number) => {
-      let cart = JSON.parse(localStorage.getItem('cart') || '[]');
-      const index = cart.findIndex((item: { id: string }) => item.id === id);
+      let carts = JSON.parse(localStorage.getItem('carts') || '[]');
+      const index = carts.findIndex((cart: ICart) => cart.id === id);
 
       if (index !== -1) {
         // Cập nhật số lượng
-        cart[index].quantity = quantity;
+        carts[index].quantity = quantity;
       } else {
         // Thêm mới
-        cart.push({ id, quantity });
+        carts.push({ id, quantity });
       }
-      localStorage.setItem('cart', JSON.stringify(cart));
-      dispatch(actions.setCart(cart));
+      localStorage.setItem('carts', JSON.stringify(carts));
+      dispatch(actions.setCart(carts));
     },
     [dispatch],
   );
 
   useEffect(() => {
-    const cartData = localStorage.getItem('cart');
+    const cartData = localStorage.getItem('carts');
     if (cartData) {
       const parsedCartData: ICart[] = JSON.parse(cartData);
       dispatch(actions.setCart(parsedCartData));
@@ -54,10 +54,10 @@ function CartDetails() {
       {/* Thông tin khách hàng */}
       <CartCustomerInfo />
       {/* Sản phẩm trong giỏ */}
-      {cart.length > 0 ? (
+      {carts.length > 0 ? (
         <ul className="space-y-9 sm:space-y-12 sm:px-[30px]">
-          {cart.map((item: ICart) => (
-            <CartItem key={item.id} {...item} onRemoveFromCart={handleRemoveFromCart} onSyncCart={handleSyncCart} />
+          {carts.map((cart) => (
+            <CartItem key={cart.id} {...cart} onRemoveFromCart={handleRemoveFromCart} onSyncCart={handleSyncCart} />
           ))}
         </ul>
       ) : (

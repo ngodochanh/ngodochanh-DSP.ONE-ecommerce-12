@@ -26,16 +26,16 @@ type TCartTransactionSchema = z.infer<typeof cartTransactionSchema>;
 
 function CartTransaction() {
   const {
-    state: { customer, cart },
+    state: { customer, carts },
     dispatch,
   } = useStore();
 
   const totalPrice = useMemo(() => {
-    return cart.reduce((total, c) => {
-      const product = PRODUCT_LIST.find((p) => p.id === c.id);
-      return total + (product ? product.price * c.quantity : 0);
+    return carts.reduce((total, cart) => {
+      const product = PRODUCT_LIST.find((prod) => prod.id === cart.id);
+      return total + (product ? product.price * cart.quantity : 0);
     }, 0);
-  }, [cart]);
+  }, [carts]);
 
   const {
     register,
@@ -75,7 +75,7 @@ function CartTransaction() {
     console.log(extendedData);
     reset();
     dispatch(actions.resetCart());
-    localStorage.removeItem('cart');
+    localStorage.removeItem('carts');
   };
 
   return (

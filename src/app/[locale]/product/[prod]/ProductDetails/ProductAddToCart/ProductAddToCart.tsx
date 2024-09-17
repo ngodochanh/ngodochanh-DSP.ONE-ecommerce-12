@@ -4,8 +4,14 @@ import { FaMinus, FaPlus } from 'react-icons/fa6';
 import { Button } from '@nextui-org/react';
 import { useCallback, useEffect, useState } from 'react';
 import { IProduct, ICart } from '@/types';
+import { actions, useStore } from '@/components/Store';
 
 function ProductAddToCart({ product }: { product: IProduct | undefined }) {
+  const {
+    state: { carts },
+    dispatch,
+  } = useStore();
+
   const [quantity, setQuantity] = useState(1);
 
   // Hàm cập nhật số lượng sản phẩm
@@ -27,28 +33,52 @@ function ProductAddToCart({ product }: { product: IProduct | undefined }) {
     };
 
     // Lấy giỏ hàng hiện tại từ localStorage
-    const existingCart = JSON.parse(localStorage.getItem('cart') || '[]');
+    const existingCarts = JSON.parse(localStorage.getItem('carts') || '[]');
 
     // Kiểm tra nếu sản phẩm đã có trong giỏ hàng
-    const itemIndex = existingCart.findIndex((item: ICart) => item.id === product.id);
+    const itemIndex = existingCarts.findIndex((cart: ICart) => cart.id === product.id);
 
     if (itemIndex > -1) {
       // Sản phẩm đã có trong giỏ hàng, cập nhật số lượng
-      existingCart[itemIndex].quantity = quantity;
+      existingCarts[itemIndex].quantity = quantity;
     } else {
       // Thêm sản phẩm mới vào giỏ hàng
-      existingCart.push(newCartItem);
+      existingCarts.push(newCartItem);
     }
 
     // Cập nhật giỏ hàng vào localStorage
-    localStorage.setItem('cart', JSON.stringify(existingCart));
-  }, [product, quantity]);
+    localStorage.setItem('carts', JSON.stringify(existingCarts));
+
+    dispatch(actions.setCart(existingCarts));
+  }, [product, quantity, dispatch]);
+
+  // Kiểm tra sản phẩm trong giỏ hàng từ `state.carts` hoặc `localStorage`
+  useEffect(() => {
+    if (product) {
+      // Kiểm tra nếu sản phẩm có trong `state.carts`
+      const cartItem = carts.find((cart: ICart) => cart.id === product.id);
+
+      if (cartItem) {
+        // Nếu sản phẩm có trong `carts`, thiết lập số lượng từ `carts`
+        setQuantity(cartItem.quantity);
+      } else {
+        // Nếu không, kiểm tra `localStorage`
+        const existingCarts = JSON.parse(localStorage.getItem('carts') || '[]');
+        const localCartItem = existingCarts.find((cart: ICart) => cart.id === product.id);
+
+        // Nếu có trong `localStorage`, thiết lập số lượng từ `localStorage`
+        if (localCartItem) {
+          setQuantity(localCartItem.quantity);
+        }
+      }
+    }
+  }, [product, carts]);
 
   // Kiểm tra sản phẩm trong giỏ hàng
   useEffect(() => {
     if (product) {
-      const existingCart = JSON.parse(localStorage.getItem('cart') || '[]');
-      const cartItem = existingCart.find((item: { id: string; quantity: number }) => item.id === product.id);
+      const existingCarts = JSON.parse(localStorage.getItem('carts') || '[]');
+      const cartItem = existingCarts.find((cart: ICart) => cart.id === product.id);
 
       // Nếu sản phẩm có trong giỏ hàng, cập nhật số lượng
       if (cartItem) {

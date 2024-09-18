@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { IoIosArrowRoundForward } from 'react-icons/io';
 import { calculateDiscountPercentage, formatCurrencyVND } from '@/utils/currency';
 import { IProduct } from '@/types';
 import getLocalizedPath from '@/utils/getLocalizedPath ';
@@ -25,37 +24,28 @@ function ProductItem({ product }: ProductItemProps) {
     : '';
 
   return (
-    <Link href={productPath} className="group flex w-full flex-col">
-      <div className="relative mb-[13.41px] h-[430px] overflow-hidden rounded-[10px]">
+    <Link href={productPath} className="group flex h-full flex-col">
+      <div className="relative mb-[15px] h-[430px] overflow-hidden rounded-[10px]">
         <Image
           src={productImage}
-          alt={`product ${product.title}`}
+          alt={product.title}
           sizes="(max-width: 640px) 100vw, 50vw"
           fill
           loading="lazy"
           className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
         />
       </div>
-
-      <div className="grid flex-grow grid-cols-[auto_18px] gap-x-2">
-        <div className="flex h-full flex-col">
-          <h4 className="mb-[10px] line-clamp-2 flex-1 overflow-hidden text-clamp-28 font-semibold capitalize text-gray-deep transition-colors duration-300 ease-in-out group-hover:text-orange-bright">
-            {product.title}
-          </h4>
-          <div className="flex items-center justify-between gap-x-5">
-            <strong className="text-clamp-32 text-red-bright">{displayPrice}</strong>
-            <div className="text-clamp-16">
-              {product.originalPrice !== 0 && (
-                <>
-                  <p className="text-gray-mute line-through">{originalPriceDisplay}</p>
-                  <p className="text-red-bright">{discountDisplay}</p>
-                </>
-              )}
-            </div>
+      <div className="flex flex-grow flex-col">
+        <h5 className="mb-[15px] line-clamp-1 flex-grow text-clamp-24 font-semibold transition-colors duration-300 ease-in-out group-hover:text-orange-bright">
+          {product.title}
+        </h5>
+        <div className="flex items-center justify-between gap-x-2">
+          <strong className="text-clamp-32 text-red-bright">{displayPrice}</strong>
+          <div className="text-clamp-16">
+            <p className="text-gray-mute line-through">{originalPriceDisplay}</p>
+            <p className="text-red-bright">{discountDisplay}</p>
           </div>
         </div>
-
-        <IoIosArrowRoundForward className="my-auto h-full w-clamp-32 text-gray-dark" />
       </div>
     </Link>
   );

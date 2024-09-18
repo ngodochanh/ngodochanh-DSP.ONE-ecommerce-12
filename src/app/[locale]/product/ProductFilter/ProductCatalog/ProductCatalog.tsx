@@ -1,6 +1,5 @@
 import { useSearchParams } from 'next/navigation';
 import PaginationProduct from './PaginationProduct';
-import ProductCatalogItem from './ProductCatalogItem';
 import { PER_PAGE, PRICE_LIST } from '@/app/[locale]/product/constants';
 
 import { memo, useMemo } from 'react';
@@ -8,6 +7,7 @@ import { PRODUCT_LIST } from '@/constantsProduct';
 
 import ProductNotFound from '@/components/ProductNotFound';
 import { IFilter, IFilters, IProduct } from '@/types';
+import ProductItem from '@/components/ProductItem';
 
 type ProductListProps = {
   prodFilterList: IFilters;
@@ -74,7 +74,11 @@ function ProductCatalog({ prodFilterList }: ProductListProps) {
         {entries.length === 0 ? (
           <ProductNotFound />
         ) : (
-          entries.map((product) => <ProductCatalogItem key={product.id} {...product} />)
+          entries.map((product) => (
+            <li key={product.id}>
+              <ProductItem product={product} />
+            </li>
+          ))
         )}
       </ul>
       {filteredProducts.length !== 0 && <PaginationProduct total={filteredProducts.length} page={page} />}

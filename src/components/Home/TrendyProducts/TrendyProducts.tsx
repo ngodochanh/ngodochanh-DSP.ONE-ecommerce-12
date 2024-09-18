@@ -1,8 +1,9 @@
 import ContentHeader from '@/components/ContentHeader';
-import ProductList from '@/components/ProductList';
 import { useTranslations } from 'next-intl';
 import { PRODUCT_LIST } from '@/constantsProduct';
 import { IProduct } from '@/types';
+import ProductNotFound from '@/components/ProductNotFound';
+import ProductItem from '@/components/ProductItem';
 
 function TrendyProducts() {
   const t = useTranslations('trendyProducts');
@@ -16,7 +17,17 @@ function TrendyProducts() {
 
   return (
     <ContentHeader title={t('text')}>
-      <ProductList productList={result} />
+      <ul className="mt-[50px] grid grid-cols-1 gap-x-[16px] gap-y-[50px] sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:gap-x-[30px]">
+        {result.length === 0 ? (
+          <ProductNotFound />
+        ) : (
+          result.map((prod) => (
+            <li key={prod.id}>
+              <ProductItem product={prod} />
+            </li>
+          ))
+        )}
+      </ul>
     </ContentHeader>
   );
 }

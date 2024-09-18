@@ -2,7 +2,8 @@
 
 // Components
 import ContentHeader from '@/components/ContentHeader';
-import ProductList from '@/components/ProductList';
+import ProductNotFound from '@/components/ProductNotFound';
+import ProductItem from '@/components/ProductItem';
 //
 import { Tabs, Tab } from '@nextui-org/tabs';
 import { useTranslations } from 'next-intl';
@@ -80,7 +81,17 @@ function SpeialProducts() {
       >
         {(item) => (
           <Tab key={item.id} title={item.label}>
-            <ProductList productList={item.path} />
+            <ul className="mt-[50px] grid grid-cols-1 gap-x-[16px] gap-y-[50px] sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:gap-x-[30px]">
+              {item.path.length === 0 ? (
+                <ProductNotFound />
+              ) : (
+                item.path.map((prod) => (
+                  <li key={prod.id}>
+                    <ProductItem product={prod} />
+                  </li>
+                ))
+              )}
+            </ul>
           </Tab>
         )}
       </Tabs>

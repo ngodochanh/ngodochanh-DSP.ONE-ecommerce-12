@@ -82,7 +82,9 @@ function Selector({
             ? selectedItem.name.substring(0, 25) + '...'
             : selectedItem.name
           : 'Select'}
-        <GoTriangleDown className={`transition-transform-fast ${open && 'rotate-180'} w-clamp-18`} />
+        <GoTriangleDown
+          className={`transition-transform duration-300 ease-in-out ${open && 'rotate-180'} w-clamp-18`}
+        />
       </div>
       {/* Hiển thị hoặc ẩn các mục với open */}
       <ul

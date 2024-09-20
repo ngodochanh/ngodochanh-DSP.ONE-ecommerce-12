@@ -8,7 +8,7 @@ import { Button } from '@nextui-org/button';
 import type { Selection } from '@nextui-org/react';
 import { actions, useStore } from '@/components/Store';
 import { IFuncHandleChangeFilter } from '@/app/[locale]/product/type';
-import { IFilter } from '@/types';
+import { IFilter } from '@/models';
 
 type ProductFilterMenuProps = {
   isFilterEnabled: boolean;

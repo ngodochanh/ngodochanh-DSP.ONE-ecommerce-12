@@ -5,23 +5,10 @@ import Image from 'next/image';
 import HeaderAuth from '@/app/[locale]/(auth)/HeaderAuth';
 import { Button, Input } from '@nextui-org/react';
 import Link from 'next/link';
-import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { actions, useStore } from '@/components/Store';
-
-const registerSchema = z
-  .object({
-    phone: z.string().min(10, 'Số điện thoại phải có ít nhất 10 ký tự'),
-    password: z.string().min(6, 'Mật khẩu phải có ít nhất 6 ký tự'),
-    confirmPassword: z.string().min(6, 'Xác nhận mật khẩu phải có ít nhất 6 ký tự'),
-  })
-  .refine((data) => data.password === data.confirmPassword, {
-    message: 'Mật khẩu và xác nhận mật khẩu không khớp',
-    path: ['confirmPassword'],
-  });
-
-type TRegisterFormSchema = z.infer<typeof registerSchema>;
+import { registerSchema, TRegisterFormSchema } from '@/schemas';
 
 export default function Register() {
   const {

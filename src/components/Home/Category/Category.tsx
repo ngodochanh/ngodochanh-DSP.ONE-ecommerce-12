@@ -2,7 +2,7 @@ import ContentHeader from '@/components/ContentHeader';
 
 import CategoryItem from './CategoryItem';
 import { useTranslations } from 'next-intl';
-import { CATEGORY_LIST } from '@/constantsProduct';
+import { CATEGORY_LIST } from '@/data';
 
 function Category() {
   // Dịch ngôn ngữ

@@ -4,7 +4,7 @@ import Segment from '@/components/Segment';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import ProductNotFound from '@/components/ProductNotFound';
-import { IProduct } from '@/types';
+import { IProduct } from '@/models';
 import ProductItem from '@/components/ProductItem';
 
 type RelatedProductsProps = { title: string; productList: IProduct[] };

@@ -4,7 +4,7 @@ import { CgClose } from 'react-icons/cg';
 import { FiFilter } from 'react-icons/fi';
 import { KEY_PRODUCT_FILTER } from '@/app/[locale]/product/constants';
 import { memo } from 'react';
-import { IFilters } from '@/types';
+import { IFilters } from '@/models';
 
 type ProductFilterSidebarProps = {
   prodFilterList: IFilters;

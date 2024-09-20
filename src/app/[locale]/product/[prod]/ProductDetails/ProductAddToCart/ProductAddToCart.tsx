@@ -3,7 +3,7 @@
 import { FaMinus, FaPlus } from 'react-icons/fa6';
 import { Button } from '@nextui-org/react';
 import { useCallback, useEffect, useState } from 'react';
-import { IProduct, ICart } from '@/types';
+import { IProduct, ICart } from '@/models';
 import { actions, useStore } from '@/components/Store';
 
 function ProductAddToCart({ product }: { product: IProduct | undefined }) {

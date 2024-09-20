@@ -7,8 +7,8 @@ import ProductItem from '@/components/ProductItem';
 //
 import { Tabs, Tab } from '@nextui-org/tabs';
 import { useTranslations } from 'next-intl';
-import { CATEGORY_LIST, PRODUCT_LIST } from '@/constantsProduct';
-import { IProduct } from '@/types';
+import { CATEGORY_LIST, PRODUCT_LIST } from '@/data';
+import { IProduct } from '@/models';
 
 const PRODUCT_T_SHIRT = PRODUCT_LIST.reduce<IProduct[]>((acc, currentValue) => {
   if (currentValue.category === CATEGORY_LIST.t_shirt.value) {

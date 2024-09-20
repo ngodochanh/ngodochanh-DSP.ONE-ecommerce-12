@@ -4,20 +4,9 @@ import { Textarea } from '@nextui-org/input';
 import { FaRegEdit } from 'react-icons/fa';
 import { FaCircleUser, FaPhoneVolume } from 'react-icons/fa6';
 import { useForm } from 'react-hook-form';
-import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { actions, useStore } from '@/components/Store';
-import { TCustomer } from '@/types';
-
-// Schema xác thực cho thông tin khách hàng
-const customerInfoSchema = z.object({
-  fullname: z.string().nonempty('Họ và tên không được để trống'),
-  phone: z
-    .string()
-    .nonempty('Số điện thoại không được để trống')
-    .regex(/(84|0[3|5|7|8|9])+([0-9]{8})\b/g, 'Số điện thoại không hợp lệ'),
-  address: z.string().nonempty('Địa chỉ không được để trống').min(10, 'Ít nhất 10 ký tự'),
-});
+import { customerInfoSchema, TCustomerInfoSchema } from '@/schemas';
 
 function CartCustomerInfo() {
   const {
@@ -30,7 +19,7 @@ function CartCustomerInfo() {
     handleSubmit,
     formState: { errors, isSubmitting },
     reset,
-  } = useForm<TCustomer>({
+  } = useForm<TCustomerInfoSchema>({
     defaultValues: customer,
     resolver: zodResolver(customerInfoSchema),
   });
@@ -45,7 +34,7 @@ function CartCustomerInfo() {
   };
 
   // Gửi biểu mẫu
-  const onSubmit = (data: TCustomer) => {
+  const onSubmit = (data: TCustomerInfoSchema) => {
     dispatch(actions.updateUser(data));
   };
 

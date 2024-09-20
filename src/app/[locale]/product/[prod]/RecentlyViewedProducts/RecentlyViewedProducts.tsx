@@ -1,9 +1,9 @@
 'use client';
 
 import RelatedProducts from '@/app/[locale]/product/[prod]/RelatedProducts';
-import { PRODUCT_LIST } from '@/constantsProduct';
+import { PRODUCT_LIST } from '@/data';
 import React, { useEffect, useState } from 'react';
-import { IProduct } from '@/types';
+import { IProduct } from '@/models';
 
 export type IViewedProduct = {
   id: string; // ID của sản phẩm

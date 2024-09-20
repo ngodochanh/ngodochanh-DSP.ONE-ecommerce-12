@@ -5,7 +5,7 @@ import { IoSearch } from 'react-icons/io5';
 import { GoTriangleDown } from 'react-icons/go';
 import { useRouter } from 'next/navigation';
 import { useLocale } from 'next-intl';
-import { ILanguage } from '@/components/TopBar/type';
+import { ILanguage } from '@/models';
 
 type LanguageProps = {
   inputPlaceholder: string;
@@ -92,7 +92,9 @@ function Language({ inputPlaceholder, languageList }: LanguageProps) {
                 ? selectedItem.name.substring(0, 25) + '...'
                 : selectedItem.name
               : 'Loading...'}
-            <GoTriangleDown className={`transition-transform-fast h-full text-clamp-16 ${open && 'rotate-180'}`} />
+            <GoTriangleDown
+              className={`h-full text-clamp-16 transition-transform duration-300 ease-in-out ${open && 'rotate-180'}`}
+            />
           </div>
           {/* Hiển thị hoặc ẩn các mục với open */}
           <ul

@@ -6,19 +6,12 @@ import Image from 'next/image';
 import HeaderAuth from '@/app/[locale]/(auth)/HeaderAuth';
 import { Button, Input } from '@nextui-org/react';
 import Link from 'next/link';
-import { z } from 'zod';
 import { useStore } from '@/components/Store';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 import getLocalizedPath from '@/utils/getLocalizedPath ';
-
-const loginSchema = z.object({
-  phone: z.string().nonempty('Số điện thoại là bắt buộc'),
-  password: z.string().nonempty('Mật khẩu là bắt buộc'),
-});
-
-type TLoginFormSchema = z.infer<typeof loginSchema>;
+import { loginSchema, TLoginFormSchema } from '@/schemas';
 
 export default function Login({
   params: { locale },

@@ -1,6 +1,6 @@
 import Banner from '@/components/Banner';
 import { Blogs, Category, Gallery, Independent, Services, SpeialProducts, TrendyProducts } from '@/components/Home';
-import Footer from '@/components/Footer';
+import Footer from '@/components/Layout/Footer';
 
 export default function Home() {
   return (

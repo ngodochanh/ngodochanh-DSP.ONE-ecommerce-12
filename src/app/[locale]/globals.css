@@ -14,11 +14,6 @@
     @apply mx-auto max-w-[1456px] px-2 sm:max-w-[1472px] sm:px-4;
   }
 
-  /* Transition  */
-  .transition-transform-fast {
-    @apply transition-transform duration-300 ease-in-out;
-  }
-
   .mySwiper .swiper-slide-thumb-active {
     @apply !opacity-100;
   }

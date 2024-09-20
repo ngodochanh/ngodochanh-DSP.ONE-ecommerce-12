@@ -3,7 +3,7 @@
 import CartCustomerInfo from '@/app/[locale]/cart/CartDetails/CartCustomerInfo';
 import CartItem from '@/app/[locale]/cart/CartDetails/CartItem';
 import { actions, useStore } from '@/components/Store';
-import { ICart } from '@/types';
+import { ICart } from '@/models';
 import { useCallback, useEffect } from 'react';
 
 function CartDetails() {

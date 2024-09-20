@@ -1,15 +1,10 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
-//
 import './globals.css';
-import { NexTUIProviders } from './providers';
 import Script from 'next/script';
-// Components
 import { NextIntlClientProvider, useMessages } from 'next-intl';
-import TopBar from '@/components/TopBar';
-import Header from '@/components/Header';
 import { idJsonObject } from '@/json_ld';
-import { Store } from '@/components/Store';
+import NextUIProviderComponent from '@/components/Layout/RootLayout';
 
 type RootLayoutProps = {
   children: React.ReactNode;
@@ -61,15 +56,7 @@ export default function RootLayout({ children, params: { locale } }: Readonly<Ro
     <html lang={locale}>
       <body className={SVN_GILROY.className}>
         <NextIntlClientProvider messages={messages} locale={locale}>
-          <NexTUIProviders>
-            <Store>
-              <div className="mx-auto max-w-[1920px]">
-                <TopBar />
-                <Header />
-                <main>{children}</main>
-              </div>
-            </Store>
-          </NexTUIProviders>
+          <NextUIProviderComponent>{children}</NextUIProviderComponent>
         </NextIntlClientProvider>
         <Script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(idJsonObject) }}></Script>
       </body>

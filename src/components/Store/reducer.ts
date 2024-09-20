@@ -1,4 +1,4 @@
-import { ICart, TCustomerTT } from '@/types';
+import { ICart, TCustomer } from '@/models';
 import {
   ADD_CART,
   ADD_CUSTOMER,
@@ -46,7 +46,7 @@ const reducer = (state: IInitState, action: IAction): IInitState => {
         carts: initialState.carts,
       };
     case ADD_CART:
-      if (typeof payload === 'object' && payload !== null && 'id' in payload && 'quantity' in payload) {
+      if (typeof payload === 'object' && payload !== null) {
         return {
           ...state,
           carts: [{ ...payload } as ICart, ...state.carts],
@@ -64,13 +64,10 @@ const reducer = (state: IInitState, action: IAction): IInitState => {
       return state;
 
     case SET_CART:
-      if (Array.isArray(payload)) {
-        return {
-          ...state,
-          carts: payload as ICart[],
-        };
-      }
-      return state;
+      return {
+        ...state,
+        carts: payload as ICart[],
+      };
     //
     case UPDATE_USER:
       if (
@@ -92,12 +89,12 @@ const reducer = (state: IInitState, action: IAction): IInitState => {
     case SET_CUSTOMERS:
       return {
         ...state,
-        customers: payload as TCustomerTT[],
+        customers: payload as TCustomer[],
       };
     case ADD_CUSTOMER:
       return {
         ...state,
-        customers: [...state.customers, payload as TCustomerTT],
+        customers: [...state.customers, payload as TCustomer],
       };
     //
     case RESET_FILTER:

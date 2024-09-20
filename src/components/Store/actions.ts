@@ -1,3 +1,4 @@
+import { TCustomerInfoSchema } from '@/schemas';
 import {
   ADD_CART,
   ADD_CUSTOMER,
@@ -17,7 +18,7 @@ import {
   UPDATE_USER,
 } from './constants';
 
-import { ICart, TCustomer, IFilter, IProduct, TCustomerTT } from '@/types';
+import { ICart, IFilter, TCustomer } from '@/models';
 
 const resetCart = () => {
   return {
@@ -47,21 +48,21 @@ const setCart = (payload: ICart[]) => {
 };
 
 //
-const updateUser = (payload: TCustomer) => {
+const updateUser = (payload: TCustomerInfoSchema) => {
   return {
     type: UPDATE_USER,
     payload,
   };
 };
 
-const setCustomers = (payload: TCustomerTT[]) => {
+const setCustomers = (payload: TCustomer[]) => {
   return {
     type: SET_CUSTOMERS,
     payload,
   };
 };
 
-const addCustomer = (payload: TCustomerTT) => {
+const addCustomer = (payload: TCustomer) => {
   return {
     type: ADD_CUSTOMER,
     payload,

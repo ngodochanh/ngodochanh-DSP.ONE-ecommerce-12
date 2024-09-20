@@ -1,14 +1,14 @@
-import { ICart, IFilter, IFilters, IProduct } from '@/types';
-import { TCustomer, TCustomerTT } from '@/types/customer';
+import { ICart, IFilter, IFilters, IProduct, TCustomer } from '@/models';
+import { TCustomerInfoSchema } from '@/schemas';
 
 export type IInitState = {
   carts: ICart[];
-  customers: TCustomerTT[];
-  customer: TCustomer;
+  customers: TCustomer[];
+  customer: TCustomerInfoSchema;
   filter: IFilters;
 };
 
 export type IAction = {
   type: string;
-  payload?: ICart[] | ICart | TCustomer | TCustomerTT[] | TCustomerTT | IFilter | string | IProduct;
+  payload?: ICart[] | ICart | TCustomerInfoSchema | TCustomer[] | TCustomer | IFilter | string | IProduct;
 };

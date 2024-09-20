@@ -1,10 +1,9 @@
-
 import { IoMdStopwatch } from 'react-icons/io';
 import { TbTruckDelivery } from 'react-icons/tb';
 import { MdOutlineDiscount } from 'react-icons/md';
 import { LuShieldCheck } from 'react-icons/lu';
 
-import { COLOR_LIST, GENDER_LIST, SIZE_LIST } from '@/constantsProduct';
+import { COLOR_LIST, GENDER_LIST, SIZE_LIST } from '@/data';
 
 const KEY_PRODUCT_FILTER = {
   gender: 'gender',

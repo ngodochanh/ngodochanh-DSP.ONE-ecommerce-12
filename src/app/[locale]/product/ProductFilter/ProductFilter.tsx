@@ -6,7 +6,7 @@ import ProductCatalog from './ProductCatalog';
 import { useCallback, useState } from 'react';
 import { KEY_PRODUCT_FILTER } from '@/app/[locale]/product/constants';
 import { actions, useStore } from '@/components/Store';
-import { IFilter } from '@/types';
+import { IFilter } from '@/models';
 
 function ProductFilter() {
   const [isFilterEnabled, setIsFilterEnabled] = useState(false);

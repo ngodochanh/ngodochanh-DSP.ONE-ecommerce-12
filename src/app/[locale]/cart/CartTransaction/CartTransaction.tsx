@@ -1,28 +1,13 @@
 'use client';
 
-import { ORDER_OPTIONS, PAYMENT_METHODS, PRODUCT_LIST, SHIPPING_METHODS } from '@/constantsProduct';
+import { ORDER_OPTIONS, PAYMENT_METHODS, PRODUCT_LIST, SHIPPING_METHODS } from '@/data';
 import { Button, Input, Radio, RadioGroup, Select, SelectItem, Textarea } from '@nextui-org/react';
-import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { actions, useStore } from '@/components/Store';
 import { formatCurrencyVND } from '@/utils/currency';
 import { useMemo } from 'react';
-
-const cartTransactionSchema = z.object({
-  // Phương thức vận chuyển
-  shipping: z.string().nonempty('Chọn phương thức vận chuyển'),
-  // Phương thức thanh toán
-  payment: z.string().nonempty('Chọn phương thức thanh toán'),
-  // Xử lý đơn hàng
-  orderProcessing: z.string().nonempty('Chọn xử lý đơn hàng'),
-  // Mã giảm giá
-  discountCode: z.string().optional(),
-  // Ghi chú đơn hàng
-  cartNotes: z.string().optional(),
-});
-
-type TCartTransactionSchema = z.infer<typeof cartTransactionSchema>;
+import { cartTransactionSchema, TCartTransactionSchema } from '@/schemas';
 
 function CartTransaction() {
   const {

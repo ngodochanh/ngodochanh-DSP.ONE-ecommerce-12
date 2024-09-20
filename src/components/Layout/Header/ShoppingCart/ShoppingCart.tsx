@@ -1,7 +1,7 @@
 import { useCallback, useEffect } from 'react';
 import { actions, useStore } from '@/components/Store';
 import ShoppingCartItem from './ShoppingCartItem';
-import { ICart } from '@/types';
+import { ICart } from '@/models';
 import { Button } from '@nextui-org/react';
 import Image from 'next/image';
 import getLocalizedPath from '@/utils/getLocalizedPath ';

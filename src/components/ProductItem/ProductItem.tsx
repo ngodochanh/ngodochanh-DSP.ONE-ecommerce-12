@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { calculateDiscountPercentage, formatCurrencyVND } from '@/utils/currency';
-import { IProduct } from '@/types';
+import { IProduct } from '@/models';
 import getLocalizedPath from '@/utils/getLocalizedPath ';
 
 type ProductItemProps = {

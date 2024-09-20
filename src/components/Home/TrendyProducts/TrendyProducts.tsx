@@ -1,7 +1,7 @@
 import ContentHeader from '@/components/ContentHeader';
 import { useTranslations } from 'next-intl';
-import { PRODUCT_LIST } from '@/constantsProduct';
-import { IProduct } from '@/types';
+import { PRODUCT_LIST } from '@/data';
+import { IProduct } from '@/models';
 import ProductNotFound from '@/components/ProductNotFound';
 import ProductItem from '@/components/ProductItem';
 

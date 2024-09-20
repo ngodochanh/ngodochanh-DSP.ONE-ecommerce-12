@@ -3,11 +3,11 @@ import RelatedProducts from './RelatedProducts';
 import ProductDetails from './ProductDetails';
 import ProductInfo from './ProductInfo';
 import Breadcrumb from '@/components/Breadcrumb';
-import { PRODUCT_LIST } from '@/constantsProduct';
+import { PRODUCT_LIST } from '@/data';
 import { useTranslations } from 'next-intl';
 import RecentlyViewedProducts from '@/app/[locale]/product/[prod]/RecentlyViewedProducts/RecentlyViewedProducts';
 import { extractIdFromUrl } from '@/utils/extractIdFromUrl';
-import { IProduct } from '@/types';
+import { IProduct } from '@/models';
 
 type Props = {
   params: { prod: string };

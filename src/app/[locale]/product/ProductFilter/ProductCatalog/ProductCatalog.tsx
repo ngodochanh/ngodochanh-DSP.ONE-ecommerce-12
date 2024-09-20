@@ -3,10 +3,10 @@ import PaginationProduct from './PaginationProduct';
 import { PER_PAGE, PRICE_LIST } from '@/app/[locale]/product/constants';
 
 import { memo, useMemo } from 'react';
-import { PRODUCT_LIST } from '@/constantsProduct';
+import { PRODUCT_LIST } from '@/data';
 
 import ProductNotFound from '@/components/ProductNotFound';
-import { IFilter, IFilters, IProduct } from '@/types';
+import { IFilter, IFilters, IProduct } from '@/models';
 import ProductItem from '@/components/ProductItem';
 
 type ProductListProps = {

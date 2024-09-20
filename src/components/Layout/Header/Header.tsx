@@ -76,7 +76,7 @@ function Header() {
 
           {/* Navigation */}
           <nav
-            className={`transition-transform-fast absolute left-0 top-full h-screen w-full max-w-[375px] bg-white shadow-md lg:static lg:h-auto lg:w-auto lg:max-w-none lg:shadow-none ${
+            className={`absolute left-0 top-full h-screen w-full max-w-[375px] bg-white shadow-md transition-transform duration-300 ease-in-out lg:static lg:h-auto lg:w-auto lg:max-w-none lg:shadow-none ${
               isMenuOpen ? 'translate-x-0' : '-translate-x-full'
             } lg:translate-x-0`}
           >
@@ -142,7 +142,7 @@ function Header() {
               <FaRegCircleUser className="mx-auto h-full w-clamp-24" />
             </div>
             <div
-              className={`transition-transform-fast h-full w-6 cursor-pointer sm:w-10 lg:hidden ${isMenuOpen ? 'rotate-180' : 'rotate-0'} `}
+              className={`h-full w-6 cursor-pointer transition-transform duration-300 ease-in-out sm:w-10 lg:hidden ${isMenuOpen ? 'rotate-180' : 'rotate-0'} `}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? (

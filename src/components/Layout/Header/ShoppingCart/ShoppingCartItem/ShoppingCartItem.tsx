@@ -1,5 +1,5 @@
-import { PRODUCT_LIST } from '@/constantsProduct';
-import { CartItemProps, ICart } from '@/types';
+import { PRODUCT_LIST } from '@/data';
+import { CartItemProps, ICart } from '@/models';
 import { formatCurrencyVND } from '@/utils/currency';
 import getLocalizedPath from '@/utils/getLocalizedPath ';
 import { Button } from '@nextui-org/react';

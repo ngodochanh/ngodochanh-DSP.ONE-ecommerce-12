@@ -5,7 +5,7 @@ import ProductService from './ProductService';
 import ProductWrapper from '@/app/[locale]/product/[prod]/ProductWrapper';
 import ProductAddToCart from './ProductAddToCart';
 import ProductImageGallery from '@/app/[locale]/product/[prod]/ProductDetails/ProductImageGallery';
-import { IProduct } from '@/types';
+import { IProduct } from '@/models';
 
 function ProductDetails({ product }: { product: IProduct | undefined }) {
   return (

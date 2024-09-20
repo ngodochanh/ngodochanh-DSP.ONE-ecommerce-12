@@ -11,7 +11,7 @@ import type { Swiper as SwiperType } from 'swiper';
 import { Button } from '@nextui-org/react';
 import { IoIosArrowBack } from 'react-icons/io';
 import { IoIosArrowForward } from 'react-icons/io';
-import { PRODUCT_GALLERY_LIST } from '@/constantsProduct';
+import { PRODUCT_GALLERY_LIST } from '@/data';
 
 export default function ProductImageGallery({ id }: { id: string | string }) {
   const swiperRef = useRef<SwiperType>();

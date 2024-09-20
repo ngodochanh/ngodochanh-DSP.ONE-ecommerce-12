@@ -1,13 +1,13 @@
 'use client';
 
 import { FaMagnifyingGlass } from 'react-icons/fa6';
-import { PRODUCT_LIST } from '@/constantsProduct';
+import { PRODUCT_LIST } from '@/data';
 import useDebounce from '@/hooks/useDebounce';
 import getLocalizedPath from '@/utils/getLocalizedPath ';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { memo, useEffect, useRef, useState } from 'react';
-import { IProduct } from '@/types';
+import { IProduct } from '@/models';
 import { Input, Spinner } from '@nextui-org/react';
 import Logo from '@/components/Logo';
 import ProductItem from '@/components/ProductItem';

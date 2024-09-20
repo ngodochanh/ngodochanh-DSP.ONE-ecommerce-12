@@ -13,8 +13,8 @@ import Link from 'next/link';
 import { useCallback, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
-import HeaderSearch from '@/components/Header/HeaderSearch';
-import ShoppingCart from '@/components/Header/ShoppingCart';
+import HeaderSearch from './HeaderSearch';
+import ShoppingCart from './ShoppingCart';
 
 function Header() {
   // Bất tắt mobile nav

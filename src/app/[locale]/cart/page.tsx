@@ -1,5 +1,3 @@
-
-
 import CartDetails from '@/app/[locale]/cart/CartDetails';
 import CartTransaction from '@/app/[locale]/cart/CartTransaction';
 import Breadcrumb from '@/components/Breadcrumb';
@@ -7,7 +5,19 @@ import SectionHeader from '@/components/SectionHeader';
 import { Metadata } from 'next';
 import { useTranslations } from 'next-intl';
 
-function Cart() {
+export const metadata: Metadata = {
+  title: 'Giỏ Hàng | DSP.ONE',
+  description:
+    'Xem và quản lý các sản phẩm trong giỏ hàng của bạn trên DSP.ONE. Chúng tôi cung cấp các sản phẩm chất lượng với giá tốt nhất.',
+};
+
+function Cart({
+  params: { locale },
+}: {
+  params: {
+    locale: string;
+  };
+}) {
   const t = useTranslations('header');
 
   const BREADCRUMB_LIST = [
@@ -25,7 +35,7 @@ function Cart() {
 
   return (
     <div className="max-container mb-14">
-      <Breadcrumb breadCrumbList={BREADCRUMB_LIST} />
+      <Breadcrumb locale={locale} breadCrumbList={BREADCRUMB_LIST} />
 
       <SectionHeader title="giỏ hàng" />
 

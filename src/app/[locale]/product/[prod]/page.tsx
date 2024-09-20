@@ -9,31 +9,29 @@ import RecentlyViewedProducts from '@/app/[locale]/product/[prod]/RecentlyViewed
 import { extractIdFromUrl } from '@/utils/extractIdFromUrl';
 import { IProduct } from '@/models';
 
-type Props = {
-  params: { prod: string };
-};
+type ProdProps = { params: { locale: string; prod: string } };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const id = extractIdFromUrl(params.prod);
-  const prod = PRODUCT_LIST.find((item) => item.id === id);
+export async function generateMetadata({ params: { locale, prod } }: ProdProps): Promise<Metadata> {
+  const id = extractIdFromUrl(prod);
+  const product = PRODUCT_LIST.find((item) => item.id === id);
 
   return {
-    title: prod?.title,
-    description: prod?.description,
+    title: product?.title,
+    description: product?.description,
 
     openGraph: {
-      title: prod?.title,
-      description: prod?.description,
+      title: product?.title,
+      description: product?.description,
       type: 'website',
-      images: [`${prod?.image}`],
+      images: [`${product?.image}`],
     },
   };
 }
 
-function Prod({ params }: { params: { prod: string } }) {
+function Prod({ params: { locale, prod } }: ProdProps) {
   const t = useTranslations('header');
   // Lấy ID của sản phẩm từ URL (URL có thể dùng để SEO)
-  const id = extractIdFromUrl(params.prod);
+  const id = extractIdFromUrl(prod);
   // Tìm sản phẩm theo ID
   const product = PRODUCT_LIST.find((item) => item.id === id);
 
@@ -68,7 +66,7 @@ function Prod({ params }: { params: { prod: string } }) {
     <>
       <div className="max-container">
         {/* Thanh điều hướng breadcrumb */}
-        <Breadcrumb breadCrumbList={BREADCRUMB_LISTS} />
+        <Breadcrumb locale={locale} breadCrumbList={BREADCRUMB_LISTS} />
         {/* Chi tiết sản phẩm */}
         <ProductDetails product={product} />
         {/* Thông tin sản phẩm */}

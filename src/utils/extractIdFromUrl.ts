@@ -1,5 +1,5 @@
 export const extractIdFromUrl = (url: string) => {
-  const regex = /-(\d+)\.html$/;
+  const regex = /-([a-zA-Z0-9]+)\.html$/;
   const match = url.match(regex);
 
   if (match) {

@@ -9,13 +9,21 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { actions, useStore } from '@/components/Store';
 import { registerSchema, TRegisterFormSchema } from '@/schemas';
+import { useRouter } from 'next/navigation';
 
-export default function Register() {
+export default function Register({
+  params: { locale },
+}: {
+  params: {
+    locale: string;
+  };
+}) {
+  const router = useRouter();
+
   const {
     state: { customers },
     dispatch,
   } = useStore();
-  console.log(customers);
 
   const {
     register,
@@ -40,6 +48,7 @@ export default function Register() {
     };
     dispatch(actions.addCustomer(a));
     reset();
+    router.push(`/${locale}${process.env.LOGIN}`);
   };
   return (
     <div className="max-container flex flex-col items-center gap-[54px] py-16 md:h-[calc(100vh-117px)] md:flex-row lg:gap-x-[74px] xl:gap-x-[94px] 2xl:gap-x-[114px]">

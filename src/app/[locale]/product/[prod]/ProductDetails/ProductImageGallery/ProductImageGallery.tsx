@@ -80,8 +80,8 @@ export default function ProductImageGallery({ id }: { id: string | string }) {
             loop={result.length >= 2}
             spaceBetween={15}
             breakpoints={{
-              0: { slidesPerView: 2 },
-              640: { slidesPerView: 4 },
+              0: { slidesPerView: result.length > 1 ? result.length : 2 },
+              640: { slidesPerView: result.length > 1 ? result.length : 1 },
             }}
             freeMode={true}
             watchSlidesProgress={true}

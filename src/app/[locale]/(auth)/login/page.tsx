@@ -1,6 +1,5 @@
 'use client';
 
-import type { Metadata } from 'next';
 import SvgLogin from '/public/images/auth/login.svg';
 import Image from 'next/image';
 import HeaderAuth from '@/app/[locale]/(auth)/HeaderAuth';
@@ -10,7 +9,6 @@ import { useStore } from '@/components/Store';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
-import getLocalizedPath from '@/utils/getLocalizedPath ';
 import { loginSchema, TLoginFormSchema } from '@/schemas';
 
 export default function Login({
@@ -96,7 +94,7 @@ export default function Login({
 
           <p>
             Bạn chưa có tài khoản?{' '}
-            <Link href={getLocalizedPath(process.env.REGISTER!)} className="text-yellow-vivid">
+            <Link href={`/${locale}${process.env.REGISTER}`} className="text-yellow-vivid">
               Đăng ký ngay
             </Link>
           </p>

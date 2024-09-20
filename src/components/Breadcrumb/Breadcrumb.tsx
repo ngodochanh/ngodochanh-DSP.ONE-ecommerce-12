@@ -1,10 +1,14 @@
 'use client';
 
 import { Breadcrumbs, BreadcrumbItem } from '@nextui-org/react';
-import getLocalizedPath from '@/utils/getLocalizedPath ';
 import { useRouter } from 'next/navigation';
 
-function Breadcrumb({ breadCrumbList }: { breadCrumbList: { id: string; label: string; path: string }[] }) {
+type IBreadcrumbs = {
+  locale: string;
+  breadCrumbList: { id: string; label: string; path: string }[];
+};
+
+function Breadcrumb({ locale, breadCrumbList }: IBreadcrumbs) {
   const router = useRouter();
 
   return (
@@ -18,11 +22,10 @@ function Breadcrumb({ breadCrumbList }: { breadCrumbList: { id: string; label: s
       }}
     >
       {breadCrumbList.map((item, index) => {
-        const path = getLocalizedPath(item.path);
         return (
           <BreadcrumbItem
             key={item.id}
-            onClick={() => router.push(path)}
+            onClick={() => router.push(`/${locale}${item.path}`)}
             isCurrent={breadCrumbList.length - 1 === index}
           >
             {item.label}

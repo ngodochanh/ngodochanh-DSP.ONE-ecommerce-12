@@ -1,5 +1,6 @@
 import Banner from '@/components/Banner';
 import { Blogs, Category, Gallery, Independent, Services, SpeialProducts, TrendyProducts } from '@/components/Home';
+import Footer from '@/components/Footer';
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       </div>
 
       <Gallery />
+      <Footer />
     </>
   );
 }

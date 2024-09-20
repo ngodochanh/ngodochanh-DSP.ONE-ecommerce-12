@@ -54,7 +54,13 @@ function ShoppingCart() {
     <div className="h-scrollable invisible fixed left-0 right-0 top-full origin-top-right scale-0 transform cursor-default bg-white opacity-0 shadow-sm duration-300 ease-out before:absolute before:-top-7 before:right-0 before:block before:h-7 before:w-[15%] before:content-[''] group-hover:visible group-hover:scale-100 group-hover:opacity-100 sm:left-[unset] sm:right-[10%] sm:w-[520px] sm:rounded-lg lg:absolute lg:right-0 lg:mt-[19px]">
       {carts.length === 0 ? (
         <div className="relative block h-[351px] w-full">
-          <Image src={'/images/carts/cart_empty.png'} alt="Giỏ hàng trống" fill className="rounded-lg object-contain" />
+          <Image
+            src={'/images/carts/cart_empty.png'}
+            alt="Giỏ hàng trống"
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="rounded-lg object-contain"
+          />
 
           <p className="absolute bottom-3 left-1/2 -translate-x-1/2 text-center text-clamp-28">Giỏ hàng trống</p>
         </div>

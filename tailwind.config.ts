@@ -74,6 +74,7 @@ const config: Config = {
         'clamp-24': 'clamp(18px, 1.7vw, 24px)',
         'clamp-28': 'clamp(20px, 1.9vw, 28px)',
         'clamp-32': 'clamp(24px, 2.2vw, 32px)',
+        'clamp-36': 'clamp(30px, 3vw, 36px)',
         'clamp-40': 'clamp(36px, 4.5vw, 40px)',
         'clamp-42': 'clamp(38px, 4.5vw, 42px)',
       },
@@ -109,6 +110,7 @@ const config: Config = {
         // Black
         'black-dark': '#080808',
         'black-90': '#000000e6',
+        'black-50': '#00000080',
         'dark-charcoal': '#32312F',
         'gray-moderate': '#707070',
         // Red

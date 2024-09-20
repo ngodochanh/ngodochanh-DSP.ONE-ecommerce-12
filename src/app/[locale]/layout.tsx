@@ -2,11 +2,10 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 //
 import './globals.css';
-import { NexTUIProviders } from '../providers';
+import { NexTUIProviders } from './providers';
 import Script from 'next/script';
 // Components
 import { NextIntlClientProvider, useMessages } from 'next-intl';
-import Footer from '@/components/Footer';
 import TopBar from '@/components/TopBar';
 import Header from '@/components/Header';
 import { idJsonObject } from '@/json_ld';
@@ -68,12 +67,10 @@ export default function RootLayout({ children, params: { locale } }: Readonly<Ro
                 <TopBar />
                 <Header />
                 <main>{children}</main>
-                <Footer />
               </div>
             </Store>
           </NexTUIProviders>
         </NextIntlClientProvider>
-
         <Script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(idJsonObject) }}></Script>
       </body>
     </html>

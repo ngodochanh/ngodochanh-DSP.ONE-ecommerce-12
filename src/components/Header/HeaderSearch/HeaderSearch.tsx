@@ -5,17 +5,17 @@ import { PRODUCT_LIST } from '@/constantsProduct';
 import useDebounce from '@/hooks/useDebounce';
 import getLocalizedPath from '@/utils/getLocalizedPath ';
 import { useTranslations } from 'next-intl';
-import Image from 'next/image';
 import Link from 'next/link';
-import { memo, useEffect, useState } from 'react';
+import { memo, useEffect, useRef, useState } from 'react';
 import { IProduct } from '@/types';
 import { Input, Spinner } from '@nextui-org/react';
 import Logo from '@/components/Logo';
-import { calculateDiscountPercentage, formatCurrencyVND } from '@/utils/currency';
 import ProductItem from '@/components/ProductItem';
 
 function HeaderSearch({ isSearchOpen, onCloseSearch }: { isSearchOpen: boolean; onCloseSearch: () => void }) {
   const t = useTranslations('header');
+  // Tham chiếu tới input để có thể focus
+  const inputRef = useRef<HTMLInputElement>(null);
 
   // Tìm kiếm
   const [isSearching, setIsSearching] = useState<boolean>(false);
@@ -51,6 +51,13 @@ function HeaderSearch({ isSearchOpen, onCloseSearch }: { isSearchOpen: boolean; 
     setResults([]);
   };
 
+  // Focus vào ô input khi component mở
+  useEffect(() => {
+    if (isSearchOpen && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [isSearchOpen]);
+
   // Thực hiện tìm kiếm khi query thay đổi và không trống
   useEffect(() => {
     if (debouncedQuery.trim() === '') {
@@ -76,16 +83,17 @@ function HeaderSearch({ isSearchOpen, onCloseSearch }: { isSearchOpen: boolean; 
       {/* Form search */}
       <div
         className={`fixed inset-0 z-30 bg-white transition-all duration-500 ease-in-out ${
-          isSearchOpen ? 'h-full opacity-100' : 'h-0 opacity-0'
+          isSearchOpen ? 'h-full opacity-100' : 'pointer-events-none h-0 opacity-0'
         } ${results?.length > 0 ? 'h-screen' : 'h-1/4'}`}
       >
-        <form className="max-container flex items-center justify-between gap-4 border-b-1 border-solid border-gray-lightest py-2">
+        <form className="max-container flex items-center justify-between gap-4 border-b-1 border-solid border-gray-lightest py-3 sm:py-2">
           {/* Logo */}
           <div className="hidden sm:block">
             <Logo />
           </div>
           {/* Input */}
           <Input
+            ref={inputRef}
             isClearable
             radius="full"
             size="md"

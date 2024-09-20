@@ -22,6 +22,8 @@ const nextConfig = {
     POLICY: '/policy',
     CONTACT: '/contact',
     CART: '/cart',
+    LOGIN: '/login',
+    REGISTER: '/register',
   },
 };
 

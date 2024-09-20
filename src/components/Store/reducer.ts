@@ -1,6 +1,7 @@
-import { ICart } from '@/types';
+import { ICart, TCustomerTT } from '@/types';
 import {
   ADD_CART,
+  ADD_CUSTOMER,
   DELETE_CART,
   DELETE_PRODUCTS_COLOR,
   DELETE_PRODUCTS_GENDER,
@@ -13,6 +14,7 @@ import {
   RESET_CART,
   RESET_FILTER,
   SET_CART,
+  SET_CUSTOMERS,
   SET_PRODUCTS,
   UPDATE_USER,
 } from './constants';
@@ -20,6 +22,7 @@ import { IAction, IInitState } from './type';
 
 const initialState: IInitState = {
   carts: [],
+  customers: [],
   customer: {
     fullname: 'Nguyễn Hữu Tiến',
     phone: '0901223344',
@@ -64,7 +67,7 @@ const reducer = (state: IInitState, action: IAction): IInitState => {
       if (Array.isArray(payload)) {
         return {
           ...state,
-          carts: [...payload],
+          carts: payload as ICart[],
         };
       }
       return state;
@@ -86,6 +89,16 @@ const reducer = (state: IInitState, action: IAction): IInitState => {
       }
 
       return state;
+    case SET_CUSTOMERS:
+      return {
+        ...state,
+        customers: payload as TCustomerTT[],
+      };
+    case ADD_CUSTOMER:
+      return {
+        ...state,
+        customers: [...state.customers, payload as TCustomerTT],
+      };
     //
     case RESET_FILTER:
       return {

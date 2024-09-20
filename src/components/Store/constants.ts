@@ -4,6 +4,8 @@ const ADD_CART = 'add_cart';
 const RESET_CART = 'reset_cart';
 //
 const UPDATE_USER = 'update_user';
+const SET_CUSTOMERS = 'set_customers';
+const ADD_CUSTOMER = 'add_customer';
 //
 const RESET_FILTER = 'reset_filter';
 const SET_PRODUCTS = 'set_products';
@@ -23,6 +25,8 @@ export {
   RESET_CART,
   //
   UPDATE_USER,
+  SET_CUSTOMERS,
+  ADD_CUSTOMER,
   //
   RESET_FILTER,
   SET_PRODUCTS,

@@ -103,9 +103,10 @@ function Header() {
           </nav>
         </div>
 
-        <div className="flex lg:grow-0 2xl:gap-x-[20px]">
-          <form className="absolute left-0 flex rounded-full bg-gray-lightest text-gray-light sm:left-2/4 sm:top-2/4 sm:w-full sm:max-w-[200px] sm:-translate-x-2/4 sm:-translate-y-2/4 md:max-w-[226px] lg:static lg:max-w-[180px] lg:translate-x-0 lg:translate-y-0 xl:w-[276px] xl:max-w-[220px]">
-            <button type="submit" className="cursor-pointer py-3 pl-5 pr-3 lg:pl-3 lg:pr-2 xl:pl-5 xl:pr-3">
+        <div className="flex gap-[2px] lg:grow-0 2xl:gap-x-[20px]">
+          {/* Read Only Search */}
+          <div className="absolute left-2/4 top-2/4 hidden max-w-[200px] -translate-x-2/4 -translate-y-2/4 rounded-full bg-gray-lightest text-gray-light sm:flex sm:w-full md:max-w-[226px] lg:static lg:max-w-[175px] lg:translate-x-0 lg:translate-y-0 xl:w-[276px] xl:max-w-[220px]">
+            <button className="cursor-pointer py-3 pl-5 pr-3 lg:pl-3 lg:pr-2 xl:pl-5 xl:pr-3">
               <FaMagnifyingGlass className="h-full w-clamp-16" />
             </button>
 
@@ -114,9 +115,10 @@ function Header() {
               placeholder={t('search.placeholder')}
               className="w-full bg-transparent pr-2 text-clamp-16 outline-none"
               value=""
+              readOnly
               onClick={() => setIsSearchOpen(true)}
             />
-          </form>
+          </div>
           {/* Action */}
           <div className="flex items-center gap-[2px] text-orange-bright 2xl:gap-[10px]">
             <div

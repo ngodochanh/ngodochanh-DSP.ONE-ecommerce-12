@@ -1,5 +1,6 @@
 import {
   ADD_CART,
+  ADD_CUSTOMER,
   DELETE_CART,
   DELETE_PRODUCTS_COLOR,
   DELETE_PRODUCTS_GENDER,
@@ -12,11 +13,11 @@ import {
   RESET_CART,
   RESET_FILTER,
   SET_CART,
-  SET_PRODUCTS,
+  SET_CUSTOMERS,
   UPDATE_USER,
 } from './constants';
 
-import { ICart, TCustomer, IFilter, IProduct } from '@/types';
+import { ICart, TCustomer, IFilter, IProduct, TCustomerTT } from '@/types';
 
 const resetCart = () => {
   return {
@@ -53,14 +54,19 @@ const updateUser = (payload: TCustomer) => {
   };
 };
 
-//
-const setProducts = (payload: IProduct[]) => {
+const setCustomers = (payload: TCustomerTT[]) => {
   return {
-    type: SET_PRODUCTS,
+    type: SET_CUSTOMERS,
     payload,
   };
 };
 
+const addCustomer = (payload: TCustomerTT) => {
+  return {
+    type: ADD_CUSTOMER,
+    payload,
+  };
+};
 //
 const toggleGender = (payload: IFilter) => {
   return {
@@ -131,8 +137,8 @@ export {
   resetCart,
   //
   updateUser,
-  //
-  setProducts,
+  setCustomers,
+  addCustomer,
   //
   toggleGender,
   toggleColor,

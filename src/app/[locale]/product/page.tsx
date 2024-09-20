@@ -3,7 +3,6 @@ import type { Metadata } from 'next';
 import Breadcrumb from '@/components/Breadcrumb';
 import Segment from '@/components/Segment';
 import Banner from '@/components/Banner';
-
 import ProductFilter from './ProductFilter';
 
 export const metadata: Metadata = {

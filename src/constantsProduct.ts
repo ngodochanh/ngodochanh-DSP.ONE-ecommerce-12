@@ -83,7 +83,7 @@ const CATEGORY_LIST = {
 
 const PRODUCT_LIST = [
   {
-    id: '1',
+    id: 'pd1',
     image:
       'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-thun-nam-yody-TSM7177-TRA,%20QSM7031-TIT%20,(7).JPG',
     title: 'Áo Phông Nam Slim Fit Rib',
@@ -102,7 +102,7 @@ const PRODUCT_LIST = [
     isTrending: true,
   },
   {
-    id: '2',
+    id: 'pd2',
     image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-thun-nu-yody-TSN7271-XAM-4.JPG',
     title: 'T-shirt Nữ Cổ Rộng Crotop',
     price: 99000,
@@ -120,7 +120,7 @@ const PRODUCT_LIST = [
     isTrending: true,
   },
   {
-    id: '3',
+    id: 'pd3',
     image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-thun-nam-TSM7047-DN1%20(5).JPG',
     title: 'Áo Phông Nam Regular Foundation',
     price: 269000,
@@ -138,7 +138,7 @@ const PRODUCT_LIST = [
     isTrending: true,
   },
   {
-    id: '4',
+    id: 'pd4',
     image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-so-mi-nam-SCM7015-XAH%20(1).jpg',
     title: 'Sơ Mi Nam Cộc Tay Cafe Túi Ngực',
     price: 469000,
@@ -163,7 +163,7 @@ const PRODUCT_LIST = [
     isTrending: true,
   },
   {
-    id: '5',
+    id: 'pd5',
     image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/smn7004-tra-cvn6162-nau-7.jpg',
     title: 'Sơ Mi Nữ Dài Tay Vạt Vai Áo',
     price: 469000,
@@ -181,7 +181,7 @@ const PRODUCT_LIST = [
     isTrending: true,
   },
   {
-    id: '6',
+    id: 'pd6',
     image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/quan-au-nam-qam6039-den-5-yodyvn.jpg',
     title: 'Quần Âu Nam Slim Cạp Di Động',
     price: 599000,
@@ -199,7 +199,7 @@ const PRODUCT_LIST = [
     isTrending: true,
   },
   {
-    id: '7',
+    id: 'pd7',
     image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-khoac-nu-skn6004-hog-18.jpg',
     title: 'Áo Khoác Thể Thao Nữ Gió Dáng Ngắn',
     price: 649000,
@@ -217,7 +217,7 @@ const PRODUCT_LIST = [
     isTrending: true,
   },
   {
-    id: '8',
+    id: 'pd8',
     image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-khoac-nu-SKN7004-DEN%20(1).JPG',
     title: 'Áo Khoác Thể Thao Nữ Siêu Nhẹ',
     price: 390000,
@@ -235,7 +235,7 @@ const PRODUCT_LIST = [
     isTrending: false,
   },
   {
-    id: '9',
+    id: 'pd9',
     image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/apm3299-hog-5.jpg',
     title: 'Áo Polo Nam Pique Mắt Chim Basic Co Giãn Thoáng Khí',
     price: 149500,
@@ -253,7 +253,7 @@ const PRODUCT_LIST = [
     isTrending: true,
   },
   {
-    id: '10',
+    id: 'pd10',
     image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-polo-nam-yody-apm7217-tit-4.jpg',
     title: 'Áo Polo Nam Thêu Ngực',
     price: 299000,
@@ -271,7 +271,7 @@ const PRODUCT_LIST = [
     isTrending: false,
   },
   {
-    id: '11',
+    id: 'pd11',
     image:
       'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-polo-nam-clean-vietnam-apm6327-xly-2-yody.jpg',
     title: 'Polo Nam Recycle Clean Việt Nam 01',
@@ -296,7 +296,7 @@ const PRODUCT_LIST = [
     isTrending: false,
   },
   {
-    id: '12',
+    id: 'pd12',
     image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-polo-nu-yody-APN7136-TRG-4%20(3).JPG',
     title: 'Áo Polo Nữ Gấu Bo',
     price: 299000,
@@ -317,153 +317,153 @@ const PRODUCT_LIST = [
 
 const PRODUCT_GALLERY_LIST = [
   {
-    id: '1',
+    id: 'pd1',
     image:
       'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-thun-nam-yody-TSM7177-DEN,%20QJM6087-XAH-4,%20(3).JPG',
   },
   {
-    id: '1',
+    id: 'pd1',
     image:
       'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-thun-nam-yody-TSM7177-NAU,%20QAM6049-BEE-6.JPG',
   },
   {
-    id: '1',
+    id: 'pd1',
     image:
       'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-thun-nam-yody-TSM7177-GSA,%20QJM7027-DEN-8%20(4).JPG',
   },
   {
-    id: '1',
+    id: 'pd1',
     image:
       'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-thun-nam-yody-TSM7177-TRA,%20QSM7031-TIT%20,(4).JPG',
   },
   {
-    id: '2',
+    id: 'pd2',
     image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-thun-nu-yody-TSN7271-XAM-4.JPG',
   },
   {
-    id: '2',
+    id: 'pd2',
     image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-thun-nu-yody-TSN7271-DOD-5.JPG',
   },
   {
-    id: '2',
+    id: 'pd2',
     image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-thun-nu-yody-TSN7271-DEN-6.JPG',
   },
   {
-    id: '2',
+    id: 'pd2',
     image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-thun-nu-yody-TSN7271-TRA-2.JPG',
   },
   {
-    id: '3',
+    id: 'pd3',
     image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-thun-nam-TSM7047-NAU%20(1).JPG',
   },
   {
-    id: '3',
+    id: 'pd3',
     image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-thun-nam-TSM7047-DN1%20(1).JPG',
   },
   {
-    id: '4',
+    id: 'pd4',
     image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-so-mi-nam-SCM7015-XAH%20(1).jpg',
   },
   {
-    id: '5',
+    id: 'pd5',
     image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/smn7004-tra-cvn6162-nau-7.jpg',
   },
   {
-    id: '5',
+    id: 'pd5',
     image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/smn7004-xah-qan6208-ghd-6.jpg',
   },
   {
-    id: '5',
+    id: 'pd5',
     image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/smn7004-den-qjn3072-tra-7.jpg',
   },
   {
-    id: '6',
+    id: 'pd6',
     image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/quan-au-nam-qam6039-den-5-yodyvn.jpg',
   },
   {
-    id: '6',
+    id: 'pd6',
     image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/qam6039-xdm-5.jpg',
   },
   {
-    id: '7',
+    id: 'pd7',
     image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-khoac-nu-skn6004-hog-18.jpg',
   },
   {
-    id: '7',
+    id: 'pd7',
     image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-khoac-nu-skn6004-hog-16.jpg',
   },
   {
-    id: '8',
+    id: 'pd8',
     image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-khoac-nu-SKN7004-DEN%20(1).JPG',
   },
   {
-    id: '8',
+    id: 'pd8',
     image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-khoac-nu-SKN7004-TIM%20(10).JPG',
   },
   {
-    id: '8',
+    id: 'pd8',
     image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-khoac-nu-SKN7004-HOG%20(6).JPG',
   },
   {
-    id: '9',
+    id: 'pd9',
     image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/apm3299-hog-5.jpg',
   },
   {
-    id: '9',
+    id: 'pd9',
     image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/apm3299-xg1-ao-polo-nam-2.jpg',
   },
   {
-    id: '9',
+    id: 'pd9',
     image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/apm3299-vag-9.jpg',
   },
   {
-    id: '9',
+    id: 'pd9',
     image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/apm3299-xng-5.jpg',
   },
   {
-    id: '9',
+    id: 'pd9',
     image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/apm3299-dml-6.jpg',
   },
   {
-    id: '9',
+    id: 'pd9',
     image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/apm3299-tra-4.jpg',
   },
   {
-    id: '9',
+    id: 'pd9',
     image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/apm3299-xxm-4.jpg',
   },
   {
-    id: '9',
+    id: 'pd9',
     image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/apm3299-xre-qsm6003-dn1-5.jpg',
   },
   {
-    id: '10',
+    id: 'pd10',
     image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-polo-nam-yody-apm7217-tit-4.jpg',
   },
   {
-    id: '10',
+    id: 'pd10',
     image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-polo-nam-yody-apm7217-nau-5.jpg',
   },
   {
-    id: '11',
+    id: 'pd11',
     image:
       'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-polo-nam-clean-vietnam-apm6327-xly-2-yody.jpg',
   },
   {
-    id: '11',
+    id: 'pd11',
     image:
       'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-polo-nam-clean-vietnam-apm6327-dxl-11-yody.jpg',
   },
   {
-    id: '12',
+    id: 'pd12',
     image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-polo-nu-yody-APN7136-XAH-3%20(8).JPG',
   },
   {
-    id: '12',
+    id: 'pd12',
     image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-polo-nu-yody-APN7136-TRG-4%20(3).JPG',
   },
   {
-    id: '12',
+    id: 'pd12',
     image: 'https://m.yodycdn.com/fit-in/filters:format(webp)/products/ao-polo-nu-yody-APN7136-NAV%20(3).jpg',
   },
 ];
@@ -477,6 +477,12 @@ const ORDER_OPTIONS = [
   { id: 'company_invoice', label: 'Xuất hóa đơn công ty' },
 ];
 
+const CUSTOMER_LIST = [
+  { id: 'ctm1', fullname: '', phone: '0123333333', password: '123456', address: '' },
+  { id: 'ctm2', fullname: '', phone: '0123444444', password: '123456', address: '' },
+  { id: 'ctm3', fullname: '', phone: '0123455555', password: '123456', address: '' },
+];
+
 export {
   GENDER_LIST,
   COLOR_LIST,
@@ -487,4 +493,5 @@ export {
   SHIPPING_METHODS,
   PAYMENT_METHODS,
   ORDER_OPTIONS,
+  CUSTOMER_LIST,
 };

@@ -1,7 +1,10 @@
+
+
 import CartDetails from '@/app/[locale]/cart/CartDetails';
 import CartTransaction from '@/app/[locale]/cart/CartTransaction';
 import Breadcrumb from '@/components/Breadcrumb';
 import SectionHeader from '@/components/SectionHeader';
+import { Metadata } from 'next';
 import { useTranslations } from 'next-intl';
 
 function Cart() {
@@ -21,7 +24,7 @@ function Cart() {
   ];
 
   return (
-    <div className="max-container">
+    <div className="max-container mb-14">
       <Breadcrumb breadCrumbList={BREADCRUMB_LIST} />
 
       <SectionHeader title="giỏ hàng" />

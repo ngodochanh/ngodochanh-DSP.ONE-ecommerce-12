@@ -40,13 +40,13 @@ export default function Register({
   });
 
   const onSubmit = (data: TRegisterFormSchema) => {
-    const a = {
+    const newCustomer = {
       ...data,
       id: 'ctm' + (customers.length + 1),
       fullname: '',
       address: '',
     };
-    dispatch(actions.addCustomer(a));
+    dispatch(actions.addCustomer(newCustomer));
     reset();
     router.push(`/${locale}${process.env.LOGIN}`);
   };

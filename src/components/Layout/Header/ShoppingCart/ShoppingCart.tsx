@@ -4,10 +4,12 @@ import ShoppingCartItem from './ShoppingCartItem';
 import { ICart } from '@/models';
 import { Button } from '@nextui-org/react';
 import Image from 'next/image';
-import getLocalizedPath from '@/utils/getLocalizedPath ';
 import Link from 'next/link';
+import { useLocale } from 'next-intl';
 
 function ShoppingCart() {
+  const locale = useLocale();
+
   const {
     state: { carts },
     dispatch,
@@ -81,7 +83,7 @@ function ShoppingCart() {
           <footer className="ml-auto w-fit p-2 sm:p-4">
             <Button
               as={Link}
-              href={getLocalizedPath(process.env.CART!)}
+              href={`/${locale}${process.env.CART}`}
               radius="sm"
               className="h-[38px] bg-yellow-bright text-clamp-16 text-white"
             >

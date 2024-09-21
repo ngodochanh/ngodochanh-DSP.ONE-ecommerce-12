@@ -56,7 +56,7 @@ export default function RootLayout({ children, params: { locale } }: Readonly<Ro
     <html lang={locale}>
       <body className={SVN_GILROY.className}>
         <NextIntlClientProvider messages={messages} locale={locale}>
-          <NextUIProviderComponent>{children}</NextUIProviderComponent>
+          <NextUIProviderComponent locale={locale}>{children}</NextUIProviderComponent>
         </NextIntlClientProvider>
         <Script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(idJsonObject) }}></Script>
       </body>

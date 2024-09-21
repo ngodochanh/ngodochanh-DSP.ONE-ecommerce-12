@@ -18,12 +18,10 @@ function Cart({
     locale: string;
   };
 }) {
-  const t = useTranslations('header');
-
   const BREADCRUMB_LIST = [
     {
       id: 'home',
-      label: t('navigation.home'),
+      label: 'trang chủ',
       path: process.env.HOME!,
     },
     {

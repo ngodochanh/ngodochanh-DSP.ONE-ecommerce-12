@@ -3,8 +3,7 @@
 import { FaMagnifyingGlass } from 'react-icons/fa6';
 import { PRODUCT_LIST } from '@/data';
 import useDebounce from '@/hooks/useDebounce';
-import getLocalizedPath from '@/utils/getLocalizedPath ';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { memo, useEffect, useRef, useState } from 'react';
 import { IProduct } from '@/models';
@@ -14,6 +13,8 @@ import ProductItem from '@/components/ProductItem';
 
 function HeaderSearch({ isSearchOpen, onCloseSearch }: { isSearchOpen: boolean; onCloseSearch: () => void }) {
   const t = useTranslations('header');
+  const locale = useLocale();
+
   // Tham chiếu tới input để có thể focus
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -89,7 +90,7 @@ function HeaderSearch({ isSearchOpen, onCloseSearch }: { isSearchOpen: boolean; 
         <form className="max-container flex items-center justify-between gap-4 border-b-1 border-solid border-gray-lightest py-3 sm:py-2">
           {/* Logo */}
           <div className="hidden sm:block">
-            <Logo />
+            <Logo locale={locale} />
           </div>
           {/* Input */}
           <Input
@@ -143,7 +144,7 @@ function HeaderSearch({ isSearchOpen, onCloseSearch }: { isSearchOpen: boolean; 
           {/* Link để xem tất cả kết quả tìm kiếm */}
           <div className="col-span-2 col-start-2">
             <Link
-              href={getLocalizedPath(process.env.PRODUCT + '?search=' + debouncedQuery)}
+              href={`/${locale}${process.env.PRODUCT}?search=${debouncedQuery}`}
               className="mx-auto flex h-12 max-w-40 cursor-pointer items-center justify-center rounded-lg bg-yellow-vivid text-white hover:text-black hover:opacity-85"
               onClick={() => {
                 onCloseSearch();

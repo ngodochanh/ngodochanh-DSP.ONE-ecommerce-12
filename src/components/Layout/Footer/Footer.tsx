@@ -8,14 +8,14 @@ import GooglePlay from '/public/images/app_download/google_play.png';
 import { BsEnvelopeFill } from 'react-icons/bs';
 import { useTranslations } from 'next-intl';
 
-function Footer() {
+function Footer({ locale }: { locale: string }) {
   const t = useTranslations('footer');
   return (
     <div className="-translate-y-[1px] bg-black text-clamp-16 text-white">
       <div className="max-container flex flex-col flex-wrap justify-between gap-x-12 gap-y-[60px] pb-[81px] pt-[61px] lg:flex-row">
         {/* Logo and contacts */}
         <div>
-          <Logo textColor="text-white" className="mb-9 mt-2" />
+          <Logo locale={locale} textColor="text-white" className="mb-9 mt-2" />
 
           {/* Info */}
           <div className="mb-[10px]">

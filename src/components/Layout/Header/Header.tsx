@@ -2,7 +2,6 @@
 
 // Components
 import Logo from '@/components/Logo';
-import getLocalizedPath from '@/utils/getLocalizedPath ';
 // Icon
 import { FaMagnifyingGlass, FaRegHeart, FaRegCircleUser, FaBarsStaggered } from 'react-icons/fa6';
 import { FiShoppingCart } from 'react-icons/fi';
@@ -16,7 +15,7 @@ import { useTranslations } from 'next-intl';
 import HeaderSearch from './HeaderSearch';
 import ShoppingCart from './ShoppingCart';
 
-function Header() {
+function Header({ locale }: { locale: string }) {
   // Bất tắt mobile nav
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -72,7 +71,7 @@ function Header() {
       <div className="max-container sticky left-0 right-0 top-0 z-20 flex items-center justify-between bg-white bg-opacity-30 py-2 backdrop-blur-sm backdrop-filter lg:relative">
         <div className="flex lg:gap-[8px] xl:gap-[16px] 2xl:gap-[80px]">
           {/* Logo */}
-          <Logo />
+          <Logo locale={locale} />
 
           {/* Navigation */}
           <nav
@@ -82,9 +81,9 @@ function Header() {
           >
             <ul className="flex h-full flex-col gap-x-[2px] lg:flex-row xl:gap-x-[10px]">
               {NAVIGATION_LIST.map((item) => {
-                const localizedPath = getLocalizedPath(item.path);
-                const isActive = path === localizedPath || (localizedPath !== '/vi' && path.startsWith(localizedPath));
-
+                const localizedPath = `/${locale}${item.path === '/' ? '' : item.path}`;
+                const isActive =
+                  path === localizedPath || (path.startsWith(localizedPath) && localizedPath !== `/${locale}`);
                 return (
                   <li className="grid" key={item.id}>
                     <Link

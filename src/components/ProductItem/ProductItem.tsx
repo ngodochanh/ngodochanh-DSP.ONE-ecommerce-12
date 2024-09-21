@@ -3,15 +3,16 @@ import Link from 'next/link';
 
 import { calculateDiscountPercentage, formatCurrencyVND } from '@/utils/currency';
 import { IProduct } from '@/models';
-import getLocalizedPath from '@/utils/getLocalizedPath ';
+import { useLocale } from 'next-intl';
 
 type ProductItemProps = {
   product: IProduct;
 };
 
 function ProductItem({ product }: ProductItemProps) {
+  const locale = useLocale();
   // Xử lý đường dẫn sản phẩm với kiểm tra lỗi
-  const productPath = getLocalizedPath(`${process.env.PRODUCT}/${product.slug}-${product.id}.html`);
+  const productPath = `/${locale}${process.env.PRODUCT}/${product.slug}-${product.id}.html`;
 
   // Kiểm tra hình ảnh sản phẩm hợp lệ
   const productImage = product.image ?? '/default-product-image.jpg';

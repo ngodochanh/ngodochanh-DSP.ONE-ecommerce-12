@@ -1,14 +1,15 @@
 import { PRODUCT_LIST } from '@/data';
 import { CartItemProps, ICart } from '@/models';
 import { formatCurrencyVND } from '@/utils/currency';
-import getLocalizedPath from '@/utils/getLocalizedPath ';
 import { Button } from '@nextui-org/react';
+import { useLocale } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
 import { memo, useCallback, useEffect, useState } from 'react';
 import { FaMinus, FaRegTrashCan, FaPlus } from 'react-icons/fa6';
 
 function CartItem({ id, quantity, onRemoveFromCart, onSyncCart }: CartItemProps) {
+  const locale = useLocale();
   // Số lượng sản phẩm
   const [qty, setQty] = useState<number>(quantity);
   // Lấy thông tin sản phẩm
@@ -49,7 +50,7 @@ function CartItem({ id, quantity, onRemoveFromCart, onSyncCart }: CartItemProps)
     <li className="group flex gap-2 sm:gap-6">
       {/* Hình ảnh */}
       <Link
-        href={getLocalizedPath(`${process.env.PRODUCT}/${product.slug}-${product.id}.html`)}
+        href={`/${locale}${process.env.PRODUCT}/${product.slug}-${product.id}.html`}
         className="relative block max-h-16 w-full min-w-16 max-w-24 sm:max-h-full"
       >
         <Image

@@ -28,6 +28,12 @@ export async function generateMetadata({ params: { locale, prod } }: ProdProps):
   };
 }
 
+export async function generateStaticParams() {
+  return PRODUCT_LIST.map((product) => ({
+    slug: product.slug,
+  }));
+}
+
 function Prod({ params: { locale, prod } }: ProdProps) {
   const t = useTranslations('header');
   // Lấy ID của sản phẩm từ URL (URL có thể dùng để SEO)

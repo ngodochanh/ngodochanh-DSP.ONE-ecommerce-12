@@ -3,13 +3,13 @@ import { Store } from '@/components/Store';
 import TopBar from '@/components/TopBar';
 import { NextUIProvider } from '@nextui-org/react';
 
-const NextUIProviderComponent = ({ children }: { children: React.ReactNode }) => {
+const NextUIProviderComponent = ({ children, locale }: { children: React.ReactNode; locale: string }) => {
   return (
     <NextUIProvider>
       <Store>
         <div className="mx-auto max-w-[1920px]">
           <TopBar />
-          <Header />
+          <Header locale={locale} />
           <main>{children}</main>
         </div>
       </Store>

@@ -5,11 +5,8 @@ import { ICart } from '@/models';
 import { Button } from '@nextui-org/react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useLocale } from 'next-intl';
 
-function ShoppingCart() {
-  const locale = useLocale();
-
+function ShoppingCart({ locale }: { locale: string }) {
   const {
     state: { carts },
     dispatch,
@@ -85,7 +82,7 @@ function ShoppingCart() {
               as={Link}
               href={`/${locale}${process.env.CART}`}
               radius="sm"
-              className="h-[38px] bg-yellow-bright text-clamp-16 text-white"
+              className="h-[38px] bg-orange-bright text-clamp-16 text-white"
             >
               Xem tất cả
             </Button>

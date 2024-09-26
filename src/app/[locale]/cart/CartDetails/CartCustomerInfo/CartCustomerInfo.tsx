@@ -10,9 +10,13 @@ import { customerInfoSchema, TCustomerInfoSchema } from '@/schemas';
 
 function CartCustomerInfo() {
   const {
-    state: { customer },
+    state: {
+      profile: { fullname, phone, address },
+    },
     dispatch,
   } = useStore();
+
+  const customerInfo = { fullname, phone, address };
   // Hook form với xác thực schema
   const {
     register,
@@ -20,7 +24,7 @@ function CartCustomerInfo() {
     formState: { errors, isSubmitting },
     reset,
   } = useForm<TCustomerInfoSchema>({
-    defaultValues: customer,
+    defaultValues: customerInfo,
     resolver: zodResolver(customerInfoSchema),
   });
 
@@ -29,13 +33,13 @@ function CartCustomerInfo() {
 
   // Mở modal và reset giá trị biểu mẫu
   const handleOpenModal = () => {
-    reset(customer);
+    reset(customerInfo);
     onOpen();
   };
 
   // Gửi biểu mẫu
   const onSubmit = (data: TCustomerInfoSchema) => {
-    dispatch(actions.updateUser(data));
+    // dispatch(actions.updateUser(data));
   };
 
   return (
@@ -55,12 +59,12 @@ function CartCustomerInfo() {
 
       <div className="flex flex-col justify-between gap-y-3 text-clamp-16 font-normal xl:flex-row">
         <div className="flex gap-x-[30px] sm:gap-x-[20px] md:gap-x-[30px]">
-          <h4>{customer.fullname}</h4>
+          <h4>{fullname ? fullname : 'Chưa có tên'}</h4>
           <p className='relative after:absolute after:-left-[calc(30px/2)] after:top-1/2 after:block after:h-4/6 after:w-[1px] after:-translate-y-1/2 after:bg-black after:content-[""] sm:after:-left-[calc(20px/2)] md:after:-left-[calc(30px/2)]'>
-            {customer.phone}
+            {phone ? phone : 'Chưa có số điện thoại'}
           </p>
         </div>
-        <p>{customer.address}</p>
+        <p>{address ? address : 'Chưa có địa chỉ'}</p>
       </div>
       {/* Modal */}
       <Modal
@@ -141,7 +145,7 @@ function CartCustomerInfo() {
                   <Button variant="light" onPress={onClose}>
                     Đóng
                   </Button>
-                  <Button isDisabled={isSubmitting} className="bg-yellow-vivid" type="submit">
+                  <Button isDisabled={isSubmitting} className="bg-orange-bright" type="submit">
                     Lưu
                   </Button>
                 </ModalFooter>

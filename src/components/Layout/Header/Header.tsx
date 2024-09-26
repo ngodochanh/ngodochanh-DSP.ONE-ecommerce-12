@@ -14,8 +14,15 @@ import { usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import HeaderSearch from './HeaderSearch';
 import ShoppingCart from './ShoppingCart';
+import { useStore } from '@/components/Store';
+import { ACCOUNT_LIST, AUTH_LIST } from '@/components/Layout/Header/constants';
 
 function Header({ locale }: { locale: string }) {
+  const {
+    state: { carts, profile },
+  } = useStore();
+  // Kiểm tra đăng nhập
+  const isLoggin = profile.id ? true : false;
   // Bất tắt mobile nav
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -39,7 +46,7 @@ function Header({ locale }: { locale: string }) {
     {
       id: 'product',
       label: t('navigation.product'),
-      path: process.env.PRODUCT!,
+      path: process.env.PRODUCTS!,
     },
     {
       id: 'blogs',
@@ -71,11 +78,11 @@ function Header({ locale }: { locale: string }) {
       <div className="max-container sticky left-0 right-0 top-0 z-20 flex items-center justify-between bg-white bg-opacity-30 py-2 backdrop-blur-sm backdrop-filter lg:relative">
         <div className="flex lg:gap-[8px] xl:gap-[16px] 2xl:gap-[80px]">
           {/* Logo */}
-          <Logo locale={locale} />
+          <Logo />
 
           {/* Navigation */}
           <nav
-            className={`absolute left-0 top-full h-screen w-full max-w-[375px] bg-white shadow-md transition-transform duration-300 ease-in-out lg:static lg:h-auto lg:w-auto lg:max-w-none lg:shadow-none ${
+            className={`absolute left-0 top-full w-full max-w-[375px] bg-white shadow-md transition-transform duration-300 ease-in-out lg:static lg:h-auto lg:w-auto lg:max-w-none lg:shadow-none ${
               isMenuOpen ? 'translate-x-0' : '-translate-x-full'
             } lg:translate-x-0`}
           >
@@ -121,27 +128,68 @@ function Header({ locale }: { locale: string }) {
           {/* Action */}
           <div className="flex items-center gap-[2px] text-orange-bright 2xl:gap-[10px]">
             <div
-              className="h-full w-6 cursor-pointer sm:hidden"
+              className="h-10 w-6 cursor-pointer sm:hidden"
               onClick={() => {
                 setIsSearchOpen(!isSearchOpen);
               }}
             >
               <FaMagnifyingGlass className="mx-auto h-full w-clamp-24" />
             </div>
-            <div className="h-full w-6 cursor-pointer sm:w-10 lg:w-8 xl:w-10">
+            <div className="h-10 w-6 cursor-pointer sm:w-10 lg:w-8 xl:w-10">
               <FaRegHeart className="mx-auto h-full w-clamp-24" />
             </div>
-            <div className="group relative block h-full w-6 cursor-pointer sm:w-10 lg:w-8 xl:w-10">
+            <div className="group relative h-10 w-6 cursor-pointer sm:w-10 lg:w-8 xl:w-10">
               <FiShoppingCart className="mx-auto h-full w-clamp-24" />
+              {/* Số lượng trong giỏ hàng */}
+              {carts.length > 0 && (
+                <div className="absolute -right-[20%] top-[5%] h-clamp-18 w-clamp-18 rounded-full border-solid border-white bg-orange-bright sm:right-0 lg:top-[2%]">
+                  <p className="absolute left-1/2 -translate-x-1/2 text-clamp-12 text-white">{carts.length}</p>
+                </div>
+              )}
               {/* Giỏ hàng */}
-              <ShoppingCart />
+              <ShoppingCart locale={locale} />
             </div>
 
-            <div className="h-full w-6 cursor-pointer sm:w-10 lg:w-8 xl:w-10">
+            <div className="group relative h-10 w-6 cursor-pointer sm:w-10 lg:w-8 xl:w-10">
               <FaRegCircleUser className="mx-auto h-full w-clamp-24" />
+              <ul className="h-scrollable invisible fixed right-[5%] top-full w-60 origin-top-right scale-0 transform cursor-default rounded-lg bg-white opacity-0 shadow-sm duration-300 ease-out before:absolute before:-top-7 before:right-0 before:block before:h-7 before:w-[25%] before:content-[''] group-hover:visible group-hover:scale-100 group-hover:opacity-100 sm:right-[6%] lg:absolute lg:right-0 lg:mt-[19px]">
+                {isLoggin ? (
+                  <>
+                    {ACCOUNT_LIST.map((item) => (
+                      <li key={item.id}>
+                        {item.path ? (
+                          <Link
+                            href={`/${locale}${item.path}`}
+                            className="block px-2 py-[10px] text-black hover:bg-gray-lightest sm:px-4"
+                          >
+                            {item.label}
+                          </Link>
+                        ) : (
+                          <div className="cursor-pointer px-2 py-[10px] text-black hover:bg-gray-lightest sm:px-4">
+                            {item.label}
+                          </div>
+                        )}
+                      </li>
+                    ))}
+                  </>
+                ) : (
+                  <>
+                    {AUTH_LIST.map((item) => (
+                      <li key={item.id}>
+                        <Link
+                          href={`/${locale}${item.path}`}
+                          className="block px-2 py-[10px] text-black hover:bg-gray-lightest sm:px-4"
+                        >
+                          {item.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </>
+                )}
+              </ul>
             </div>
             <div
-              className={`h-full w-6 cursor-pointer transition-transform duration-300 ease-in-out sm:w-10 lg:hidden ${isMenuOpen ? 'rotate-180' : 'rotate-0'} `}
+              className={`h-10 w-6 cursor-pointer transition-transform duration-300 ease-in-out sm:w-10 lg:hidden ${isMenuOpen ? 'rotate-180' : 'rotate-0'} `}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? (

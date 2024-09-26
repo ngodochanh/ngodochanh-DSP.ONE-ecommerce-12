@@ -1,9 +1,12 @@
+//
+const SET_PROFILE = 'set_profile';
+const UPDATE_PROFILE = 'update_profile';
+//
 const SET_CART = 'set_cart';
 const DELETE_CART = 'delete_cart';
 const ADD_CART = 'add_cart';
 const RESET_CART = 'reset_cart';
 //
-const UPDATE_USER = 'update_user';
 const SET_CUSTOMERS = 'set_customers';
 const ADD_CUSTOMER = 'add_customer';
 //
@@ -19,12 +22,14 @@ const DELETE_PRODUCTS_SIZE = 'delete_products_size';
 const DELETE_PRODUCTS_PRICE = 'delete_products_price';
 
 export {
+  SET_PROFILE,
+  UPDATE_PROFILE,
+  //
   SET_CART,
   DELETE_CART,
   ADD_CART,
   RESET_CART,
   //
-  UPDATE_USER,
   SET_CUSTOMERS,
   ADD_CUSTOMER,
   //

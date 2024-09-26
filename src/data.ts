@@ -478,9 +478,45 @@ const ORDER_OPTIONS = [
 ];
 
 const CUSTOMER_LIST = [
-  { id: 'ctm1', fullname: '', phone: '0123333333', password: '123456', address: '' },
-  { id: 'ctm2', fullname: '', phone: '0123444444', password: '123456', address: '' },
-  { id: 'ctm3', fullname: '', phone: '0123455555', password: '123456', address: '' },
+  {
+    id: 'ctm1',
+    fullname: 'Vương Nhị Cẩu',
+    phone: '0965252017',
+    password: '123456',
+    address: '',
+    image: '',
+    nickname: '',
+    birthday: null,
+    gender: '',
+    email: 'nhicau@gmail.com',
+    score: 0,
+  },
+  {
+    id: 'ctm2',
+    fullname: '',
+    phone: '0345355505',
+    password: '123456',
+    address: '',
+    image: '',
+    nickname: '',
+    birthday: new Date('2000-09-07'),
+    gender: '',
+    email: '',
+    score: 0,
+  },
+  {
+    id: 'ctm3',
+    fullname: '',
+    phone: '0374618886',
+    password: '123456',
+    address: '',
+    image: '',
+    nickname: '',
+    birthday: null,
+    gender: '',
+    email: '',
+    score: 0,
+  },
 ];
 
 export {

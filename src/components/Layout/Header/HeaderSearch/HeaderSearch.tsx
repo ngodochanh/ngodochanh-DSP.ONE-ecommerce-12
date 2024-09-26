@@ -84,48 +84,51 @@ function HeaderSearch({ isSearchOpen, onCloseSearch }: { isSearchOpen: boolean; 
       {/* Form search */}
       <div
         className={`fixed inset-0 z-30 bg-white transition-all duration-500 ease-in-out ${
-          isSearchOpen ? 'h-full opacity-100' : 'pointer-events-none h-0 opacity-0'
+          isSearchOpen ? 'opacity-100' : 'pointer-events-none h-0 opacity-0'
         } ${results?.length > 0 ? 'h-screen' : 'h-1/4'}`}
       >
-        <form className="max-container flex items-center justify-between gap-4 border-b-1 border-solid border-gray-lightest py-3 sm:py-2">
-          {/* Logo */}
-          <div className="hidden sm:block">
-            <Logo locale={locale} />
-          </div>
-          {/* Input */}
-          <Input
-            ref={inputRef}
-            isClearable
-            radius="full"
-            size="md"
-            placeholder={t('search.placeholder')}
-            classNames={{
-              base: 'sm:max-w-[436px]',
-              innerWrapper: 'text-clamp-16 text-gray-light',
-              input: 'bg-gray-lightest',
-            }}
-            startContent={<FaMagnifyingGlass />}
-            value={query}
-            onValueChange={(value: string) => {
-              setQuery(value.trimStart());
-            }}
-            endContent={
-              isSearching && (
-                <Spinner size="sm" classNames={{ circle1: 'border-b-gray-light', circle2: 'border-b-gray-light' }} />
-              )
-            }
-          />
-          {/* Close */}
-          <p
-            className="cursor-pointer text-clamp-18 hover:text-yellow-vivid"
-            onClick={() => {
-              onCloseSearch();
-              handleClearSearch();
-            }}
-          >
-            Đóng
-          </p>
-        </form>
+        {/* Form search */}
+        <div className="border-b-1 border-solid border-gray-lightest py-3 sm:py-2">
+          <form className="max-container flex items-center justify-between gap-4">
+            {/* Logo */}
+            <div className="hidden sm:block">
+              <Logo />
+            </div>
+            {/* Input */}
+            <Input
+              ref={inputRef}
+              isClearable
+              radius="full"
+              size="md"
+              placeholder={t('search.placeholder')}
+              classNames={{
+                base: 'sm:max-w-[436px]',
+                innerWrapper: 'text-clamp-16 text-gray-light',
+                input: 'bg-gray-lightest',
+              }}
+              startContent={<FaMagnifyingGlass />}
+              value={query}
+              onValueChange={(value: string) => {
+                setQuery(value.trimStart());
+              }}
+              endContent={
+                isSearching && (
+                  <Spinner size="sm" classNames={{ circle1: 'border-b-gray-light', circle2: 'border-b-gray-light' }} />
+                )
+              }
+            />
+            {/* Close */}
+            <p
+              className="cursor-pointer text-clamp-18 hover:text-orange-bright"
+              onClick={() => {
+                onCloseSearch();
+                handleClearSearch();
+              }}
+            >
+              Đóng
+            </p>
+          </form>
+        </div>
 
         {/* Hiển thị kết quả tìm kiếm */}
         <div
@@ -144,8 +147,8 @@ function HeaderSearch({ isSearchOpen, onCloseSearch }: { isSearchOpen: boolean; 
           {/* Link để xem tất cả kết quả tìm kiếm */}
           <div className="col-span-2 col-start-2">
             <Link
-              href={`/${locale}${process.env.PRODUCT}?search=${debouncedQuery}`}
-              className="mx-auto flex h-12 max-w-40 cursor-pointer items-center justify-center rounded-lg bg-yellow-vivid text-white hover:text-black hover:opacity-85"
+              href={`/${locale}${process.env.PRODUCTS}?search=${debouncedQuery}`}
+              className="mx-auto flex h-12 max-w-40 cursor-pointer items-center justify-center rounded-lg bg-orange-bright text-white hover:text-black hover:opacity-85"
               onClick={() => {
                 onCloseSearch();
                 handleClearSearch();

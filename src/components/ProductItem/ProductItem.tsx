@@ -12,7 +12,7 @@ type ProductItemProps = {
 function ProductItem({ product }: ProductItemProps) {
   const locale = useLocale();
   // Xử lý đường dẫn sản phẩm với kiểm tra lỗi
-  const productPath = `/${locale}${process.env.PRODUCT}/${product.slug}-${product.id}.html`;
+  const productPath = `/${locale}${process.env.PRODUCTS}/${product.slug}-${product.id}.html`;
 
   // Kiểm tra hình ảnh sản phẩm hợp lệ
   const productImage = product.image ?? '/default-product-image.jpg';

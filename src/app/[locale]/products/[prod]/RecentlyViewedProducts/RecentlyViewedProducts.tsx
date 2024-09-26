@@ -1,6 +1,6 @@
 'use client';
 
-import RelatedProducts from '@/app/[locale]/product/[prod]/RelatedProducts';
+import RelatedProducts from '@/app/[locale]/products/[prod]/RelatedProducts';
 import { PRODUCT_LIST } from '@/data';
 import React, { useEffect, useState } from 'react';
 import { IProduct } from '@/models';

@@ -45,7 +45,7 @@ function BlogItem({ blog }: BlogItemProps) {
         </h5>
         <div>
           <div className="mb-[25px] text-clamp-12 font-normal">
-            {t('created_by')} <span className="font-medium text-yellow-bright">{t(`list.blog${id}.author`)}</span> -{' '}
+            {t('created_by')} <span className="font-medium text-orange-bright">{t(`list.blog${id}.author`)}</span> -{' '}
             {formattedDate}
           </div>
 

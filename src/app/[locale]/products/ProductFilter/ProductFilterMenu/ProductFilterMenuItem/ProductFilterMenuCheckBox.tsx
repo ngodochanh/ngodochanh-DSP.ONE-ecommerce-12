@@ -1,11 +1,11 @@
 'use client';
 
 import { CheckboxGroup, Checkbox } from '@nextui-org/react';
-import { ProductFilterMenuTypeProps } from '@/app/[locale]/product/type';
+import { ProductFilterMenuTypeProps } from '@/app/[locale]/products/type';
 import { memo } from 'react';
 import { useLocale } from 'next-intl';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { PER_PAGE } from '@/app/[locale]/product/constants';
+import { PER_PAGE } from '@/app/[locale]/products/constants';
 import { useStore } from '@/components/Store';
 
 function ProductFilterMenuCheckBox({
@@ -33,7 +33,7 @@ function ProductFilterMenuCheckBox({
             defaultSelected={filter[keyProductFilter].some((s) => s.value === item.value)}
             onChange={() => {
               router.push(
-                `/${locale}/${process.env.PRODUCT!}/?page=${Number(1)}&per_page=${PER_PAGE}${
+                `/${locale}/${process.env.PRODUCTS!}/?page=${Number(1)}&per_page=${PER_PAGE}${
                   search ? `&search=${search}` : ''
                 }`,
                 {
@@ -43,7 +43,7 @@ function ProductFilterMenuCheckBox({
               onChangeFilter(keyProductFilter, item);
             }}
             classNames={{
-              icon: ' text-yellow-bright !w-clamp-16 !h-clamp-16',
+              icon: ' text-orange-bright !w-clamp-16 !h-clamp-16',
               wrapper: 'bg-transparent !w-clamp-28 !h-clamp-28 before:border-gray-light-mid after:bg-transparent mr-4 ',
               label: 'font-normal !text-clamp-16',
             }}

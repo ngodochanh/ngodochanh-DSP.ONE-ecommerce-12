@@ -4,7 +4,7 @@ import { TCustomerInfoSchema } from '@/schemas';
 export type IInitState = {
   carts: ICart[];
   customers: TCustomer[];
-  customer: TCustomerInfoSchema;
+  profile: TCustomer;
   filter: IFilters;
 };
 

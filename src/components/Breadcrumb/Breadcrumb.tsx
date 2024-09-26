@@ -17,7 +17,7 @@ function Breadcrumb({ locale, breadCrumbList }: IBreadcrumbs) {
         list: 'rounded-none py-5',
       }}
       itemClasses={{
-        item: 'capitalize !text-clamp-16 font-normal text-dark-charcoal data-[current=true]:text-yellow-vivid hover:text-black hover:opacity-100',
+        item: 'capitalize !text-clamp-16 font-normal text-dark-charcoal data-[current=true]:text-orange-bright hover:text-black hover:opacity-100',
         separator: 'text-gray-neutral',
       }}
     >

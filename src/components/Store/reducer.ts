@@ -1,4 +1,4 @@
-import { ICart, TCustomer } from '@/models';
+import { ICart, TCustomer, TCustomerCore } from '@/models';
 import {
   ADD_CART,
   ADD_CUSTOMER,
@@ -16,18 +16,15 @@ import {
   SET_CART,
   SET_CUSTOMERS,
   SET_PRODUCTS,
-  UPDATE_USER,
+  SET_PROFILE,
 } from './constants';
 import { IAction, IInitState } from './type';
+import { CUSTOMER_LIST } from '@/data';
 
 const initialState: IInitState = {
   carts: [],
   customers: [],
-  customer: {
-    fullname: 'Nguyễn Hữu Tiến',
-    phone: '0901223344',
-    address: '388 J, P. An Khánh, Q. Ninh Kiều, TP. Cần Thơ',
-  },
+  profile: CUSTOMER_LIST[1],
   filter: {
     gender: [],
     color: [],
@@ -40,6 +37,13 @@ const reducer = (state: IInitState, action: IAction): IInitState => {
   const { type, payload } = action;
 
   switch (type) {
+    //
+    case SET_PROFILE:
+      return {
+        ...state,
+        profile: payload as TCustomer,
+      };
+    //
     case RESET_CART:
       return {
         ...state,
@@ -69,23 +73,6 @@ const reducer = (state: IInitState, action: IAction): IInitState => {
         carts: payload as ICart[],
       };
     //
-    case UPDATE_USER:
-      if (
-        typeof payload === 'object' &&
-        payload !== null &&
-        'fullname' in payload &&
-        'phone' in payload &&
-        'address' in payload
-      ) {
-        return {
-          ...state,
-          customer: {
-            ...payload,
-          },
-        };
-      }
-
-      return state;
     case SET_CUSTOMERS:
       return {
         ...state,

@@ -1,10 +1,10 @@
-import { PRODUCT_SERVICE_LIST } from '@/app/[locale]/product/constants';
+import { PRODUCT_SERVICE_LIST } from '@/app/[locale]/products/constants';
 import { calculateDiscountPercentage, formatCurrencyVND } from '@/utils/currency';
 import StarRating from '@/components/StarRating';
 import ProductService from './ProductService';
-import ProductWrapper from '@/app/[locale]/product/[prod]/ProductWrapper';
+import ProductWrapper from '@/app/[locale]/products/[prod]/ProductWrapper';
 import ProductAddToCart from './ProductAddToCart';
-import ProductImageGallery from '@/app/[locale]/product/[prod]/ProductDetails/ProductImageGallery';
+import ProductImageGallery from '@/app/[locale]/products/[prod]/ProductDetails/ProductImageGallery';
 import { IProduct } from '@/models';
 
 function ProductDetails({ product }: { product: IProduct | undefined }) {

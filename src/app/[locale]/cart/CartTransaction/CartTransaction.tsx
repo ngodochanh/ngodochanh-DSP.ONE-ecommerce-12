@@ -11,7 +11,7 @@ import { cartTransactionSchema, TCartTransactionSchema } from '@/schemas';
 
 function CartTransaction() {
   const {
-    state: { customer, carts },
+    state: { profile, carts },
     dispatch,
   } = useStore();
 
@@ -42,9 +42,9 @@ function CartTransaction() {
   const onSubmit = (data: TCartTransactionSchema) => {
     const extendedData = {
       ...data, // Nối các dữ liệu từ `data` (các thông tin đã được nhập vào)
-      fullname: customer.fullname,
-      phone: customer.phone,
-      address: customer.address,
+      fullname: profile.fullname,
+      phone: profile.phone,
+      address: profile.address,
       // Tổng tiền
       totalAmount: totalPrice,
       // Khuyến mãi
@@ -125,7 +125,7 @@ function CartTransaction() {
               <Radio
                 {...register('orderProcessing')}
                 value={order.id}
-                classNames={{ wrapper: 'group-data-[selected=true]:border-yellow-vivid', control: 'bg-yellow-vivid' }}
+                classNames={{ wrapper: 'group-data-[selected=true]:border-orange-bright', control: 'bg-orange-bright' }}
               >
                 {order.label}
               </Radio>
@@ -206,7 +206,7 @@ function CartTransaction() {
 
       <Button
         type="submit"
-        className="h-[52px] w-full rounded-md bg-yellow-vivid text-white"
+        className="h-[52px] w-full rounded-md bg-orange-bright text-white"
         isDisabled={isSubmitting || totalPrice === 0}
       >
         Xác nhận đơn hàng

@@ -112,7 +112,7 @@ function ProductAddToCart({ product }: { product: IProduct | undefined }) {
         </div>
       </div>
       <div className="flex gap-x-[5px]">
-        <Button className="h-12 flex-1 rounded-md bg-yellow-bright !text-clamp-18 text-white">Mua ngay</Button>
+        <Button className="h-12 flex-1 rounded-md bg-orange-bright !text-clamp-18 text-white">Mua ngay</Button>
         <Button
           className="h-12 flex-1 rounded-md border-1 border-solid border-dark-charcoal bg-white !text-clamp-18 hover:bg-default-100"
           onClick={handleAddToCart}

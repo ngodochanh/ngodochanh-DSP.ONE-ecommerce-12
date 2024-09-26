@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     'Xem và quản lý các sản phẩm trong giỏ hàng của bạn trên DSP.ONE. Chúng tôi cung cấp các sản phẩm chất lượng với giá tốt nhất.',
 };
 
-function Cart({
+export default function Cart({
   params: { locale },
 }: {
   params: {
@@ -48,5 +48,3 @@ function Cart({
     </div>
   );
 }
-
-export default Cart;

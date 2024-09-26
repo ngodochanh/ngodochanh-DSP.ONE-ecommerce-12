@@ -3,11 +3,11 @@ import { Accordion, AccordionItem } from '@nextui-org/react';
 import { IoCloseCircleOutline } from 'react-icons/io5';
 import { GoTriangleLeft } from 'react-icons/go';
 import { memo, useCallback, useState } from 'react';
-import { PRODUCT_FILTER_LIST } from '@/app/[locale]/product/constants';
+import { PRODUCT_FILTER_LIST } from '@/app/[locale]/products/constants';
 import { Button } from '@nextui-org/button';
 import type { Selection } from '@nextui-org/react';
 import { actions, useStore } from '@/components/Store';
-import { IFuncHandleChangeFilter } from '@/app/[locale]/product/type';
+import { IFuncHandleChangeFilter } from '@/app/[locale]/products/type';
 import { IFilter } from '@/models';
 
 type ProductFilterMenuProps = {
@@ -93,7 +93,7 @@ function ProductFilterMenu({ isFilterEnabled, onToggleFilter, onChangeFilter }: 
         <Button className="h-12 flex-1 rounded-md bg-gray-light-mid !text-clamp-24" onClick={handleResetFilter}>
           Xóa bộ lọc
         </Button>
-        <Button className="h-12 flex-1 rounded-md bg-yellow-bright !text-clamp-24" onClick={onToggleFilter}>
+        <Button className="h-12 flex-1 rounded-md bg-orange-bright !text-clamp-24" onClick={onToggleFilter}>
           Áp dụng {totalCount > 0 && `(${totalCount})`}
         </Button>
       </div>

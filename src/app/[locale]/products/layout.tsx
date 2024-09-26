@@ -7,11 +7,19 @@ export const metadata: Metadata = {
     'Khám phá các sản phẩm đa dạng với chất lượng cao và giá cả cạnh tranh tại DSP.ONE. Chúng tôi mang đến cho bạn các lựa chọn tuyệt vời cho mọi nhu cầu mua sắm.',
 };
 
-export default function ProductLayout({ children }: { children: React.ReactNode }) {
+export default function ProductLayout({
+  children,
+  params: { locale },
+}: {
+  children: React.ReactNode;
+  params: {
+    locale: string;
+  };
+}) {
   return (
     <>
       {children}
-      <Footer />
+      <Footer locale={locale} />
     </>
   );
 }

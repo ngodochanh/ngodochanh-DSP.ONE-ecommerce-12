@@ -5,7 +5,7 @@ import { NextUIProvider } from '@nextui-org/react';
 
 const NextUIProviderComponent = ({ children, locale }: { children: React.ReactNode; locale: string }) => {
   return (
-    <NextUIProvider>
+    <NextUIProvider locale={locale}>
       <Store>
         <div className="mx-auto max-w-[1920px]">
           <TopBar />

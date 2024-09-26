@@ -17,13 +17,14 @@ const nextConfig = {
   env: {
     HOME: '/',
     ABOUT: '/about',
-    PRODUCT: '/product',
+    PRODUCTS: '/products',
     BLOGS: '/blogs',
     POLICY: '/policy',
     CONTACT: '/contact',
     CART: '/cart',
     LOGIN: '/login',
     REGISTER: '/register',
+    PROFILE: '/profile',
   },
 };
 

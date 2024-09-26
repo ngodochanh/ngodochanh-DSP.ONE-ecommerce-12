@@ -52,7 +52,7 @@ function ShoppingCartItem({ id, quantity, onRemoveFromCart, onSyncCart }: CartIt
   return (
     <li className="flex h-24 cursor-pointer gap-x-2 p-2 text-black hover:bg-gray-lightest sm:gap-x-4 sm:px-4">
       <Link
-        href={`/${locale}${process.env.PRODUCT}/${product.slug}-${product.id}.html`}
+        href={`/${locale}${process.env.PRODUCTS}/${product.slug}-${product.id}.html`}
         className="relative block w-1/4"
       >
         <Image src={product.image} alt={product.title} fill className="rounded-lg object-cover" />
@@ -65,7 +65,7 @@ function ShoppingCartItem({ id, quantity, onRemoveFromCart, onSyncCart }: CartIt
         <div className="flex w-fit items-center border-1 border-solid border-gray-very-light">
           <Button
             isDisabled={qty === 1}
-            className="h-8 w-9 min-w-fit rounded-none border-r-1 bg-transparent p-0 text-clamp-16 hover:bg-default-100 hover:text-yellow-vivid"
+            className="h-8 w-9 min-w-fit rounded-none border-r-1 bg-transparent p-0 text-clamp-16 hover:bg-default-100 hover:text-orange-bright"
             onClick={handleDecrementQuantity}
           >
             <FaMinus />
@@ -75,7 +75,7 @@ function ShoppingCartItem({ id, quantity, onRemoveFromCart, onSyncCart }: CartIt
 
           <Button
             isDisabled={qty === 10}
-            className="h-8 w-9 min-w-fit rounded-none border-l-1 bg-transparent p-0 text-clamp-16 hover:bg-default-100 hover:text-yellow-vivid"
+            className="h-8 w-9 min-w-fit rounded-none border-l-1 bg-transparent p-0 text-clamp-16 hover:bg-default-100 hover:text-orange-bright"
             onClick={handleIncrementQuantity}
           >
             <FaPlus />
@@ -87,7 +87,7 @@ function ShoppingCartItem({ id, quantity, onRemoveFromCart, onSyncCart }: CartIt
         <p className="text-clamp-16 font-medium text-red-bright">{formatCurrencyVND(product.price)}</p>
         {/* Xóa sản phẩm khỏi giỏ hàng */}
         <FaRegTrashCan
-          className="cursor-pointer text-clamp-16 hover:text-yellow-vivid"
+          className="cursor-pointer text-clamp-16 hover:text-orange-bright"
           onClick={() => onRemoveFromCart(id)}
         />
       </div>

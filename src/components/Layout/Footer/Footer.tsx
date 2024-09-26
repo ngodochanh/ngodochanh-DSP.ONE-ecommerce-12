@@ -15,7 +15,7 @@ function Footer({ locale }: { locale: string }) {
       <div className="max-container flex flex-col flex-wrap justify-between gap-x-12 gap-y-[60px] pb-[81px] pt-[61px] lg:flex-row">
         {/* Logo and contacts */}
         <div>
-          <Logo locale={locale} textColor="text-white" className="mb-9 mt-2" />
+          <Logo textColor="text-white" className="mb-9 mt-2" />
 
           {/* Info */}
           <div className="mb-[10px]">

@@ -10,6 +10,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { actions, useStore } from '@/components/Store';
 import { registerSchema, TRegisterFormSchema } from '@/schemas';
 import { useRouter } from 'next/navigation';
+import { CUSTOMER_LIST } from '@/data';
 
 export default function Register({
   params: { locale },
@@ -28,6 +29,7 @@ export default function Register({
   const {
     register,
     handleSubmit,
+    setError,
     formState: { errors, isSubmitting },
     reset,
   } = useForm<TRegisterFormSchema>({
@@ -39,16 +41,37 @@ export default function Register({
     },
   });
 
+  // Kiểm tra trong csdl
+  const validateCustomerData = (data: TRegisterFormSchema) => {
+    let hasError = false;
+
+    if (CUSTOMER_LIST.some((item) => item.phone === data.phone)) {
+      setError('phone', { type: 'manual', message: 'Số điện thoại đã tồn tại' });
+      hasError = true;
+    }
+
+    return hasError;
+  };
+
   const onSubmit = (data: TRegisterFormSchema) => {
-    const newCustomer = {
-      ...data,
-      id: 'ctm' + (customers.length + 1),
-      fullname: '',
-      address: '',
-    };
-    dispatch(actions.addCustomer(newCustomer));
-    reset();
-    router.push(`/${locale}${process.env.LOGIN}`);
+    if (!validateCustomerData(data)) {
+      const newCustomer = {
+        id: 'ctm' + (customers.length + 1),
+        fullname: '',
+        phone: data.phone,
+        password: data.password,
+        address: '',
+        image: 'https://i.pravatar.cc/150?u=a042581f4e29026024d',
+        nickname: '',
+        birthday: new Date(),
+        gender: '',
+        email: '',
+        score: 0,
+      };
+      dispatch(actions.addCustomer(newCustomer));
+      reset();
+      router.push(`/${locale}${process.env.LOGIN}`);
+    }
   };
   return (
     <div className="max-container flex flex-col items-center gap-[54px] py-16 md:h-[calc(100vh-117px)] md:flex-row lg:gap-x-[74px] xl:gap-x-[94px] 2xl:gap-x-[114px]">
@@ -108,7 +131,7 @@ export default function Register({
           <Button
             type="submit"
             radius="sm"
-            className="h-14 w-full bg-yellow-vivid text-white"
+            className="h-14 w-full bg-orange-bright text-white"
             isDisabled={isSubmitting}
           >
             Đăng ký ngay

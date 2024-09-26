@@ -4,7 +4,7 @@ import Segment from '@/components/Segment';
 import Banner from '@/components/Banner';
 import ProductFilter from './ProductFilter';
 
-function Products({
+export default function Products({
   params: { locale },
 }: {
   params: {
@@ -22,7 +22,7 @@ function Products({
     {
       id: 'product',
       label: t('navigation.product'),
-      path: process.env.PRODUCT!,
+      path: process.env.PRODUCTS!,
     },
   ];
 
@@ -38,5 +38,3 @@ function Products({
     </>
   );
 }
-
-export default Products;

@@ -5,7 +5,7 @@ import Image from 'next/image';
 import HeaderAuth from '@/app/[locale]/(auth)/HeaderAuth';
 import { Button, Input } from '@nextui-org/react';
 import Link from 'next/link';
-import { useStore } from '@/components/Store';
+import { actions, useStore } from '@/components/Store';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
@@ -22,6 +22,7 @@ export default function Login({
 
   const {
     state: { customers },
+    dispatch,
   } = useStore();
 
   const {
@@ -35,7 +36,8 @@ export default function Login({
   const onSubmit = (data: TLoginFormSchema) => {
     const customer = customers.find((customer) => customer.phone === data.phone && customer.password === data.password);
     if (customer) {
-      router.push(`${process.env.HOME!}`);
+      dispatch(actions.setProfile(customer));
+      router.push(`${process.env.HOME}`);
     } else {
       // Xử lý đăng nhập không thành công
       alert('Số điện thoại hoặc mật khẩu không đúng');
@@ -82,7 +84,7 @@ export default function Login({
             aria-label="Mật khẩu"
           />
 
-          <Button type="submit" radius="sm" className="h-14 w-full bg-yellow-vivid text-white">
+          <Button type="submit" radius="sm" className="h-14 w-full bg-orange-bright text-white">
             Đăng nhập
           </Button>
         </form>
@@ -94,7 +96,7 @@ export default function Login({
 
           <p>
             Bạn chưa có tài khoản?{' '}
-            <Link href={`/${locale}${process.env.REGISTER}`} className="text-yellow-vivid">
+            <Link href={`/${locale}${process.env.REGISTER}`} className="text-orange-bright">
               Đăng ký ngay
             </Link>
           </p>

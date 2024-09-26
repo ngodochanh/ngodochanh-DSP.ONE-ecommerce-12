@@ -1,6 +1,6 @@
 import { useSearchParams } from 'next/navigation';
 import PaginationProduct from './PaginationProduct';
-import { PER_PAGE, PRICE_LIST } from '@/app/[locale]/product/constants';
+import { PER_PAGE, PRICE_LIST } from '@/app/[locale]/products/constants';
 
 import { memo, useMemo } from 'react';
 import { PRODUCT_LIST } from '@/data';

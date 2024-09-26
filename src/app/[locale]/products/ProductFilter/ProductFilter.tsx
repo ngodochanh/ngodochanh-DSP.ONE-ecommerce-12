@@ -4,7 +4,7 @@ import ProductFilterSidebar from './ProductFilterSidebar';
 import ProductFilterMenu from './ProductFilterMenu';
 import ProductCatalog from './ProductCatalog';
 import { useCallback, useState } from 'react';
-import { KEY_PRODUCT_FILTER } from '@/app/[locale]/product/constants';
+import { KEY_PRODUCT_FILTER } from '@/app/[locale]/products/constants';
 import { actions, useStore } from '@/components/Store';
 import { IFilter } from '@/models';
 

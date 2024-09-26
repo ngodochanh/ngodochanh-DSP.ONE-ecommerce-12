@@ -2,7 +2,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { CgClose } from 'react-icons/cg';
 import { FiFilter } from 'react-icons/fi';
-import { KEY_PRODUCT_FILTER } from '@/app/[locale]/product/constants';
+import { KEY_PRODUCT_FILTER } from '@/app/[locale]/products/constants';
 import { memo } from 'react';
 import { IFilters } from '@/models';
 

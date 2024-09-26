@@ -50,7 +50,7 @@ function CartItem({ id, quantity, onRemoveFromCart, onSyncCart }: CartItemProps)
     <li className="group flex gap-2 sm:gap-6">
       {/* Hình ảnh */}
       <Link
-        href={`/${locale}${process.env.PRODUCT}/${product.slug}-${product.id}.html`}
+        href={`/${locale}${process.env.PRODUCTS}/${product.slug}-${product.id}.html`}
         className="relative block max-h-16 w-full min-w-16 max-w-24 sm:max-h-full"
       >
         <Image
@@ -64,7 +64,7 @@ function CartItem({ id, quantity, onRemoveFromCart, onSyncCart }: CartItemProps)
       <div className="flex flex-col gap-y-3 sm:flex-row sm:gap-x-6">
         {/* Thông tin */}
         <div className="w-full sm:w-3/4">
-          <h4 className="mb-1 text-clamp-24 font-medium group-hover:text-yellow-vivid"> {product.title}</h4>
+          <h4 className="mb-1 text-clamp-24 font-medium group-hover:text-orange-bright"> {product.title}</h4>
           <p className="prose lg:prose-xl mb-4 line-clamp-2 text-justify text-clamp-16 font-normal text-gray-moderate">
             {product.description}
           </p>
@@ -102,7 +102,7 @@ function CartItem({ id, quantity, onRemoveFromCart, onSyncCart }: CartItemProps)
           )}
           {/* Xóa sản phẩm khỏi giỏ hàng */}
           <FaRegTrashCan
-            className="ml-auto mt-6 cursor-pointer text-clamp-32 hover:text-yellow-vivid"
+            className="ml-auto mt-6 cursor-pointer text-clamp-32 hover:text-orange-bright"
             onClick={() => onRemoveFromCart(id)}
           />
         </div>

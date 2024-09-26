@@ -5,7 +5,7 @@ import ProductInfo from './ProductInfo';
 import Breadcrumb from '@/components/Breadcrumb';
 import { PRODUCT_LIST } from '@/data';
 import { useTranslations } from 'next-intl';
-import RecentlyViewedProducts from '@/app/[locale]/product/[prod]/RecentlyViewedProducts/RecentlyViewedProducts';
+import RecentlyViewedProducts from '@/app/[locale]/products/[prod]/RecentlyViewedProducts/RecentlyViewedProducts';
 import { extractIdFromUrl } from '@/utils/extractIdFromUrl';
 import { IProduct } from '@/models';
 
@@ -59,7 +59,7 @@ function Prod({ params: { locale, prod } }: ProdProps) {
     {
       id: 'product',
       label: t('navigation.product'),
-      path: process.env.PRODUCT!,
+      path: process.env.PRODUCTS!,
     },
     {
       id: 'KEY',

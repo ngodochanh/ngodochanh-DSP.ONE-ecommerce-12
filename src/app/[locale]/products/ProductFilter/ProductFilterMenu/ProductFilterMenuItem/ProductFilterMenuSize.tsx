@@ -1,8 +1,8 @@
-import { ProductFilterMenuTypeProps } from '@/app/[locale]/product/type';
+import { ProductFilterMenuTypeProps } from '@/app/[locale]/products/type';
 import { memo } from 'react';
 import { useLocale } from 'next-intl';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { PER_PAGE } from '@/app/[locale]/product/constants';
+import { PER_PAGE } from '@/app/[locale]/products/constants';
 import { useStore } from '@/components/Store';
 
 function ProductFilterMenuSize({ keyProductFilter, productFilterList, onChangeFilter }: ProductFilterMenuTypeProps) {
@@ -21,11 +21,11 @@ function ProductFilterMenuSize({ keyProductFilter, productFilterList, onChangeFi
         <div
           key={item.value}
           className={`flex h-[40px] cursor-pointer items-center justify-center rounded-sm border-1 border-solid border-gray-light-mid uppercase hover:bg-default-100 hover:text-black ${
-            filter.size.some((s) => s.value === item.value) ? 'border-yellow-bright bg-yellow-bright text-white' : ''
+            filter.size.some((s) => s.value === item.value) ? 'border-orange-bright bg-orange-bright text-white' : ''
           }`}
           onClick={() => {
             router.push(
-              `/${locale}/${process.env.PRODUCT!}/?page=${Number(1)}&per_page=${PER_PAGE}${
+              `/${locale}/${process.env.PRODUCTS!}/?page=${Number(1)}&per_page=${PER_PAGE}${
                 search ? `&search=${search}` : ''
               }`,
               {

@@ -7,7 +7,7 @@ import { IoIosArrowDown } from 'react-icons/io';
 import { BiSolidLike } from 'react-icons/bi';
 import { BiSolidDislike } from 'react-icons/bi';
 import SectionHeader from '@/components/SectionHeader';
-import ProductWrapper from '@/app/[locale]/product/[prod]/ProductWrapper';
+import ProductWrapper from '@/app/[locale]/products/[prod]/ProductWrapper';
 import { useCallback, useState } from 'react';
 
 function ProductInfo() {
@@ -30,7 +30,7 @@ function ProductInfo() {
 
         {/* Nút mở rộng */}
         <div
-          className="flex cursor-pointer justify-center gap-x-[6px] text-clamp-16 font-medium text-yellow-vivid lg:hidden"
+          className="flex cursor-pointer justify-center gap-x-[6px] text-clamp-16 font-medium text-orange-bright lg:hidden"
           onClick={() => handleToggleActiveTab()}
         >
           <span className="relative inline-block h-6 w-20 overflow-hidden">
@@ -96,7 +96,7 @@ function ProductInfo() {
                     <h5>Lâm Thành Huy</h5>
                     <Chip
                       classNames={{
-                        base: ' border-small border-0 bg-yellow-vivid shadow-none',
+                        base: ' border-small border-0 bg-orange-bright shadow-none',
                         content: 'drop-shadow shadow-black text-white',
                       }}
                     >
@@ -137,7 +137,7 @@ function ProductInfo() {
             <form action="" className="flex w-full flex-col gap-y-[9px] lg:max-w-[433px] xl:max-w-[533px]">
               <h5 className="text-clamp-18 font-bold">Đánh giá hoặc bình luận sản phẩm</h5>
               <div className="space-x-[9px] py-[5px]">
-                <Button radius="full" className="min-w-[104px] bg-yellow-vivid text-white shadow-none">
+                <Button radius="full" className="min-w-[104px] bg-orange-bright text-white shadow-none">
                   Bình luận
                 </Button>
                 <Button radius="full" className="min-w-[104px] bg-gray-light-mid">

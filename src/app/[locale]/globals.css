@@ -17,4 +17,16 @@
   .mySwiper .swiper-slide-thumb-active {
     @apply !opacity-100;
   }
+
+  [data-slot='base'][data-has-end-content='true'] > [data-slot='input-wrapper'] {
+    @apply h-9 min-h-9 rounded-md border-1 border-solid border-gray-light-mid bg-transparent shadow-none;
+  }
+
+  [data-slot='base'][data-open='true'] tbody[data-slot='grid-body'] span[data-selected='true'] {
+    @apply data-[selected=true]:bg-orange-bright data-[selected=true]:data-[hover=true]:bg-orange-bright;
+  }
+
+  [data-slot='base'][data-open='true'] tbody[data-slot='grid-body'] span[data-hover='true'] {
+    @apply data-[hover=true]:text-orange-bright-5 data-[selected=true]:data-[hover=true]:bg-orange-bright-5 data-[hover=true]:bg-orange-bright-5;
+  }
 }

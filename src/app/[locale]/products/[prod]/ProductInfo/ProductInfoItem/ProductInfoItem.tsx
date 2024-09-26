@@ -1,4 +1,4 @@
-import SectionHeader from '@/components/SectionHeader';
+import TitleHeader from '@/components/TitleHeader';
 
 type ProductInfoItemProps = {
   title: string;
@@ -9,7 +9,7 @@ type ProductInfoItemProps = {
 function ProductInfoItem({ title, markdown, className }: ProductInfoItemProps) {
   return (
     <div className={`${className} mb-10`}>
-      <SectionHeader title={title} />
+      <TitleHeader title={title} />
       <article className="prose lg:prose-xl text-justify" dangerouslySetInnerHTML={{ __html: markdown }} />
       <div className="text-justify">
         Ba chỉ bò (short plate) là phần thịt được lấy ở bụng con bò (tại cơ hoành), ngay dưới phần xương sườn. Ba chỉ có

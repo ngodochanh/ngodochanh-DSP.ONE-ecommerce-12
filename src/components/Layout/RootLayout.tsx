@@ -1,6 +1,7 @@
+import Footer from './Footer';
 import Header from './Header';
+import TopBar from './TopBar';
 import { Store } from '@/components/Store';
-import TopBar from '@/components/TopBar';
 import { NextUIProvider } from '@nextui-org/react';
 
 const NextUIProviderComponent = ({ children, locale }: { children: React.ReactNode; locale: string }) => {
@@ -11,6 +12,7 @@ const NextUIProviderComponent = ({ children, locale }: { children: React.ReactNo
           <TopBar />
           <Header locale={locale} />
           <main>{children}</main>
+          <Footer locale={locale} />
         </div>
       </Store>
     </NextUIProvider>

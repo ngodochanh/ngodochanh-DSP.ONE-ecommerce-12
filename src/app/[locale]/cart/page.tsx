@@ -1,7 +1,7 @@
 import CartDetails from '@/app/[locale]/cart/CartDetails';
 import CartTransaction from '@/app/[locale]/cart/CartTransaction';
 import Breadcrumb from '@/components/Breadcrumb';
-import SectionHeader from '@/components/SectionHeader';
+import TitleHeader from '@/components/TitleHeader';
 import { Metadata } from 'next';
 import { useTranslations } from 'next-intl';
 
@@ -35,7 +35,7 @@ export default function Cart({
     <div className="max-container mb-14">
       <Breadcrumb locale={locale} breadCrumbList={BREADCRUMB_LIST} />
 
-      <SectionHeader title="giỏ hàng" />
+      <TitleHeader title="giỏ hàng" />
 
       <div className="grid grid-cols-12 gap-6">
         <div className="col-span-12 lg:col-span-8">

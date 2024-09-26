@@ -75,14 +75,14 @@ function Header({ locale }: { locale: string }) {
 
   return (
     <>
-      <div className="max-container sticky left-0 right-0 top-0 z-20 flex items-center justify-between bg-white bg-opacity-30 py-2 backdrop-blur-sm backdrop-filter lg:relative">
+      <div className="max-container sticky left-0 right-0 top-0 z-20 flex items-center justify-between bg-white bg-opacity-30 py-2 backdrop-blur-sm backdrop-filter">
         <div className="flex lg:gap-[8px] xl:gap-[16px] 2xl:gap-[80px]">
           {/* Logo */}
           <Logo />
 
           {/* Navigation */}
           <nav
-            className={`absolute left-0 top-full w-full max-w-[375px] bg-white shadow-md transition-transform duration-300 ease-in-out lg:static lg:h-auto lg:w-auto lg:max-w-none lg:shadow-none ${
+            className={`absolute left-0 top-full h-[calc(100vh-70px)] w-full max-w-[375px] bg-white shadow-md transition-transform duration-300 ease-in-out lg:static lg:h-auto lg:w-auto lg:max-w-none lg:bg-transparent lg:shadow-none ${
               isMenuOpen ? 'translate-x-0' : '-translate-x-full'
             } lg:translate-x-0`}
           >

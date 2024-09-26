@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Footer from '@/components/Layout/Footer';
 
 export const metadata: Metadata = {
   title: 'Sản Phẩm | DSP.ONE',
@@ -19,7 +18,6 @@ export default function ProductLayout({
   return (
     <>
       {children}
-      <Footer locale={locale} />
     </>
   );
 }

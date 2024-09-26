@@ -1,11 +1,8 @@
-import dynamic from 'next/dynamic';
 import { MdLanguage } from 'react-icons/md';
 import { BiSolidPhoneCall } from 'react-icons/bi';
-
-const Language = dynamic(() => import('./Language'), { ssr: false });
-
 import { LANGUAGES } from './constants';
 import { useTranslations } from 'next-intl';
+import Language from './Language';
 
 function TopBar() {
   const t = useTranslations('topBar');

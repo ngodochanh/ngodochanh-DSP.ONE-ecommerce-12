@@ -74,8 +74,8 @@ export default function Register({
     }
   };
   return (
-    <div className="max-container flex flex-col items-center gap-[54px] py-16 md:h-[calc(100vh-117px)] md:flex-row lg:gap-x-[74px] xl:gap-x-[94px] 2xl:gap-x-[114px]">
-      <div className="relative h-[364px] w-full md:h-full md:w-[57%] lg:w-[60%] 2xl:w-1/2">
+    <div className="max-container flex flex-col items-center gap-[54px] py-12 md:flex-row lg:gap-x-[74px] xl:gap-x-[94px] 2xl:gap-x-[114px]">
+      <div className="relative h-[280px] w-full sm:h-[380px] md:w-[57%] lg:h-[480px] lg:w-[60%] xl:h-[580px] 2xl:h-[680px] 2xl:w-1/2">
         <Image src={SvgRegister} alt="register" fill className="object-contain" />
       </div>
 
@@ -140,8 +140,15 @@ export default function Register({
 
         <footer className="space-y-4 text-center">
           <Link href={''} className="">
-            Trở về
+            Quên mật khẩu
           </Link>
+
+          <p>
+            Bạn đã có tài khoản?{' '}
+            <Link href={`/${locale}${process.env.LOGIN}`} className="text-orange-bright">
+              Đăng nhập
+            </Link>
+          </p>
         </footer>
       </div>
     </div>

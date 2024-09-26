@@ -18,30 +18,23 @@ function Language({ inputPlaceholder, languageList }: LanguageProps) {
   // Giá trị input
   const [inputValue, setInputValue] = useState('');
   // Mục được chọn
-  const [selectedItem, setSelectedItem] = useState<ILanguage | null>(() => {
-    if (typeof window !== 'undefined') {
-      const storedLanguage = localStorage.getItem('language');
-      try {
-        const parsedLanguage = storedLanguage ? JSON.parse(storedLanguage) : null;
-        // Kiểm tra xem parsedLanguage có phải là LanguageType hợp lệ không
-        if (parsedLanguage && languageList.some((lang) => lang.key === parsedLanguage.key)) {
-          return parsedLanguage;
-        } else {
-          return languageList[0];
-        }
-      } catch {
-        return languageList[0];
-      }
-    } else {
-      return languageList[0];
-    }
-  });
+  const [selectedItem, setSelectedItem] = useState<ILanguage | null>(languageList[0]);
   // Theo dõi việc mở/đóng danh sách
   const [open, setOpen] = useState(false);
   //
   const [isPending, startTransition] = useTransition();
   const router = useRouter();
   const localActive = useLocale();
+
+  useEffect(() => {
+    const storedLanguage = localStorage.getItem('language');
+
+    const parsedLanguage = storedLanguage ? JSON.parse(storedLanguage) : null;
+    // Kiểm tra xem parsedLanguage có phải là LanguageType hợp lệ không
+    if (parsedLanguage && languageList.some((lang) => lang.key === parsedLanguage.key)) {
+      setSelectedItem(parsedLanguage);
+    }
+  }, []);
 
   useEffect(() => {
     // Cập nhật danh sách các mục từ props data

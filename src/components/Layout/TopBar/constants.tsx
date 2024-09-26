@@ -1,6 +1,6 @@
 const LANGUAGES = [
-  { key: 'en', name: 'English' },
   { key: 'vi', name: 'Vietnam' },
+  { key: 'en', name: 'English' },
 ];
 
 export { LANGUAGES };

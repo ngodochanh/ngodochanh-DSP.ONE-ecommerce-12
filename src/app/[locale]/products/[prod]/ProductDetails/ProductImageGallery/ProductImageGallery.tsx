@@ -77,11 +77,13 @@ export default function ProductImageGallery({ id }: { id: string | string }) {
 
           <Swiper
             onSwiper={setThumbsSwiper}
-            loop={result.length >= 2}
             spaceBetween={15}
             breakpoints={{
-              0: { slidesPerView: result.length > 1 ? result.length : 2 },
-              640: { slidesPerView: result.length > 1 ? result.length : 1 },
+              0: { slidesPerView: result.length > 1 ? 2 : 1, loop: result.length >= 2 },
+              640: {
+                slidesPerView: result.length > 1 ? (result.length > 2 ? (result.length > 3 ? 4 : 3) : 2) : 1,
+                loop: result.length >= 2,
+              },
             }}
             freeMode={true}
             watchSlidesProgress={true}

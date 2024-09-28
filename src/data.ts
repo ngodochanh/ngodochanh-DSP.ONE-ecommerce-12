@@ -483,7 +483,6 @@ const CUSTOMER_LIST = [
     fullname: 'Vương Nhị Cẩu',
     phone: '0965252017',
     password: '123456',
-    address: '',
     image: '',
     nickname: '',
     birthday: null,
@@ -496,7 +495,6 @@ const CUSTOMER_LIST = [
     fullname: '',
     phone: '0345355505',
     password: '123456',
-    address: '',
     image: '',
     nickname: '',
     birthday: new Date('2000-09-07'),
@@ -509,13 +507,31 @@ const CUSTOMER_LIST = [
     fullname: '',
     phone: '0374618886',
     password: '123456',
-    address: '',
     image: '',
     nickname: '',
     birthday: null,
     gender: '',
     email: '',
     score: 0,
+  },
+];
+
+const ADDRESS_DIRECTORY = [
+  {
+    id: 'address1',
+    id_customer: 'ctm1',
+    fullname: 'Bàng Tiểu Sửu',
+    phone: '0349020984',
+    address: 'Số 720A Điện Biên Phủ, Quận Bình Thạnh, Thành phố Hồ Chí Minh',
+    isActive: false,
+  },
+  {
+    id: 'address2',
+    id_customer: 'ctm1',
+    fullname: 'Tả Lừa Gạt',
+    phone: '0374401978',
+    address: '120 Xa Lộ Hà Nội, Thành Phố Thủ Đức, Thành phố Hồ Chí Minh',
+    isActive: false,
   },
 ];
 
@@ -530,4 +546,5 @@ export {
   PAYMENT_METHODS,
   ORDER_OPTIONS,
   CUSTOMER_LIST,
+  ADDRESS_DIRECTORY,
 };

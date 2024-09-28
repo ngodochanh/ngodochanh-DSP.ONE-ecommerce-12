@@ -15,11 +15,35 @@ import {
   SET_PROFILE,
   SET_CART,
   SET_CUSTOMERS,
-  UPDATE_PROFILE,
+  SET_ADDRESS_DIRECTORY_LIST,
+  UPDATE_ADDRESS_DIRECTORY,
+  ADD_ADDRESS_DIRECTORY,
 } from './constants';
 
-import { ICart, IFilter, TCustomer } from '@/models';
+import { IAddressDirectory, ICart, IFilter, TCustomer } from '@/models';
 
+const setAddressDirectoryList = (payload: IAddressDirectory[]) => {
+  return {
+    type: SET_ADDRESS_DIRECTORY_LIST,
+    payload,
+  };
+};
+
+const updateAddressDirectory = (payload: IAddressDirectory) => {
+  return {
+    type: UPDATE_ADDRESS_DIRECTORY,
+    payload,
+  };
+};
+
+const addAddressDirectory = (payload: IAddressDirectory) => {
+  return {
+    type: ADD_ADDRESS_DIRECTORY,
+    payload,
+  };
+};
+
+//
 const setProfile = (payload: TCustomer) => {
   return {
     type: SET_PROFILE,
@@ -133,6 +157,10 @@ const resetFilter = () => {
 };
 
 export {
+  setAddressDirectoryList,
+  updateAddressDirectory,
+  addAddressDirectory,
+  //
   setProfile,
   //
   deleteCart,

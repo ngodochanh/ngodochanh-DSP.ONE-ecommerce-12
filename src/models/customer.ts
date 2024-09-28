@@ -3,7 +3,6 @@ export type TCustomerCore = {
   fullname: string;
   phone: string;
   password: string;
-  address: string;
 };
 
 export type TCustomer = TCustomerCore & {

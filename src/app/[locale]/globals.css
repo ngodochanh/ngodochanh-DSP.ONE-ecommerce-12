@@ -27,6 +27,6 @@
   }
 
   [data-slot='base'][data-open='true'] tbody[data-slot='grid-body'] span[data-hover='true'] {
-    @apply data-[hover=true]:text-orange-bright-5 data-[selected=true]:data-[hover=true]:bg-orange-bright-5 data-[hover=true]:bg-orange-bright-5;
+    @apply data-[hover=true]:bg-orange-bright-5 data-[selected=true]:data-[hover=true]:bg-orange-bright-5 data-[hover=true]:text-orange-bright-5;
   }
 }

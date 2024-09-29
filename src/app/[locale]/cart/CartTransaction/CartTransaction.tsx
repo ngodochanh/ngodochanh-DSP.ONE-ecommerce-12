@@ -22,7 +22,7 @@ import { useForm } from 'react-hook-form';
 import { actions, useStore } from '@/components/Store';
 import { formatCurrencyVND } from '@/utils/currency';
 import { FormEvent, useEffect, useMemo, useState } from 'react';
-import { cartTransactionSchema, TCartTransactionSchema } from '@/schemas';
+import { cartTransactionSchema, ICartTransactionSchema } from '@/schemas';
 import { IAddressDirectory } from '@/models';
 import { TbCirclePlus } from 'react-icons/tb';
 import AddAddressForm from '@/app/[locale]/cart/CartTransaction/AddAddressForm';
@@ -64,7 +64,7 @@ function CartTransaction() {
     handleSubmit,
     formState: { errors, isSubmitting },
     reset,
-  } = useForm<TCartTransactionSchema>({
+  } = useForm<ICartTransactionSchema>({
     resolver: zodResolver(cartTransactionSchema),
     defaultValues: {
       shipping: SHIPPING_METHODS[0].id,
@@ -89,7 +89,7 @@ function CartTransaction() {
   };
 
   // Gửi biểu mẫu
-  const handleSubmitCartTransaction = (data: TCartTransactionSchema) => {
+  const handleSubmitCartTransaction = (data: ICartTransactionSchema) => {
     if (activeAddress) {
       const extendedData = {
         ...data, // Nối các dữ liệu từ `data` (các thông tin đã được nhập vào)
@@ -331,45 +331,46 @@ function CartTransaction() {
 
                       <p className="text-center text-clamp-16 font-bold">Thêm địa chỉ</p>
                     </div>
+                    <div className="h-[336px] space-y-2 overflow-y-auto overscroll-y-contain scroll-smooth">
+                      {addressDirectory.length > 0 ? (
+                        addressDirectory.map((item) => (
+                          <div key={item.id} className="group space-y-4 py-4">
+                            <div className="flex items-stretch justify-between">
+                              <div className="flex items-center gap-4">
+                                <h3 className="line-clamp-1 text-clamp-24 font-bold capitalize">{item.fullname}</h3>
 
-                    {addressDirectory.length > 0 ? (
-                      addressDirectory.map((item) => (
-                        <div key={item.id} className="group space-y-4 py-4">
-                          <div className="flex items-stretch justify-between">
-                            <div className="flex items-center gap-4">
-                              <h3 className="line-clamp-1 text-clamp-24 font-bold capitalize">{item.fullname}</h3>
-
-                              {item.isActive && (
-                                <div className="h-fit translate-y-[1px] border-1 border-solid border-orange-bright px-1 text-clamp-12 text-orange-bright">
-                                  Mặc định
-                                </div>
-                              )}
+                                {item.isActive && (
+                                  <div className="h-fit translate-y-[1px] border-1 border-solid border-orange-bright px-1 text-clamp-12 text-orange-bright">
+                                    Mặc định
+                                  </div>
+                                )}
+                              </div>
+                              <Switch
+                                size="sm"
+                                // Địa chỉ mặc địch sẽ được chọn nếu phù hợp điều kiện
+                                isSelected={selectedAddress?.addressId === item.id && selectedAddress?.isSelected}
+                                onValueChange={(isSelected: boolean) => {
+                                  // Khi switch được chọn thì truyền dữ liệu cần thiết cho selectedAddress để lưu trữ
+                                  setSelectedAddress({ addressId: item.id, isSelected: isSelected });
+                                }}
+                              />
                             </div>
-                            <Switch
-                              size="sm"
-                              // Địa chỉ mặc địch sẽ được chọn nếu phù hợp điều kiện
-                              isSelected={selectedAddress?.addressId === item.id && selectedAddress?.isSelected}
-                              onValueChange={(isSelected: boolean) => {
-                                // Khi switch được chọn thì truyền dữ liệu cần thiết cho selectedAddress để lưu trữ
-                                setSelectedAddress({ addressId: item.id, isSelected: isSelected });
-                              }}
-                            />
-                          </div>
 
-                          <div className="grid grid-cols-[128px_auto]">
-                            <h5 className="text-clamp-16 font-bold">Địa chỉ</h5>
-                            <p className="text-clamp-16 font-normal">{item.address}</p>
-                          </div>
+                            <div className="grid grid-cols-[128px_auto]">
+                              <h5 className="text-clamp-16 font-bold">Địa chỉ</h5>
+                              <p className="text-clamp-16 font-normal">{item.address}</p>
+                            </div>
 
-                          <div className="grid grid-cols-[128px_auto]">
-                            <h5 className="text-clamp-16 font-bold">Số điện thoại</h5>
-                            <p className="text-clamp-16 font-normal">{item.phone}</p>
+                            <div className="grid grid-cols-[128px_auto]">
+                              <h5 className="text-clamp-16 font-bold">Số điện thoại</h5>
+                              <p className="text-clamp-16 font-normal">{item.phone}</p>
+                            </div>
                           </div>
-                        </div>
-                      ))
-                    ) : (
-                      <p>Chưa có địa chỉ</p>
-                    )}
+                        ))
+                      ) : (
+                        <p>Chưa có địa chỉ</p>
+                      )}
+                    </div>
                   </ModalBody>
                   <ModalFooter>
                     <Button

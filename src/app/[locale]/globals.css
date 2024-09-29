@@ -29,4 +29,28 @@
   [data-slot='base'][data-open='true'] tbody[data-slot='grid-body'] span[data-hover='true'] {
     @apply data-[hover=true]:bg-orange-bright-5 data-[selected=true]:data-[hover=true]:bg-orange-bright-5 data-[hover=true]:text-orange-bright-5;
   }
+
+  html ::-webkit-scrollbar {
+    @apply w-2 rounded-none;
+  }
+
+  html *::-webkit-scrollbar {
+    @apply w-2 rounded-none;
+  }
+
+  html ::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-gray-200;
+  }
+
+  html *::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-gray-200;
+  }
+
+  html ::-webkit-scrollbar-track {
+    @apply rounded-none bg-transparent;
+  }
+
+  html *::-webkit-scrollbar-track {
+    @apply rounded-none bg-transparent;
+  }
 }

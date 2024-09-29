@@ -4,7 +4,7 @@ import { actions, useStore } from '@/components/Store';
 import { Avatar, Button, DatePicker, Input, Radio, RadioGroup } from '@nextui-org/react';
 import { CUSTOMER_LIST, GENDER_LIST } from '@/data';
 import { useForm } from 'react-hook-form';
-import { profileInfoSchema, TProfileInfoSchema } from '@/schemas';
+import { profileInfoSchema, IProfileInfoSchema } from '@/schemas';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ChangeEvent, useState } from 'react';
 import { DateValue, parseDate } from '@internationalized/date';
@@ -39,7 +39,7 @@ export default function Profile({
     setError,
     setValue,
     formState: { errors, isSubmitting },
-  } = useForm<TProfileInfoSchema>({
+  } = useForm<IProfileInfoSchema>({
     defaultValues: profile,
     resolver: zodResolver(profileInfoSchema),
   });
@@ -63,7 +63,7 @@ export default function Profile({
   };
 
   // Hàm xác thực dữ liệu hồ sơ so với dữ liệu trên máy chủ
-  const validateProfileData = (data: TProfileInfoSchema) => {
+  const validateProfileData = (data: IProfileInfoSchema) => {
     let hasError = false;
 
     // Kiểm tra nếu số điện thoại đã tồn tại
@@ -82,14 +82,13 @@ export default function Profile({
   };
 
   // Hàm xử lý khi gửi form
-  const onSubmit = (data: TProfileInfoSchema) => {
+  const onSubmit = (data: IProfileInfoSchema) => {
     if (!validateProfileData(data)) {
       const newInfo = {
         ...data,
         id: profile.id,
         score: profile.score,
         password: profile.password,
-        address: profile.address,
         // Giả lập cuộc gọi API, nên chúng ta đặt hình ảnh thành previewImage
         image: previewImage,
         birthday: birthday ? new Date(birthday.year, birthday.month - 1, birthday.day) : null,
@@ -122,7 +121,7 @@ export default function Profile({
 
         <div className="mb-6 flex flex-col gap-6 md:flex-row">
           <div className="flex-1 space-y-4">
-            <div className="grid grid-cols-[128px_auto] items-center">
+            <div className="grid grid-cols-[128px_auto] items-center md:grid-cols-[100px_auto] lg:grid-cols-[128px_auto]">
               <label htmlFor="fullname" className="cursor-pointer text-clamp-16 font-bold">
                 Họ tên
               </label>
@@ -144,7 +143,7 @@ export default function Profile({
               />
             </div>
 
-            <div className="grid grid-cols-[128px_auto] items-center">
+            <div className="grid grid-cols-[128px_auto] items-center md:grid-cols-[100px_auto] lg:grid-cols-[128px_auto]">
               <label htmlFor="nickname" className="cursor-pointer text-clamp-16 font-bold">
                 Nickname
               </label>
@@ -166,7 +165,7 @@ export default function Profile({
               />
             </div>
 
-            <div className="grid grid-cols-[128px_auto] items-center">
+            <div className="grid grid-cols-[128px_auto] items-center md:grid-cols-[100px_auto] lg:grid-cols-[128px_auto]">
               <label htmlFor="birthday" className="cursor-pointer text-clamp-16 font-bold">
                 Ngày sinh
               </label>
@@ -184,7 +183,7 @@ export default function Profile({
               />
             </div>
 
-            <div className="grid grid-cols-[128px_auto] items-center">
+            <div className="grid grid-cols-[128px_auto] items-center md:grid-cols-[100px_auto] lg:grid-cols-[128px_auto]">
               <label className="text-clamp-16 font-bold">Giới tính</label>
               <RadioGroup
                 orientation="horizontal"
@@ -220,7 +219,7 @@ export default function Profile({
 
           <div className="flex-1 space-y-4">
             <div className="space-y-4">
-              <div className="grid grid-cols-[128px_auto] items-center">
+              <div className="grid grid-cols-[128px_auto] items-center md:grid-cols-[100px_auto] lg:grid-cols-[128px_auto]">
                 <label htmlFor="phone" className="cursor-pointer text-clamp-16 font-bold">
                   Số điện thoại
                 </label>
@@ -242,7 +241,7 @@ export default function Profile({
                 />
               </div>
 
-              <div className="grid grid-cols-[128px_auto] items-center">
+              <div className="grid grid-cols-[128px_auto] items-center md:grid-cols-[100px_auto] lg:grid-cols-[128px_auto]">
                 <label htmlFor="email" className="cursor-pointer text-clamp-16 font-bold">
                   Email
                 </label>

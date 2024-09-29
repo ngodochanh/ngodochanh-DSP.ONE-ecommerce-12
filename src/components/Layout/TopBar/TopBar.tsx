@@ -8,7 +8,7 @@ function TopBar() {
   const t = useTranslations('topBar');
 
   return (
-    <div className="z-40 bg-black py-[1.5px] text-clamp-14 font-normal">
+    <div className="z-30 bg-black py-[1.5px] text-clamp-14 font-normal">
       <div className="max-container flex items-center justify-between text-white">
         {/* Hotline  */}
         <div className="flex items-center justify-center gap-x-[5px]">

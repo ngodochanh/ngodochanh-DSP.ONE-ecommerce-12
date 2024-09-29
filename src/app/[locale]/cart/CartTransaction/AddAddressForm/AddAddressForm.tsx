@@ -1,5 +1,5 @@
 import { actions, useStore } from '@/components/Store';
-import { TCustomer } from '@/models';
+import { ICustomer } from '@/models';
 import { addressDirectorySchema, IAddressDirectorySchema } from '@/schemas';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Button, Input, ModalBody, ModalContent, ModalFooter, ModalHeader, Switch, Textarea } from '@nextui-org/react';
@@ -12,7 +12,7 @@ function AddAddressForm({
   countAddressDirectory,
   setIsAddingNewAddress,
 }: {
-  id: TCustomer['id']; // id của người dùng đăng nhập (dùng để thêm id của người dùng vào địa chỉ mới)
+  id: ICustomer['id']; // id của người dùng đăng nhập (dùng để thêm id của người dùng vào địa chỉ mới)
   countAddressDirectory: number; // lấy độ dài của mảng địa chỉ trong data (dùng để tạo id của địa chỉ mới)
   setIsAddingNewAddress: Dispatch<SetStateAction<boolean>>; // đặt trạng thái hiển thị thêm mới hoặc danh sách địa chỉ của người dùng
 }) {

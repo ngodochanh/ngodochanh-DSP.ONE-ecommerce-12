@@ -1,4 +1,4 @@
-import { IAddressDirectory, ICart, IFilter, TCustomer } from '@/models';
+import { IAddressDirectory, ICart, IFilter, ICustomer } from '@/models';
 import {
   ADD_ADDRESS_DIRECTORY,
   ADD_CART,
@@ -26,7 +26,7 @@ import { CUSTOMER_LIST } from '@/data';
 const initialState: IInitState = {
   carts: [],
   customers: [],
-  profile: CUSTOMER_LIST[2],
+  profile: CUSTOMER_LIST[0],
   filter: {
     gender: [],
     color: [],
@@ -94,7 +94,7 @@ const reducer = (state: IInitState, action: IAction): IInitState => {
     case SET_PROFILE:
       return {
         ...state,
-        profile: payload as TCustomer,
+        profile: payload as ICustomer,
       };
 
     //
@@ -126,13 +126,13 @@ const reducer = (state: IInitState, action: IAction): IInitState => {
     case SET_CUSTOMERS:
       return {
         ...state,
-        customers: payload as TCustomer[],
+        customers: payload as ICustomer[],
       };
 
     case ADD_CUSTOMER:
       return {
         ...state,
-        customers: [...state.customers, payload as TCustomer],
+        customers: [...state.customers, payload as ICustomer],
       };
 
     //

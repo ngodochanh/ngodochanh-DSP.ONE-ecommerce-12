@@ -8,6 +8,7 @@ import { Avatar } from '@nextui-org/react';
 import { HiMiniBars3BottomRight } from 'react-icons/hi2';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
+import useScrollLock from '@/hooks/useScrollLock';
 
 function ProfileSidebar({ locale }: { locale: string }) {
   // Lấy đường dẫn hiện tại
@@ -16,41 +17,46 @@ function ProfileSidebar({ locale }: { locale: string }) {
   const {
     state: { profile },
   } = useStore();
-  // Bật tắt menu
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // Bật tắt sidebar
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  // Khóa cuộn khi mở sidebar
+  useScrollLock(isSidebarOpen);
 
   return (
     <>
       {/* Nút để bật menu */}
       <div
-        className="fixed right-2 top-1/3 cursor-pointer rounded bg-orange-bright p-2 text-2xl text-white hover:bg-orange-bright-5 sm:right-4 xl:hidden"
-        onClick={() => setIsMenuOpen(true)}
+        className="group fixed right-2 top-1/3 z-10 cursor-pointer rounded bg-white p-1 pr-0 text-white sm:right-4 md:hidden"
+        onClick={() => setIsSidebarOpen(true)}
       >
-        <HiMiniBars3BottomRight />
+        <div className="h-10 w-10 rounded bg-orange-bright p-2 group-hover:opacity-50">
+          <HiMiniBars3BottomRight className="h-full w-full" />
+        </div>
       </div>
 
       {/* Overlay sidebar */}
       <div
-        className={`fixed inset-0 z-30 bg-black/50 transition-all duration-500 ease-in-out xl:hidden ${
-          isMenuOpen ? 'w-full opacity-100' : 'w-0 opacity-0'
+        className={`fixed inset-0 z-30 bg-black/50 transition-all duration-500 ease-in-out md:hidden ${
+          isSidebarOpen ? 'w-full opacity-100' : 'w-0 opacity-0'
         } `}
-        onClick={() => setIsMenuOpen(false)}
+        onClick={() => setIsSidebarOpen(false)}
       ></div>
 
       {/* Sidebar */}
       <div
-        className={`fixed inset-0 z-30 col-span-12 bg-white px-2 transition-all duration-500 ease-in-out sm:w-full sm:max-w-96 sm:px-4 md:right-[unset] xl:pointer-events-auto xl:static xl:inset-[unset] xl:z-0 xl:col-span-3 xl:translate-x-0 xl:px-0 xl:opacity-100 ${isMenuOpen ? 'w-full opacity-100' : 'pointer-events-none w-0 opacity-0'}`}
+        className={`fixed inset-0 z-30 max-w-[360px] bg-white px-2 transition-all duration-500 ease-in-out sm:px-4 md:pointer-events-auto md:static md:inset-[unset] md:right-[unset] md:z-0 md:col-span-3 md:w-full md:translate-x-0 md:px-0 md:opacity-100 ${isSidebarOpen ? 'w-full opacity-100' : 'w-0 opacity-0'}`}
       >
         {/* Floating menu */}
         <div
-          className="mb-7 ml-auto mt-8 cursor-pointer text-3xl hover:text-orange-bright xl:hidden"
-          onClick={() => setIsMenuOpen(false)}
+          className="mb-7 ml-auto mt-8 cursor-pointer text-3xl hover:text-orange-bright md:hidden"
+          onClick={() => setIsSidebarOpen(false)}
         >
           <CgCloseO className="ml-auto" />
         </div>
 
         {/* Customer Info */}
-        <div className="mb-4 flex gap-x-4">
+        <div className="mb-4 flex gap-4 md:flex-col md:items-center md:gap-2 lg:flex-row lg:items-start lg:gap-4">
           <Avatar src={profile.image} classNames={{ base: 'w-clamp-70 h-clamp-70' }} />
 
           <div className="mt-auto h-fit flex-1">
@@ -73,6 +79,9 @@ function ProfileSidebar({ locale }: { locale: string }) {
                 <Link
                   href={`/${locale}${localizedPath}`}
                   className={`flex items-center gap-x-4 py-[17px] text-clamp-16 font-normal ${isActive ? 'text-orange-bright' : ''}`}
+                  onClick={() => {
+                    setIsSidebarOpen(false);
+                  }}
                 >
                   <Comp className="text-clamp-20" />
                   <p>{item.label}</p>

@@ -8,7 +8,7 @@ import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { actions, useStore } from '@/components/Store';
-import { registerSchema, TRegisterFormSchema } from '@/schemas';
+import { registerSchema, IRegisterFormSchema } from '@/schemas';
 import { useRouter } from 'next/navigation';
 import { CUSTOMER_LIST } from '@/data';
 
@@ -32,7 +32,7 @@ export default function Register({
     setError,
     formState: { errors, isSubmitting },
     reset,
-  } = useForm<TRegisterFormSchema>({
+  } = useForm<IRegisterFormSchema>({
     resolver: zodResolver(registerSchema),
     defaultValues: {
       phone: '',
@@ -42,7 +42,7 @@ export default function Register({
   });
 
   // Kiểm tra trong csdl
-  const validateCustomerData = (data: TRegisterFormSchema) => {
+  const validateCustomerData = (data: IRegisterFormSchema) => {
     let hasError = false;
 
     if (CUSTOMER_LIST.some((item) => item.phone === data.phone)) {
@@ -53,7 +53,7 @@ export default function Register({
     return hasError;
   };
 
-  const onSubmit = (data: TRegisterFormSchema) => {
+  const onSubmit = (data: IRegisterFormSchema) => {
     if (!validateCustomerData(data)) {
       const newCustomer = {
         id: 'ctm' + (customers.length + 1),

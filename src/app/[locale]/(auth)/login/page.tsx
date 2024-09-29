@@ -9,7 +9,7 @@ import { actions, useStore } from '@/components/Store';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
-import { loginSchema, TLoginFormSchema } from '@/schemas';
+import { loginSchema, ILoginFormSchema } from '@/schemas';
 
 export default function Login({
   params: { locale },
@@ -29,11 +29,11 @@ export default function Login({
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<TLoginFormSchema>({
+  } = useForm<ILoginFormSchema>({
     resolver: zodResolver(loginSchema),
   });
 
-  const onSubmit = (data: TLoginFormSchema) => {
+  const onSubmit = (data: ILoginFormSchema) => {
     const customer = customers.find((customer) => customer.phone === data.phone && customer.password === data.password);
     if (customer) {
       dispatch(actions.setProfile(customer));

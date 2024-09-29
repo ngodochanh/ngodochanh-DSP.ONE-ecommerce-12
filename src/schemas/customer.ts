@@ -15,4 +15,4 @@ export const profileInfoSchema = z.object({
     .regex(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Email không hợp lệ'),
 });
 
-export type TProfileInfoSchema = z.infer<typeof profileInfoSchema>;
+export type IProfileInfoSchema = z.infer<typeof profileInfoSchema>;

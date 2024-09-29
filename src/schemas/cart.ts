@@ -13,4 +13,4 @@ export const cartTransactionSchema = z.object({
   cartNotes: z.string().optional(),
 });
 
-export type TCartTransactionSchema = z.infer<typeof cartTransactionSchema>;
+export type ICartTransactionSchema = z.infer<typeof cartTransactionSchema>;

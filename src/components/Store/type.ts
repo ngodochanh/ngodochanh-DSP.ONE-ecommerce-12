@@ -1,10 +1,10 @@
 import { UPDATE_ADDRESS_DIRECTORY } from '@/components/Store/constants';
-import { IAddressDirectory, ICart, IFilter, IFilters, IProduct, TCustomer } from '@/models';
+import { IAddressDirectory, ICart, IFilter, IFilters, IProduct, ICustomer } from '@/models';
 
 export type IInitState = {
   carts: ICart[];
-  customers: TCustomer[];
-  profile: TCustomer;
+  customers: ICustomer[];
+  profile: ICustomer;
   filter: IFilters;
   addressDirectory: IAddressDirectory[];
 };
@@ -14,8 +14,8 @@ export type IAction = {
   payload?:
     | ICart[]
     | ICart
-    | TCustomer[]
-    | TCustomer
+    | ICustomer[]
+    | ICustomer
     | IFilter
     | string
     | IProduct

@@ -21,7 +21,7 @@ export default function ProfileLayout({
       <div className="grid w-full grid-cols-12 gap-6">
         <ProfileSidebar locale={locale} />
 
-        <div className="col-span-12 xl:col-span-9 xl:col-start-4">{children}</div>
+        <div className="col-span-12 md:col-span-9 md:col-start-4">{children}</div>
       </div>
     </div>
   );

@@ -11,7 +11,7 @@ import { useTranslations } from 'next-intl';
 function Footer({ locale }: { locale: string }) {
   const t = useTranslations('footer');
   return (
-    <div className="-translate-y-[1px] bg-black text-clamp-16 text-white">
+    <footer className="-translate-y-[1px] bg-black text-clamp-16 text-white">
       <div className="max-container flex flex-col flex-wrap justify-between gap-x-12 gap-y-[60px] pb-[81px] pt-[61px] lg:flex-row">
         {/* Logo and contacts */}
         <div>
@@ -125,7 +125,7 @@ function Footer({ locale }: { locale: string }) {
 
       {/* Copyright */}
       <p className="py-5 text-center font-normal">{t('copyright')}</p>
-    </div>
+    </footer>
   );
 }
 

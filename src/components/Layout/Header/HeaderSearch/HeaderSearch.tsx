@@ -84,8 +84,12 @@ function HeaderSearch({ isSearchOpen, onCloseSearch }: { isSearchOpen: boolean; 
       {/* Form search */}
       <div
         className={`fixed inset-0 z-30 bg-white transition-all duration-500 ease-in-out ${
-          isSearchOpen ? 'opacity-100' : 'pointer-events-none h-0 opacity-0'
-        } ${results?.length > 0 ? 'h-screen' : 'h-1/4'}`}
+          isSearchOpen
+            ? results?.length > 0
+              ? 'h-screen opacity-100'
+              : 'h-1/4 opacity-100'
+            : 'pointer-events-none h-0 opacity-0'
+        }`}
       >
         {/* Form search */}
         <div className="border-b-1 border-solid border-gray-lightest py-3 sm:py-2">
@@ -113,7 +117,10 @@ function HeaderSearch({ isSearchOpen, onCloseSearch }: { isSearchOpen: boolean; 
               }}
               endContent={
                 isSearching && (
-                  <Spinner size="sm" classNames={{ circle1: 'border-b-gray-light', circle2: 'border-b-gray-light' }} />
+                  <Spinner
+                    size="sm"
+                    classNames={{ base: 'py-4', circle1: 'border-b-gray-light', circle2: 'border-b-gray-light' }}
+                  />
                 )
               }
             />

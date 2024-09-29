@@ -20,7 +20,7 @@ import {
   ADD_ADDRESS_DIRECTORY,
 } from './constants';
 
-import { IAddressDirectory, ICart, IFilter, TCustomer } from '@/models';
+import { IAddressDirectory, ICart, IFilter, ICustomer } from '@/models';
 
 const setAddressDirectoryList = (payload: IAddressDirectory[]) => {
   return {
@@ -44,7 +44,7 @@ const addAddressDirectory = (payload: IAddressDirectory) => {
 };
 
 //
-const setProfile = (payload: TCustomer) => {
+const setProfile = (payload: ICustomer) => {
   return {
     type: SET_PROFILE,
     payload,
@@ -80,14 +80,14 @@ const setCart = (payload: ICart[]) => {
 };
 
 //
-const setCustomers = (payload: TCustomer[]) => {
+const setCustomers = (payload: ICustomer[]) => {
   return {
     type: SET_CUSTOMERS,
     payload,
   };
 };
 
-const addCustomer = (payload: TCustomer) => {
+const addCustomer = (payload: ICustomer) => {
   return {
     type: ADD_CUSTOMER,
     payload,

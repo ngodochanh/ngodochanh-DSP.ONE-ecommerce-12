@@ -14,3 +14,8 @@ export type IProduct = {
   category: string;
   isTrending: boolean;
 };
+
+export type IProductGallery = {
+  id: IProduct['id'];
+  image: IProduct['image'];
+};

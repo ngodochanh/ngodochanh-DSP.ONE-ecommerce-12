@@ -1,21 +1,9 @@
+import { IBlog } from '@/models';
 import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
 
-type IBlog = {
-  id: string;
-  image: string;
-  title: string;
-  author: string;
-  date: Date;
-  description: string;
-};
-
-type BlogItemProps = {
-  blog: IBlog;
-};
-
-function BlogItem({ blog }: BlogItemProps) {
+function BlogItem({ blog }: { blog: IBlog }) {
   const { id, image, title, author, date, description } = blog;
   const t = useTranslations('blogs');
   const locale = useLocale();

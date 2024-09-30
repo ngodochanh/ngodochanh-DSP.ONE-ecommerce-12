@@ -6,7 +6,7 @@ import React, { useEffect, useState } from 'react';
 import { IProduct } from '@/models';
 
 export type IViewedProduct = {
-  id: string; // ID của sản phẩm
+  id: IProduct['id']; // ID của sản phẩm
   timestamp: number; // Thời gian xem sản phẩm
 };
 
@@ -70,7 +70,7 @@ function RecentlyViewedProducts({ product }: { product: IProduct | undefined }) 
   useEffect(() => {
     if (product) {
       const viewedProducts = getViewedProducts(product.id);
-      const fetchProductDetails = (id: string) => PRODUCT_LIST.find((p) => p.id === id) || null;
+      const fetchProductDetails = (id: IViewedProduct['id']) => PRODUCT_LIST.find((p) => p.id === id) || null;
       const productsList = viewedProducts
         .map((viewedProduct) => fetchProductDetails(viewedProduct.id))
         .filter((p): p is IProduct => p !== null);

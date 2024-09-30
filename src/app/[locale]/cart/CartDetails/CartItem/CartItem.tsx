@@ -11,7 +11,7 @@ import { FaMinus, FaRegTrashCan, FaPlus } from 'react-icons/fa6';
 function CartItem({ id, quantity, onRemoveFromCart, onSyncCart }: CartItemProps) {
   const locale = useLocale();
   // Số lượng sản phẩm
-  const [qty, setQty] = useState<number>(quantity);
+  const [qty, setQty] = useState<ICart['quantity']>(quantity);
   // Lấy thông tin sản phẩm
   const product = PRODUCT_LIST.find((item) => item.id === id);
 
@@ -72,7 +72,7 @@ function CartItem({ id, quantity, onRemoveFromCart, onSyncCart }: CartItemProps)
           <div className="flex w-full max-w-[158px] items-center border-1 border-solid border-gray-very-light">
             <Button
               isDisabled={qty === 1}
-              className="h-clamp-42 w-[46px] min-w-fit rounded-none border-r-1 bg-transparent p-0 text-clamp-16 hover:bg-default-100"
+              className="h-9 w-[46px] min-w-fit rounded-none border-r-1 bg-transparent p-0 text-clamp-16 hover:bg-default-100 lg:h-10"
               onClick={handleDecrementQuantity}
             >
               <FaMinus />
@@ -82,7 +82,7 @@ function CartItem({ id, quantity, onRemoveFromCart, onSyncCart }: CartItemProps)
 
             <Button
               isDisabled={qty === 10}
-              className="h-clamp-42 w-[46px] min-w-fit rounded-none border-l-1 bg-transparent p-0 text-clamp-16 hover:bg-default-100"
+              className="h-9 w-[46px] min-w-fit rounded-none border-l-1 bg-transparent p-0 text-clamp-16 hover:bg-default-100 lg:h-10"
               onClick={handleIncrementQuantity}
             >
               <FaPlus />

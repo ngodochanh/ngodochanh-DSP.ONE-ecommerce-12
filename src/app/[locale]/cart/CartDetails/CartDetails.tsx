@@ -14,7 +14,7 @@ function CartDetails() {
 
   // Xóa sản phẩm khỏi giỏ hàng
   const handleRemoveFromCart = useCallback(
-    (id: string) => {
+    (id: ICart['id']) => {
       dispatch(actions.deleteCart(id));
       const updatedCart = carts.filter((cart: ICart) => cart.id !== id);
       localStorage.setItem('carts', JSON.stringify(updatedCart));
@@ -24,7 +24,7 @@ function CartDetails() {
 
   // Cập nhật giỏ hàng trong localStorage
   const handleSyncCart = useCallback(
-    (id: string, quantity: number) => {
+    (id: ICart['id'], quantity: ICart['quantity']) => {
       let carts = JSON.parse(localStorage.getItem('carts') || '[]');
       const index = carts.findIndex((cart: ICart) => cart.id === id);
 

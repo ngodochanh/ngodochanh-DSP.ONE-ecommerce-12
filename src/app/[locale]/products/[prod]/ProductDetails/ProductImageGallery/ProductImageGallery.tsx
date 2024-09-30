@@ -12,17 +12,21 @@ import { Button } from '@nextui-org/react';
 import { IoIosArrowBack } from 'react-icons/io';
 import { IoIosArrowForward } from 'react-icons/io';
 import { PRODUCT_GALLERY_LIST } from '@/data';
+import { IProduct, IProductGallery } from '@/models';
 
-export default function ProductImageGallery({ id }: { id: string | string }) {
+export default function ProductImageGallery({ id }: { id: IProduct['id'] }) {
   const swiperRef = useRef<SwiperType>();
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
-  const result = PRODUCT_GALLERY_LIST.reduce<{ id: string; image: string }[]>((accumulator, currentValue) => {
-    if (currentValue.id === id) {
-      accumulator.push(currentValue);
-    }
+  const result = PRODUCT_GALLERY_LIST.reduce<{ id: IProductGallery['id']; image: IProductGallery['image'] }[]>(
+    (accumulator, currentValue) => {
+      if (currentValue.id === id) {
+        accumulator.push(currentValue);
+      }
 
-    return accumulator;
-  }, []);
+      return accumulator;
+    },
+    [],
+  );
 
   return (
     <>

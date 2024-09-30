@@ -4,6 +4,6 @@ export type ICart = {
 };
 
 export type CartItemProps = ICart & {
-  onRemoveFromCart: (id: string) => void;
-  onSyncCart: (id: string, quantity: number) => void;
+  onRemoveFromCart: (id: ICart['id']) => void;
+  onSyncCart: (id: ICart['id'], quantity: ICart['quantity']) => void;
 };

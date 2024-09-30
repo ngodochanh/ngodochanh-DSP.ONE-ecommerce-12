@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ProfileSidebar from './ProfileSidebar';
+import { ILanguage } from '@/models';
 
 export const metadata: Metadata = {
   title: 'Thông Tin Tài Khoản | DSP.ONE',
@@ -13,7 +14,7 @@ export default function ProfileLayout({
 }: {
   children: React.ReactNode;
   params: {
-    locale: string;
+    locale: ILanguage['name'];
   };
 }) {
   return (

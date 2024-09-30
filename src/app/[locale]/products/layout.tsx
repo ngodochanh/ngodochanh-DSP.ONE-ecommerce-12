@@ -1,3 +1,4 @@
+import { ILanguage } from '@/models';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -12,12 +13,8 @@ export default function ProductLayout({
 }: {
   children: React.ReactNode;
   params: {
-    locale: string;
+    locale: ILanguage['name'];
   };
 }) {
-  return (
-    <>
-      {children}
-    </>
-  );
+  return <>{children}</>;
 }

@@ -2,6 +2,7 @@ import CartDetails from '@/app/[locale]/cart/CartDetails';
 import CartTransaction from '@/app/[locale]/cart/CartTransaction';
 import Breadcrumb from '@/components/Breadcrumb';
 import TitleHeader from '@/components/TitleHeader';
+import { ILanguage } from '@/models';
 import { Metadata } from 'next';
 import { useTranslations } from 'next-intl';
 
@@ -15,7 +16,7 @@ export default function Cart({
   params: { locale },
 }: {
   params: {
-    locale: string;
+    locale: ILanguage['name'];
   };
 }) {
   const BREADCRUMB_LIST = [

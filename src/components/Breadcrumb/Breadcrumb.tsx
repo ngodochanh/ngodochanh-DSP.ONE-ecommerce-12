@@ -1,10 +1,11 @@
 'use client';
 
+import { ILanguage } from '@/models';
 import { Breadcrumbs, BreadcrumbItem } from '@nextui-org/react';
 import { useRouter } from 'next/navigation';
 
 type IBreadcrumbs = {
-  locale: string;
+  locale: ILanguage['name'];
   breadCrumbList: { id: string; label: string; path: string }[];
 };
 
